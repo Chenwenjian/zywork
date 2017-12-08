@@ -66,7 +66,7 @@ public interface BaseService {
      * @param pageQuery 分页查询对象
      * @return 分页数据DTO对象所组成的List列表
      */
-    PagerDTO<Object> listPage(PageQuery pageQuery);
+    PagerDTO listPage(PageQuery pageQuery);
 
     /**
      * 根据分页查询对象和条件查询对象查找数据
@@ -74,5 +74,5 @@ public interface BaseService {
      * @param queryObj 条件查询对象
      * @return 按照条件的分页数据DTO对象所组成的List列表
      */
-    PagerDTO<Object> listPageByCondition(PageQuery pageQuery, Object queryObj);
+    PagerDTO listPageByCondition(PageQuery pageQuery, Object queryObj);
 }
