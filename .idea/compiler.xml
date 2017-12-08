@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="zywork-bpms" />
+        <module name="zywork-cms" />
+        <module name="zywork-common" />
+        <module name="zywork-message" />
+        <module name="zywork-pay" />
+        <module name="zywork-report" />
+        <module name="zywork-ucenter-common" />
+        <module name="zywork-ucenter-dao" />
+        <module name="zywork-ucenter-service-api" />
+        <module name="zywork-ucenter-service-impl" />
+        <module name="zywork-ucenter-web" />
+        <module name="zywork-upms" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="zywork" target="1.8" />
+      <module name="zywork-bpms" target="1.8" />
+      <module name="zywork-cms" target="1.8" />
+      <module name="zywork-common" target="1.8" />
+      <module name="zywork-message" target="1.8" />
+      <module name="zywork-pay" target="1.8" />
+      <module name="zywork-report" target="1.8" />
+      <module name="zywork-ucenter" target="1.8" />
+      <module name="zywork-ucenter-common" target="1.8" />
+      <module name="zywork-ucenter-dao" target="1.8" />
+      <module name="zywork-ucenter-service" target="1.8" />
+      <module name="zywork-ucenter-service-api" target="1.8" />
+      <module name="zywork-ucenter-service-impl" target="1.8" />
+      <module name="zywork-ucenter-web" target="1.8" />
+      <module name="zywork-upms" target="1.8" />
+      <module name="zywork-workflow" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

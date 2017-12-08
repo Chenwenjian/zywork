@@ -1,0 +1,14 @@
+/target
+/zywork-bpms/target/
+/zywork-cms/target/
+/zywork-common/target/
+/zywork-message/target/
+/zywork-pay/target/
+/zywork-report/target/
+/zywork-ucenter/target/
+/zywork-ucenter/zywork-ucenter-common/target/
+/zywork-ucenter/zywork-ucenter-dao/target/
+/zywork-ucenter/zywork-ucenter-service-api/target/
+/zywork-ucenter/zywork-ucenter-service-impl/target/
+/zywork-ucenter/zywork-ucenter-web/target/
+/zywork-upms/target/

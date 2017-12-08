@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/zywork.iml" filepath="$PROJECT_DIR$/zywork.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zywork-bpms/zywork-bpms.iml" filepath="$PROJECT_DIR$/zywork-bpms/zywork-bpms.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zywork-cms/zywork-cms.iml" filepath="$PROJECT_DIR$/zywork-cms/zywork-cms.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zywork-common/zywork-common.iml" filepath="$PROJECT_DIR$/zywork-common/zywork-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zywork-message/zywork-message.iml" filepath="$PROJECT_DIR$/zywork-message/zywork-message.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zywork-pay/zywork-pay.iml" filepath="$PROJECT_DIR$/zywork-pay/zywork-pay.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zywork-report/zywork-report.iml" filepath="$PROJECT_DIR$/zywork-report/zywork-report.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zywork-ucenter/zywork-ucenter.iml" filepath="$PROJECT_DIR$/zywork-ucenter/zywork-ucenter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-common/zywork-ucenter-common.iml" filepath="$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-common/zywork-ucenter-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-dao/zywork-ucenter-dao.iml" filepath="$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-dao/zywork-ucenter-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-service-api/zywork-ucenter-service-api.iml" filepath="$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-service-api/zywork-ucenter-service-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-service-impl/zywork-ucenter-service-impl.iml" filepath="$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-service-impl/zywork-ucenter-service-impl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-web/zywork-ucenter-web.iml" filepath="$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-web/zywork-ucenter-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zywork-upms/zywork-upms.iml" filepath="$PROJECT_DIR$/zywork-upms/zywork-upms.iml" />
+    </modules>
+  </component>
+</project>

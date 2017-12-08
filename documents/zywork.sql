@@ -1,0 +1,3 @@
+CREATE DATABASE `zywork` DEFAULT CHARACTER SET utf8 ;
+
+USE `zywork`;
