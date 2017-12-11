@@ -38,6 +38,10 @@ SpringMVC + Spring + MyBatis，但是同时也提供了Hibernate相关的工具�
 			<td>通用模块，包含有常用的工具类</td>
 		</tr>
 		<tr>
+			<td>zywork-config</td>
+			<td>通用配置文件中心，为子系统提供通用的配置文件</td>
+		</tr>
+		<tr>
 			<td>zywork-ucenter</td>
 			<td>用户中心系统，包含有用户注册，登录，第三方登录</td>
 		</tr>
@@ -190,15 +194,19 @@ SpringMVC + Spring + MyBatis，但是同时也提供了Hibernate相关的工具�
 		</tr>
 		<tr>
 			<td>Bootstrap</td>
-			<td>自适应网页</td>
+			<td>前端UI框架</td>
 		</tr>
 		<tr>
 			<td>Vue.js</td>
 			<td>用户界面构建</td>
 		</tr>
 		<tr>
+			<td>Element UI</td>
+			<td>前端UI加框</td>
+		</tr>
+		<tr>
 			<td>HighCharts</td>
-			<td>WEB报表</td>
+			<td>HTML5 WEB报表</td>
 		</tr>
 	</tbody>
 </table>
