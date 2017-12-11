@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>zywork-parent</artifactId>
+        <groupId>top.zywork</groupId>
+        <version>1.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <packaging>pom</packaging>
+    <modules>
+        <module>zywork-config-common</module>
+        <module>zywork-config-dao</module>
+        <module>zywork-config-service</module>
+        <module>zywork-config-web</module>
+    </modules>
+
+    <artifactId>zywork-config</artifactId>
+
+</project>

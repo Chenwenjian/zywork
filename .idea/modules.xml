@@ -6,6 +6,11 @@
       <module fileurl="file://$PROJECT_DIR$/zywork-bpms/zywork-bpms.iml" filepath="$PROJECT_DIR$/zywork-bpms/zywork-bpms.iml" />
       <module fileurl="file://$PROJECT_DIR$/zywork-cms/zywork-cms.iml" filepath="$PROJECT_DIR$/zywork-cms/zywork-cms.iml" />
       <module fileurl="file://$PROJECT_DIR$/zywork-common/zywork-common.iml" filepath="$PROJECT_DIR$/zywork-common/zywork-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zywork-config/zywork-config.iml" filepath="$PROJECT_DIR$/zywork-config/zywork-config.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zywork-config/zywork-config-common/zywork-config-common.iml" filepath="$PROJECT_DIR$/zywork-config/zywork-config-common/zywork-config-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zywork-config/zywork-config-dao/zywork-config-dao.iml" filepath="$PROJECT_DIR$/zywork-config/zywork-config-dao/zywork-config-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zywork-config/zywork-config-service/zywork-config-service.iml" filepath="$PROJECT_DIR$/zywork-config/zywork-config-service/zywork-config-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zywork-config/zywork-config-web/zywork-config-web.iml" filepath="$PROJECT_DIR$/zywork-config/zywork-config-web/zywork-config-web.iml" />
       <module fileurl="file://$PROJECT_DIR$/zywork-message/zywork-message.iml" filepath="$PROJECT_DIR$/zywork-message/zywork-message.iml" />
       <module fileurl="file://$PROJECT_DIR$/zywork-pay/zywork-pay.iml" filepath="$PROJECT_DIR$/zywork-pay/zywork-pay.iml" />
       <module fileurl="file://$PROJECT_DIR$/zywork-report/zywork-report.iml" filepath="$PROJECT_DIR$/zywork-report/zywork-report.iml" />

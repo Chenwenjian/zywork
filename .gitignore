@@ -2,6 +2,11 @@
 /zywork-bpms/target/
 /zywork-cms/target/
 /zywork-common/target/
+/zywork-config/target/
+/zywork-config/zywork-config-common/target/
+/zywork-config/zywork-config-dao/target/
+/zywork-config/zywork-config-service/target/
+/zywork-config/zywork-config-web/target/
 /zywork-message/target/
 /zywork-pay/target/
 /zywork-report/target/
