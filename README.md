@@ -245,4 +245,14 @@ Provider中定义服务实现类时，使用```@Service(value = "userService")``
 
 ```java -Ddubbo.spring.config=classpath*:/config/*.xml -jar zywork-ucenter-service.jar```
 
-如果不想使用java命令来启动服务，此项目也提供```Shell脚本```来启动，停止和重启服务。
+
+如果不想使用java命令来启动服务，每个子系统都提供了独立的Shell脚本来启动，停止和重启服务。如```zywork-ucenter-service-impl```中提供了```zywork-ucenter-service.sh```脚本，在把Dubbo服务打包成JAR包时，会把Shell脚本自动打包到与JAR文件同级的目录中。在使用脚本前，需要设置JAVA_HOME环境变量，并给脚本加上可执行权限。脚本使用方法如下：
+
+```
+启动服务：./zywork-ucenter-service.sh start
+
+停止服务：./zywork-ucenter-service.sh stop
+
+重启服务：./zywork-ucenter-service.sh restart
+
+```
