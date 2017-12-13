@@ -1,6 +1,5 @@
 package top.zywork.common;
 
-import top.zywork.constant.AppLoadConstants;
 import top.zywork.query.PageQuery;
 
 /**
@@ -11,6 +10,11 @@ import top.zywork.query.PageQuery;
  * @version 1.0
  */
 public class PageQueryUtils {
+
+    /**
+     * 默认每页显示的项数
+     */
+    private static final int DEFAULT_PAGE_SIZE = 20;
 
     /**
      * 通过pageNo和pageSize参数获取PageQuery对象，如果pageNo<=0，则pageNo设置为1，
@@ -24,7 +28,7 @@ public class PageQueryUtils {
             pageNo = 1;
         }
         if (pageSize <= 0) {
-            pageSize = getPageSize();
+            pageSize = DEFAULT_PAGE_SIZE;
         }
         return new PageQuery(pageNo, pageSize);
     }
@@ -35,7 +39,7 @@ public class PageQueryUtils {
      * @return PageQuery对象
      */
     public static PageQuery getPageQuery(int pageNo) {
-        return getPageQuery(pageNo, getPageSize());
+        return getPageQuery(pageNo, DEFAULT_PAGE_SIZE);
     }
 
     /**
@@ -49,14 +53,6 @@ public class PageQueryUtils {
             return getPageQuery(Integer.valueOf(pageNo), Integer.valueOf(pageSize));
         }
         return getPageQuery(1);
-    }
-
-    /**
-     * 从配置文件中去读取默认的默认页大小
-     * @return 每页默认显示的个数
-     */
-    private static int getPageSize() {
-        return SingletonConfigUtils.getInstance().getInt(AppLoadConstants.PAGER_PAGE_SIZE);
     }
 
 }
