@@ -31,7 +31,7 @@ case "$1" in
 
         sleep 5
 
-        PID=`ps -ef | grep -w "$SERVICE_NAME" | grep '/bin/java' | grep -v "grep" | awk '{print $2}'`
+        PID=`ps -ef | grep -w "$SERVICE_NAME" | grep 'java' | grep -v "grep" | awk '{print $2}'`
         if [ "$PID" == "" ]; then
             echo "$SERVICE_NAME process not exists or stop successfully"
         else
