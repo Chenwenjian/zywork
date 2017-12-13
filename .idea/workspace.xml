@@ -10,9 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3891c4bd-30e2-4dc3-9494-cb36e46aec05" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-service-impl/src/main/resources/zywork-ucenter-service.sh" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-service-impl/pom.xml" afterPath="$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-service-impl/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-service-impl/src/main/resources/zywork-ucenter-service.sh" afterPath="$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-service-impl/src/main/resources/zywork-ucenter-service.sh" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -546,7 +545,7 @@
       <workItem from="1512032947810" duration="18230000" />
       <workItem from="1512182749516" duration="32524000" />
       <workItem from="1512718960087" duration="43416000" />
-      <workItem from="1513133607717" duration="11047000" />
+      <workItem from="1513133607717" duration="12433000" />
     </task>
     <servers />
   </component>
@@ -571,7 +570,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="111855000" />
+    <option name="totallyTimeSpent" value="113241000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="777" extended-state="0" />
@@ -1662,7 +1661,7 @@
         <state relative-caret-position="105">
           <caret line="7" column="22" lean-forward="true" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1747,8 +1746,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-service-impl/src/main/resources/zywork-ucenter-service.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+        <state relative-caret-position="727">
+          <caret line="57" column="6" lean-forward="false" selection-start-line="57" selection-start-column="6" selection-end-line="57" selection-end-column="6" />
           <folding />
         </state>
       </provider>

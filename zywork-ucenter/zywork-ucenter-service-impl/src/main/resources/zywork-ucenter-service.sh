@@ -19,6 +19,7 @@ case "$1" in
 
     start)
         nohup $JAVA_HOME/java -Xms256m -Xmx512m -Ddubbo.spring.config=classpath*:/config/*.xml -jar $JAR_NAME > /dev/null 2>&1 &
+        echo "the pid is:$!"
         echo $! > $SERVICE_DIR/$PID_FILE
         echo "start $SERVICE_NAME"
         ;;
@@ -30,7 +31,7 @@ case "$1" in
 
         sleep 5
 
-        PID=`ps -ef | grep -w "$SERVICE_NAME" | grep -v "grep" | awk '{print $2}'`
+        PID=`ps -ef | grep -w "$SERVICE_NAME" | grep '/bin/java' | grep -v "grep" | awk '{print $2}'`
         if [ "$PID" == "" ]; then
             echo "$SERVICE_NAME process not exists or stop successfully"
         else
@@ -44,7 +45,7 @@ case "$1" in
         $0 stop
         sleep 2
         $0 start
-        echo "restart $SERVICE_NAME"
+        echo "restarted $SERVICE_NAME"
         ;;
 
     *)
