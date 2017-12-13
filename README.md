@@ -237,7 +237,7 @@ Provider中定义服务实现类时，使用```@Service(value = "userService")``
 
 **Dubbo服务打包成JAR包**
 
-此项目中，Dubbo服务通过Maven打包成JAR包，使用Dubbo框架提供的```com.alibaba.dubbo.container.Main```类来运行，以支持Dubbo的优雅停机。运行JAR包，需要把JAR文件和相关的依赖库的lib目录放在同一个目录，Dubbo默认从```classes```目录下的```META-INF/spring```目录去读取Spring配置文件，而此项目是把配置文件放在classes目录下的```config```目录中，所以运行时需要重新指定Spring的配置文件。运行命令如下：
+此项目中，Dubbo服务通过Maven打包成JAR包，使用Dubbo框架提供的```com.alibaba.dubbo.container.Main```类来运行，以支持Dubbo的优雅停机```（kill PID）```。运行JAR包，需要把JAR文件和相关的依赖库的lib目录放在同一个目录，Dubbo默认从```classes```目录下的```META-INF/spring```目录去读取Spring配置文件，而此项目是把配置文件放在classes目录下的```config```目录中，所以运行时需要重新指定Spring的配置文件。运行命令如下：
 
 ```java -Ddubbo.spring.config=classpath*:/config/*.xml -jar zywork-ucenter-service.jar```
 
