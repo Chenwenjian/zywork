@@ -90,6 +90,10 @@ zywork项目包含的功能有：
 			<td>项目构建管理</td>
 		</tr>
 		<tr>
+			<td>Shell Script</td>
+			<td>Bash Shell脚本</td>
+		</tr>
+		<tr>
 			<td>SpringMVC</td>
 			<td>WEB控制器</td>
 		</tr>
