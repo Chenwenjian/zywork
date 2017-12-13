@@ -7,11 +7,11 @@ zywork项目是基于SSM框架的多个子系统的集合，为开发者提供�
 zywork项目包含的功能有：
 
 1. 通用工具类
-2. 使用QQ，微信，微博等第三方登录的**用户中心**
-3. 基于Apache Shiro的**权限验证**
+2. 用户注册、登录，使用QQ，微信，微博等第三方登录的**用户中心**
+3. 基于Apache Shiro的**权限管理**
 4. 基于Activiti的**业务流程管理**
 5. 基于POI和JasperReport的**Excel处理和PDF报表导出**
-6. 基于HighCharts的**WEB报表**
+6. 基于HighCharts的**HTML5 WEB报表**
 7. 基于Redis的**数据缓存**
 8. 基于Logback或log4j的**日志记录**
 9. 基于Spring Task或QuartZ的**作业调度**
@@ -20,7 +20,7 @@ zywork项目包含的功能有：
 12. 基于Bootstrap的前端及后台**UI视图**
 
 #### 系统基本架构 
-SpringMVC + Spring + MyBatis，但是同时也提供了Hibernate相关的工具类，尽管此项目并没有使用Hibernate。
+```SpringMVC + Spring + MyBatis```，但是同时也提供了Hibernate相关的工具类，尽管此项目并没有使用Hibernate。
 
 此系统为分布式系统，包含有多个独立可运行的子系统，分布式协调服务基于Apache Zookeeper，分布式服务基于阿里巴巴的Dubbo，使用Nginx提供Tomcat集群的负载均衡。
 
@@ -202,7 +202,7 @@ SpringMVC + Spring + MyBatis，但是同时也提供了Hibernate相关的工具�
 		</tr>
 		<tr>
 			<td>Element UI</td>
-			<td>前端UI加框</td>
+			<td>前端UI框架</td>
 		</tr>
 		<tr>
 			<td>HighCharts</td>
@@ -225,3 +225,20 @@ Ngnix, Tomcat, MySQL, ZooKeeper, Redis
 
 MacOS, JDK1.8, JavaEE7.0, MySQL5.7, Nginx, Tomcat8.5, ZooKeeper, Redis, IntellijIDEA, Google Chrome
 
+**Spring与Dubbo整合注意事项：**
+
+Dubbo提供了Java Configuration API，Properties，XML和注解的配置形式。此项目中推荐使用XML配置文件的形式，可支持事务管理的服务。如果使用注解的形式，则不支持事务管理的服务，并会出现Dubbo注解```@Reference```引用为null的问题。
+
+Dubbo的服务超时时间设置在Provider中，不需要在Consumer中设置超时时间，根据服务性能确定超时时间。
+
+Provider中定义服务实现类时，使用```@Service(value = "userService")```的注解，这样就不需要在```spring-dubbo-provider.xml```文件中定义bean组件。
+
+在Consumer中使用Provider服务时，使用```@Resource```注解或```@Autowired(required = false)```注解引用服务。
+
+**Dubbo服务打包成JAR包**
+
+此项目中，Dubbo服务通过Maven打包成JAR包，使用Dubbo框架提供的```com.alibaba.dubbo.container.Main```类来运行，以支持Dubbo的优雅停机。运行JAR包，需要把JAR文件和相关的依赖库的lib目录放在同一个目录，Dubbo默认从```classes```目录下的```META-INF/spring```目录去读取Spring配置文件，而此项目是把配置文件放在classes目录下的```config```目录中，所以运行时需要重新指定Spring的配置文件。运行命令如下：
+
+```java -Ddubbo.spring.config=classpath*:/config/*.xml -jar zywork-ucenter-service.jar```
+
+如果不想使用java命令来启动服务，此项目也提供```Shell脚本```来启动，停止和重启服务。
