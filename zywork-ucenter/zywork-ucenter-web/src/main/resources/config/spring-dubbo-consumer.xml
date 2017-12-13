@@ -7,5 +7,5 @@
     <dubbo:application name="zywork-ucenter-consumer" owner="top.zywork" organization="top.zywork"/>
     <dubbo:registry address="zookeeper://localhost:2181"/>
 
-    <dubbo:reference timeout="5000" id="userService" interface="top.zywork.service.UserService"/>
+    <dubbo:reference id="userService" interface="top.zywork.service.UserService"/>
 </beans>
