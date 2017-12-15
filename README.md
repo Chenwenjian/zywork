@@ -2,7 +2,7 @@
 
 *作者：王振宇*
 
-zywork项目是基于SSM框架的多个子系统的集合，为开发者提供最便捷快速的开发体验。开发团队不需要再配置SSM框架便可使用众多集成的功能，甚至是可用的系统！zywork项目遵循阿里巴巴的Java开发规范，并补充自己团队内部的一些Java开发规范。
+zywork项目是基于SSM框架的多个子系统的集合，使用分布式服务架构，为开发者提供高效快捷的开发体验。开发团队不需要再配置SSM框架便可使用众多集成的功能，甚至是可用的系统！zywork项目遵循阿里巴巴的Java开发规范，并补充自己团队内部的一些Java开发规范。
 
 zywork项目包含的功能有：
 
@@ -215,11 +215,13 @@ zywork项目包含的功能有：
 	</tbody>
 </table>
 
-**其他：**
+**第三方登录：**
 
-第三方登录：QQ登录，微信登录，微博登录
+QQ登录，微信登录，微博登录
 
-在线支付：微信支付，支付宝支付
+**在线支付：**
+
+微信支付，支付宝支付
 
 **后台服务：**
 
@@ -231,11 +233,11 @@ MacOS, JDK1.8, JavaEE7.0, MySQL5.7, Nginx, Tomcat8.5, ZooKeeper, Redis, Intellij
 
 **Spring与Dubbo整合注意事项：**
 
-Dubbo提供了Java Configuration API，Properties，XML和注解的配置形式。此项目中推荐使用XML配置文件的形式，可支持事务管理的服务。如果使用注解的形式，则不支持事务管理的服务，并会出现Dubbo注解```@Reference```引用为null的问题。
+Dubbo提供了Java Configuration API，Properties，XML和注解的配置形式。此项目中推荐使用XML配置文件的形式，可支持事务管理的服务。如果使用注解的形式，则不支持事务管理的服务，并会出现Dubbo注解```@Reference```引用为```null```的问题。
 
 Dubbo的服务超时时间设置在Provider中，不需要在Consumer中设置超时时间，根据服务性能确定超时时间。
 
-Provider中定义服务实现类时，使用```@Service(value = "userService")```的注解，这样就不需要在```spring-dubbo-provider.xml```文件中定义bean组件。
+Provider中定义服务实现类时，使用```@Service(value = "userService")```的注解，不需要在```spring-dubbo-provider.xml```文件中定义bean组件。
 
 在Consumer中使用Provider服务时，使用```@Resource```注解或```@Autowired(required = false)```注解引用服务。
 
@@ -246,7 +248,7 @@ Provider中定义服务实现类时，使用```@Service(value = "userService")``
 ```java -Ddubbo.spring.config=classpath*:/config/*.xml -jar zywork-ucenter-service.jar```
 
 
-如果不想使用java命令来启动服务，每个子系统都提供了独立的Shell脚本来启动，停止和重启服务。如```zywork-ucenter-service-impl```中提供了```zywork-ucenter-service.sh```脚本，在把Dubbo服务打包成JAR包时，会把Shell脚本自动打包到与JAR文件同级的目录中。在使用脚本前，需要设置JAVA_HOME环境变量，并给脚本加上可执行权限。脚本使用方法如下：
+如果不想使用java命令来启动服务，每个子系统都提供了独立的Shell脚本来启动，停止和重启服务。如```zywork-ucenter-service-impl```中提供了```zywork-ucenter-service.sh```脚本，在把Dubbo服务打包成JAR包时，会把Shell脚本自动打包到与JAR文件同级的目录中。在使用脚本前，需要设置```JAVA_HOME```环境变量，并给脚本加上可执行权限。脚本使用方法如下：
 
 ```
 启动服务：./zywork-ucenter-service.sh start
@@ -257,8 +259,8 @@ Provider中定义服务实现类时，使用```@Service(value = "userService")``
 
 ```
 
-#### LICENSE
+#### LICENSE许可协议
 
 **[MIT](https://github.com/GZWgssmart/zywork/blob/master/LICENSE)**
 
-Copyright &copy; 王振宇 [http://zywork.top](http://zywork.top)
+Copyright &copy; 王振宇 [zywork.top](http://zywork.top)
