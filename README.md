@@ -256,3 +256,9 @@ Provider中定义服务实现类时，使用```@Service(value = "userService")``
 重启服务：./zywork-ucenter-service.sh restart
 
 ```
+
+#### LICENSE
+
+**[MIT](https://github.com/GZWgssmart/zywork/blob/master/LICENSE)**
+
+Copyright &copy; 王振宇 [http://zywork.top](http://zywork.top)
