@@ -14,7 +14,7 @@ import java.util.List;
 
 /**
  * BaseService接口的抽象实现类，所有Service类中只需要再次实现一些额外定义的接口方法<br />
- * 在Service实现类中需要把具体的DAO通过Resource注解和setBaseDAO方法注入进来，<br />
+ * 在Service实现类中需要把具体的DAO通过Resource或Autowired注解和setBaseDAO方法注入进来，<br />
  * 同时需要把DO和DTO类通过PostConstruct注解和init方法注入进来<br />
  * 
  * 创建于2017-12-02

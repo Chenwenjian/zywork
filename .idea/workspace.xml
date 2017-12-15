@@ -12,7 +12,8 @@
     <list default="true" id="3891c4bd-30e2-4dc3-9494-cb36e46aec05" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/documents/技术文档/常用命令.pages" afterPath="$PROJECT_DIR$/documents/技术文档/常用命令.pages" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-service-impl/src/main/resources/zywork-ucenter-service.sh" afterPath="$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-service-impl/src/main/resources/zywork-ucenter-service.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-common/src/main/java/top/zywork/service/AbstractBaseService.java" afterPath="$PROJECT_DIR$/zywork-common/src/main/java/top/zywork/service/AbstractBaseService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-service-impl/src/main/java/top/zywork/service/impl/UserServiceImpl.java" afterPath="$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-service-impl/src/main/java/top/zywork/service/impl/UserServiceImpl.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -75,7 +76,7 @@
     <favorites_list name="zywork" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -118,9 +119,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/zywork-report/README.md" />
-        <option value="$PROJECT_DIR$/zywork-ucenter/README.md" />
-        <option value="$PROJECT_DIR$/zywork-upms/README.md" />
         <option value="$PROJECT_DIR$/zywork-common/src/main/java/top/zywork/service/BaseService.java" />
         <option value="$PROJECT_DIR$/zywork-ucenter/pom.xml" />
         <option value="$PROJECT_DIR$/zywork-message/pom.xml" />
@@ -161,14 +159,17 @@
         <option value="$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-service-impl/src/main/resources/config/spring-dubbo-provider.xml" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-web/src/main/java/top/zywork/controller/UserController.java" />
-        <option value="$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-service-impl/src/main/java/top/zywork/service/impl/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/catalina.base_IS_UNDEFINED/logs/2017-12-13.log" />
         <option value="$PROJECT_DIR$/zywork-config/README.md" />
         <option value="$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-service-impl/src/main/resources/zywork-service.sh" />
         <option value="$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-service-impl/pom.xml" />
         <option value="$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-service-impl/src/main/resources/zywork-ucenter-service.sh" />
+        <option value="$PROJECT_DIR$/LICENSE" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/zywork-common/src/main/java/top/zywork/dao/AbstractBaseDAO.java" />
+        <option value="$PROJECT_DIR$/zywork-common/src/main/java/top/zywork/service/AbstractBaseService.java" />
+        <option value="$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-service-impl/src/main/java/top/zywork/service/impl/UserServiceImpl.java" />
       </list>
     </option>
   </component>
@@ -228,6 +229,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -236,13 +240,177 @@
               <item name="zywork" type="b2602c69:ProjectViewProjectNode" />
               <item name="zywork" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="zywork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="zywork" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork-common" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="zywork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="zywork" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork-common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="zywork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="zywork" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork-common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="zywork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="zywork" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork-common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="zywork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="zywork" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork-common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="zywork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="zywork" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork-common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="zywork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="zywork" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork-common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork" type="462c0819:PsiDirectoryNode" />
+              <item name="dos" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="zywork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="zywork" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork-common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="zywork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="zywork" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork-common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="zywork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="zywork" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork-common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="zywork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="zywork" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork-common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="zywork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="zywork" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork-common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="zywork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="zywork" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork-ucenter" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="zywork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="zywork" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork-ucenter" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork-ucenter-service-impl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="zywork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="zywork" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork-ucenter" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork-ucenter-service-impl" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="zywork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="zywork" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork-ucenter" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork-ucenter-service-impl" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="zywork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="zywork" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork-ucenter" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork-ucenter-service-impl" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="zywork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="zywork" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork-ucenter" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork-ucenter-service-impl" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="impl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="zywork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="zywork" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork-ucenter" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork-ucenter-service-impl" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="zywork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="zywork" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork-ucenter" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork-ucenter-service-impl" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="zywork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="zywork" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork-ucenter" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork-ucenter-service-impl" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -251,7 +419,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.22183909" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$2/SQL Dialects" value="MySQL" />
@@ -511,7 +679,8 @@
       <workItem from="1512032947810" duration="18230000" />
       <workItem from="1512182749516" duration="32524000" />
       <workItem from="1512718960087" duration="43416000" />
-      <workItem from="1513133607717" duration="19565000" />
+      <workItem from="1513133607717" duration="19823000" />
+      <workItem from="1513296556950" duration="5850000" />
     </task>
     <servers />
   </component>
@@ -536,7 +705,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="120373000" />
+    <option name="totallyTimeSpent" value="126481000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="777" extended-state="0" />
@@ -560,8 +729,8 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7683284" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7683284" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28836834" sideWeight="0.4941349" order="0" side_tool="false" content_ui="combo" />
@@ -626,35 +795,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/zywork-common/src/main/java/top/zywork/constant/MailConstants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="19" lean-forward="false" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zywork-common/src/main/java/top/zywork/constant/BPMNConstants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="19" lean-forward="false" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-dao/src/main/resources/mapper/UserDAOMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="58" lean-forward="false" selection-start-line="8" selection-start-column="58" selection-end-line="8" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-common/src/main/java/top/zywork/dos/UserDO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="25" lean-forward="false" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zywork-config/zywork-config-service/src/main/resources/config/spring-dubbo-service.xml" />
     <entry file="file://$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-web/src/main/java/top/zywork/controller.java" />
     <entry file="file://$PROJECT_DIR$/zywork-config/zywork-config-common/src/main/resources/config/spring-dozer.xml">
       <provider selected="true" editor-type-id="text-editor">
@@ -1352,19 +1492,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/zywork-config/zywork-config-common/src/main/resources/config/logback.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="26" lean-forward="false" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/zywork-config/zywork-config-common/src/main/resources/config/logback.xml" />
     <entry file="file://$PROJECT_DIR$/zywork-config/zywork-config-common/src/main/resources/logback.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
           <caret line="23" column="16" lean-forward="true" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1401,7 +1533,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1425,13 +1556,6 @@
         <state relative-caret-position="355">
           <caret line="50" column="4" lean-forward="false" selection-start-line="50" selection-start-column="4" selection-end-line="50" selection-end-column="4" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zywork-common/src/main/java/top/zywork/dao/BaseDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="17" column="17" lean-forward="false" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -1470,14 +1594,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="489">
           <caret line="33" column="38" lean-forward="false" selection-start-line="33" selection-start-column="38" selection-end-line="33" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zywork-config/zywork-config-service/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="38" column="21" lean-forward="true" selection-start-line="38" selection-start-column="21" selection-end-line="38" selection-end-column="21" />
           <folding />
         </state>
       </provider>
@@ -1532,7 +1648,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="20" column="28" lean-forward="false" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1546,47 +1661,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-service-impl/src/main/java/top/zywork/service/impl/UserServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="13" column="31" lean-forward="false" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/zywork-config/zywork-config-web/src/main/resources/config/logback.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-service-impl/catalina.base_IS_UNDEFINED/logs/2017-12-13.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6530">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-service-impl/catalina.base_IS_UNDEFINED/logs/2017-12-13.log" />
     <entry file="file://$PROJECT_DIR$/catalina.base_IS_UNDEFINED/logs/2017-12-13.log">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2570">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-service-impl/src/test/java/Application.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="22" lean-forward="true" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1594,7 +1680,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="19" column="23" lean-forward="false" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1602,7 +1687,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1622,23 +1706,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/zywork-ucenter/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/zywork-config/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="0">
             <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding />
           </first_editor>
           <second_editor />
         </state>
@@ -1648,41 +1720,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="13" column="32" lean-forward="false" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-service-impl/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="449">
-          <caret line="68" column="26" lean-forward="true" selection-start-line="68" selection-start-column="26" selection-end-line="68" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zywork-ucenter/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-service-impl/src/main/resources/zywork-ucenter-service.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1699,7 +1736,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1715,10 +1751,942 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
           <caret line="27" column="35" lean-forward="false" selection-start-line="27" selection-start-column="35" selection-end-line="27" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zywork-ucenter/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="0">
+            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-service-impl/src/main/resources/zywork-ucenter-service.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="539">
+          <caret line="42" column="59" lean-forward="true" selection-start-line="42" selection-start-column="59" selection-end-line="42" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="-3418">
+            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LICENSE">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="40" lean-forward="false" selection-start-line="2" selection-start-column="40" selection-end-line="2" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://MAVEN/top.zywork:zywork-ucenter:1.0">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>MAVEN</ID>
+          <OriginalElement>top.zywork:zywork-ucenter:1.0</OriginalElement>
+          <nodes>
+            <node x="" y="">top.zywork:zywork-ucenter:1.0</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="64.5" y="14.5" />
+          <SelectedNodes />
+          <Categories />
+          <VISIBILITY>All</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zywork-ucenter/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="10" lean-forward="true" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-service-impl/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="434">
+          <caret line="67" column="20" lean-forward="true" selection-start-line="67" selection-start-column="20" selection-end-line="67" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://MAVEN/top.zywork:zywork-ucenter-service-impl:1.0">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>MAVEN</ID>
+          <OriginalElement>top.zywork:zywork-ucenter-service-impl:1.0</OriginalElement>
+          <nodes>
+            <node x="0.0" y="1006.2600970375531">top.zywork:zywork-ucenter-service-impl:1.0</node>
+            <node x="305.0" y="1737.0729938629502">top.zywork:zywork-config-service:jar:1.0</node>
+            <node x="635.0" y="1863.0354938629498">top.zywork:zywork-config-service:jar:1.0/redis.clients:jedis:jar:2.9.0</node>
+            <node x="862.5" y="1863.0354938629498">top.zywork:zywork-config-service:jar:1.0/redis.clients:jedis:jar:2.9.0/org.apache.commons:commons-pool2:jar:2.4.2</node>
+            <node x="595.0" y="1348.8974206349205">top.zywork:zywork-config-service:jar:1.0/org.springframework.data:spring-data-redis:jar:1.8.8.RELEASE</node>
+            <node x="847.5" y="1358.8663141835016">top.zywork:zywork-config-service:jar:1.0/org.springframework.data:spring-data-redis:jar:1.8.8.RELEASE/org.springframework.data:spring-data-keyvalue:jar:1.2.8.RELEASE</node>
+            <node x="1099.0" y="1449.8461441584209">top.zywork:zywork-config-service:jar:1.0/org.springframework.data:spring-data-redis:jar:1.8.8.RELEASE/org.springframework.data:spring-data-keyvalue:jar:1.2.8.RELEASE/org.springframework.data:spring-data-commons:jar:1.13.8.RELEASE</node>
+            <node x="1702.5" y="596.3680555555554">top.zywork:zywork-config-service:jar:1.0/org.springframework.data:spring-data-redis:jar:1.8.8.RELEASE/org.springframework:spring-tx:jar:4.3.12.RELEASE</node>
+            <node x="1695.5" y="1252.9484570406444">top.zywork:zywork-config-service:jar:1.0/org.springframework.data:spring-data-redis:jar:1.8.8.RELEASE/org.springframework:spring-oxm:jar:4.3.12.RELEASE</node>
+            <node x="1697.0" y="1549.3919774917545">top.zywork:zywork-config-service:jar:1.0/org.springframework.data:spring-data-redis:jar:1.8.8.RELEASE/org.springframework:spring-aop:jar:4.3.12.RELEASE</node>
+            <node x="839.5" y="1447.9079808501683">top.zywork:zywork-config-service:jar:1.0/org.springframework.data:spring-data-redis:jar:1.8.8.RELEASE/org.springframework:spring-context-support:jar:4.3.12.RELEASE</node>
+            <node x="1706.0" y="1348.7152777777778">top.zywork:zywork-config-service:jar:1.0/org.springframework.data:spring-data-redis:jar:1.8.8.RELEASE/org.slf4j:slf4j-api:jar:1.7.25</node>
+            <node x="1412.0" y="1353.0663141835016">top.zywork:zywork-config-service:jar:1.0/org.springframework.data:spring-data-redis:jar:1.8.8.RELEASE/org.slf4j:jcl-over-slf4j:jar:1.7.25</node>
+            <node x="629.0" y="1610.1795634920636">top.zywork:zywork-config-service:jar:1.0/com.alibaba:dubbo:jar:2.5.7</node>
+            <node x="1122.0" y="1529.8294774917545">top.zywork:zywork-config-service:jar:1.0/com.alibaba:dubbo:jar:2.5.7/org.springframework:spring-context:jar:4.3.12.RELEASE</node>
+            <node x="1909.0" y="1582.7294774917543">top.zywork:zywork-config-service:jar:1.0/com.alibaba:dubbo:jar:2.5.7/org.springframework:spring-context:jar:4.3.12.RELEASE/org.springframework:spring-expression:jar:4.3.12.RELEASE</node>
+            <node x="1924.0" y="1424.7687411959741">top.zywork:zywork-config-service:jar:1.0/com.alibaba:dubbo:jar:2.5.7/org.springframework:spring-beans:jar:4.3.12.RELEASE</node>
+            <node x="878.0" y="1597.3544774917543">top.zywork:zywork-config-service:jar:1.0/com.alibaba:dubbo:jar:2.5.7/org.springframework:spring-web:jar:4.3.10.RELEASE</node>
+            <node x="1134.0" y="1647.3544774917543">top.zywork:zywork-config-service:jar:1.0/com.alibaba:dubbo:jar:2.5.7/org.springframework:spring-web:jar:4.3.10.RELEASE/org.springframework:spring-aop:jar:4.3.10.RELEASE</node>
+            <node x="1132.0" y="1716.3544774917543">top.zywork:zywork-config-service:jar:1.0/com.alibaba:dubbo:jar:2.5.7/org.springframework:spring-web:jar:4.3.10.RELEASE/org.springframework:spring-core:jar:4.3.10.RELEASE</node>
+            <node x="1424.5" y="1277.9484570406444">top.zywork:zywork-config-service:jar:1.0/com.alibaba:dubbo:jar:2.5.7/org.javassist:javassist:jar:3.21.0-GA</node>
+            <node x="897.0" y="1669.2794774917543">top.zywork:zywork-config-service:jar:1.0/com.alibaba:dubbo:jar:2.5.7/org.jboss.netty:netty:jar:3.2.5.Final</node>
+            <node x="881.0" y="1792.7045634920637">top.zywork:zywork-config-service:jar:1.0/org.apache.zookeeper:zookeeper:jar:3.4.11</node>
+            <node x="1156.0" y="1912.8669774917544">top.zywork:zywork-config-service:jar:1.0/org.apache.zookeeper:zookeeper:jar:3.4.11/jline:jline:jar:0.9.94</node>
+            <node x="1100.5" y="1774.8669774917544">top.zywork:zywork-config-service:jar:1.0/org.apache.zookeeper:zookeeper:jar:3.4.11/org.apache.yetus:audience-annotations:jar:0.5.0</node>
+            <node x="1152.0" y="1843.8669774917544">top.zywork:zywork-config-service:jar:1.0/org.apache.zookeeper:zookeeper:jar:3.4.11/io.netty:netty:jar:3.10.5.Final</node>
+            <node x="625.5" y="1748.6044774917543">top.zywork:zywork-config-service:jar:1.0/com.101tec:zkclient:jar:0.10</node>
+            <node x="311.0" y="180.25996497715232">top.zywork:zywork-ucenter-dao:jar:1.0</node>
+            <node x="571.0" y="999.0100970375531">top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0</node>
+            <node x="861.5" y="833.2114859264419">top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0</node>
+            <node x="1138.5" y="431.04567926286654">top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0/com.sun.mail:javax.mail:jar:1.6.0</node>
+            <node x="1421.0" y="431.04567926286654">top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0/com.sun.mail:javax.mail:jar:1.6.0/javax.activation:activation:jar:1.1.1</node>
+            <node x="1150.5" y="1099.3859570406444">top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0/net.sf.dozer:dozer:jar:5.5.1</node>
+            <node x="1390.0" y="1048.7609570406444">top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0/net.sf.dozer:dozer:jar:5.5.1/commons-beanutils:commons-beanutils:jar:1.9.3</node>
+            <node x="1665.0" y="1048.7609570406444">top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0/net.sf.dozer:dozer:jar:5.5.1/commons-beanutils:commons-beanutils:jar:1.9.3/commons-collections:commons-collections:jar:3.2.2</node>
+            <node x="1401.0" y="1117.7609570406444">top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0/net.sf.dozer:dozer:jar:5.5.1/org.apache.commons:commons-lang3:jar:3.5</node>
+            <node x="1128.0" y="1030.3859570406444">top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0/net.sf.dozer:dozer-spring:jar:5.5.1</node>
+            <node x="1421.5" y="500.04567926286654">top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0/org.apache.httpcomponents:httpclient:jar:4.5.3</node>
+            <node x="1704.5" y="314.5239859264419">top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0/org.apache.httpcomponents:httpclient:jar:4.5.3/org.apache.httpcomponents:httpcore:jar:4.4.6</node>
+            <node x="1679.5" y="390.97916666666663">top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0/org.apache.httpcomponents:httpclient:jar:4.5.3/commons-codec:commons-codec:jar:1.11</node>
+            <node x="1139.0" y="512.5456792628665">top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0/org.apache.httpcomponents:httpmime:jar:4.5.3</node>
+            <node x="1122.5" y="833.2114859264419">top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0/org.hibernate:hibernate-core:jar:5.2.12.Final</node>
+            <node x="1688.5" y="527.3680555555554">top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0/org.hibernate:hibernate-core:jar:5.2.12.Final/org.jboss.logging:jboss-logging:jar:3.3.0.Final</node>
+            <node x="1386.0" y="709.4762348184222">top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0/org.hibernate:hibernate-core:jar:5.2.12.Final/org.hibernate.javax.persistence:hibernate-jpa-2.1-api:jar:1.0.0.Final</node>
+            <node x="1437.0" y="897.4762348184222">top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0/org.hibernate:hibernate-core:jar:5.2.12.Final/antlr:antlr:jar:2.7.7</node>
+            <node x="1355.0" y="640.4762348184222">top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0/org.hibernate:hibernate-core:jar:5.2.12.Final/org.jboss.spec.javax.transaction:jboss-transaction-api_1.2_spec:jar:1.0.1.Final</node>
+            <node x="1431.0" y="966.4762348184222">top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0/org.hibernate:hibernate-core:jar:5.2.12.Final/org.jboss:jandex:jar:2.0.3.Final</node>
+            <node x="1420.5" y="571.4762348184222">top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0/org.hibernate:hibernate-core:jar:5.2.12.Final/com.fasterxml:classmate:jar:1.3.0</node>
+            <node x="1432.0" y="828.4762348184222">top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0/org.hibernate:hibernate-core:jar:5.2.12.Final/dom4j:dom4j:jar:1.6.1</node>
+            <node x="1349.0" y="778.4762348184222">top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0/org.hibernate:hibernate-core:jar:5.2.12.Final/org.hibernate.common:hibernate-commons-annotations:jar:5.0.1.Final</node>
+            <node x="839.0" y="1155.6794554816884">top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-config-common:jar:1.0</node>
+            <node x="1403.5" y="1191.1984570406444">top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-config-common:jar:1.0/ch.qos.logback:logback-classic:jar:1.2.3</node>
+            <node x="1690.5" y="1183.9484570406444">top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-config-common:jar:1.0/ch.qos.logback:logback-classic:jar:1.2.3/ch.qos.logback:logback-core:jar:1.2.3</node>
+            <node x="1109.0" y="1203.6984570406444">top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-config-common:jar:1.0/org.logback-extensions:logback-ext-spring:jar:0.1.4</node>
+            <node x="590.0" y="173.00996497715232">top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-config-dao:jar:1.0</node>
+            <node x="845.5" y="216.6921759044526">top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-config-dao:jar:1.0/mysql:mysql-connector-java:jar:5.1.44</node>
+            <node x="889.0" y="285.6921759044526">top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-config-dao:jar:1.0/org.mybatis:mybatis:jar:3.4.5</node>
+            <node x="866.5" y="97.6921759044526">top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-config-dao:jar:1.0/org.mybatis:mybatis-spring:jar:1.3.1</node>
+            <node x="1152.0" y="345.4036618308945">top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-config-dao:jar:1.0/com.alibaba:druid:jar:1.1.2</node>
+            <node x="1425.5" y="362.04567926286654">top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-config-dao:jar:1.0/com.alibaba:druid:jar:1.1.2/com.alibaba:jconsole:jar:1.8.0</node>
+            <node x="1435.5" y="293.04567926286654">top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-config-dao:jar:1.0/com.alibaba:druid:jar:1.1.2/com.alibaba:tools:jar:1.8.0</node>
+            <node x="1133.5" y="198.9421759044526">top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-config-dao:jar:1.0/org.springframework:spring-orm:jar:4.3.12.RELEASE</node>
+            <node x="1415.5" y="131.5">top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-config-dao:jar:1.0/org.springframework:spring-orm:jar:4.3.12.RELEASE/org.springframework:spring-jdbc:jar:4.3.12.RELEASE</node>
+            <node x="869.5" y="166.6921759044526">top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-config-dao:jar:1.0/org.aspectj:aspectjweaver:jar:1.8.13</node>
+            <node x="289.0" y="1006.2600970375531">top.zywork:zywork-ucenter-service-api:jar:1.0</node>
+            <node x="1930.5" y="0.0">org.springframework:spring-test:jar:4.3.12.RELEASE</node>
+            <node x="2133.0" y="1458.9128108250875">org.springframework:spring-test:jar:4.3.12.RELEASE/org.springframework:spring-core:jar:4.3.12.RELEASE</node>
+            <node x="2317.0" y="974.3955489203256">org.springframework:spring-test:jar:4.3.12.RELEASE/org.springframework:spring-core:jar:4.3.12.RELEASE/commons-logging:commons-logging:jar:1.2</node>
+            <node x="1437.5" y="1943.2045634920637">junit:junit:jar:4.12</node>
+            <node x="1686.0" y="1943.2045634920637">junit:junit:jar:4.12/org.hamcrest:hamcrest-core:jar:1.3</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="top.zywork:zywork-ucenter-service-impl:1.0" target="org.springframework:spring-test:jar:4.3.12.RELEASE">
+              <point x="104.5" y="-11.600000000000023" />
+              <point x="289.0" y="14.5" />
+              <point x="-50.5" y="-0.0" />
+            </edge>
+            <edge source="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0" target="top.zywork:zywork-config-service:jar:1.0/org.springframework.data:spring-data-redis:jar:1.8.8.RELEASE/org.slf4j:slf4j-api:jar:1.7.25">
+              <point x="67.5" y="6.444444444444457" />
+              <point x="1019.0" y="854.1559303708864" />
+              <point x="1099.0" y="1009.1984570406445" />
+              <point x="1585.0" y="1009.1984570406445" />
+              <point x="1665.0" y="1350.1652777777776" />
+              <point x="-41.0" y="-13.049999999999955" />
+            </edge>
+            <edge source="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0" target="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0/net.sf.dozer:dozer-spring:jar:5.5.1">
+              <point x="67.5" y="9.666666666666629" />
+              <point x="1019.0" y="857.3781525931086" />
+              <point x="1099.0" y="1037.6359570406444" />
+              <point x="-56.0" y="-7.25" />
+            </edge>
+            <edge source="top.zywork:zywork-config-service:jar:1.0/com.alibaba:dubbo:jar:2.5.7" target="top.zywork:zywork-config-service:jar:1.0/com.alibaba:dubbo:jar:2.5.7/org.springframework:spring-context:jar:4.3.12.RELEASE">
+              <point x="36.0" y="-5.7999999999999545" />
+              <point x="759.0" y="1618.8795634920637" />
+              <point x="839.0" y="1586.1919774917542" />
+              <point x="1019.0" y="1586.1919774917542" />
+              <point x="1099.0" y="1550.1294774917542" />
+              <point x="-62.0" y="5.7999999999999545" />
+            </edge>
+            <edge source="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-config-dao:jar:1.0/com.alibaba:druid:jar:1.1.2" target="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-config-dao:jar:1.0/com.alibaba:druid:jar:1.1.2/com.alibaba:jconsole:jar:1.8.0">
+              <point x="32.0" y="7.25" />
+              <point x="1269.0" y="367.1536618308945" />
+              <point x="1349.0" y="376.54567926286654" />
+              <point x="-41.5" y="-0.0" />
+            </edge>
+            <edge source="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-config-dao:jar:1.0" target="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-config-dao:jar:1.0/org.springframework:spring-orm:jar:4.3.12.RELEASE">
+              <point x="75.0" y="-4.14285714285711" />
+              <point x="759.0" y="183.3671078342952" />
+              <point x="839.0" y="206.1921759044526" />
+              <point x="-50.5" y="-7.25" />
+            </edge>
+            <edge source="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0/net.sf.dozer:dozer:jar:5.5.1" target="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0/net.sf.dozer:dozer:jar:5.5.1/commons-beanutils:commons-beanutils:jar:1.9.3">
+              <point x="33.5" y="-10.875" />
+              <point x="1269.0" y="1103.0109570406444" />
+              <point x="1349.0" y="1063.2609570406444" />
+              <point x="-77.0" y="-0.0" />
+            </edge>
+            <edge source="top.zywork:zywork-config-service:jar:1.0/com.alibaba:dubbo:jar:2.5.7" target="top.zywork:zywork-config-service:jar:1.0/com.alibaba:dubbo:jar:2.5.7/org.javassist:javassist:jar:3.21.0-GA">
+              <point x="36.0" y="-11.599999999999909" />
+              <point x="759.0" y="1613.0795634920637" />
+              <point x="839.0" y="1580.3919774917545" />
+              <point x="1019.0" y="1580.3919774917545" />
+              <point x="1099.0" y="1439.3461441584209" />
+              <point x="1269.0" y="1439.3461441584209" />
+              <point x="1349.0" y="1299.6984570406444" />
+              <point x="-42.5" y="7.25" />
+            </edge>
+            <edge source="top.zywork:zywork-config-service:jar:1.0/org.springframework.data:spring-data-redis:jar:1.8.8.RELEASE/org.springframework.data:spring-data-keyvalue:jar:1.2.8.RELEASE" target="top.zywork:zywork-config-service:jar:1.0/org.springframework.data:spring-data-redis:jar:1.8.8.RELEASE/org.slf4j:jcl-over-slf4j:jar:1.7.25">
+              <point x="81.5" y="-5.7999999999999545" />
+              <point x="1099.0" y="1371.1913141835016" />
+              <point x="-55.0" y="3.625" />
+            </edge>
+            <edge source="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0/net.sf.dozer:dozer:jar:5.5.1" target="top.zywork:zywork-config-service:jar:1.0/org.springframework.data:spring-data-redis:jar:1.8.8.RELEASE/org.slf4j:slf4j-api:jar:1.7.25">
+              <point x="33.5" y="3.625" />
+              <point x="1269.0" y="1117.5109570406444" />
+              <point x="1349.0" y="1157.2609570406444" />
+              <point x="1585.0" y="1157.2609570406444" />
+              <point x="1665.0" y="1353.0652777777777" />
+              <point x="-41.0" y="-10.150000000000091" />
+            </edge>
+            <edge source="top.zywork:zywork-config-service:jar:1.0/org.springframework.data:spring-data-redis:jar:1.8.8.RELEASE" target="top.zywork:zywork-config-service:jar:1.0/org.springframework.data:spring-data-redis:jar:1.8.8.RELEASE/org.springframework.data:spring-data-keyvalue:jar:1.2.8.RELEASE">
+              <point x="70.0" y="4.14285714285711" />
+              <point x="759.0" y="1367.5402777777776" />
+              <point x="-81.5" y="-0.0" />
+            </edge>
+            <edge source="top.zywork:zywork-config-service:jar:1.0" target="top.zywork:zywork-config-service:jar:1.0/com.alibaba:dubbo:jar:2.5.7">
+              <point x="85.0" y="-5.7999999999999545" />
+              <point x="491.0" y="1745.77299386295" />
+              <point x="571.0" y="1624.6795634920636" />
+              <point x="-36.0" y="-0.0" />
+            </edge>
+            <edge source="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0/net.sf.dozer:dozer:jar:5.5.1/commons-beanutils:commons-beanutils:jar:1.9.3" target="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0/net.sf.dozer:dozer:jar:5.5.1/commons-beanutils:commons-beanutils:jar:1.9.3/commons-collections:commons-collections:jar:3.2.2">
+              <point x="77.0" y="-0.0" />
+              <point x="-82.0" y="-0.0" />
+            </edge>
+            <edge source="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0" target="top.zywork:zywork-config-service:jar:1.0/com.alibaba:dubbo:jar:2.5.7/org.springframework:spring-beans:jar:4.3.12.RELEASE">
+              <point x="67.5" y="3.2222222222221717" />
+              <point x="1019.0" y="850.9337081486641" />
+              <point x="1099.0" y="1005.9762348184222" />
+              <point x="1829.0" y="1005.9762348184222" />
+              <point x="1909.0" y="1433.2270745293072" />
+              <point x="-57.0" y="-6.0416666666667425" />
+            </edge>
+            <edge source="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-config-dao:jar:1.0/org.springframework:spring-orm:jar:4.3.12.RELEASE" target="top.zywork:zywork-config-service:jar:1.0/org.springframework.data:spring-data-redis:jar:1.8.8.RELEASE/org.springframework:spring-tx:jar:4.3.12.RELEASE">
+              <point x="50.5" y="10.875" />
+              <point x="1269.0" y="224.3171759044526" />
+              <point x="1349.0" y="262.4661618308945" />
+              <point x="1585.0" y="262.4661618308945" />
+              <point x="1665.0" y="607.2430555555554" />
+              <point x="-44.5" y="-3.625" />
+            </edge>
+            <edge source="top.zywork:zywork-config-service:jar:1.0" target="top.zywork:zywork-config-service:jar:1.0/org.apache.zookeeper:zookeeper:jar:3.4.11">
+              <point x="85.0" y="5.7999999999999545" />
+              <point x="491.0" y="1757.37299386295" />
+              <point x="571.0" y="1814.4545634920637" />
+              <point x="-48.0" y="7.25" />
+            </edge>
+            <edge source="top.zywork:zywork-config-service:jar:1.0/org.springframework.data:spring-data-redis:jar:1.8.8.RELEASE/org.springframework:spring-aop:jar:4.3.12.RELEASE" target="top.zywork:zywork-config-service:jar:1.0/com.alibaba:dubbo:jar:2.5.7/org.springframework:spring-beans:jar:4.3.12.RELEASE">
+              <point x="50.0" y="-7.25" />
+              <point x="1829.0" y="1556.6419774917545" />
+              <point x="1909.0" y="1447.7270745293072" />
+              <point x="-57.0" y="8.458333333333258" />
+            </edge>
+            <edge source="top.zywork:zywork-config-service:jar:1.0" target="top.zywork:zywork-config-service:jar:1.0/com.101tec:zkclient:jar:0.10">
+              <point x="85.0" y="-0.0" />
+              <point x="491.0" y="1751.5729938629502" />
+              <point x="571.0" y="1763.1044774917543" />
+              <point x="-39.5" y="-0.0" />
+            </edge>
+            <edge source="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0" target="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0">
+              <point x="94.0" y="-7.25" />
+              <point x="839.0" y="847.7114859264419" />
+              <point x="-67.5" y="-0.0" />
+            </edge>
+            <edge source="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-config-common:jar:1.0" target="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-config-common:jar:1.0/org.logback-extensions:logback-ext-spring:jar:0.1.4">
+              <point x="90.0" y="8.28571428571422" />
+              <point x="-75.0" y="-0.0" />
+            </edge>
+            <edge source="top.zywork:zywork-config-service:jar:1.0/org.springframework.data:spring-data-redis:jar:1.8.8.RELEASE/org.springframework.data:spring-data-keyvalue:jar:1.2.8.RELEASE" target="top.zywork:zywork-config-service:jar:1.0/org.springframework.data:spring-data-redis:jar:1.8.8.RELEASE/org.slf4j:slf4j-api:jar:1.7.25">
+              <point x="81.5" y="-0.0" />
+              <point x="1099.0" y="1392.5663141835016" />
+              <point x="1585.0" y="1392.5663141835016" />
+              <point x="1665.0" y="1367.5652777777777" />
+              <point x="-41.0" y="4.349999999999909" />
+            </edge>
+            <edge source="top.zywork:zywork-config-service:jar:1.0/org.springframework.data:spring-data-redis:jar:1.8.8.RELEASE/org.springframework:spring-tx:jar:4.3.12.RELEASE" target="org.springframework:spring-test:jar:4.3.12.RELEASE/org.springframework:spring-core:jar:4.3.12.RELEASE">
+              <point x="44.5" y="-7.25" />
+              <point x="2053.0" y="603.6180555555554" />
+              <point x="-52.0" y="-5.272727272727252" />
+            </edge>
+            <edge source="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-config-common:jar:1.0" target="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0/net.sf.dozer:dozer:jar:5.5.1">
+              <point x="90.0" y="-4.14285714285711" />
+              <point x="1099.0" y="1121.1359570406444" />
+              <point x="-33.5" y="7.25" />
+            </edge>
+            <edge source="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0/org.hibernate:hibernate-core:jar:5.2.12.Final" target="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0/org.hibernate:hibernate-core:jar:5.2.12.Final/org.hibernate.javax.persistence:hibernate-jpa-2.1-api:jar:1.0.0.Final">
+              <point x="61.5" y="-6.444444444444457" />
+              <point x="1269.0" y="841.2670414819975" />
+              <point x="1349.0" y="723.9762348184222" />
+              <point x="-81.0" y="-0.0" />
+            </edge>
+            <edge source="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0" target="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0/com.sun.mail:javax.mail:jar:1.6.0">
+              <point x="67.5" y="-9.666666666666629" />
+              <point x="1019.0" y="838.0448192597753" />
+              <point x="1099.0" y="445.54567926286654" />
+              <point x="-45.5" y="-0.0" />
+            </edge>
+            <edge source="top.zywork:zywork-config-service:jar:1.0/org.apache.zookeeper:zookeeper:jar:3.4.11" target="top.zywork:zywork-config-service:jar:1.0/org.springframework.data:spring-data-redis:jar:1.8.8.RELEASE/org.slf4j:slf4j-api:jar:1.7.25">
+              <point x="48.0" y="-10.875" />
+              <point x="1019.0" y="1796.3295634920637" />
+              <point x="1099.0" y="1764.3669774917544" />
+              <point x="1269.0" y="1764.3669774917544" />
+              <point x="1349.0" y="1622.5419774917543" />
+              <point x="1585.0" y="1622.5419774917543" />
+              <point x="1665.0" y="1376.2652777777776" />
+              <point x="-41.0" y="13.049999999999955" />
+            </edge>
+            <edge source="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0/org.hibernate:hibernate-core:jar:5.2.12.Final" target="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0/org.hibernate:hibernate-core:jar:5.2.12.Final/antlr:antlr:jar:2.7.7">
+              <point x="61.5" y="6.444444444444457" />
+              <point x="1269.0" y="854.1559303708864" />
+              <point x="1349.0" y="911.9762348184222" />
+              <point x="-30.0" y="-0.0" />
+            </edge>
+            <edge source="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0/net.sf.dozer:dozer:jar:5.5.1" target="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0/net.sf.dozer:dozer:jar:5.5.1/org.apache.commons:commons-lang3:jar:3.5">
+              <point x="33.5" y="-3.625" />
+              <point x="1269.0" y="1110.2609570406444" />
+              <point x="1349.0" y="1132.2609570406444" />
+              <point x="-66.0" y="-0.0" />
+            </edge>
+            <edge source="top.zywork:zywork-config-service:jar:1.0/com.alibaba:dubbo:jar:2.5.7/org.springframework:spring-web:jar:4.3.10.RELEASE" target="top.zywork:zywork-config-service:jar:1.0/com.alibaba:dubbo:jar:2.5.7/org.springframework:spring-context:jar:4.3.12.RELEASE">
+              <point x="51.0" y="-10.875" />
+              <point x="1019.0" y="1600.9794774917543" />
+              <point x="1099.0" y="1555.9294774917544" />
+              <point x="-62.0" y="11.599999999999909" />
+            </edge>
+            <edge source="top.zywork:zywork-config-service:jar:1.0/org.springframework.data:spring-data-redis:jar:1.8.8.RELEASE/org.springframework:spring-context-support:jar:4.3.12.RELEASE" target="top.zywork:zywork-config-service:jar:1.0/com.alibaba:dubbo:jar:2.5.7/org.springframework:spring-beans:jar:4.3.12.RELEASE">
+              <point x="89.5" y="-9.666666666666742" />
+              <point x="1099.0" y="1509.4128108250875" />
+              <point x="1829.0" y="1509.4128108250875" />
+              <point x="1909.0" y="1442.8937411959741" />
+              <point x="-57.0" y="3.625" />
+            </edge>
+            <edge source="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-config-dao:jar:1.0" target="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-config-dao:jar:1.0/org.aspectj:aspectjweaver:jar:1.8.13">
+              <point x="75.0" y="-8.285714285714278" />
+              <point x="-59.5" y="-0.0" />
+            </edge>
+            <edge source="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0/org.apache.httpcomponents:httpmime:jar:4.5.3" target="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0/org.apache.httpcomponents:httpclient:jar:4.5.3">
+              <point x="45.0" y="-0.0" />
+              <point x="1269.0" y="527.0456792628665" />
+              <point x="1349.0" y="521.7956792628665" />
+              <point x="-45.5" y="7.25" />
+            </edge>
+            <edge source="top.zywork:zywork-ucenter-dao:jar:1.0" target="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0">
+              <point x="79.0" y="7.25" />
+              <point x="491.0" y="202.00996497715232" />
+              <point x="-94.0" y="-7.25" />
+            </edge>
+            <edge source="top.zywork:zywork-ucenter-service-impl:1.0" target="top.zywork:zywork-ucenter-service-api:jar:1.0">
+              <point x="104.5" y="-0.0" />
+              <point x="-101.0" y="-0.0" />
+            </edge>
+            <edge source="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0/org.hibernate:hibernate-core:jar:5.2.12.Final" target="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0/org.hibernate:hibernate-core:jar:5.2.12.Final/org.jboss.spec.javax.transaction:jboss-transaction-api_1.2_spec:jar:1.0.1.Final">
+              <point x="61.5" y="-9.666666666666629" />
+              <point x="1269.0" y="838.0448192597753" />
+              <point x="-112.0" y="-0.0" />
+            </edge>
+            <edge source="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-config-dao:jar:1.0/org.springframework:spring-orm:jar:4.3.12.RELEASE" target="org.springframework:spring-test:jar:4.3.12.RELEASE/org.springframework:spring-core:jar:4.3.12.RELEASE">
+              <point x="50.5" y="-10.875" />
+              <point x="1269.0" y="202.5671759044526" />
+              <point x="1349.0" y="84.6875" />
+              <point x="2053.0" y="84.6875" />
+              <point x="-52.0" y="-10.545454545454504" />
+            </edge>
+            <edge source="top.zywork:zywork-config-service:jar:1.0/com.alibaba:dubbo:jar:2.5.7" target="top.zywork:zywork-config-service:jar:1.0/com.alibaba:dubbo:jar:2.5.7/org.jboss.netty:netty:jar:3.2.5.Final">
+              <point x="36.0" y="11.599999999999909" />
+              <point x="759.0" y="1636.2795634920635" />
+              <point x="839.0" y="1683.7794774917543" />
+              <point x="-32.0" y="-0.0" />
+            </edge>
+            <edge source="top.zywork:zywork-config-service:jar:1.0/org.springframework.data:spring-data-redis:jar:1.8.8.RELEASE/org.springframework:spring-context-support:jar:4.3.12.RELEASE" target="org.springframework:spring-test:jar:4.3.12.RELEASE/org.springframework:spring-core:jar:4.3.12.RELEASE">
+              <point x="89.5" y="-0.0" />
+              <point x="1099.0" y="1519.0794774917545" />
+              <point x="2053.0" y="1519.0794774917545" />
+              <point x="-52.0" y="5.272727272727252" />
+            </edge>
+            <edge source="top.zywork:zywork-config-service:jar:1.0/com.101tec:zkclient:jar:0.10" target="top.zywork:zywork-config-service:jar:1.0/org.springframework.data:spring-data-redis:jar:1.8.8.RELEASE/org.slf4j:slf4j-api:jar:1.7.25">
+              <point x="39.5" y="-7.25" />
+              <point x="1269.0" y="1755.8544774917543" />
+              <point x="1349.0" y="1463.621144158421" />
+              <point x="1585.0" y="1463.621144158421" />
+              <point x="1665.0" y="1373.365277777778" />
+              <point x="-41.0" y="10.150000000000091" />
+            </edge>
+            <edge source="org.springframework:spring-test:jar:4.3.12.RELEASE" target="org.springframework:spring-test:jar:4.3.12.RELEASE/org.springframework:spring-core:jar:4.3.12.RELEASE">
+              <point x="50.5" y="-0.0" />
+              <point x="2053.0" y="14.5" />
+              <point x="-52.0" y="-13.181818181818244" />
+            </edge>
+            <edge source="top.zywork:zywork-config-service:jar:1.0/org.springframework.data:spring-data-redis:jar:1.8.8.RELEASE/org.springframework.data:spring-data-keyvalue:jar:1.2.8.RELEASE/org.springframework.data:spring-data-commons:jar:1.13.8.RELEASE" target="top.zywork:zywork-config-service:jar:1.0/org.springframework.data:spring-data-redis:jar:1.8.8.RELEASE/org.slf4j:jcl-over-slf4j:jar:1.7.25">
+              <point x="85.0" y="-10.875" />
+              <point x="1349.0" y="1378.4413141835016" />
+              <point x="-55.0" y="10.875" />
+            </edge>
+            <edge source="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-config-dao:jar:1.0" target="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-config-dao:jar:1.0/org.mybatis:mybatis-spring:jar:1.3.1">
+              <point x="75.0" y="-12.428571428571445" />
+              <point x="759.0" y="175.08139354858088" />
+              <point x="839.0" y="112.1921759044526" />
+              <point x="-62.5" y="-0.0" />
+            </edge>
+            <edge source="top.zywork:zywork-ucenter-service-impl:1.0" target="junit:junit:jar:4.12">
+              <point x="104.5" y="11.599999999999909" />
+              <point x="289.0" y="1975.4545634920637" />
+              <point x="1269.0" y="1975.4545634920637" />
+              <point x="1349.0" y="1964.9545634920637" />
+              <point x="-29.5" y="7.25" />
+            </edge>
+            <edge source="top.zywork:zywork-config-service:jar:1.0/com.alibaba:dubbo:jar:2.5.7/org.springframework:spring-context:jar:4.3.12.RELEASE" target="top.zywork:zywork-config-service:jar:1.0/com.alibaba:dubbo:jar:2.5.7/org.springframework:spring-context:jar:4.3.12.RELEASE/org.springframework:spring-expression:jar:4.3.12.RELEASE">
+              <point x="62.0" y="10.875" />
+              <point x="1269.0" y="1555.2044774917545" />
+              <point x="1349.0" y="1597.2294774917543" />
+              <point x="-72.0" y="-0.0" />
+            </edge>
+            <edge source="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0/org.hibernate:hibernate-core:jar:5.2.12.Final" target="top.zywork:zywork-config-service:jar:1.0/com.alibaba:dubbo:jar:2.5.7/org.javassist:javassist:jar:3.21.0-GA">
+              <point x="61.5" y="12.888888888888914" />
+              <point x="1269.0" y="860.6003748153308" />
+              <point x="1349.0" y="1285.1984570406444" />
+              <point x="-42.5" y="-7.25" />
+            </edge>
+            <edge source="top.zywork:zywork-config-service:jar:1.0/org.springframework.data:spring-data-redis:jar:1.8.8.RELEASE" target="top.zywork:zywork-config-service:jar:1.0/org.springframework.data:spring-data-redis:jar:1.8.8.RELEASE/org.springframework:spring-aop:jar:4.3.12.RELEASE">
+              <point x="70.0" y="12.428571428571331" />
+              <point x="759.0" y="1375.8259920634919" />
+              <point x="839.0" y="1569.3919774917545" />
+              <point x="1585.0" y="1569.3919774917545" />
+              <point x="-50.0" y="7.25" />
+            </edge>
+            <edge source="top.zywork:zywork-config-service:jar:1.0/org.springframework.data:spring-data-redis:jar:1.8.8.RELEASE/org.springframework.data:spring-data-keyvalue:jar:1.2.8.RELEASE" target="top.zywork:zywork-config-service:jar:1.0/org.springframework.data:spring-data-redis:jar:1.8.8.RELEASE/org.springframework.data:spring-data-keyvalue:jar:1.2.8.RELEASE/org.springframework.data:spring-data-commons:jar:1.13.8.RELEASE">
+              <point x="81.5" y="5.7999999999999545" />
+              <point x="-85.0" y="-0.0" />
+            </edge>
+            <edge source="top.zywork:zywork-config-service:jar:1.0/org.springframework.data:spring-data-redis:jar:1.8.8.RELEASE/org.springframework:spring-oxm:jar:4.3.12.RELEASE" target="top.zywork:zywork-config-service:jar:1.0/com.alibaba:dubbo:jar:2.5.7/org.springframework:spring-beans:jar:4.3.12.RELEASE">
+              <point x="51.5" y="7.25" />
+              <point x="1829.0" y="1274.6984570406444" />
+              <point x="1909.0" y="1438.0604078626407" />
+              <point x="-57.0" y="-1.2083333333332575" />
+            </edge>
+            <edge source="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0/org.apache.httpcomponents:httpclient:jar:4.5.3" target="org.springframework:spring-test:jar:4.3.12.RELEASE/org.springframework:spring-core:jar:4.3.12.RELEASE/commons-logging:commons-logging:jar:1.2">
+              <point x="45.5" y="-9.666666666666742" />
+              <point x="1585.0" y="504.8790125961998" />
+              <point x="1665.0" y="304.0239859264419" />
+              <point x="2237.0" y="304.0239859264419" />
+              <point x="-72.0" y="-7.25" />
+            </edge>
+            <edge source="top.zywork:zywork-config-service:jar:1.0/com.alibaba:dubbo:jar:2.5.7/org.springframework:spring-context:jar:4.3.12.RELEASE" target="org.springframework:spring-test:jar:4.3.12.RELEASE/org.springframework:spring-core:jar:4.3.12.RELEASE">
+              <point x="62.0" y="-3.625" />
+              <point x="2053.0" y="1538.8919774917545" />
+              <point x="-52.0" y="7.909090909090992" />
+            </edge>
+            <edge source="top.zywork:zywork-config-service:jar:1.0/org.apache.zookeeper:zookeeper:jar:3.4.11" target="top.zywork:zywork-config-service:jar:1.0/org.apache.zookeeper:zookeeper:jar:3.4.11/jline:jline:jar:0.9.94">
+              <point x="48.0" y="10.875" />
+              <point x="1019.0" y="1818.0795634920637" />
+              <point x="1099.0" y="1927.3669774917544" />
+              <point x="-28.0" y="-0.0" />
+            </edge>
+            <edge source="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-config-common:jar:1.0" target="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0/net.sf.dozer:dozer-spring:jar:5.5.1">
+              <point x="90.0" y="-8.28571428571422" />
+              <point x="1099.0" y="1052.1359570406444" />
+              <point x="-56.0" y="7.25" />
+            </edge>
+            <edge source="top.zywork:zywork-config-service:jar:1.0/org.springframework.data:spring-data-redis:jar:1.8.8.RELEASE/org.springframework.data:spring-data-keyvalue:jar:1.2.8.RELEASE/org.springframework.data:spring-data-commons:jar:1.13.8.RELEASE" target="top.zywork:zywork-config-service:jar:1.0/com.alibaba:dubbo:jar:2.5.7/org.springframework:spring-beans:jar:4.3.12.RELEASE">
+              <point x="85.0" y="3.625" />
+              <point x="1349.0" y="1474.621144158421" />
+              <point x="1829.0" y="1474.621144158421" />
+              <point x="1909.0" y="1440.4770745293072" />
+              <point x="-57.0" y="1.2083333333332575" />
+            </edge>
+            <edge source="top.zywork:zywork-config-service:jar:1.0/com.101tec:zkclient:jar:0.10" target="top.zywork:zywork-config-service:jar:1.0/org.apache.zookeeper:zookeeper:jar:3.4.11">
+              <point x="39.5" y="7.25" />
+              <point x="759.0" y="1770.3544774917543" />
+              <point x="839.0" y="1799.9545634920637" />
+              <point x="-48.0" y="-7.25" />
+            </edge>
+            <edge source="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0/org.hibernate:hibernate-core:jar:5.2.12.Final" target="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0/org.hibernate:hibernate-core:jar:5.2.12.Final/org.jboss.logging:jboss-logging:jar:3.3.0.Final">
+              <point x="61.5" y="-0.0" />
+              <point x="1269.0" y="847.7114859264419" />
+              <point x="1349.0" y="817.9762348184222" />
+              <point x="1585.0" y="817.9762348184222" />
+              <point x="1665.0" y="549.1180555555554" />
+              <point x="-58.5" y="7.25" />
+            </edge>
+            <edge source="top.zywork:zywork-config-service:jar:1.0/com.alibaba:dubbo:jar:2.5.7/org.springframework:spring-web:jar:4.3.10.RELEASE" target="top.zywork:zywork-config-service:jar:1.0/com.alibaba:dubbo:jar:2.5.7/org.springframework:spring-web:jar:4.3.10.RELEASE/org.springframework:spring-aop:jar:4.3.10.RELEASE">
+              <point x="51.0" y="3.625" />
+              <point x="1019.0" y="1615.4794774917543" />
+              <point x="1099.0" y="1661.8544774917543" />
+              <point x="-50.0" y="-0.0" />
+            </edge>
+            <edge source="top.zywork:zywork-config-service:jar:1.0/com.alibaba:dubbo:jar:2.5.7" target="top.zywork:zywork-config-service:jar:1.0/com.alibaba:dubbo:jar:2.5.7/org.springframework:spring-beans:jar:4.3.12.RELEASE">
+              <point x="36.0" y="5.7999999999999545" />
+              <point x="759.0" y="1630.4795634920636" />
+              <point x="839.0" y="1636.8544774917543" />
+              <point x="1829.0" y="1636.8544774917543" />
+              <point x="1909.0" y="1452.5604078626407" />
+              <point x="-57.0" y="13.291666666666742" />
+            </edge>
+            <edge source="top.zywork:zywork-config-service:jar:1.0/org.springframework.data:spring-data-redis:jar:1.8.8.RELEASE/org.springframework.data:spring-data-keyvalue:jar:1.2.8.RELEASE" target="top.zywork:zywork-config-service:jar:1.0/org.springframework.data:spring-data-redis:jar:1.8.8.RELEASE/org.springframework:spring-tx:jar:4.3.12.RELEASE">
+              <point x="81.5" y="-11.599999999999909" />
+              <point x="1099.0" y="1342.5663141835016" />
+              <point x="1585.0" y="1342.5663141835016" />
+              <point x="1665.0" y="621.7430555555554" />
+              <point x="-44.5" y="10.875" />
+            </edge>
+            <edge source="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0" target="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0/org.apache.httpcomponents:httpclient:jar:4.5.3">
+              <point x="67.5" y="-6.444444444444457" />
+              <point x="1019.0" y="841.2670414819975" />
+              <point x="1099.0" y="502.04567926286654" />
+              <point x="1269.0" y="502.04567926286654" />
+              <point x="1349.0" y="507.29567926286654" />
+              <point x="-45.5" y="-7.25" />
+            </edge>
+            <edge source="top.zywork:zywork-config-service:jar:1.0/org.springframework.data:spring-data-redis:jar:1.8.8.RELEASE" target="top.zywork:zywork-config-service:jar:1.0/org.springframework.data:spring-data-redis:jar:1.8.8.RELEASE/org.springframework:spring-oxm:jar:4.3.12.RELEASE">
+              <point x="70.0" y="-8.28571428571422" />
+              <point x="759.0" y="1355.1117063492063" />
+              <point x="839.0" y="1267.4484570406444" />
+              <point x="-51.5" y="-0.0" />
+            </edge>
+            <edge source="top.zywork:zywork-config-service:jar:1.0/org.springframework.data:spring-data-redis:jar:1.8.8.RELEASE/org.springframework.data:spring-data-keyvalue:jar:1.2.8.RELEASE" target="top.zywork:zywork-config-service:jar:1.0/com.alibaba:dubbo:jar:2.5.7/org.springframework:spring-context:jar:4.3.12.RELEASE">
+              <point x="81.5" y="11.599999999999909" />
+              <point x="1099.0" y="1532.7294774917546" />
+              <point x="-62.0" y="-11.599999999999909" />
+            </edge>
+            <edge source="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0" target="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0/org.apache.httpcomponents:httpmime:jar:4.5.3">
+              <point x="67.5" y="-3.2222222222221717" />
+              <point x="1019.0" y="844.4892637042198" />
+              <point x="1099.0" y="527.0456792628665" />
+              <point x="-45.0" y="-0.0" />
+            </edge>
+            <edge source="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-config-dao:jar:1.0/org.springframework:spring-orm:jar:4.3.12.RELEASE/org.springframework:spring-jdbc:jar:4.3.12.RELEASE" target="top.zywork:zywork-config-service:jar:1.0/org.springframework.data:spring-data-redis:jar:1.8.8.RELEASE/org.springframework:spring-tx:jar:4.3.12.RELEASE">
+              <point x="51.5" y="9.666666666666657" />
+              <point x="1585.0" y="155.66666666666663" />
+              <point x="1665.0" y="599.9930555555554" />
+              <point x="-44.5" y="-10.875" />
+            </edge>
+            <edge source="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-config-dao:jar:1.0/org.springframework:spring-orm:jar:4.3.12.RELEASE" target="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-config-dao:jar:1.0/org.springframework:spring-orm:jar:4.3.12.RELEASE/org.springframework:spring-jdbc:jar:4.3.12.RELEASE">
+              <point x="50.5" y="-3.625" />
+              <point x="1269.0" y="209.8171759044526" />
+              <point x="1349.0" y="146.0" />
+              <point x="-51.5" y="-0.0" />
+            </edge>
+            <edge source="junit:junit:jar:4.12" target="junit:junit:jar:4.12/org.hamcrest:hamcrest-core:jar:1.3">
+              <point x="29.5" y="-0.0" />
+              <point x="-61.0" y="-0.0" />
+            </edge>
+            <edge source="top.zywork:zywork-config-service:jar:1.0/org.apache.zookeeper:zookeeper:jar:3.4.11" target="top.zywork:zywork-config-service:jar:1.0/org.apache.zookeeper:zookeeper:jar:3.4.11/org.apache.yetus:audience-annotations:jar:0.5.0">
+              <point x="48.0" y="-3.625" />
+              <point x="1019.0" y="1803.5795634920637" />
+              <point x="-83.5" y="-0.0" />
+            </edge>
+            <edge source="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0/org.hibernate:hibernate-core:jar:5.2.12.Final" target="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0/org.hibernate:hibernate-core:jar:5.2.12.Final/org.hibernate.common:hibernate-commons-annotations:jar:5.0.1.Final">
+              <point x="61.5" y="-3.2222222222221717" />
+              <point x="1269.0" y="844.4892637042198" />
+              <point x="-118.0" y="-0.0" />
+            </edge>
+            <edge source="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-config-common:jar:1.0" target="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-config-common:jar:1.0/ch.qos.logback:logback-classic:jar:1.2.3">
+              <point x="90.0" y="4.14285714285711" />
+              <point x="1099.0" y="1193.1984570406444" />
+              <point x="1269.0" y="1193.1984570406444" />
+              <point x="1349.0" y="1198.4484570406444" />
+              <point x="-63.5" y="-7.25" />
+            </edge>
+            <edge source="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0/org.hibernate:hibernate-core:jar:5.2.12.Final" target="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0/org.hibernate:hibernate-core:jar:5.2.12.Final/org.jboss:jandex:jar:2.0.3.Final">
+              <point x="61.5" y="9.666666666666629" />
+              <point x="1269.0" y="857.3781525931086" />
+              <point x="1349.0" y="980.9762348184222" />
+              <point x="-36.0" y="-0.0" />
+            </edge>
+            <edge source="top.zywork:zywork-config-service:jar:1.0/com.alibaba:dubbo:jar:2.5.7/org.springframework:spring-web:jar:4.3.10.RELEASE" target="top.zywork:zywork-config-service:jar:1.0/com.alibaba:dubbo:jar:2.5.7/org.springframework:spring-beans:jar:4.3.12.RELEASE">
+              <point x="51.0" y="-3.625" />
+              <point x="1829.0" y="1608.2294774917543" />
+              <point x="1909.0" y="1450.1437411959741" />
+              <point x="-57.0" y="10.875" />
+            </edge>
+            <edge source="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0/org.apache.httpcomponents:httpclient:jar:4.5.3" target="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0/org.apache.httpcomponents:httpclient:jar:4.5.3/commons-codec:commons-codec:jar:1.11">
+              <point x="45.5" y="9.666666666666629" />
+              <point x="1585.0" y="524.2123459295332" />
+              <point x="1665.0" y="405.47916666666663" />
+              <point x="-67.5" y="-0.0" />
+            </edge>
+            <edge source="top.zywork:zywork-config-service:jar:1.0/org.springframework.data:spring-data-redis:jar:1.8.8.RELEASE/org.springframework:spring-context-support:jar:4.3.12.RELEASE" target="top.zywork:zywork-config-service:jar:1.0/com.alibaba:dubbo:jar:2.5.7/org.springframework:spring-context:jar:4.3.12.RELEASE">
+              <point x="89.5" y="9.666666666666742" />
+              <point x="1099.0" y="1538.5294774917543" />
+              <point x="-62.0" y="-5.7999999999999545" />
+            </edge>
+            <edge source="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-config-dao:jar:1.0" target="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-config-dao:jar:1.0/com.alibaba:druid:jar:1.1.2">
+              <point x="75.0" y="8.28571428571422" />
+              <point x="759.0" y="195.79567926286654" />
+              <point x="839.0" y="352.6536618308945" />
+              <point x="-32.0" y="-7.25" />
+            </edge>
+            <edge source="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-config-common:jar:1.0" target="top.zywork:zywork-config-service:jar:1.0/org.springframework.data:spring-data-redis:jar:1.8.8.RELEASE/org.slf4j:slf4j-api:jar:1.7.25">
+              <point x="90.0" y="12.428571428571331" />
+              <point x="1099.0" y="1250.377028469216" />
+              <point x="1585.0" y="1250.377028469216" />
+              <point x="1665.0" y="1358.865277777778" />
+              <point x="-41.0" y="-4.349999999999909" />
+            </edge>
+            <edge source="top.zywork:zywork-config-service:jar:1.0/com.alibaba:dubbo:jar:2.5.7/org.springframework:spring-beans:jar:4.3.12.RELEASE" target="org.springframework:spring-test:jar:4.3.12.RELEASE/org.springframework:spring-core:jar:4.3.12.RELEASE">
+              <point x="57.0" y="-0.0" />
+              <point x="2053.0" y="1439.2687411959741" />
+              <point x="-52.0" y="-0.0" />
+            </edge>
+            <edge source="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0" target="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0/org.hibernate:hibernate-core:jar:5.2.12.Final">
+              <point x="67.5" y="-0.0" />
+              <point x="-61.5" y="-0.0" />
+            </edge>
+            <edge source="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0/org.hibernate:hibernate-core:jar:5.2.12.Final" target="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0/org.hibernate:hibernate-core:jar:5.2.12.Final/dom4j:dom4j:jar:1.6.1">
+              <point x="61.5" y="3.2222222222221717" />
+              <point x="1269.0" y="850.9337081486641" />
+              <point x="1349.0" y="842.9762348184222" />
+              <point x="-35.0" y="-0.0" />
+            </edge>
+            <edge source="top.zywork:zywork-config-service:jar:1.0/com.alibaba:dubbo:jar:2.5.7/org.springframework:spring-context:jar:4.3.12.RELEASE" target="top.zywork:zywork-config-service:jar:1.0/com.alibaba:dubbo:jar:2.5.7/org.springframework:spring-beans:jar:4.3.12.RELEASE">
+              <point x="62.0" y="-10.875" />
+              <point x="1829.0" y="1531.6419774917545" />
+              <point x="1909.0" y="1445.3104078626407" />
+              <point x="-57.0" y="6.0416666666667425" />
+            </edge>
+            <edge source="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-config-common:jar:1.0" target="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-config-dao:jar:1.0/com.alibaba:druid:jar:1.1.2">
+              <point x="90.0" y="-12.428571428571331" />
+              <point x="1099.0" y="367.1536618308945" />
+              <point x="-32.0" y="7.25" />
+            </edge>
+            <edge source="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-config-dao:jar:1.0" target="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-config-dao:jar:1.0/org.mybatis:mybatis:jar:3.4.5">
+              <point x="75.0" y="4.142857142857139" />
+              <point x="759.0" y="191.65282212000943" />
+              <point x="839.0" y="300.1921759044526" />
+              <point x="-40.0" y="-0.0" />
+            </edge>
+            <edge source="top.zywork:zywork-config-service:jar:1.0/org.springframework.data:spring-data-redis:jar:1.8.8.RELEASE" target="top.zywork:zywork-config-service:jar:1.0/org.springframework.data:spring-data-redis:jar:1.8.8.RELEASE/org.slf4j:jcl-over-slf4j:jar:1.7.25">
+              <point x="70.0" y="-0.0" />
+              <point x="759.0" y="1363.3974206349205" />
+              <point x="839.0" y="1330.3663141835016" />
+              <point x="1269.0" y="1330.3663141835016" />
+              <point x="1349.0" y="1363.9413141835016" />
+              <point x="-55.0" y="-3.625" />
+            </edge>
+            <edge source="top.zywork:zywork-config-service:jar:1.0/redis.clients:jedis:jar:2.9.0" target="top.zywork:zywork-config-service:jar:1.0/redis.clients:jedis:jar:2.9.0/org.apache.commons:commons-pool2:jar:2.4.2">
+              <point x="30.0" y="-0.0" />
+              <point x="-66.5" y="-0.0" />
+            </edge>
+            <edge source="top.zywork:zywork-ucenter-service-impl:1.0" target="top.zywork:zywork-ucenter-dao:jar:1.0">
+              <point x="104.5" y="-5.7999999999999545" />
+              <point x="289.0" y="194.75996497715232" />
+              <point x="-79.0" y="-0.0" />
+            </edge>
+            <edge source="top.zywork:zywork-config-service:jar:1.0/com.alibaba:dubbo:jar:2.5.7/org.springframework:spring-context:jar:4.3.12.RELEASE" target="top.zywork:zywork-config-service:jar:1.0/org.springframework.data:spring-data-redis:jar:1.8.8.RELEASE/org.springframework:spring-aop:jar:4.3.12.RELEASE">
+              <point x="62.0" y="3.625" />
+              <point x="1269.0" y="1547.9544774917545" />
+              <point x="1349.0" y="1553.2044774917545" />
+              <point x="1585.0" y="1553.2044774917545" />
+              <point x="-50.0" y="-7.25" />
+            </edge>
+            <edge source="top.zywork:zywork-config-service:jar:1.0/org.springframework.data:spring-data-redis:jar:1.8.8.RELEASE/org.springframework:spring-oxm:jar:4.3.12.RELEASE" target="org.springframework:spring-test:jar:4.3.12.RELEASE/org.springframework:spring-core:jar:4.3.12.RELEASE">
+              <point x="51.5" y="-7.25" />
+              <point x="1829.0" y="1260.1984570406444" />
+              <point x="1909.0" y="1224.500884053117" />
+              <point x="2053.0" y="1224.500884053117" />
+              <point x="-52.0" y="-2.6363636363637397" />
+            </edge>
+            <edge source="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-config-common:jar:1.0" target="top.zywork:zywork-config-service:jar:1.0/com.alibaba:dubbo:jar:2.5.7/org.springframework:spring-beans:jar:4.3.12.RELEASE">
+              <point x="90.0" y="-0.0" />
+              <point x="1099.0" y="1173.4484570406444" />
+              <point x="1829.0" y="1173.4484570406444" />
+              <point x="1909.0" y="1435.6437411959741" />
+              <point x="-57.0" y="-3.625" />
+            </edge>
+            <edge source="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0" target="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0/net.sf.dozer:dozer:jar:5.5.1">
+              <point x="67.5" y="12.888888888888914" />
+              <point x="1019.0" y="860.6003748153308" />
+              <point x="1099.0" y="1106.6359570406444" />
+              <point x="-33.5" y="-7.25" />
+            </edge>
+            <edge source="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-config-dao:jar:1.0/com.alibaba:druid:jar:1.1.2" target="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-config-dao:jar:1.0/com.alibaba:druid:jar:1.1.2/com.alibaba:tools:jar:1.8.0">
+              <point x="32.0" y="-7.25" />
+              <point x="1269.0" y="352.6536618308945" />
+              <point x="1349.0" y="307.54567926286654" />
+              <point x="-31.5" y="-0.0" />
+            </edge>
+            <edge source="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0" target="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-config-common:jar:1.0">
+              <point x="94.0" y="7.25" />
+              <point x="-90.0" y="-0.0" />
+            </edge>
+            <edge source="top.zywork:zywork-config-service:jar:1.0/com.alibaba:dubbo:jar:2.5.7/org.springframework:spring-web:jar:4.3.10.RELEASE" target="top.zywork:zywork-config-service:jar:1.0/com.alibaba:dubbo:jar:2.5.7/org.springframework:spring-web:jar:4.3.10.RELEASE/org.springframework:spring-core:jar:4.3.10.RELEASE">
+              <point x="51.0" y="10.875" />
+              <point x="1019.0" y="1622.7294774917543" />
+              <point x="1099.0" y="1730.8544774917543" />
+              <point x="-52.0" y="-0.0" />
+            </edge>
+            <edge source="top.zywork:zywork-ucenter-dao:jar:1.0" target="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-config-dao:jar:1.0">
+              <point x="79.0" y="-7.25" />
+              <point x="-75.0" y="-0.0" />
+            </edge>
+            <edge source="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-config-dao:jar:1.0/org.springframework:spring-orm:jar:4.3.12.RELEASE/org.springframework:spring-jdbc:jar:4.3.12.RELEASE" target="org.springframework:spring-test:jar:4.3.12.RELEASE/org.springframework:spring-core:jar:4.3.12.RELEASE">
+              <point x="51.5" y="-9.666666666666629" />
+              <point x="1585.0" y="136.33333333333337" />
+              <point x="1665.0" y="93.67234848484838" />
+              <point x="2053.0" y="93.67234848484838" />
+              <point x="-52.0" y="-7.909090909090992" />
+            </edge>
+            <edge source="top.zywork:zywork-config-service:jar:1.0/org.springframework.data:spring-data-redis:jar:1.8.8.RELEASE/org.springframework.data:spring-data-keyvalue:jar:1.2.8.RELEASE/org.springframework.data:spring-data-commons:jar:1.13.8.RELEASE" target="top.zywork:zywork-config-service:jar:1.0/org.springframework.data:spring-data-redis:jar:1.8.8.RELEASE/org.slf4j:slf4j-api:jar:1.7.25">
+              <point x="85.0" y="-3.625" />
+              <point x="1585.0" y="1460.7211441584209" />
+              <point x="1665.0" y="1370.4652777777778" />
+              <point x="-41.0" y="7.25" />
+            </edge>
+            <edge source="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0/com.sun.mail:javax.mail:jar:1.6.0" target="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0/com.sun.mail:javax.mail:jar:1.6.0/javax.activation:activation:jar:1.1.1">
+              <point x="45.5" y="-0.0" />
+              <point x="-46.0" y="-0.0" />
+            </edge>
+            <edge source="top.zywork:zywork-ucenter-service-impl:1.0" target="top.zywork:zywork-config-service:jar:1.0">
+              <point x="104.5" y="5.7999999999999545" />
+              <point x="289.0" y="1751.5729938629502" />
+              <point x="-85.0" y="-0.0" />
+            </edge>
+            <edge source="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-config-dao:jar:1.0" target="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-config-dao:jar:1.0/mysql:mysql-connector-java:jar:5.1.44">
+              <point x="75.0" y="-0.0" />
+              <point x="759.0" y="187.50996497715232" />
+              <point x="-83.5" y="-0.0" />
+            </edge>
+            <edge source="top.zywork:zywork-config-service:jar:1.0/org.springframework.data:spring-data-redis:jar:1.8.8.RELEASE/org.springframework.data:spring-data-keyvalue:jar:1.2.8.RELEASE/org.springframework.data:spring-data-commons:jar:1.13.8.RELEASE" target="org.springframework:spring-test:jar:4.3.12.RELEASE/org.springframework:spring-core:jar:4.3.12.RELEASE">
+              <point x="85.0" y="10.875" />
+              <point x="1349.0" y="1498.4128108250875" />
+              <point x="2053.0" y="1498.4128108250875" />
+              <point x="-52.0" y="2.6363636363637397" />
+            </edge>
+            <edge source="top.zywork:zywork-config-service:jar:1.0/org.apache.zookeeper:zookeeper:jar:3.4.11" target="top.zywork:zywork-config-service:jar:1.0/org.apache.zookeeper:zookeeper:jar:3.4.11/io.netty:netty:jar:3.10.5.Final">
+              <point x="48.0" y="3.625" />
+              <point x="1019.0" y="1810.8295634920637" />
+              <point x="1099.0" y="1858.3669774917544" />
+              <point x="-32.0" y="-0.0" />
+            </edge>
+            <edge source="top.zywork:zywork-config-service:jar:1.0" target="top.zywork:zywork-config-service:jar:1.0/org.springframework.data:spring-data-redis:jar:1.8.8.RELEASE">
+              <point x="85.0" y="-11.599999999999909" />
+              <point x="491.0" y="1739.9729938629503" />
+              <point x="571.0" y="1363.3974206349205" />
+              <point x="-70.0" y="-0.0" />
+            </edge>
+            <edge source="top.zywork:zywork-ucenter-service-api:jar:1.0" target="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0">
+              <point x="101.0" y="-0.0" />
+              <point x="-94.0" y="7.25" />
+            </edge>
+            <edge source="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-config-dao:jar:1.0" target="top.zywork:zywork-config-service:jar:1.0/com.alibaba:dubbo:jar:2.5.7/org.springframework:spring-context:jar:4.3.12.RELEASE">
+              <point x="75.0" y="12.428571428571445" />
+              <point x="759.0" y="199.93853640572377" />
+              <point x="839.0" y="1487.4079808501683" />
+              <point x="1019.0" y="1487.4079808501683" />
+              <point x="1099.0" y="1544.3294774917545" />
+              <point x="-62.0" y="-0.0" />
+            </edge>
+            <edge source="top.zywork:zywork-config-service:jar:1.0/org.springframework.data:spring-data-redis:jar:1.8.8.RELEASE" target="top.zywork:zywork-config-service:jar:1.0/org.springframework.data:spring-data-redis:jar:1.8.8.RELEASE/org.springframework:spring-tx:jar:4.3.12.RELEASE">
+              <point x="70.0" y="-12.428571428571331" />
+              <point x="759.0" y="1350.9688492063492" />
+              <point x="839.0" y="1261.377028469216" />
+              <point x="1585.0" y="1261.377028469216" />
+              <point x="1665.0" y="614.4930555555554" />
+              <point x="-44.5" y="3.625" />
+            </edge>
+            <edge source="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-config-common:jar:1.0/org.logback-extensions:logback-ext-spring:jar:0.1.4" target="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-config-common:jar:1.0/ch.qos.logback:logback-classic:jar:1.2.3">
+              <point x="75.0" y="-0.0" />
+              <point x="1349.0" y="1212.9484570406444" />
+              <point x="-63.5" y="7.25" />
+            </edge>
+            <edge source="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0/org.apache.httpcomponents:httpclient:jar:4.5.3" target="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0/org.apache.httpcomponents:httpclient:jar:4.5.3/org.apache.httpcomponents:httpcore:jar:4.4.6">
+              <point x="45.5" y="-0.0" />
+              <point x="1585.0" y="514.5456792628665" />
+              <point x="1665.0" y="329.0239859264419" />
+              <point x="-42.5" y="-0.0" />
+            </edge>
+            <edge source="top.zywork:zywork-config-service:jar:1.0" target="top.zywork:zywork-config-service:jar:1.0/redis.clients:jedis:jar:2.9.0">
+              <point x="85.0" y="11.599999999999909" />
+              <point x="491.0" y="1763.17299386295" />
+              <point x="571.0" y="1877.5354938629498" />
+              <point x="-30.0" y="-0.0" />
+            </edge>
+            <edge source="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-config-dao:jar:1.0/org.springframework:spring-orm:jar:4.3.12.RELEASE" target="top.zywork:zywork-config-service:jar:1.0/com.alibaba:dubbo:jar:2.5.7/org.springframework:spring-beans:jar:4.3.12.RELEASE">
+              <point x="50.5" y="3.625" />
+              <point x="1269.0" y="217.0671759044526" />
+              <point x="1349.0" y="171.0" />
+              <point x="1829.0" y="171.0" />
+              <point x="1909.0" y="1428.3937411959741" />
+              <point x="-57.0" y="-10.875" />
+            </edge>
+            <edge source="top.zywork:zywork-config-service:jar:1.0/org.springframework.data:spring-data-redis:jar:1.8.8.RELEASE/org.slf4j:jcl-over-slf4j:jar:1.7.25" target="top.zywork:zywork-config-service:jar:1.0/org.springframework.data:spring-data-redis:jar:1.8.8.RELEASE/org.slf4j:slf4j-api:jar:1.7.25">
+              <point x="55.0" y="-0.0" />
+              <point x="1585.0" y="1367.5663141835016" />
+              <point x="-41.0" y="1.4500000000000455" />
+            </edge>
+            <edge source="top.zywork:zywork-config-service:jar:1.0/org.springframework.data:spring-data-redis:jar:1.8.8.RELEASE" target="top.zywork:zywork-config-service:jar:1.0/org.springframework.data:spring-data-redis:jar:1.8.8.RELEASE/org.springframework:spring-context-support:jar:4.3.12.RELEASE">
+              <point x="70.0" y="8.28571428571422" />
+              <point x="759.0" y="1371.6831349206348" />
+              <point x="-89.5" y="-0.0" />
+            </edge>
+            <edge source="top.zywork:zywork-config-service:jar:1.0/org.springframework.data:spring-data-redis:jar:1.8.8.RELEASE/org.springframework:spring-tx:jar:4.3.12.RELEASE" target="top.zywork:zywork-config-service:jar:1.0/com.alibaba:dubbo:jar:2.5.7/org.springframework:spring-beans:jar:4.3.12.RELEASE">
+              <point x="44.5" y="7.25" />
+              <point x="1829.0" y="618.1180555555554" />
+              <point x="1909.0" y="1430.8104078626407" />
+              <point x="-57.0" y="-8.458333333333258" />
+            </edge>
+            <edge source="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0" target="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-config-dao:jar:1.0/org.springframework:spring-orm:jar:4.3.12.RELEASE">
+              <point x="67.5" y="-12.888888888888914" />
+              <point x="1019.0" y="834.822597037553" />
+              <point x="1099.0" y="220.6921759044526" />
+              <point x="-50.5" y="7.25" />
+            </edge>
+            <edge source="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-config-common:jar:1.0/ch.qos.logback:logback-classic:jar:1.2.3" target="top.zywork:zywork-config-service:jar:1.0/org.springframework.data:spring-data-redis:jar:1.8.8.RELEASE/org.slf4j:slf4j-api:jar:1.7.25">
+              <point x="63.5" y="7.25" />
+              <point x="1585.0" y="1212.9484570406444" />
+              <point x="1665.0" y="1355.9652777777778" />
+              <point x="-41.0" y="-7.25" />
+            </edge>
+            <edge source="top.zywork:zywork-config-service:jar:1.0/org.springframework.data:spring-data-redis:jar:1.8.8.RELEASE/org.springframework:spring-aop:jar:4.3.12.RELEASE" target="org.springframework:spring-test:jar:4.3.12.RELEASE/org.springframework:spring-core:jar:4.3.12.RELEASE">
+              <point x="50.0" y="7.25" />
+              <point x="2053.0" y="1571.1419774917545" />
+              <point x="-52.0" y="10.545454545454504" />
+            </edge>
+            <edge source="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0/net.sf.dozer:dozer:jar:5.5.1" target="top.zywork:zywork-config-service:jar:1.0/org.springframework.data:spring-data-redis:jar:1.8.8.RELEASE/org.slf4j:jcl-over-slf4j:jar:1.7.25">
+              <point x="33.5" y="10.875" />
+              <point x="1269.0" y="1124.7609570406444" />
+              <point x="1349.0" y="1356.6913141835016" />
+              <point x="-55.0" y="-10.875" />
+            </edge>
+            <edge source="org.springframework:spring-test:jar:4.3.12.RELEASE/org.springframework:spring-core:jar:4.3.12.RELEASE" target="org.springframework:spring-test:jar:4.3.12.RELEASE/org.springframework:spring-core:jar:4.3.12.RELEASE/commons-logging:commons-logging:jar:1.2">
+              <point x="52.0" y="-0.0" />
+              <point x="-72.0" y="7.25" />
+            </edge>
+            <edge source="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0/org.hibernate:hibernate-core:jar:5.2.12.Final/org.hibernate.common:hibernate-commons-annotations:jar:5.0.1.Final" target="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0/org.hibernate:hibernate-core:jar:5.2.12.Final/org.jboss.logging:jboss-logging:jar:3.3.0.Final">
+              <point x="118.0" y="-0.0" />
+              <point x="1665.0" y="534.6180555555554" />
+              <point x="-58.5" y="-7.25" />
+            </edge>
+            <edge source="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0/org.hibernate:hibernate-core:jar:5.2.12.Final" target="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-common:jar:1.0/org.hibernate:hibernate-core:jar:5.2.12.Final/com.fasterxml:classmate:jar:1.3.0">
+              <point x="61.5" y="-12.888888888888914" />
+              <point x="1269.0" y="834.822597037553" />
+              <point x="1349.0" y="585.9762348184222" />
+              <point x="-46.5" y="-0.0" />
+            </edge>
+            <edge source="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-config-common:jar:1.0/ch.qos.logback:logback-classic:jar:1.2.3" target="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-ucenter-common:jar:1.0/top.zywork:zywork-config-common:jar:1.0/ch.qos.logback:logback-classic:jar:1.2.3/ch.qos.logback:logback-core:jar:1.2.3">
+              <point x="63.5" y="-7.25" />
+              <point x="-56.5" y="-0.0" />
+            </edge>
+            <edge source="top.zywork:zywork-config-service:jar:1.0/org.springframework.data:spring-data-redis:jar:1.8.8.RELEASE" target="top.zywork:zywork-config-service:jar:1.0/org.springframework.data:spring-data-redis:jar:1.8.8.RELEASE/org.slf4j:slf4j-api:jar:1.7.25">
+              <point x="70.0" y="-4.14285714285711" />
+              <point x="759.0" y="1359.2545634920634" />
+              <point x="839.0" y="1326.2234570406445" />
+              <point x="1585.0" y="1326.2234570406445" />
+              <point x="1665.0" y="1361.7652777777776" />
+              <point x="-41.0" y="-1.4500000000000455" />
+            </edge>
+            <edge source="top.zywork:zywork-config-service:jar:1.0/com.alibaba:dubbo:jar:2.5.7/org.springframework:spring-context:jar:4.3.12.RELEASE/org.springframework:spring-expression:jar:4.3.12.RELEASE" target="org.springframework:spring-test:jar:4.3.12.RELEASE/org.springframework:spring-core:jar:4.3.12.RELEASE">
+              <point x="72.0" y="-0.0" />
+              <point x="-52.0" y="13.181818181818244" />
+            </edge>
+            <edge source="top.zywork:zywork-config-service:jar:1.0/com.alibaba:dubbo:jar:2.5.7" target="top.zywork:zywork-config-service:jar:1.0/com.alibaba:dubbo:jar:2.5.7/org.springframework:spring-web:jar:4.3.10.RELEASE">
+              <point x="36.0" y="-0.0" />
+              <point x="759.0" y="1624.6795634920636" />
+              <point x="839.0" y="1611.8544774917543" />
+              <point x="-51.0" y="-0.0" />
+            </edge>
+            <edge source="top.zywork:zywork-ucenter-dao:jar:1.0/top.zywork:zywork-config-dao:jar:1.0/org.springframework:spring-orm:jar:4.3.12.RELEASE/org.springframework:spring-jdbc:jar:4.3.12.RELEASE" target="top.zywork:zywork-config-service:jar:1.0/com.alibaba:dubbo:jar:2.5.7/org.springframework:spring-beans:jar:4.3.12.RELEASE">
+              <point x="51.5" y="-0.0" />
+              <point x="1829.0" y="146.0" />
+              <point x="1909.0" y="1425.9770745293072" />
+              <point x="-57.0" y="-13.291666666666742" />
+            </edge>
+            <edge source="top.zywork:zywork-config-service:jar:1.0/org.apache.zookeeper:zookeeper:jar:3.4.11/jline:jline:jar:0.9.94" target="junit:junit:jar:4.12">
+              <point x="28.0" y="-0.0" />
+              <point x="1269.0" y="1927.3669774917544" />
+              <point x="1349.0" y="1950.4545634920637" />
+              <point x="-29.5" y="-7.25" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="0.3156312625250501" x="595.3809523809524" y="890.3809523809524" />
+          <SelectedNodes>
+            <node>top.zywork:zywork-config-service:jar:1.0</node>
+          </SelectedNodes>
+          <Categories />
+          <VISIBILITY>All</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zywork-config/zywork-config-service/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="16" lean-forward="false" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zywork-common/src/main/java/top/zywork/dao/BaseDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="58">
+          <caret line="17" column="17" lean-forward="false" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zywork-common/src/main/java/top/zywork/dao/AbstractBaseDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="82" column="11" lean-forward="true" selection-start-line="82" selection-start-column="11" selection-end-line="82" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-service-impl/src/test/java/Application.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="6" column="22" lean-forward="false" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zywork-common/src/main/java/top/zywork/service/AbstractBaseService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="16" column="47" lean-forward="false" selection-start-line="16" selection-start-column="47" selection-end-line="16" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-service-impl/src/main/java/top/zywork/service/impl/UserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="31" lean-forward="false" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#696#697#0" expanded="true" />
-            <element signature="e#742#743#0" expanded="true" />
+            <element signature="e#654#655#0" expanded="true" />
+            <element signature="e#708#709#0" expanded="true" />
           </folding>
         </state>
       </provider>
