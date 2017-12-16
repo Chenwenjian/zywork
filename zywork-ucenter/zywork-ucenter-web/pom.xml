@@ -22,13 +22,12 @@
         </dependency>
         <dependency>
             <groupId>top.zywork</groupId>
-            <artifactId>zywork-config-web</artifactId>
+            <artifactId>zywork-ucenter-service-api</artifactId>
             <version>${zywork.version}</version>
         </dependency>
         <dependency>
             <groupId>top.zywork</groupId>
-            <artifactId>zywork-ucenter-service-api</artifactId>
-            <version>${zywork.version}</version>
+            <artifactId>zywork-config-web</artifactId>
         </dependency>
     </dependencies>
 </project>

@@ -1,0 +1,33 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <parent>
+        <artifactId>zywork-upms</artifactId>
+        <groupId>top.zywork</groupId>
+        <version>1.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>zywork-upms-web</artifactId>
+    <packaging>war</packaging>
+    <name>zywork-upms-web Maven Webapp</name>
+    <url>http://maven.apache.org</url>
+
+    <build>
+        <finalName>zywork-upms-web</finalName>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>top.zywork</groupId>
+            <artifactId>zywork-upms-service-api</artifactId>
+            <version>${zywork.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>top.zywork</groupId>
+            <artifactId>zywork-config-web</artifactId>
+        </dependency>
+    </dependencies>
+</project>

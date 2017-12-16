@@ -16,12 +16,10 @@
         <dependency>
             <groupId>top.zywork</groupId>
             <artifactId>zywork-common</artifactId>
-            <version>${zywork.version}</version>
         </dependency>
         <dependency>
             <groupId>top.zywork</groupId>
             <artifactId>zywork-config-common</artifactId>
-            <version>${zywork.version}</version>
         </dependency>
     </dependencies>
 

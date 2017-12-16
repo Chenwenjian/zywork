@@ -10,5 +10,43 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>zywork-report</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>zywork-report-common</module>
+        <module>zywork-report-dao</module>
+        <module>zywork-report-service-api</module>
+        <module>zywork-report-service-impl</module>
+        <module>zywork-report-web</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>top.zywork</groupId>
+                <artifactId>zywork-common</artifactId>
+                <version>${zywork.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>top.zywork</groupId>
+                <artifactId>zywork-config-common</artifactId>
+                <version>${zywork.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>top.zywork</groupId>
+                <artifactId>zywork-config-dao</artifactId>
+                <version>${zywork.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>top.zywork</groupId>
+                <artifactId>zywork-config-service</artifactId>
+                <version>${zywork.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>top.zywork</groupId>
+                <artifactId>zywork-config-web</artifactId>
+                <version>${zywork.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
 </project>

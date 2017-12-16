@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="zywork-cms-web:war">
+    <output-path>$PROJECT_DIR$/zywork-cms/zywork-cms-web/target</output-path>
+    <root id="archive" name="zywork-cms-web.war">
+      <element id="artifact" artifact-name="zywork-cms-web:war exploded" />
+    </root>
+  </artifact>
+</component>

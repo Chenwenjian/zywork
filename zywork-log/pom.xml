@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>zywork-parent</artifactId>
+        <groupId>top.zywork</groupId>
+        <version>1.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>zywork-log</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>zywork-log-common</module>
+        <module>zywork-log-dao</module>
+        <module>zywork-log-service-api</module>
+        <module>zywork-log-service-impl</module>
+        <module>zywork-log-web</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>top.zywork</groupId>
+                <artifactId>zywork-common</artifactId>
+                <version>${zywork.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>top.zywork</groupId>
+                <artifactId>zywork-config-common</artifactId>
+                <version>${zywork.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>top.zywork</groupId>
+                <artifactId>zywork-config-dao</artifactId>
+                <version>${zywork.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>top.zywork</groupId>
+                <artifactId>zywork-config-service</artifactId>
+                <version>${zywork.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>top.zywork</groupId>
+                <artifactId>zywork-config-web</artifactId>
+                <version>${zywork.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>

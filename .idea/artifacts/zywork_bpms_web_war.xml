@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="zywork-bpms-web:war">
+    <output-path>$PROJECT_DIR$/zywork-bpms/zywork-bpms-web/target</output-path>
+    <root id="archive" name="zywork-bpms-web.war">
+      <element id="artifact" artifact-name="zywork-bpms-web:war exploded" />
+    </root>
+  </artifact>
+</component>

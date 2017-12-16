@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/zywork-bpms/zywork-bpms-web" />
+    <file type="web" url="file://$PROJECT_DIR$/zywork-cms/zywork-cms-web" />
+    <file type="web" url="file://$PROJECT_DIR$/zywork-log/zywork-log-web" />
+    <file type="web" url="file://$PROJECT_DIR$/zywork-message/zywork-message-web" />
+    <file type="web" url="file://$PROJECT_DIR$/zywork-report/zywork-report-web" />
     <file type="web" url="file://$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-web" />
+    <file type="web" url="file://$PROJECT_DIR$/zywork-upms/zywork-upms-web" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">

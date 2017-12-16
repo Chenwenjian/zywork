@@ -4,16 +4,42 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/zywork.iml" filepath="$PROJECT_DIR$/zywork.iml" />
       <module fileurl="file://$PROJECT_DIR$/zywork-bpms/zywork-bpms.iml" filepath="$PROJECT_DIR$/zywork-bpms/zywork-bpms.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zywork-bpms/zywork-bpms-common/zywork-bpms-common.iml" filepath="$PROJECT_DIR$/zywork-bpms/zywork-bpms-common/zywork-bpms-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zywork-bpms/zywork-bpms-dao/zywork-bpms-dao.iml" filepath="$PROJECT_DIR$/zywork-bpms/zywork-bpms-dao/zywork-bpms-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zywork-bpms/zywork-bpms-service-api/zywork-bpms-service-api.iml" filepath="$PROJECT_DIR$/zywork-bpms/zywork-bpms-service-api/zywork-bpms-service-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zywork-bpms/zywork-bpms-service-impl/zywork-bpms-service-impl.iml" filepath="$PROJECT_DIR$/zywork-bpms/zywork-bpms-service-impl/zywork-bpms-service-impl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zywork-bpms/zywork-bpms-web/zywork-bpms-web.iml" filepath="$PROJECT_DIR$/zywork-bpms/zywork-bpms-web/zywork-bpms-web.iml" />
       <module fileurl="file://$PROJECT_DIR$/zywork-cms/zywork-cms.iml" filepath="$PROJECT_DIR$/zywork-cms/zywork-cms.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zywork-cms/zywork-cms-common/zywork-cms-common.iml" filepath="$PROJECT_DIR$/zywork-cms/zywork-cms-common/zywork-cms-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zywork-cms/zywork-cms-dao/zywork-cms-dao.iml" filepath="$PROJECT_DIR$/zywork-cms/zywork-cms-dao/zywork-cms-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zywork-cms/zywork-cms-service-api/zywork-cms-service-api.iml" filepath="$PROJECT_DIR$/zywork-cms/zywork-cms-service-api/zywork-cms-service-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zywork-cms/zywork-cms-service-impl/zywork-cms-service-impl.iml" filepath="$PROJECT_DIR$/zywork-cms/zywork-cms-service-impl/zywork-cms-service-impl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zywork-cms/zywork-cms-web/zywork-cms-web.iml" filepath="$PROJECT_DIR$/zywork-cms/zywork-cms-web/zywork-cms-web.iml" />
       <module fileurl="file://$PROJECT_DIR$/zywork-common/zywork-common.iml" filepath="$PROJECT_DIR$/zywork-common/zywork-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/zywork-config/zywork-config.iml" filepath="$PROJECT_DIR$/zywork-config/zywork-config.iml" />
       <module fileurl="file://$PROJECT_DIR$/zywork-config/zywork-config-common/zywork-config-common.iml" filepath="$PROJECT_DIR$/zywork-config/zywork-config-common/zywork-config-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/zywork-config/zywork-config-dao/zywork-config-dao.iml" filepath="$PROJECT_DIR$/zywork-config/zywork-config-dao/zywork-config-dao.iml" />
       <module fileurl="file://$PROJECT_DIR$/zywork-config/zywork-config-service/zywork-config-service.iml" filepath="$PROJECT_DIR$/zywork-config/zywork-config-service/zywork-config-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/zywork-config/zywork-config-web/zywork-config-web.iml" filepath="$PROJECT_DIR$/zywork-config/zywork-config-web/zywork-config-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zywork-log/zywork-log.iml" filepath="$PROJECT_DIR$/zywork-log/zywork-log.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zywork-log/zywork-log-common/zywork-log-common.iml" filepath="$PROJECT_DIR$/zywork-log/zywork-log-common/zywork-log-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zywork-log/zywork-log-dao/zywork-log-dao.iml" filepath="$PROJECT_DIR$/zywork-log/zywork-log-dao/zywork-log-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zywork-log/zywork-log-service-api/zywork-log-service-api.iml" filepath="$PROJECT_DIR$/zywork-log/zywork-log-service-api/zywork-log-service-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zywork-log/zywork-log-service-impl/zywork-log-service-impl.iml" filepath="$PROJECT_DIR$/zywork-log/zywork-log-service-impl/zywork-log-service-impl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zywork-log/zywork-log-web/zywork-log-web.iml" filepath="$PROJECT_DIR$/zywork-log/zywork-log-web/zywork-log-web.iml" />
       <module fileurl="file://$PROJECT_DIR$/zywork-message/zywork-message.iml" filepath="$PROJECT_DIR$/zywork-message/zywork-message.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zywork-message/zywork-message-common/zywork-message-common.iml" filepath="$PROJECT_DIR$/zywork-message/zywork-message-common/zywork-message-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zywork-message/zywork-message-dao/zywork-message-dao.iml" filepath="$PROJECT_DIR$/zywork-message/zywork-message-dao/zywork-message-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zywork-message/zywork-message-service-api/zywork-message-service-api.iml" filepath="$PROJECT_DIR$/zywork-message/zywork-message-service-api/zywork-message-service-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zywork-message/zywork-message-service-impl/zywork-message-service-impl.iml" filepath="$PROJECT_DIR$/zywork-message/zywork-message-service-impl/zywork-message-service-impl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zywork-message/zywork-message-web/zywork-message-web.iml" filepath="$PROJECT_DIR$/zywork-message/zywork-message-web/zywork-message-web.iml" />
       <module fileurl="file://$PROJECT_DIR$/zywork-pay/zywork-pay.iml" filepath="$PROJECT_DIR$/zywork-pay/zywork-pay.iml" />
       <module fileurl="file://$PROJECT_DIR$/zywork-report/zywork-report.iml" filepath="$PROJECT_DIR$/zywork-report/zywork-report.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zywork-report/zywork-report-common/zywork-report-common.iml" filepath="$PROJECT_DIR$/zywork-report/zywork-report-common/zywork-report-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zywork-report/zywork-report-dao/zywork-report-dao.iml" filepath="$PROJECT_DIR$/zywork-report/zywork-report-dao/zywork-report-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zywork-report/zywork-report-service-api/zywork-report-service-api.iml" filepath="$PROJECT_DIR$/zywork-report/zywork-report-service-api/zywork-report-service-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zywork-report/zywork-report-service-impl/zywork-report-service-impl.iml" filepath="$PROJECT_DIR$/zywork-report/zywork-report-service-impl/zywork-report-service-impl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zywork-report/zywork-report-web/zywork-report-web.iml" filepath="$PROJECT_DIR$/zywork-report/zywork-report-web/zywork-report-web.iml" />
       <module fileurl="file://$PROJECT_DIR$/zywork-ucenter/zywork-ucenter.iml" filepath="$PROJECT_DIR$/zywork-ucenter/zywork-ucenter.iml" />
       <module fileurl="file://$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-common/zywork-ucenter-common.iml" filepath="$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-common/zywork-ucenter-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-dao/zywork-ucenter-dao.iml" filepath="$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-dao/zywork-ucenter-dao.iml" />
@@ -21,6 +47,11 @@
       <module fileurl="file://$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-service-impl/zywork-ucenter-service-impl.iml" filepath="$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-service-impl/zywork-ucenter-service-impl.iml" />
       <module fileurl="file://$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-web/zywork-ucenter-web.iml" filepath="$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-web/zywork-ucenter-web.iml" />
       <module fileurl="file://$PROJECT_DIR$/zywork-upms/zywork-upms.iml" filepath="$PROJECT_DIR$/zywork-upms/zywork-upms.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zywork-upms/zywork-upms-common/zywork-upms-common.iml" filepath="$PROJECT_DIR$/zywork-upms/zywork-upms-common/zywork-upms-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zywork-upms/zywork-upms-dao/zywork-upms-dao.iml" filepath="$PROJECT_DIR$/zywork-upms/zywork-upms-dao/zywork-upms-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zywork-upms/zywork-upms-service-api/zywork-upms-service-api.iml" filepath="$PROJECT_DIR$/zywork-upms/zywork-upms-service-api/zywork-upms-service-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zywork-upms/zywork-upms-service-impl/zywork-upms-service-impl.iml" filepath="$PROJECT_DIR$/zywork-upms/zywork-upms-service-impl/zywork-upms-service-impl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zywork-upms/zywork-upms-web/zywork-upms-web.iml" filepath="$PROJECT_DIR$/zywork-upms/zywork-upms-web/zywork-upms-web.iml" />
     </modules>
   </component>
 </project>

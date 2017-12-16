@@ -10,5 +10,43 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>zywork-bpms</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>zywork-bpms-common</module>
+        <module>zywork-bpms-dao</module>
+        <module>zywork-bpms-service-api</module>
+        <module>zywork-bpms-service-impl</module>
+        <module>zywork-bpms-web</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>top.zywork</groupId>
+                <artifactId>zywork-common</artifactId>
+                <version>${zywork.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>top.zywork</groupId>
+                <artifactId>zywork-config-common</artifactId>
+                <version>${zywork.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>top.zywork</groupId>
+                <artifactId>zywork-config-dao</artifactId>
+                <version>${zywork.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>top.zywork</groupId>
+                <artifactId>zywork-config-service</artifactId>
+                <version>${zywork.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>top.zywork</groupId>
+                <artifactId>zywork-config-web</artifactId>
+                <version>${zywork.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
 </project>

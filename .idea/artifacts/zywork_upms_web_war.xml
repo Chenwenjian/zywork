@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="zywork-upms-web:war">
+    <output-path>$PROJECT_DIR$/zywork-upms/zywork-upms-web/target</output-path>
+    <root id="archive" name="zywork-upms-web.war">
+      <element id="artifact" artifact-name="zywork-upms-web:war exploded" />
+    </root>
+  </artifact>
+</component>

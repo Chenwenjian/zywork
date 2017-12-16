@@ -21,7 +21,6 @@
         <dependency>
             <groupId>top.zywork</groupId>
             <artifactId>zywork-config-dao</artifactId>
-            <version>${zywork.version}</version>
         </dependency>
     </dependencies>
 
