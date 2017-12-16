@@ -72,6 +72,10 @@ zywork项目包含的功能有：
 			<td>zywork-pay</td>
 			<td>支付系统，包含有微信支付，支付宝支付。支付订单的管理</td>
 		</tr>
+		<tr>
+			<td>zywork-log</td>
+			<td>日志系统，操作日志的记录，查询等管理</td>
+		</tr>
 	</tbody>
 </table>
 
