@@ -91,15 +91,14 @@ public abstract class AbstractBaseService implements BaseService {
 
     @Override
     public PagerDTO listPageByCondition(PageQuery pageQuery, Object queryObj) {
-        List<Object> doObjList = baseDAO.listPageByCondition(pageQuery, queryObj);
         PagerDTO pagerDTO = new PagerDTO(pageQuery.getPageNo(), pageQuery.getPageSize());
-        if (doObjList != null && doObjList.size() > 0) {
+        Long count = baseDAO.countByCondition(queryObj);
+        pagerDTO.setTotal(count);
+        if (count > 0) {
+            List<Object> doObjList = baseDAO.listPageByCondition(pageQuery, queryObj);
             pagerDTO.setRows(DozerMapperUtils.mapList(beanMapper, doObjList, dtoClass));
-            pagerDTO.setTotal(baseDAO.countByCondition(queryObj));
-            return pagerDTO;
         } else {
             pagerDTO.setRows(new ArrayList<>());
-            pagerDTO.setTotal(0L);
         }
         return pagerDTO;
     }
