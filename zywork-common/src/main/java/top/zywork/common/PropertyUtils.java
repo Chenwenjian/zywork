@@ -5,7 +5,32 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * JavaBean属性工具类<br />
+ * 创建于2017-12-18日<br />
+ *
+ * @author 王振宇
+ * @version 1.0
+ */
 public class PropertyUtils {
+
+    /**
+     * 获取属性的getter方法名称
+     * @param property 属性名
+     * @return getter方法名
+     */
+    public static String getter(String property) {
+        return "get" + StringUtils.capitalize(property);
+    }
+
+    /**
+     * 获取属性的setter方法名称
+     * @param property 属性名
+     * @return setter方法名
+     */
+    public static String setter(String property) {
+        return "set" + StringUtils.capitalize(property);
+    }
 
     public static String columnToProperty(String column) {
         StringBuilder property = new StringBuilder("");

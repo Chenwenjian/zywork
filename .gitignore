@@ -10,6 +10,12 @@
 /zywork-message/target/
 /zywork-pay/target/
 /zywork-report/target/
+/zywork-report/zywork-report-common/target/
+/zywork-report/zywork-report-dao/target/
+/zywork-report/zywork-report-service-api/target/
+/zywork-report/zywork-report-service-impl/target/
+/zywork-report/zywork-report-service-impl/catalina.base_IS_UNDEFINED/
+/zywork-report/zywork-report-web/target/
 /zywork-ucenter/target/
 /zywork-ucenter/zywork-ucenter-common/target/
 /zywork-ucenter/zywork-ucenter-dao/target/

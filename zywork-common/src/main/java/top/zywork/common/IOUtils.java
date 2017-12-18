@@ -12,6 +12,39 @@ import java.io.*;
 public class IOUtils {
 
     /**
+     * 获取指定文件内的所有字符文本内容
+     * @param path 指定文件的路径
+     * @return 文件的所有文本内容
+     */
+    public static String getText(String path) {
+        try {
+            return getText(new FileInputStream(path));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
+     * 获取指定输入流的所有字符文本内容
+     * @param inputStream 字符文件输入流
+     * @return 文件的所有文本内容
+     */
+    public static String getText(InputStream inputStream) {
+        StringBuilder text = new StringBuilder();
+        try {
+            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+            String str;
+            while ((str = reader.readLine()) != null) {
+                text.append(str);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return text.toString();
+    }
+
+    /**
      * 获取指定路径文件的字节数组
      * @param path 文件路径
      * @return 文件对应的字节数组数据

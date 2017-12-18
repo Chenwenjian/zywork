@@ -98,9 +98,10 @@
         <commons-lang3.version>3.5</commons-lang3.version>
         <beanutils.version>1.9.3</beanutils.version>
         <activation.version>1.1.1</activation.version>
-        <codec.version>1.11</codec.version>
+        <commons-codec.version>1.11</commons-codec.version>
         <commons-logging.version>1.2</commons-logging.version>
         <commons-fileupload.version>1.3.3</commons-fileupload.version>
+        <commons-collections.version>3.2.2</commons-collections.version>
         <junit.version>4.12</junit.version>
 
         <lifecycle-mapping.version>1.0.0</lifecycle-mapping.version>
@@ -306,6 +307,12 @@
                 <artifactId>jackson-annotations</artifactId>
                 <version>${jackson.version}</version>
             </dependency>
+            <!-- fastjson -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
             <!-- slf4j & logback -->
             <dependency>
                 <groupId>org.slf4j</groupId>
@@ -353,12 +360,17 @@
             <dependency>
                 <groupId>commons-codec</groupId>
                 <artifactId>commons-codec</artifactId>
-                <version>${codec.version}</version>
+                <version>${commons-codec.version}</version>
             </dependency>
             <dependency>
                 <groupId>commons-fileupload</groupId>
                 <artifactId>commons-fileupload</artifactId>
                 <version>${commons-fileupload.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-collections</groupId>
+                <artifactId>commons-collections</artifactId>
+                <version>${commons-collections.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.sun.mail</groupId>
