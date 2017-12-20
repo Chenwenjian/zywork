@@ -2,7 +2,7 @@ package top.zywork.service;
 
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import top.zywork.dos.UserDO;
+import top.zywork.dto.UserDTO;
 
 public class UserServiceTest extends BaseTest {
 
@@ -11,9 +11,9 @@ public class UserServiceTest extends BaseTest {
 
     @Test
     public void testSave() {
-        UserDO userDO = new UserDO();
-        userDO.setPassword("test");
-        userService.save(userDO);
+        UserDTO userDTO = new UserDTO();
+        userDTO.setPassword("test");
+        userService.save(userDTO);
     }
 
 }

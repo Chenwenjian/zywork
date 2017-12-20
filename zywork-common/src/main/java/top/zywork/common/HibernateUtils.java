@@ -19,7 +19,7 @@ public class HibernateUtils {
     @SuppressWarnings({"unchecked"})
     public static List<Object> listPageByCondition(Session session, Class<?> doClass, PageQuery pageQuery, BaseQuery queryObj) {
         CriteriaQuery criteriaQuery = buildRowsCriteriaQuery(session, doClass, queryObj);
-        Query query = session.createQuery(criteriaQuery);
+        Query query = (Query) session.createQuery(criteriaQuery);
         query.setFirstResult(pageQuery.getBeginIndex());
         query.setMaxResults(pageQuery.getPageSize());
         return query.list();
@@ -27,12 +27,11 @@ public class HibernateUtils {
 
     public static Long countByCondition(Session session, Class<?> doClass, BaseQuery queryObj, String countField) {
         CriteriaQuery<Long> criteriaQuery = buildCountCriteriaQuery(session, doClass, queryObj, countField);
-        return session.createQuery(criteriaQuery).uniqueResult();
+        return ((Query<Long>) session.createQuery(criteriaQuery)).uniqueResult();
     }
 
     public static Long countByCondition(Session session, Class<?> doClass, BaseQuery queryObj) {
-        CriteriaQuery<Long> criteriaQuery = buildCountCriteriaQuery(session, doClass, queryObj);
-        return session.createQuery(criteriaQuery).uniqueResult();
+        return countByCondition(session, doClass, queryObj, null);
     }
 
     public static <DO> CriteriaQuery<DO> buildRowsCriteriaQuery(Session session, Class<DO> doClass, BaseQuery queryObj) {

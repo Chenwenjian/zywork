@@ -103,6 +103,31 @@ public abstract class AbstractBaseDAO extends HibernateDaoSupport implements Bas
         return null;
     }
 
+    @Override
+    public List<Object> listAllDTO() {
+        return null;
+    }
+
+    @Override
+    public List<Object> listPageDTO(PageQuery pageQuery) {
+        return null;
+    }
+
+    @Override
+    public Long countDTO() {
+        return null;
+    }
+
+    @Override
+    public List<Object> listPageDTOByCondition(PageQuery pageQuery, Object queryObj) {
+        return null;
+    }
+
+    @Override
+    public Long countDTOByCondition(Object queryObj) {
+        return null;
+    }
+
     public void init(Class<?> doClass) {
         this.doClass = doClass;
     }

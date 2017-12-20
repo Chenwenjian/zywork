@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import top.zywork.dao.UserDAO;
 import top.zywork.dos.UserDO;
+import top.zywork.dto.UserDTO;
 import top.zywork.service.AbstractBaseService;
 import top.zywork.service.UserService;
 
@@ -22,6 +23,6 @@ public class UserServiceImpl extends AbstractBaseService implements UserService 
 
     @PostConstruct
     public void init() {
-        super.init(UserDO.class, UserDO.class);
+        super.init(UserDO.class, UserDTO.class);
     }
 }

@@ -75,4 +75,25 @@ public interface BaseService {
      * @return 按照条件的分页数据DTO对象所组成的List列表
      */
     PagerDTO listPageByCondition(PageQuery pageQuery, Object queryObj);
+
+    /**
+     * 查找所有记录数据
+     * @return DTO数据传输对象组成的List列表
+     */
+    List<Object> listAllDTO();
+
+    /**
+     * 根据PageQuery分页查询对象分页查找记录数据
+     * @param pageQuery 分页查询对象
+     * @return 分页数据DTO对象所组成的List列表
+     */
+    PagerDTO listPageDTO(PageQuery pageQuery);
+
+    /**
+     * 根据分页查询对象和条件查询对象查找数据
+     * @param pageQuery 分页查询对象
+     * @param queryObj 条件查询对象
+     * @return 按照条件的分页数据DTO对象所组成的List列表
+     */
+    PagerDTO listPageDTOByCondition(PageQuery pageQuery, Object queryObj);
 }

@@ -1,5 +1,10 @@
 package top.zywork.common;
 
+import org.springframework.web.context.ContextLoader;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
+
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -7,8 +12,8 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 /**
- * Web工具类
- * 创建于2017-08-16
+ * Web工具类<br />
+ * 创建于2017-08-16<br />
  *
  * @author 王振宇
  * @version 1.0
@@ -61,6 +66,30 @@ public class WebUtils {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    /**
+     * Spring Web环境中获取HttpServletRequest对象
+     * @return HttpServletRequest对象
+     */
+    public static HttpServletRequest getServletRequest() {
+        return ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+    }
+
+    /**
+     * Spring Web环境中获取ServletContext对象
+     * @return ServletContext对象
+     */
+    public static ServletContext getServletContext() {
+        return ContextLoader.getCurrentWebApplicationContext().getServletContext();
+    }
+
+    /**
+     * Spring Web环境中获取ContextPath应用上下文路径
+     * @return 应用上下文路径
+     */
+    public static String getContextPath() {
+        return getServletContext().getContextPath();
     }
 
 }
