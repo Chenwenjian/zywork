@@ -9,13 +9,13 @@
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: com.sun.mail:javax.mail:1.6.0" />
           <element id="library" level="project" name="Maven: javax.activation:activation:1.1.1" />
-          <element id="archive" name="zywork-message-service-api-1.0.jar">
+          <element id="archive" name="zywork-message-service-api-1.0.0.jar">
             <element id="module-output" name="zywork-message-service-api" />
           </element>
-          <element id="archive" name="zywork-message-common-1.0.jar">
+          <element id="archive" name="zywork-message-common-1.0.0.jar">
             <element id="module-output" name="zywork-message-common" />
           </element>
-          <element id="archive" name="zywork-common-1.0.jar">
+          <element id="archive" name="zywork-common-1.0.0.jar">
             <element id="module-output" name="zywork-common" />
           </element>
           <element id="library" level="project" name="Maven: net.sf.dozer:dozer:5.5.1" />
@@ -41,14 +41,14 @@
           <element id="library" level="project" name="Maven: dom4j:dom4j:1.6.1" />
           <element id="library" level="project" name="Maven: org.hibernate.common:hibernate-commons-annotations:5.0.1.Final" />
           <element id="library" level="project" name="Maven: com.alibaba:fastjson:1.2.37" />
-          <element id="archive" name="zywork-config-common-1.0.jar">
+          <element id="archive" name="zywork-config-common-1.0.0.jar">
             <element id="module-output" name="zywork-config-common" />
           </element>
           <element id="library" level="project" name="Maven: ch.qos.logback:logback-classic:1.2.3" />
           <element id="library" level="project" name="Maven: ch.qos.logback:logback-core:1.2.3" />
           <element id="library" level="project" name="Maven: org.logback-extensions:logback-ext-spring:0.1.4" />
           <element id="library" level="project" name="Maven: com.alibaba:druid:1.1.2" />
-          <element id="archive" name="zywork-config-web-1.0.jar">
+          <element id="archive" name="zywork-config-web-1.0.0.jar">
             <element id="module-output" name="zywork-config-web" />
           </element>
           <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:4.3.12.RELEASE" />

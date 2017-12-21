@@ -7,7 +7,7 @@
     <groupId>top.zywork</groupId>
     <artifactId>zywork-parent</artifactId>
     <packaging>pom</packaging>
-    <version>1.0</version>
+    <version>1.0.0</version>
     <modules>
         <module>zywork-common</module>
         <module>zywork-ucenter</module>
@@ -61,7 +61,7 @@
     </build>
 
     <properties>
-        <zywork.version>1.0</zywork.version>
+        <zywork.version>1.0.0</zywork.version>
         <javaee.version>7.0</javaee.version>
         <mail.version>1.6.0</mail.version>
         <dozer.version>5.5.1</dozer.version>
