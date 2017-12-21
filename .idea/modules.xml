@@ -40,6 +40,12 @@
       <module fileurl="file://$PROJECT_DIR$/zywork-report/zywork-report-service-api/zywork-report-service-api.iml" filepath="$PROJECT_DIR$/zywork-report/zywork-report-service-api/zywork-report-service-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/zywork-report/zywork-report-service-impl/zywork-report-service-impl.iml" filepath="$PROJECT_DIR$/zywork-report/zywork-report-service-impl/zywork-report-service-impl.iml" />
       <module fileurl="file://$PROJECT_DIR$/zywork-report/zywork-report-web/zywork-report-web.iml" filepath="$PROJECT_DIR$/zywork-report/zywork-report-web/zywork-report-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zywork-schedule/zywork-schedule.iml" filepath="$PROJECT_DIR$/zywork-schedule/zywork-schedule.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zywork-schedule/zywork-schedule-common/zywork-schedule-common.iml" filepath="$PROJECT_DIR$/zywork-schedule/zywork-schedule-common/zywork-schedule-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zywork-schedule/zywork-schedule-dao/zywork-schedule-dao.iml" filepath="$PROJECT_DIR$/zywork-schedule/zywork-schedule-dao/zywork-schedule-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zywork-schedule/zywork-schedule-service-api/zywork-schedule-service-api.iml" filepath="$PROJECT_DIR$/zywork-schedule/zywork-schedule-service-api/zywork-schedule-service-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zywork-schedule/zywork-schedule-service-impl/zywork-schedule-service-impl.iml" filepath="$PROJECT_DIR$/zywork-schedule/zywork-schedule-service-impl/zywork-schedule-service-impl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zywork-schedule/zywork-schedule-web/zywork-schedule-web.iml" filepath="$PROJECT_DIR$/zywork-schedule/zywork-schedule-web/zywork-schedule-web.iml" />
       <module fileurl="file://$PROJECT_DIR$/zywork-ucenter/zywork-ucenter.iml" filepath="$PROJECT_DIR$/zywork-ucenter/zywork-ucenter.iml" />
       <module fileurl="file://$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-common/zywork-ucenter-common.iml" filepath="$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-common/zywork-ucenter-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-dao/zywork-ucenter-dao.iml" filepath="$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-dao/zywork-ucenter-dao.iml" />

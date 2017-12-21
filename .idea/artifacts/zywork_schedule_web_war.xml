@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="zywork-schedule-web:war">
+    <output-path>$PROJECT_DIR$/zywork-schedule/zywork-schedule-web/target</output-path>
+    <root id="archive" name="zywork-schedule-web.war">
+      <element id="artifact" artifact-name="zywork-schedule-web:war exploded" />
+    </root>
+  </artifact>
+</component>

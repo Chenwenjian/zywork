@@ -19,6 +19,7 @@
         <module>zywork-cms</module>
         <module>zywork-config</module>
         <module>zywork-log</module>
+        <module>zywork-schedule</module>
     </modules>
 
     <repositories>

@@ -37,6 +37,11 @@
         <module name="zywork-report-service-api" />
         <module name="zywork-report-service-impl" />
         <module name="zywork-report-web" />
+        <module name="zywork-schedule-common" />
+        <module name="zywork-schedule-dao" />
+        <module name="zywork-schedule-service-api" />
+        <module name="zywork-schedule-service-impl" />
+        <module name="zywork-schedule-web" />
         <module name="zywork-ucenter-common" />
         <module name="zywork-ucenter-dao" />
         <module name="zywork-ucenter-service-api" />
@@ -88,6 +93,12 @@
       <module name="zywork-report-service-api" target="1.8" />
       <module name="zywork-report-service-impl" target="1.8" />
       <module name="zywork-report-web" target="1.8" />
+      <module name="zywork-schedule" target="1.8" />
+      <module name="zywork-schedule-common" target="1.8" />
+      <module name="zywork-schedule-dao" target="1.8" />
+      <module name="zywork-schedule-service-api" target="1.8" />
+      <module name="zywork-schedule-service-impl" target="1.8" />
+      <module name="zywork-schedule-web" target="1.8" />
       <module name="zywork-ucenter" target="1.8" />
       <module name="zywork-ucenter-common" target="1.8" />
       <module name="zywork-ucenter-dao" target="1.8" />

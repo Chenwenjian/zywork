@@ -13,11 +13,13 @@ zywork项目包含的功能有：
 5. 基于POI和JasperReport的**Excel处理和PDF报表导出**
 6. 基于HighCharts的**HTML5 WEB报表**
 7. 基于Redis的**数据缓存**
-8. 基于Logback或log4j的**日志记录**
-9. 基于Spring Task或QuartZ的**作业调度**
-10. 基于JavaMail和阿里云短信API的**消息发送**
-11. 基于微信支付，支付宝支付的**支付中心**
-12. 基于Bootstrap的前端及后台**UI视图**
+8. 基于Spring Session的**分布式会话管理**
+9. 基于Apache ZooKeeper和Dubbo的**分布式服务架构**
+10. 基于Logback或log4j的**日志记录**
+11. 基于Spring Task或QuartZ的**作业调度**
+12. 基于JavaMail和阿里云短信API的**消息发送**
+13. 基于微信支付，支付宝支付的**支付中心**
+14. 基于Bootstrap的前端及后台**UI视图**
 
 #### 系统基本架构 
 ```SpringMVC + Spring + MyBatis```，但是同时也提供了Hibernate相关的工具类，尽管此项目并没有使用Hibernate。
@@ -75,6 +77,10 @@ zywork项目包含的功能有：
 		<tr>
 			<td>zywork-log</td>
 			<td>日志系统，操作日志的记录，查询等管理</td>
+		</tr>
+		<tr>
+			<td>zywork-schedule</td>
+			<td>作业调度系统，作业查询，修改，启动，停止，暂停与重启</td>
 		</tr>
 	</tbody>
 </table>
