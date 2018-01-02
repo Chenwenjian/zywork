@@ -24,7 +24,7 @@ zywork项目包含的功能有：
 #### 系统基本架构 
 ```SpringMVC + Spring + MyBatis```，但是同时也提供了Hibernate相关的工具类，尽管此项目并没有使用Hibernate。
 
-此系统为分布式系统，包含有多个独立可运行的子系统，分布式协调服务基于Apache Zookeeper，分布式服务基于阿里巴巴的Dubbo，使用Nginx提供Tomcat集群的负载均衡。
+此系统为分布式系统，包含有多个独立可运行的子系统，分布式协调服务基于Apache ZooKeeper，分布式服务基于阿里巴巴的Dubbo，使用Nginx提供Tomcat集群的负载均衡。
 
 在zywork项目中，提供了一个```documents```目录，用于存储本项目相关的所有文档，其中```zywork.sql```文件是整个项目的数据库脚本文件，包含建立数据表及初始化数据的所有脚本。
 
