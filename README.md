@@ -203,20 +203,16 @@ zywork项目包含的功能有：
 			<td>CSS3</td>
 		</tr>
 		<tr>
-			<td>jQuery</td>
-			<td>jQuery</td>
-		</tr>
-		<tr>
-			<td>Bootstrap</td>
-			<td>前端UI框架</td>
-		</tr>
-		<tr>
 			<td>Vue.js</td>
 			<td>用户界面构建</td>
 		</tr>
 		<tr>
 			<td>Element UI</td>
-			<td>前端UI框架</td>
+			<td>UI框架</td>
+		</tr>
+		<tr>
+			<td>axios</td>
+			<td>Vue AJAX请求</td>
 		</tr>
 		<tr>
 			<td>HighCharts</td>

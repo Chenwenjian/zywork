@@ -10,7 +10,7 @@ zywork-ucenter为用户中心系统，实现了用户的注册，登录，基于
 
 #### zywork-ucenter-dao
 
-DAO模块，数据访问层代码
+DAO模块，数据访问层，包括DAO接口和Mapper映射文件
 
 #### zywork-ucenter-service-api
 
@@ -23,10 +23,3 @@ DAO模块，数据访问层代码
 #### zywork-ucenter-web
 
 Web层模块，控制器层代码和视图
-
-#### 关联的数据表
-
-1. ```t_user```
-2. ```t_user_detail```
-3. ```t_user_social```
-4. ```t_social_type```

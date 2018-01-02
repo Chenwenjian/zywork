@@ -5,7 +5,7 @@
 zywork-config为配置文件中心，为各个子系统提供统一通用的配置文件，包含四个模块，第一个模块为zywork-config-common，包含通用的配置文件；第二个模块为zywork-config-dao，包含DAO相关的配置文件；第三个模块为zywork-config-service，包含Service相关的配置文件；第四个模块为zywork-config-web，包含Web层相关的模块。
 
 #### zywork-config-common
-1. ```logback.xml(resources目录下)```
+1. ```logback.xml(resources目录下，Dubbo服务直接使用src根路径下的logback.xml)```
 2. ```spring-dozer.xml```
 
 #### zywork-config-dao
