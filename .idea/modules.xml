@@ -52,6 +52,9 @@
       <module fileurl="file://$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-service-api/zywork-ucenter-service-api.iml" filepath="$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-service-api/zywork-ucenter-service-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-service-impl/zywork-ucenter-service-impl.iml" filepath="$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-service-impl/zywork-ucenter-service-impl.iml" />
       <module fileurl="file://$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-web/zywork-ucenter-web.iml" filepath="$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-web/zywork-ucenter-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zywork-ui/zywork-ui.iml" filepath="$PROJECT_DIR$/zywork-ui/zywork-ui.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/zywork-ui-backend.iml" filepath="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/zywork-ui-backend.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zywork-ui/zywork-ui-frontend/zywork-ui-frontend.iml" filepath="$PROJECT_DIR$/zywork-ui/zywork-ui-frontend/zywork-ui-frontend.iml" />
       <module fileurl="file://$PROJECT_DIR$/zywork-upms/zywork-upms.iml" filepath="$PROJECT_DIR$/zywork-upms/zywork-upms.iml" />
       <module fileurl="file://$PROJECT_DIR$/zywork-upms/zywork-upms-common/zywork-upms-common.iml" filepath="$PROJECT_DIR$/zywork-upms/zywork-upms-common/zywork-upms-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/zywork-upms/zywork-upms-dao/zywork-upms-dao.iml" filepath="$PROJECT_DIR$/zywork-upms/zywork-upms-dao/zywork-upms-dao.iml" />
