@@ -12,5 +12,8 @@
     <dubbo:protocol name="dubbo" port="20880" />
 
     <dubbo:service timeout="3000" interface="top.zywork.service.UserService" ref="userService" protocol="dubbo" />
+    <dubbo:service timeout="3000" interface="top.zywork.service.RoleService" ref="roleService" protocol="dubbo" />
+    <dubbo:service timeout="3000" interface="top.zywork.service.PermissionService" ref="permissionService" protocol="dubbo" />
+    <dubbo:service timeout="3000" interface="top.zywork.service.ModuleService" ref="moduleService" protocol="dubbo" />
 
 </beans>

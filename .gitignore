@@ -48,6 +48,7 @@
 /zywork-upms/zywork-upms-service-impl/target/
 /zywork-upms/zywork-upms-service-impl/catalina.base_IS_UNDEFINED/
 /zywork-upms/zywork-upms-web/target/
+/zywork-upms/zywork-upms-shiro-web/target/
 /zywork-log/target/
 /zywork-log/zywork-log-common/target/
 /zywork-log/zywork-log-dao/target/

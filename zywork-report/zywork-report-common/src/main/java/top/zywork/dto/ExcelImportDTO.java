@@ -1,7 +1,5 @@
 package top.zywork.dto;
 
-import java.util.List;
-
 /**
  * 用于封装Excel导入的基本信息，此基本信息可由json配置文件配置。
  * rows属性为需要导入的数据<br />

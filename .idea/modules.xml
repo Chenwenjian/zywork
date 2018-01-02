@@ -57,6 +57,7 @@
       <module fileurl="file://$PROJECT_DIR$/zywork-upms/zywork-upms-dao/zywork-upms-dao.iml" filepath="$PROJECT_DIR$/zywork-upms/zywork-upms-dao/zywork-upms-dao.iml" />
       <module fileurl="file://$PROJECT_DIR$/zywork-upms/zywork-upms-service-api/zywork-upms-service-api.iml" filepath="$PROJECT_DIR$/zywork-upms/zywork-upms-service-api/zywork-upms-service-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/zywork-upms/zywork-upms-service-impl/zywork-upms-service-impl.iml" filepath="$PROJECT_DIR$/zywork-upms/zywork-upms-service-impl/zywork-upms-service-impl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zywork-upms/zywork-upms-shiro-web/zywork-upms-shiro-web.iml" filepath="$PROJECT_DIR$/zywork-upms/zywork-upms-shiro-web/zywork-upms-shiro-web.iml" />
       <module fileurl="file://$PROJECT_DIR$/zywork-upms/zywork-upms-web/zywork-upms-web.iml" filepath="$PROJECT_DIR$/zywork-upms/zywork-upms-web/zywork-upms-web.iml" />
     </modules>
   </component>

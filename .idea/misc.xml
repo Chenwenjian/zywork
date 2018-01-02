@@ -19,8 +19,11 @@
     </option>
     <option name="ignoredFiles">
       <set>
+        <option value="$PROJECT_DIR$/zywork-config/zywork-config-shiro/pom.xml" />
         <option value="$PROJECT_DIR$/zywork-ucenter/zywork-config/pom.xml" />
         <option value="$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-service/pom.xml" />
+        <option value="$PROJECT_DIR$/zywork-ui/pom.xml" />
+        <option value="$PROJECT_DIR$/zywork-upms/zywork-upms-shiro/pom.xml" />
         <option value="$PROJECT_DIR$/zywork-workflow/pom.xml" />
       </set>
     </option>

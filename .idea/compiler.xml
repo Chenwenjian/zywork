@@ -51,6 +51,9 @@
         <module name="zywork-upms-dao" />
         <module name="zywork-upms-service-api" />
         <module name="zywork-upms-service-impl" />
+        <module name="zywork-upms-shiro-we" />
+        <module name="zywork-upms-shiro-web" />
+        <module name="zywork-upms-shiro1" />
         <module name="zywork-upms-web" />
       </profile>
     </annotationProcessing>
@@ -73,6 +76,7 @@
       <module name="zywork-config-common" target="1.8" />
       <module name="zywork-config-dao" target="1.8" />
       <module name="zywork-config-service" target="1.8" />
+      <module name="zywork-config-shiro" target="1.8" />
       <module name="zywork-config-web" target="1.8" />
       <module name="zywork-log" target="1.8" />
       <module name="zywork-log-common" target="1.8" />
@@ -106,11 +110,16 @@
       <module name="zywork-ucenter-service-api" target="1.8" />
       <module name="zywork-ucenter-service-impl" target="1.8" />
       <module name="zywork-ucenter-web" target="1.8" />
+      <module name="zywork-ui" target="1.8" />
       <module name="zywork-upms" target="1.8" />
       <module name="zywork-upms-common" target="1.8" />
       <module name="zywork-upms-dao" target="1.8" />
       <module name="zywork-upms-service-api" target="1.8" />
       <module name="zywork-upms-service-impl" target="1.8" />
+      <module name="zywork-upms-shiro" target="1.8" />
+      <module name="zywork-upms-shiro-we" target="1.8" />
+      <module name="zywork-upms-shiro-web" target="1.8" />
+      <module name="zywork-upms-shiro1" target="1.8" />
       <module name="zywork-upms-web" target="1.8" />
       <module name="zywork-workflow" target="1.8" />
     </bytecodeTargetLevel>

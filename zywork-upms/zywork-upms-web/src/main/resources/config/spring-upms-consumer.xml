@@ -8,4 +8,7 @@
     <dubbo:registry address="zookeeper://localhost:2181"/>
 
     <dubbo:reference id="userService" interface="top.zywork.service.UserService"/>
+    <dubbo:reference id="roleService" interface="top.zywork.service.RoleService"/>
+    <dubbo:reference id="permissionService" interface="top.zywork.service.PermissionService"/>
+
 </beans>
