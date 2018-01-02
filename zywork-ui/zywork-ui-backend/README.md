@@ -4,7 +4,7 @@
 
 基于Vue.js和Element UI的zywork后台管理模板
 
-![](https://github.com/GZWgssmart/zywork/zywork-ui/zywork-ui-backend/blob/master/src/assets/zywork-backend-ui.png)
+![](https://github.com/GZWgssmart/zywork/blob/master/zywork-ui/zywork-ui-backend/src/assets/zywork-backend-ui.png)
 
 #### Build Setup
 
