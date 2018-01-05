@@ -4,6 +4,8 @@
 
 基于Vue.js和Element UI的zywork后台管理模板
 
+支持动态切换任意颜色的主题
+
 ![](https://github.com/GZWgssmart/zywork/blob/master/zywork-ui/zywork-ui-backend/src/assets/zywork-backend-ui.png)
 
 #### Build Setup
