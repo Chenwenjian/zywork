@@ -10,16 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3891c4bd-30e2-4dc3-9494-cb36e46aec05" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/static/css/main.css" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-service-impl/src/test/java/Application.java" afterPath="$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-service-impl/src/test/java/UCenterApplication.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/zywork-upms/zywork-upms-service-impl/src/test/java/Application.java" afterPath="$PROJECT_DIR$/zywork-upms/zywork-upms-service-impl/src/test/java/UPMSApplication.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-config/zywork-config-web/src/main/resources/config/springmvc.xml" afterPath="$PROJECT_DIR$/zywork-config/zywork-config-web/src/main/resources/config/springmvc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/package-lock.json" afterPath="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/package-lock.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/package.json" afterPath="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/components/AppFooter.vue" afterPath="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/components/AppFooter.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/components/AppHeader.vue" afterPath="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/components/AppHeader.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/components/AppSider.vue" afterPath="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/components/AppSider.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/main.js" afterPath="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/views/home.vue" afterPath="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/views/home.vue" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -126,7 +120,120 @@
     <favorites_list name="zywork" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="color.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/utils/color.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="375">
+              <caret line="25" column="30" lean-forward="false" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="file.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/utils/file.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="20" column="4" lean-forward="false" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/views/login.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+              <folding>
+                <element signature="n#style#0;n#el-button#0;n#el-form-item#2;n#el-form#0;n#div#0;n#el-col#0;n#el-row#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <marker date="1515216937746" expanded="true" signature="1660:1668" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/views/home.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="25" column="18" lean-forward="false" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
+              <folding>
+                <marker date="1515142067218" expanded="true" signature="869:924" ph="{&quot;ElAside&quot;: ElAside...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="users.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/views/users.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="372">
+              <caret line="83" column="84" lean-forward="false" selection-start-line="83" selection-start-column="84" selection-end-line="83" selection-end-column="84" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UCenterApplication.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-service-impl/src/test/java/UCenterApplication.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UPMSApplication.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/zywork-upms/zywork-upms-service-impl/src/test/java/UPMSApplication.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="6" column="23" lean-forward="false" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AppFooter.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/components/AppFooter.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="69" lean-forward="false" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="69" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="style.scss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/theme/style.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="454">
+              <caret line="64" column="27" lean-forward="false" selection-start-line="64" selection-start-column="21" selection-end-line="64" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ThemePicker.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/components/ThemePicker.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1227">
+              <caret line="11" column="71" lean-forward="false" selection-start-line="11" selection-start-column="71" selection-end-line="11" selection-end-column="71" />
+              <folding>
+                <element signature="n#style#0;n#el-dropdown-item#0;n#el-dropdown-menu#0;n#el-dropdown#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#el-dropdown-item#1;n#el-dropdown-menu#0;n#el-dropdown#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#el-dropdown-item#2;n#el-dropdown-menu#0;n#el-dropdown#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#el-dropdown-item#3;n#el-dropdown-menu#0;n#el-dropdown#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#el-dropdown-item#4;n#el-dropdown-menu#0;n#el-dropdown#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="e#1463#1506#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -139,7 +246,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Long</find>
       <find>DO</find>
       <find>DTO</find>
       <find>jackson</find>
@@ -169,6 +275,7 @@
       <find>color-blue</find>
       <find>fonts</find>
       <find>oldColor</find>
+      <find>toolbar</find>
     </findStrings>
     <replaceStrings>
       <replace>PK</replace>
@@ -189,11 +296,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/zywork-upms/zywork-upms-service-impl/src/main/java/top/zywork/service/impl/ModuleServiceImpl.java" />
-        <option value="$PROJECT_DIR$/zywork-upms/zywork-upms-service-impl/src/main/resources/config/spring-upms-provider.xml" />
-        <option value="$PROJECT_DIR$/zywork-upms/zywork-upms-shiro-web/src/main/resources/config/spring-shiro-consumer.xml" />
-        <option value="$PROJECT_DIR$/zywork-upms/zywork-upms-shiro-web/src/main/java/top/zywork/security/shiro/AppShiroRealm.java" />
-        <option value="$PROJECT_DIR$/zywork-upms/zywork-upms-web/pom.xml" />
         <option value="$PROJECT_DIR$/zywork-upms/zywork-upms-web/src/main/resources/config/spring-upms-consumer.xml" />
         <option value="$PROJECT_DIR$/zywork-upms/zywork-upms-shiro-web/src/main/resources/config/spring-session.xml" />
         <option value="$PROJECT_DIR$/zywork-upms/zywork-upms-shiro-web/pom.xml" />
@@ -218,8 +320,6 @@
         <option value="$PROJECT_DIR$/.idea/misc.xml" />
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/README.md" />
-        <option value="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/views/login.vue" />
         <option value="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/static/theme/green.scss" />
         <option value="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/static/theme/blue.scss" />
         <option value="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/theme/color.js" />
@@ -231,15 +331,22 @@
         <option value="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/theme/blue.scss" />
         <option value="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/theme/colors.scss" />
         <option value="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/utils/formula.json" />
-        <option value="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/utils/color.js" />
         <option value="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/index.html" />
+        <option value="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/static/css/main.css" />
+        <option value="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/README.md" />
+        <option value="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/utils/color.js" />
+        <option value="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/utils/file.js" />
         <option value="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/views/home.vue" />
         <option value="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/components/AppSider.vue" />
-        <option value="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/static/css/main.css" />
+        <option value="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/theme/variables.scss" />
         <option value="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/theme/style.scss" />
         <option value="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/main.js" />
+        <option value="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/views/ucenter/users.vue" />
+        <option value="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/components/ToolBar.vue" />
         <option value="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/components/AppHeader.vue" />
         <option value="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/components/ThemePicker.vue" />
+        <option value="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/views/login.vue" />
+        <option value="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/views/users.vue" />
       </list>
     </option>
   </component>
@@ -345,31 +452,72 @@
             <path>
               <item name="zywork" type="b2602c69:ProjectViewProjectNode" />
               <item name="zywork" type="462c0819:PsiDirectoryNode" />
-              <item name="documents" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork-ucenter" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="zywork" type="b2602c69:ProjectViewProjectNode" />
               <item name="zywork" type="462c0819:PsiDirectoryNode" />
-              <item name="documents" type="462c0819:PsiDirectoryNode" />
-              <item name="技术文档" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork-ucenter" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork-ucenter-service-impl" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="zywork" type="b2602c69:ProjectViewProjectNode" />
               <item name="zywork" type="462c0819:PsiDirectoryNode" />
-              <item name="zywork-ui" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork-ucenter" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork-ucenter-service-impl" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="zywork" type="b2602c69:ProjectViewProjectNode" />
               <item name="zywork" type="462c0819:PsiDirectoryNode" />
-              <item name="zywork-ui" type="462c0819:PsiDirectoryNode" />
-              <item name="zywork-ui-backend" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork-ucenter" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork-ucenter-service-impl" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="zywork" type="b2602c69:ProjectViewProjectNode" />
               <item name="zywork" type="462c0819:PsiDirectoryNode" />
-              <item name="zywork-ui" type="462c0819:PsiDirectoryNode" />
-              <item name="zywork-ui-backend" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork-ucenter" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork-ucenter-service-impl" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="zywork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="zywork" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork-upms" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="zywork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="zywork" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork-upms" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork-upms-service-impl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="zywork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="zywork" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork-upms" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork-upms-service-impl" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="zywork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="zywork" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork-upms" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork-upms-service-impl" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="zywork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="zywork" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork-upms" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork-upms-service-impl" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -410,10 +558,10 @@
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/components" />
+      <recent name="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/views/ucenter" />
+      <recent name="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/utils" />
       <recent name="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/theme" />
       <recent name="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/static/theme" />
-      <recent name="$PROJECT_DIR$/zywork-ui" />
-      <recent name="$PROJECT_DIR$/zywork-upms/zywork-upms-service-impl/src/main/java/top/zywork/service/impl" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -428,35 +576,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Tomcat Server.zywork">
-    <configuration name="Application (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="Application" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="zywork-upms-service-impl" />
-      <envs />
-    </configuration>
-    <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="Application" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="zywork-ucenter-service-impl" />
-      <envs />
-    </configuration>
+  <component name="RunManager">
     <configuration name="ExcelImportServiceTest.testImport" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -506,6 +626,34 @@
       </option>
       <envs />
       <patterns />
+    </configuration>
+    <configuration name="UCenterApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="UCenterApplication" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="zywork-ucenter-service-impl" />
+      <envs />
+    </configuration>
+    <configuration name="UPMSApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="UPMSApplication" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="zywork-upms-service-impl" />
+      <envs />
     </configuration>
     <configuration name="UserServiceTest.testSave" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
@@ -687,16 +835,16 @@
     </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Tomcat Server.zywork" />
-      <item index="1" class="java.lang.String" itemvalue="Application.Application" />
-      <item index="2" class="java.lang.String" itemvalue="Application.Application (1)" />
+      <item index="1" class="java.lang.String" itemvalue="Application.UCenterApplication" />
+      <item index="2" class="java.lang.String" itemvalue="Application.UPMSApplication" />
       <item index="3" class="java.lang.String" itemvalue="JUnit.ExcelImportServiceTest.testImport" />
       <item index="4" class="java.lang.String" itemvalue="JUnit.UserServiceTest.testSave" />
       <item index="5" class="java.lang.String" itemvalue="JUnit.SysLogServiceTest.testLog" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.Application (1)" />
-        <item index="1" class="java.lang.String" itemvalue="Application.Application" />
+        <item index="0" class="java.lang.String" itemvalue="Application.UPMSApplication" />
+        <item index="1" class="java.lang.String" itemvalue="Application.UCenterApplication" />
         <item index="2" class="java.lang.String" itemvalue="JUnit.SysLogServiceTest.testLog" />
         <item index="3" class="java.lang.String" itemvalue="JUnit.UserServiceTest.testSave" />
         <item index="4" class="java.lang.String" itemvalue="JUnit.ExcelImportServiceTest.testImport" />
@@ -728,7 +876,7 @@
       <workItem from="1514871204368" duration="162000" />
       <workItem from="1514871434375" duration="10940000" />
       <workItem from="1514882703831" duration="2833000" />
-      <workItem from="1514940235563" duration="38101000" />
+      <workItem from="1514940235563" duration="54428000" />
     </task>
     <servers />
   </component>
@@ -765,7 +913,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="270958000" />
+    <option name="totallyTimeSpent" value="287285000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1" y="23" width="1280" height="777" extended-state="6" />
@@ -793,9 +941,10 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991204" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991204" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2996769" sideWeight="0.4941349" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2996769" sideWeight="0.4941349" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32844576" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28836834" sideWeight="0.5058651" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -804,7 +953,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293944" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32844576" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -869,91 +1017,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="5" lean-forward="false" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/compiler.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="497">
-          <caret line="116" column="52" lean-forward="false" selection-start-line="116" selection-start-column="52" selection-end-line="116" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/build/build.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zywork-ui/README.md" />
-    <entry file="file://$PROJECT_DIR$/zywork-pay/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="30">
-            <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="8" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="-142">
-            <caret line="21" column="35" lean-forward="false" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="60">
-            <caret line="4" column="32" lean-forward="false" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zywork-report/zywork-report-common/src/main/java/top/zywork/common/ExcelUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="26" column="13" lean-forward="false" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zywork-report/zywork-report-common/src/main/java/top/zywork/common/ExportUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-407">
-          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zywork-report/zywork-report-common/src/main/java/top/zywork/common/ExcelExportUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="36" column="7" lean-forward="false" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zywork-report/zywork-report-common/src/main/java/top/zywork/dto/ExcelImportDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/zywork-report/zywork-report-service-impl/src/test/java/top/zywork/service/ExcelImportServiceTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -1037,39 +1100,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/views/homeIndex.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/views/login.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-73">
-          <caret line="3" column="24" lean-forward="false" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
-          <folding>
-            <marker date="1515049856937" expanded="true" signature="1022:1031" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/dist/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/router/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="21" lean-forward="true" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#21#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1212,72 +1247,97 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/theme/style.scss">
+    <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="90">
+            <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zywork-upms/zywork-upms-shiro-web/src/main/java/top/zywork/security/shiro/AppShiroRealm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="43" column="1" lean-forward="false" selection-start-line="43" selection-start-column="1" selection-end-line="43" selection-end-column="1" />
+        <state relative-caret-position="315">
+          <caret line="39" column="21" lean-forward="false" selection-start-line="39" selection-start-column="21" selection-end-line="39" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/components/AppSider.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-703">
-          <caret line="2" column="60" lean-forward="false" selection-start-line="2" selection-start-column="60" selection-end-line="2" selection-end-column="60" />
+        <state relative-caret-position="512">
+          <caret line="83" column="14" lean-forward="false" selection-start-line="83" selection-start-column="14" selection-end-line="83" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/theme/variables.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="16" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="53" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="42" lean-forward="false" selection-start-line="6" selection-start-column="42" selection-end-line="6" selection-end-column="42" />
+        <state relative-caret-position="105">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#140#161#0" expanded="true" />
-            <element signature="e#271#316#0" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
+            <element signature="e#140#161#0" expanded="false" />
+            <element signature="e#271#316#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/utils/color.js">
+    <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/views/homeIndex.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="3" lean-forward="true" selection-start-line="32" selection-start-column="3" selection-end-line="32" selection-end-column="3" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/components/AppFooter.vue">
+    <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/router/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="4" lean-forward="false" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
+        <state relative-caret-position="179">
+          <caret line="19" column="21" lean-forward="true" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/views/home.vue">
+    <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/views/register.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="945">
-          <caret line="63" column="3" lean-forward="true" selection-start-line="63" selection-start-column="3" selection-end-line="63" selection-end-column="3" />
-          <folding>
-            <element signature="e#472#509#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-792">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/views/users.vue">
+    <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/components/ToolBar.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="121" column="64" lean-forward="true" selection-start-line="120" selection-start-column="8" selection-end-line="121" selection-end-column="64" />
+        <state relative-caret-position="495">
+          <caret line="33" column="3" lean-forward="false" selection-start-line="33" selection-start-column="3" selection-end-line="33" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/views/ucenter/users.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3947">
+          <caret line="305" column="25" lean-forward="true" selection-start-line="305" selection-start-column="25" selection-end-line="305" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/components/AppHeader.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1023">
-          <caret line="98" column="19" lean-forward="false" selection-start-line="98" selection-start-column="19" selection-end-line="98" selection-end-column="19" />
+        <state relative-caret-position="-1573">
+          <caret line="19" column="27" lean-forward="false" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
           <folding>
             <element signature="n#style#0;n#theme-picker#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
           </folding>
@@ -1286,11 +1346,109 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/components/ThemePicker.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+        <state relative-caret-position="-1227">
+          <caret line="11" column="71" lean-forward="false" selection-start-line="11" selection-start-column="71" selection-end-line="11" selection-end-column="71" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#el-dialog#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#el-dropdown-item#0;n#el-dropdown-menu#0;n#el-dropdown#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#el-dropdown-item#1;n#el-dropdown-menu#0;n#el-dropdown#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#el-dropdown-item#2;n#el-dropdown-menu#0;n#el-dropdown#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#el-dropdown-item#3;n#el-dropdown-menu#0;n#el-dropdown#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#el-dropdown-item#4;n#el-dropdown-menu#0;n#el-dropdown#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="e#1463#1506#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/utils/color.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="30" lean-forward="false" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/utils/file.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="4" lean-forward="false" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/theme/style.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="454">
+          <caret line="64" column="27" lean-forward="false" selection-start-line="64" selection-start-column="21" selection-end-line="64" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zywork-upms/zywork-upms-service-impl/src/main/resources/config/spring-upms-provider.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zywork-upms/zywork-upms-web/src/main/resources/config/spring-upms-consumer.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/views/home.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="25" column="18" lean-forward="false" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
+          <folding>
+            <marker date="1515142067218" expanded="true" signature="869:924" ph="{&quot;ElAside&quot;: ElAside...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/components/AppFooter.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="69" lean-forward="false" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/views/login.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding>
+            <element signature="n#style#0;n#el-button#0;n#el-form-item#2;n#el-form#0;n#div#0;n#el-col#0;n#el-row#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <marker date="1515216937746" expanded="true" signature="1660:1668" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/views/users.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="372">
+          <caret line="83" column="84" lean-forward="false" selection-start-line="83" selection-start-column="84" selection-end-line="83" selection-end-column="84" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-service-impl/src/test/java/UCenterApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zywork-upms/zywork-upms-service-impl/src/test/java/UPMSApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="6" column="23" lean-forward="false" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>
