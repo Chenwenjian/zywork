@@ -1,5 +1,8 @@
 package top.zywork.common;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
@@ -11,6 +14,8 @@ import java.lang.reflect.Method;
  * @version 1.0
  */
 public class ReflectUtils {
+
+    private static final Logger logger = LoggerFactory.getLogger(ReflectUtils.class);
 
     /**
      * 调用指定属性的getter方法
@@ -25,7 +30,7 @@ public class ReflectUtils {
             Method method = clazz.getMethod(PropertyUtils.getter(property));
             return method.invoke(obj);
         } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
-            e.printStackTrace();
+            logger.warn(e.getMessage());
         }
         return null;
     }
@@ -38,12 +43,14 @@ public class ReflectUtils {
      */
     @SuppressWarnings({"unchecked"})
     public static void invokeSetter(Object obj, String property, Object param) {
-        Class clazz = obj.getClass();
-        try {
-            Method method = clazz.getMethod(PropertyUtils.setter(property), param.getClass());
-            method.invoke(obj, param);
-        } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
-            e.printStackTrace();
+        if (param != null) {
+            Class clazz = obj.getClass();
+            try {
+                Method method = clazz.getMethod(PropertyUtils.setter(property), param.getClass());
+                method.invoke(obj, param);
+            } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
+                logger.warn(e.getMessage());
+            }
         }
     }
 

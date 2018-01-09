@@ -9,9 +9,12 @@ import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.ss.util.CellRangeAddress;
 import org.apache.poi.xssf.usermodel.*;
 import org.openxmlformats.schemas.drawingml.x2006.spreadsheetDrawing.CTMarker;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import top.zywork.enums.MIMETypeEnum;
 
 import java.io.*;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -25,6 +28,8 @@ import java.util.List;
  * @version 1.0
  */
 public class ExcelUtils {
+
+    private static final Logger logger = LoggerFactory.getLogger(ExcelUtils.class);
 
     private static final CellStyle NONE_CELL_STYLE = null;
     private static final Object NONE_CELL_VALUE = null;
@@ -55,7 +60,7 @@ public class ExcelUtils {
             }
             inputStream.close();
         } catch (IOException e) {
-            e.printStackTrace();
+           logger.error(e.getMessage());
         }
         return workbook;
     }
@@ -70,7 +75,7 @@ public class ExcelUtils {
         try {
             readExcel(new FileInputStream(new File(path)), mimeTypeEnum);
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         }
         return workbook;
     }
@@ -138,7 +143,7 @@ public class ExcelUtils {
             workbook.write(outputStream);
             outputStream.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         }
     }
 
@@ -150,7 +155,13 @@ public class ExcelUtils {
      * @return true或false
      */
     public boolean getBooleanCellValueAt(Sheet sheet, int rowNo, int columnNo) {
-        return sheet.getRow(rowNo).getCell(columnNo).getBooleanCellValue();
+        boolean value = false;
+        try {
+            value = sheet.getRow(rowNo).getCell(columnNo).getBooleanCellValue();
+        } catch (NullPointerException e) {
+            logger.info("null value in cell");
+        }
+        return value;
     }
 
     /**
@@ -161,7 +172,13 @@ public class ExcelUtils {
      * @return 字符串
      */
     public String getStringCellValueAt(Sheet sheet, int rowNo, int columnNo) {
-        return sheet.getRow(rowNo).getCell(columnNo).getStringCellValue();
+        String value = null;
+        try {
+            value = sheet.getRow(rowNo).getCell(columnNo).getStringCellValue();
+        } catch (NullPointerException e) {
+            logger.info("null value in cell");
+        }
+        return value;
     }
 
     /**
@@ -176,6 +193,28 @@ public class ExcelUtils {
     }
 
     /**
+     * 获取指定工作表指定行指定列的长整数数据
+     * @param sheet 工作表对象
+     * @param rowNo 指定行
+     * @param columnNo 指定列
+     * @return 长整数
+     */
+    public long getLongCellValueAt(Sheet sheet, int rowNo, int columnNo) {
+        return (long) getDoubleCellValueAt(sheet, rowNo, columnNo);
+    }
+
+    /**
+     * 获取指定工作表指定行指定列的BigDecimal数据，取2位小数
+     * @param sheet 工作表对象
+     * @param rowNo 指定行
+     * @param columnNo 指定列
+     * @return BigDecimal
+     */
+    public BigDecimal getBigDecimalCellValueAt(Sheet sheet, int rowNo, int columnNo) {
+        return new BigDecimal(getDoubleCellValueAt(sheet, rowNo, columnNo)).setScale(2, BigDecimal.ROUND_HALF_UP);
+    }
+
+    /**
      * 获取指定工作表指定行指定列的浮点数数据
      * @param sheet 工作表对象
      * @param rowNo 指定行
@@ -183,7 +222,13 @@ public class ExcelUtils {
      * @return 浮点数
      */
     public double getDoubleCellValueAt(Sheet sheet, int rowNo, int columnNo) {
-        return sheet.getRow(rowNo).getCell(columnNo).getNumericCellValue();
+        double value = 0.0;
+        try {
+            value = sheet.getRow(rowNo).getCell(columnNo).getNumericCellValue();
+        } catch (NullPointerException e) {
+            logger.info("null value in cell");
+        }
+        return value;
     }
 
     /**
@@ -194,7 +239,13 @@ public class ExcelUtils {
      * @return 时间
      */
     public Date getDateCellValueAt(Sheet sheet, int rowNo, int columnNo) {
-        return sheet.getRow(rowNo).getCell(columnNo).getDateCellValue();
+        Date value = null;
+        try {
+            value = sheet.getRow(rowNo).getCell(columnNo).getDateCellValue();
+        } catch (NullPointerException e) {
+            logger.info("null value in cell");
+        }
+        return value;
     }
 
     /**
@@ -690,7 +741,7 @@ public class ExcelUtils {
             try {
                 workbook.close();
             } catch (IOException e) {
-                e.printStackTrace();
+                logger.error(e.getMessage());
             }
         }
     }

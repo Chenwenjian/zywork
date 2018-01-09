@@ -9,6 +9,7 @@ import top.zywork.dto.ExcelImportDTO;
 import top.zywork.service.ExcelImportService;
 
 import java.lang.reflect.Field;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -61,6 +62,10 @@ public class ExcelImportServiceImpl implements ExcelImportService {
                 return excelUtils.getIntegerCellValueAt(sheet, rowNo, colNo);
             } else if (type == Boolean.class) {
                 return excelUtils.getBooleanCellValueAt(sheet, rowNo, colNo);
+            } else if (type == Long.class) {
+                return excelUtils.getLongCellValueAt(sheet, rowNo, colNo);
+            } else if (type == BigDecimal.class) {
+                return excelUtils.getBigDecimalCellValueAt(sheet, rowNo, colNo);
             }
         } catch (NoSuchFieldException e) {
             e.printStackTrace();
