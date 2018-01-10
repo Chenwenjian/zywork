@@ -11,8 +11,9 @@
   <component name="ChangeListManager">
     <list default="true" id="3891c4bd-30e2-4dc3-9494-cb36e46aec05" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-config/zywork-config-web/src/main/resources/config/springmvc.xml" afterPath="$PROJECT_DIR$/zywork-config/zywork-config-web/src/main/resources/config/springmvc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-upms/README.md" afterPath="$PROJECT_DIR$/zywork-upms/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/components/ThemePicker.vue" afterPath="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/components/ThemePicker.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/views/login.vue" afterPath="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/views/login.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/views/users.vue" afterPath="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/views/users.vue" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -132,42 +133,43 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>jackson</find>
-      <find>dataSource</find>
-      <find>test</find>
-      <find>spring-test</find>
-      <find>druid</find>
-      <find>datasource</find>
-      <find>CONFIG_LOCATION_PARAM</find>
-      <find>contextConfigLocation</find>
-      <find>zookeeper</find>
-      <find>dubbo</find>
-      <find>1.0</find>
-      <find>collections</find>
-      <find>fastjson</find>
-      <find>lang</find>
-      <find>logging</find>
-      <find>codec</find>
-      <find>hibernate</find>
-      <find>&lt;version&gt;1.0&lt;/</find>
-      <find>spring-data</find>
-      <find>upms</find>
-      <find>commons</find>
-      <find>jedis</find>
-      <find>el-header</find>
-      <find>alias</find>
-      <find>color-blue</find>
-      <find>fonts</find>
-      <find>oldColor</find>
-      <find>toolbar</find>
-      <find>e.print</find>
-      <find>e.printstra</find>
+      <find>360000</find>
+      <find>370000</find>
+      <find>410000</find>
+      <find>420000</find>
+      <find>430000</find>
+      <find>440000</find>
+      <find>450000</find>
+      <find>460000</find>
+      <find>510000</find>
+      <find>520000</find>
+      <find>530000</find>
+      <find>610000</find>
+      <find>620000</find>
+      <find>630000</find>
+      <find>640000</find>
+      <find>650000</find>
+      <find>360700</find>
+      <find>var</find>
+      <find>currProvince</find>
+      <find>this.currProvince</find>
+      <find>currProvinceName</find>
+      <find>placeholder</find>
+      <find>place</find>
+      <find>size</find>
+      <find>holder</find>
+      <find>currentVAlue</find>
+      <find>handleInput</find>
+      <find>value</find>
+      <find>handleChange</find>
+      <find>310100</find>
     </findStrings>
     <replaceStrings>
       <replace>PK</replace>
       <replace>Object</replace>
       <replace>${zywork.version}</replace>
       <replace>&lt;version&gt;1.0.0&lt;/</replace>
+      <replace>let</replace>
       <replace>currColor</replace>
     </replaceStrings>
   </component>
@@ -182,10 +184,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/zywork-upms/zywork-upms-service-api/src/main/java/top/zywork/service/UserService.java" />
-        <option value="$PROJECT_DIR$/zywork-upms/zywork-upms-dao/src/main/resources/mapper/UserDAOMapper.xml" />
-        <option value="$PROJECT_DIR$/zywork-upms/zywork-upms-web/src/main/java/top/zywork/controller/UserController.java" />
-        <option value="$PROJECT_DIR$/zywork-upms/zywork-upms-service-impl/src/main/java/top/zywork/service/impl/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/zywork-ucenter/README.md" />
         <option value="$PROJECT_DIR$/zywork-config/README.md" />
@@ -216,7 +214,6 @@
         <option value="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/static/css/main.css" />
         <option value="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/README.md" />
         <option value="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/utils/color.js" />
-        <option value="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/utils/file.js" />
         <option value="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/views/home.vue" />
         <option value="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/components/AppSider.vue" />
         <option value="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/theme/variables.scss" />
@@ -225,14 +222,19 @@
         <option value="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/views/ucenter/users.vue" />
         <option value="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/components/ToolBar.vue" />
         <option value="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/components/AppHeader.vue" />
-        <option value="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/components/ThemePicker.vue" />
-        <option value="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/views/login.vue" />
-        <option value="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/views/users.vue" />
         <option value="$PROJECT_DIR$/zywork-common/src/main/java/top/zywork/common/EncryptUtils.java" />
         <option value="$PROJECT_DIR$/zywork-common/src/test/java/top/zywork/common/EncryptUtilsTest.java" />
         <option value="$PROJECT_DIR$/zywork-report/zywork-report-common/src/main/java/top/zywork/common/ExcelUtils.java" />
         <option value="$PROJECT_DIR$/zywork-common/src/main/java/top/zywork/common/ReflectUtils.java" />
         <option value="$PROJECT_DIR$/zywork-report/zywork-report-service-impl/src/main/java/top/zywork/service/impl/ExcelImportServiceImpl.java" />
+        <option value="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/views/login.vue" />
+        <option value="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/router/index.js" />
+        <option value="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/utils/city.js" />
+        <option value="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/components/ThemePicker.vue" />
+        <option value="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/utils/file.js" />
+        <option value="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/utils/CityData.js" />
+        <option value="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/components/CityPicker.vue" />
+        <option value="$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/views/users.vue" />
       </list>
     </option>
   </component>
@@ -345,6 +347,45 @@
               <item name="zywork" type="462c0819:PsiDirectoryNode" />
               <item name="zywork-ui" type="462c0819:PsiDirectoryNode" />
               <item name="zywork-ui-backend" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="zywork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="zywork" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork-ui" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork-ui-backend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="zywork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="zywork" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork-ui" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork-ui-backend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="zywork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="zywork" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork-ui" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork-ui-backend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="router" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="zywork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="zywork" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork-ui" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork-ui-backend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="zywork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="zywork" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork-ui" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork-ui-backend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -703,7 +744,7 @@
       <workItem from="1514871204368" duration="162000" />
       <workItem from="1514871434375" duration="10940000" />
       <workItem from="1514882703831" duration="2833000" />
-      <workItem from="1514940235563" duration="62116000" />
+      <workItem from="1514940235563" duration="79716000" />
     </task>
     <servers />
   </component>
@@ -740,7 +781,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="294973000" />
+    <option name="totallyTimeSpent" value="312573000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1" y="23" width="1280" height="777" extended-state="6" />
@@ -836,46 +877,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/utils/formula.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/theme/color.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/dist/static/css/app.b7a55f6db45aa37d86e7f3512ac49560.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-11298">
-          <caret line="0" column="17613" lean-forward="true" selection-start-line="0" selection-start-column="17593" selection-end-line="0" selection-end-column="17613" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/theme/colors.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="20" lean-forward="false" selection-start-line="0" selection-start-column="14" selection-end-line="0" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/theme/red.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="543">
-          <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/theme/orange.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="602">
@@ -927,14 +928,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/views/homeIndex.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/views/register.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-792">
@@ -955,39 +948,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3947">
           <caret line="305" column="25" lean-forward="true" selection-start-line="305" selection-start-column="25" selection-end-line="305" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/components/AppHeader.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1573">
-          <caret line="19" column="27" lean-forward="false" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
-          <folding>
-            <element signature="n#style#0;n#theme-picker#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/components/ThemePicker.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1227">
-          <caret line="11" column="71" lean-forward="false" selection-start-line="11" selection-start-column="71" selection-end-line="11" selection-end-column="71" />
-          <folding>
-            <element signature="n#style#0;n#el-dropdown-item#0;n#el-dropdown-menu#0;n#el-dropdown#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#el-dropdown-item#1;n#el-dropdown-menu#0;n#el-dropdown#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#el-dropdown-item#2;n#el-dropdown-menu#0;n#el-dropdown#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#el-dropdown-item#3;n#el-dropdown-menu#0;n#el-dropdown#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#el-dropdown-item#4;n#el-dropdown-menu#0;n#el-dropdown#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="false" />
-            <element signature="e#1463#1506#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/utils/file.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="4" lean-forward="false" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
           <folding />
         </state>
       </provider>
@@ -1016,39 +976,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/views/home.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="25" column="18" lean-forward="false" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
-          <folding>
-            <marker date="1515142067218" expanded="true" signature="869:924" ph="{&quot;ElAside&quot;: ElAside...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/components/AppFooter.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="69" lean-forward="false" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="69" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/views/login.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding>
-            <element signature="n#style#0;n#el-button#0;n#el-form-item#2;n#el-form#0;n#div#0;n#el-col#0;n#el-row#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <marker date="1515216937746" expanded="true" signature="1660:1668" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/views/users.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="83" column="84" lean-forward="false" selection-start-line="83" selection-start-column="84" selection-end-line="83" selection-end-column="84" />
           <folding />
         </state>
       </provider>
@@ -1065,30 +996,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="6" column="23" lean-forward="false" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/router/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="19" column="21" lean-forward="true" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="17" lean-forward="false" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
           <folding />
         </state>
       </provider>
@@ -1209,14 +1116,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/utils/color.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="30" lean-forward="false" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/zywork-common/src/main/java/top/zywork/common/EncryptUtils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="979">
@@ -1238,8 +1137,8 @@
         <state relative-caret-position="210">
           <caret line="27" column="121" lean-forward="false" selection-start-line="27" selection-start-column="121" selection-end-line="27" selection-end-column="121" />
           <folding>
-            <element signature="e#1351#1352#0" expanded="true" />
-            <element signature="e#1397#1398#0" expanded="true" />
+            <element signature="e#1351#1352#0" expanded="false" />
+            <element signature="e#1397#1398#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1282,6 +1181,142 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="930">
           <caret line="74" column="0" lean-forward="true" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/views/homeIndex.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/router/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="419">
+          <caret line="37" column="10" lean-forward="true" selection-start-line="37" selection-start-column="10" selection-end-line="37" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/views/login.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="42" lean-forward="false" selection-start-line="5" selection-start-column="42" selection-end-line="5" selection-end-column="42" />
+          <folding>
+            <element signature="n#style#0;n#el-button#0;n#el-form-item#2;n#el-form#0;n#div#0;n#el-col#0;n#el-row#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <marker date="1515479520613" expanded="true" signature="1700:1708" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="17" lean-forward="false" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/utils/Color.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="30" lean-forward="false" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/utils/File.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/utils/city-data.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="20" column="25" lean-forward="false" selection-start-line="20" selection-start-column="25" selection-end-line="4057" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/utils/CityData.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="499">
+          <caret line="139" column="18" lean-forward="true" selection-start-line="139" selection-start-column="18" selection-end-line="139" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/views/home.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="520">
+          <caret line="39" column="10" lean-forward="false" selection-start-line="39" selection-start-column="10" selection-end-line="39" selection-end-column="10" />
+          <folding>
+            <element signature="e#472#509#0" expanded="true" />
+            <marker date="1515142067218" expanded="true" signature="869:924" ph="{&quot;ElAside&quot;: ElAside...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/components/ThemePicker.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="809">
+          <caret line="54" column="17" lean-forward="false" selection-start-line="54" selection-start-column="17" selection-end-line="54" selection-end-column="17" />
+          <folding>
+            <element signature="e#1463#1506#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/components/AppHeader.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1440">
+          <caret line="96" column="6" lean-forward="true" selection-start-line="92" selection-start-column="4" selection-end-line="96" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/node_modules/element-ui/packages/select/src/select.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="915">
+          <caret line="149" column="4" lean-forward="false" selection-start-line="149" selection-start-column="4" selection-end-line="149" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/node_modules/element-ui/packages/input/src/input.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="36" lean-forward="true" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/views/users.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4890">
+          <caret line="326" column="26" lean-forward="false" selection-start-line="326" selection-start-column="26" selection-end-line="326" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zywork-ui/zywork-ui-backend/src/components/CityPicker.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-193">
+          <caret line="74" column="38" lean-forward="false" selection-start-line="74" selection-start-column="38" selection-end-line="74" selection-end-column="38" />
           <folding />
         </state>
       </provider>
