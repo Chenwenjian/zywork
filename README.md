@@ -11,7 +11,7 @@ zywork项目包含的功能有：
 3. 基于Apache Shiro的**权限管理**
 4. 基于Activiti的**业务流程管理**
 5. 基于POI和JasperReport的**Excel处理和PDF报表导出**
-6. 基于HighCharts的**HTML5 WEB报表**
+6. 基于ECharts的**HTML5 WEB报表**
 7. 基于Redis的**数据缓存**
 8. 基于Spring Session的**分布式会话管理**
 9. 基于Apache ZooKeeper和Dubbo的**分布式服务架构**
@@ -219,7 +219,7 @@ zywork项目包含的功能有：
 			<td>Vue AJAX请求</td>
 		</tr>
 		<tr>
-			<td>HighCharts</td>
+			<td>ECharts</td>
 			<td>HTML5 WEB报表</td>
 		</tr>
 	</tbody>
