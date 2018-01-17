@@ -164,6 +164,39 @@ LOCK TABLES `t_role_permission` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `t_scheduler`
+--
+
+DROP TABLE IF EXISTS `t_scheduler`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_scheduler` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '作业编号',
+  `name` varchar(50) DEFAULT NULL COMMENT '作业名称',
+  `class_name` varchar(200) DEFAULT NULL COMMENT '作业完整类名',
+  `cron_expression` varchar(50) DEFAULT NULL COMMENT '作业触发器cron表达式',
+  `group_name` varchar(50) DEFAULT NULL COMMENT '作业组名称',
+  `trigger_name` varchar(50) DEFAULT NULL COMMENT '触发器名称',
+  `trigger_group` varchar(50) DEFAULT NULL COMMENT '触发器组',
+  `description` varchar(500) DEFAULT NULL COMMENT '作业描述',
+  `job_status` tinyint(4) DEFAULT NULL COMMENT '作业状态，如0表示停止，1表示正在执行，2表示暂停等',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `update_time` datetime DEFAULT NULL COMMENT '最近一次更新时间',
+  `is_active` tinyint(4) DEFAULT '0' COMMENT '是否可用，0表示可用，1表示不可用',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `t_scheduler`
+--
+
+LOCK TABLES `t_scheduler` WRITE;
+/*!40000 ALTER TABLE `t_scheduler` DISABLE KEYS */;
+/*!40000 ALTER TABLE `t_scheduler` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `t_social_type`
 --
 
@@ -209,7 +242,7 @@ CREATE TABLE `t_sys_log` (
   PRIMARY KEY (`id`),
   KEY `fk_opertion_user_id_idx` (`user_id`),
   CONSTRAINT `fk_opertion_user_id` FOREIGN KEY (`user_id`) REFERENCES `t_user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -239,7 +272,7 @@ CREATE TABLE `t_user` (
   `update_time` datetime DEFAULT NULL COMMENT '更新时间',
   `is_active` tinyint(4) DEFAULT '0' COMMENT '是否激活',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -354,4 +387,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-01-02 15:54:19
+-- Dump completed on 2018-01-17  9:58:01
