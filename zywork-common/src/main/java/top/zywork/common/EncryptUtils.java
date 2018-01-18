@@ -82,6 +82,37 @@ public class EncryptUtils {
     }
 
     /**
+     * 不使用盐值的sha256加密
+     * @param str 明文
+     * @return 使用sha1加密算法得到的密文
+     */
+    public static String sha256(String str) {
+        String encryptStr = null;
+        try {
+            encryptStr = oneWayEncrypt(str, "", AlgorithmEnum.SHA256.getValue());
+        } catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        return encryptStr;
+    }
+
+    /**
+     * 使用盐值的sha256加密
+     * @param str 明文
+     * @param salt 盐值
+     * @return 使用sha1加密算法并加入盐值加密得到的密文
+     */
+    public static String sha256(String str, String salt) {
+        String encryptStr = null;
+        try {
+            encryptStr = oneWayEncrypt(str, salt,  AlgorithmEnum.SHA256.getValue());
+        } catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        return encryptStr;
+    }
+
+    /**
      * 单向加密，使用Base64编码
      * @param str 需要加密的明文
      * @param salt 加密所使用的盐值
