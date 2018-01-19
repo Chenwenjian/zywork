@@ -51,9 +51,8 @@ Spring Session在Tomcat分布式集群中使用。以一个独立的系统来看
 3. 客户端访问系统其他资源时，在请求参数中附带用户Token
 4. 后台系统判断用户Token是否有效，如果有效，则请求合法
 
-```
-注意：本系统中使用了Apache Shiro，不管在WEB端还是手机APP端，单纯使用Token来进行用户认证完全没有问题，但Shiro的角色与权限相关的逻辑在不使用Cookie的情况下将不起作用，因为Shiro的角色与权限的获取依赖于Session会话和JSESSIONID这个Cookie，所以并不会完全弃用Session，并且开发手机APP时，也需要带上Cookie请求头信息
-```
+
+**注意：**本系统中使用了Apache Shiro，不管在WEB端还是手机APP端，单纯使用Token来进行用户认证完全没有问题，但Shiro的角色与权限相关的逻辑在不使用Cookie的情况下将不起作用，因为Shiro的角色与权限的获取依赖于Session会话和JSESSIONID这个Cookie，所以并不会完全弃用Session，并且开发手机APP时，也需要带上Cookie请求头信息
 
 #### 使用Token如何实现单点登录及登录后子系统的动态切换
 
