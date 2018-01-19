@@ -9,6 +9,8 @@ package top.zywork.query;
  */
 public class UserAccountPasswordQuery extends BaseQuery {
 
+    private static final long serialVersionUID = 7909252398871864692L;
+
     private String account;
     private String password;
 

@@ -6,10 +6,10 @@
           <h3 class="title">{{ loginTitle }}</h3>
           <el-form ref="form" :model="form">
             <el-form-item>
-              <el-input v-model="form.phone" placeholder="请输入手机号/邮箱/账户名"></el-input>
+              <el-input v-model="form.account" placeholder="请输入手机号/邮箱/账户名"></el-input>
             </el-form-item>
             <el-form-item>
-              <el-input v-model="form.pwd" type="password" placeholder="请输入密码"></el-input>
+              <el-input v-model="form.password" type="password" placeholder="请输入密码"></el-input>
             </el-form-item>
             <el-form-item :lg="8" :sm="24">
               <el-button type="primary" @click="login" style="width: 100%;">登录</el-button>
@@ -23,21 +23,40 @@
 </template>
 
 <script>
+  import axios from 'axios'
+  import qs from 'qs'
+  const md5 = require('js-md5')
+
   export default {
     name: 'login',
     data () {
       return {
         loginTitle: 'zywork系统登录',
         form: {
-          name: '',
-          pwd: ''
+          account: '',
+          password: ''
         }
       }
     },
     methods: {
       login () {
-        console.log('login')
-        this.$router.push('/home')
+        axios.post('/user/login',
+          qs.stringify(
+            {
+              account: this.form.account,
+              password: md5.base64(this.form.password)
+            }
+          )
+        ).then(response => {
+          if (response.data.status === 'ok') {
+            let localStorage = window.localStorage
+            localStorage.setItem('userToken', response.data.token)
+            localStorage.setItem('username', this.form.account)
+            this.$router.push('/home')
+          }
+        }).catch(error => {
+          console.log(error)
+        })
       }
     }
   }

@@ -1,14 +1,12 @@
 package top.zywork.security.shiro;
 
-import org.apache.shiro.authc.AuthenticationException;
-import org.apache.shiro.authc.AuthenticationInfo;
-import org.apache.shiro.authc.AuthenticationToken;
-import org.apache.shiro.authc.SimpleAuthenticationInfo;
+import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.springframework.stereotype.Component;
+import top.zywork.common.AuthUtils;
 import top.zywork.dto.PermissionDTO;
 import top.zywork.dto.RoleDTO;
 import top.zywork.dto.UserDTO;
@@ -51,11 +49,20 @@ public class AppShiroRealm extends AuthorizingRealm {
 
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
-        String username = authenticationToken.getPrincipal().toString();
-        String password = String.valueOf((char[])authenticationToken.getCredentials());
-        UserDTO userDTO = userService.getByAccountPassword(new UserAccountPasswordQuery(username, password));
-        if (userDTO != null) {
-            return new SimpleAuthenticationInfo(authenticationToken.getPrincipal(), authenticationToken.getCredentials(), getName());
+        CustomToken customToken = (CustomToken) authenticationToken;
+        if (customToken.getToken() == null) {
+            String username = customToken.getPrincipal().toString();
+            String password = String.valueOf((char[]) customToken.getCredentials());
+            UserDTO userDTO = userService.getByAccountPassword(new UserAccountPasswordQuery(username, password));
+            if (userDTO != null) {
+                return new SimpleAuthenticationInfo(customToken.getPrincipal(), password, getName());
+            }
+        } else {
+            String username = customToken.getPrincipal().toString();
+            String hashPassword = userService.getPassword(username);
+            if (hashPassword != null && AuthUtils.generateToken(username, customToken.getTimestamp(), hashPassword).equals(customToken.getToken())) {
+                return new SimpleAuthenticationInfo(customToken.getPrincipal(), customToken.getToken(), getName());
+            }
         }
         return null;
     }

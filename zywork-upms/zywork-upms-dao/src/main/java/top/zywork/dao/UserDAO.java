@@ -21,4 +21,11 @@ public interface UserDAO extends BaseDAO {
      */
     UserDO getByAccountPassword(UserAccountPasswordQuery userAccountPasswordQuery);
 
+    /**
+     * 根据用户名获取用户密码
+     * @param username 用户名
+     * @return 用户密码
+     */
+    String getPassword(String username);
+
 }

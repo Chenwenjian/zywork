@@ -7,7 +7,9 @@
     <bean id="cacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
         <property name="cacheManagerConfigFile" value="classpath:config/ehcache-shiro.xml"/>
     </bean>
-    <bean id="appShiroRealm" class="top.zywork.security.shiro.AppShiroRealm" />
+    <bean id="appShiroRealm" class="top.zywork.security.shiro.AppShiroRealm">
+        <property name="authenticationTokenClass" value="top.zywork.security.shiro.CustomToken"/>
+    </bean>
     <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
         <property name="realms">
             <set>

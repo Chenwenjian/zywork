@@ -1,7 +1,6 @@
 package top.zywork.common;
 
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
@@ -21,11 +20,14 @@ public class AuthUtils {
     public static final String PARAM_SIGN = "sign";
 
     /**
-     * 生成随机Token
-     * @return 去除"-"的UUID字符串
+     * 根据用户名，获取token的时间，用户加密后的密码获取用户token
+     * @param username 用户名
+     * @param timestamp 获取token的时间毫秒值
+     * @param hashPassword 加密后的密码
+     * @return md5摘要后的用户token
      */
-    public static String generateToken() {
-        return UUIDUtils.uuidWithoutLine();
+    public static String generateToken(String username, Long timestamp, String hashPassword) {
+        return EncryptUtils.md5(username + timestamp + hashPassword).toUpperCase();
     }
 
     /**
@@ -82,15 +84,6 @@ public class AuthUtils {
      */
     public static boolean isSignatureValid(final Map<String, String> data) {
         return isSignatureValid(data, SIGN_TYPE_MD5);
-    }
-
-    public static void main(String[] args) {
-        Map<String, String> data = new HashMap<>();
-        data.put("name", "wgs");
-        data.put("age", "28");
-        data.put("school", "ecit");
-        data.put("job", "serial");
-        System.out.println(generateSignature(data));
     }
 
 }

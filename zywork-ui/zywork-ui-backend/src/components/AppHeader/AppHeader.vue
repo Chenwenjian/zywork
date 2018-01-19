@@ -27,7 +27,7 @@
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item><i class="fa fa-info-circle"></i>&nbsp;我的信息</el-dropdown-item>
             <el-dropdown-item><i class="fa fa-cog"></i>&nbsp;设置</el-dropdown-item>
-            <el-dropdown-item divided @click.native="$router.push('/login')"><i class="fa fa-sign-out"></i>&nbsp;安全退出</el-dropdown-item>
+            <el-dropdown-item divided @click.native="logout"><i class="fa fa-sign-out"></i>&nbsp;安全退出</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
       </div>
@@ -37,6 +37,8 @@
 
 <script>
   import ThemePicker from '@/components/ThemePicker/ThemePicker'
+  import axios from 'axios'
+  import qs from 'qs'
   export default {
     components: {
       ThemePicker
@@ -103,6 +105,25 @@
           this.systemLogo = '&nbsp;'
         }
         this.$emit('collapseChange')
+      },
+      logout () {
+        let localStorage = window.localStorage
+        axios.post('/user/logout',
+          qs.stringify(
+            {
+              username: localStorage.getItem('username'),
+              userToken: localStorage.getItem('userToken')
+            }
+          )
+        ).then(response => {
+          if (response.data.status === 'ok') {
+            localStorage.removeItem('userToken')
+            localStorage.removeItem('username')
+            this.$router.push('/login')
+          }
+        }).catch(error => {
+          console.log(error)
+        })
       }
     }
   }

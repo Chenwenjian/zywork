@@ -15,4 +15,10 @@
         ]]>
 	</select>
 
+    <select id="getPassword" parameterType="string" resultType="string">
+        <![CDATA[
+          select password from t_user where email = #{account} or phone = #{account} or account_name = #{account}
+        ]]>
+    </select>
+
 </mapper>

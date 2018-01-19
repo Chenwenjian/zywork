@@ -59,10 +59,11 @@ public class ControllerStatusVO extends BaseVO {
      *
      * @param code 状态码
      * @param message 需要返回到前端页面的提示信息
-     * @return 表示执行成功的结果
      */
-    public static ControllerStatusVO okStatus(Integer code, String message) {
-        return new ControllerStatusVO(code, STATUS_OK, message);
+    public void okStatus(Integer code, String message) {
+        setCode(code);
+        setStatus(STATUS_OK);
+        setMessage(message);
     }
 
     /**
@@ -70,10 +71,11 @@ public class ControllerStatusVO extends BaseVO {
      *
      * @param code 状态码
      * @param message 需要返回到前端页面的提示信息
-     * @return 表示执行失败的结果
      */
-    public static ControllerStatusVO errorStatus(Integer code, String message) {
-        return new ControllerStatusVO(code, STATUS_ERROR, message);
+    public void errorStatus(Integer code, String message) {
+        setCode(code);
+        setStatus(STATUS_ERROR);
+        setMessage(message);
     }
 
     /**
@@ -83,8 +85,10 @@ public class ControllerStatusVO extends BaseVO {
      * @param message 需要返回到前端页面的提示信息
      * @return 表示数据错误的结果
      */
-    public static ControllerStatusVO dataErrorStatus(Integer code, String message) {
-        return new ControllerStatusVO(code, STATUS_DATA_ERROR, message);
+    public void dataErrorStatus(Integer code, String message) {
+        setCode(code);
+        setStatus(STATUS_DATA_ERROR);
+        setMessage(message);
     }
     @Override
     public String toString() {
