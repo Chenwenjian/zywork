@@ -22,7 +22,7 @@
         <el-dropdown>
             <span class="el-dropdown-link user-info-inner">
               <img src='../../../static/images/user.jpg'/>
-              <span>zywork.top</span>
+              <span v-text="username"></span>
             </span>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item><i class="fa fa-info-circle"></i>&nbsp;我的信息</el-dropdown-item>
@@ -48,6 +48,7 @@
     data () {
       return {
         systemLogo: 'zywork',
+        username: window.localStorage.getItem('username'),
         systems: [
           {
             name: '用户中心',
