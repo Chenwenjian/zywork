@@ -8,6 +8,10 @@
        http://www.springframework.org/schema/context/spring-context.xsd">
 
     <context:annotation-config/>
+    <bean class="org.springframework.session.web.http.DefaultCookieSerializer">
+        <property name="cookiePath" value="/"/>
+        <property name="cookieName" value="JSESSIONID"/>
+    </bean>
     <bean class="org.springframework.session.data.redis.config.annotation.web.http.RedisHttpSessionConfiguration">
         <property name="maxInactiveIntervalInSeconds" value="1800"/>
     </bean>
