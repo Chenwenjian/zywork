@@ -190,7 +190,7 @@ zywork项目包含的功能有：
 	</tbody>
 </table>
 
-**前台部分：**
+**前端部分：**
 
 <table>
 	<tbody>
@@ -199,16 +199,40 @@ zywork项目包含的功能有：
 			<th>说明</th>
 		</tr>
 		<tr>
+			<td>Node.js</td>
+			<td>Node.js</td>
+		</tr>
+		<tr>
+			<td>npm</td>
+			<td>npm</td>
+		</tr>
+		<tr>
+			<td>Webpack</td>
+			<td>Webpack</td>
+		</tr>
+		<tr>
+			<td>Promise</td>
+			<td>Promise</td>
+		</tr>
+		<tr>
 			<td>HTML5</td>
 			<td>HTML5</td>
 		</tr>
 		<tr>
 			<td>CSS3</td>
 			<td>CSS3</td>
+		</tr>
+		<tr>
+			<td>JavaScript</td>
+			<td>JavaScript</td>
 		</tr>
 		<tr>
 			<td>Vue.js</td>
 			<td>用户界面构建</td>
+		</tr>
+		<tr>
+			<td>Vue Router</td>
+			<td>Vue路由</td>
 		</tr>
 		<tr>
 			<td>Element UI</td>
@@ -268,6 +292,31 @@ Provider中定义服务实现类时，使用```@Service(value = "userService")``
 重启服务：./zywork-ucenter-service.sh restart
 
 ```
+
+#### 按顺序启动的服务(详细安装及使用方法可参考```documents```目录下的技术文档)
+
+1. MySQL
+2. Redis
+3. ZooKeeper
+4. Tomcat
+5. Nginx
+6. Node（部署前端）
+
+所有模块的JAR和WAR都直接使用Maven构建，服务打包成JAR(参考```Dubbo服务打包成JAR包```)。
+
+Web模块打包成WAR包，此系统中有多个WAR包，所有WAR包都部署到同一个Tomcat的Webapps目录中，由多个这样的Tomcat组成Tomcat集群。每个WEB模块都通过应用上下文路径来访问。
+
+前端UI使用npm构建，详细请参考```zywork-ui```模块，构建好后部署到Nginx服务器中，Nginx服务器提供对Tomcat的负载均衡和动静分离。
+
+运行步骤推荐为：
+
+1. 启动相关服务
+2. 构建JAR包和WAR包
+3. 启动JAR服务
+4. 部署WAR包并启动Tomcat
+5. 构建前端模块并部署到Nginx
+6. 启动Nginx
+7. 浏览器测试
 
 #### LICENSE许可协议
 

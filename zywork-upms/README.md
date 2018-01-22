@@ -54,7 +54,9 @@ Spring Session在Tomcat分布式集群中使用。以一个独立的系统来看
 
 **注意：**
 
-本系统中使用了Apache Shiro，不管在WEB端还是手机APP端，单纯使用Token来进行用户认证完全没有问题，但Shiro的角色与权限相关的逻辑在不使用Cookie的情况下将不起作用，因为Shiro的角色与权限的获取依赖于Session会话和JSESSIONID这个Cookie，所以并不会完全弃用Session，并且开发手机APP时，也需要带上Cookie请求头信息
+本系统中使用了Apache Shiro，不管在WEB端还是手机APP端，单纯使用Token来进行用户认证完全没有问题，但Shiro的角色与权限相关的逻辑在不使用Cookie的情况下将不起作用，因为Shiro的角色与权限的获取依赖于Session会话和JSESSIONID这个Cookie，所以并不会完全弃用Session，并且开发手机APP时，也需要带上Cookie请求头信息。
+
+此系统还实现了Apache Shiro与Spring Session的Session统一化，集群中的Tomcat及每个Tomcat中不同的WAR包间都共享同样的Session。
 
 #### 使用Token如何实现单点登录及登录后子系统的动态切换
 
