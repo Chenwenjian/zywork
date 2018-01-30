@@ -214,9 +214,11 @@ public class HttpUtils {
         @Override
         public String handleResponse(final HttpResponse response) throws IOException {
             int status = response.getStatusLine().getStatusCode();
-            if (status >= HttpStatus.SC_OK && status < HttpStatus.SC_MULTIPLE_CHOICES) {
+            if (status == HttpStatus.SC_OK) {
                 HttpEntity entity = response.getEntity();
                 return entity != null ? EntityUtils.toString(entity, CharsetEnum.UTF8.getValue()) : null;
+            } else if (status == HttpStatus.SC_MOVED_TEMPORARILY) {
+                return response.getFirstHeader("Location").getValue();
             } else {
                 throw new ClientProtocolException("非正常响应状态：" + status);
             }
