@@ -5,16 +5,19 @@ import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.CookieStore;
 import org.apache.http.client.ResponseHandler;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.cookie.Cookie;
 import org.apache.http.entity.ContentType;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
 import org.apache.http.entity.mime.content.FileBody;
 import org.apache.http.entity.mime.content.StringBody;
+import org.apache.http.impl.client.BasicCookieStore;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
@@ -37,6 +40,14 @@ import java.util.*;
  */
 public class HttpUtils {
 
+    private static final HttpGet NONE_GET = null;
+    private static final HttpPost NONE_POST = null;
+
+    /**
+     * 用于接收服务端返回的cookies数据
+     */
+    private static List<Cookie> cookies;
+
     private static RequestConfig requestConfig = RequestConfig.custom()
             .setSocketTimeout(15000)
             .setConnectTimeout(15000)
@@ -49,7 +60,7 @@ public class HttpUtils {
      * @return 指定url所返回的字符串数据
      */
     public static String httpGet(String url) {
-        return send(new HttpGet(url), null, stringResponseHandler);
+        return send(new HttpGet(url), NONE_POST, stringResponseHandler);
     }
 
     /**
@@ -58,7 +69,7 @@ public class HttpUtils {
      * @return 指定url所返回的字符串数据
      */
     public static String httpPost(String url) {
-        return send(null, new HttpPost(url), stringResponseHandler);
+        return send(NONE_GET, new HttpPost(url), stringResponseHandler);
     }
 
     /**
@@ -72,7 +83,7 @@ public class HttpUtils {
         StringEntity stringEntity = new StringEntity(params, CharsetEnum.UTF8.getValue());
         stringEntity.setContentType(ContentTypeEnum.FORM_URLENCODED.getValue());
         httpPost.setEntity(stringEntity);
-        return send(null, httpPost, stringResponseHandler);
+        return send(NONE_GET, httpPost, stringResponseHandler);
     }
 
     /**
@@ -83,7 +94,7 @@ public class HttpUtils {
      */
     public static String httpPost(String url, Map<String, String> params) {
         HttpPost httpPost = new HttpPost(url);
-        List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
+        List<NameValuePair> nameValuePairs = new ArrayList<>();
         Set<Map.Entry<String, String>> entrySet = params.entrySet();
         for (Map.Entry<String, String> entry : entrySet) {
             nameValuePairs.add(new BasicNameValuePair(entry.getKey(), entry.getValue()));
@@ -93,7 +104,30 @@ public class HttpUtils {
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
-        return send(null, httpPost, stringResponseHandler);
+        return send(NONE_GET, httpPost, stringResponseHandler);
+    }
+
+    /**
+     * HTTP POST请求访问指定的url
+     * @param url url,可包含查询字符串
+     * @param params key-value结构的参数
+     * @param cookieList 需要提交到服务端的cookie数据，如果为null，则不提交cookie
+     * @param getCookie 判断是否需要从服务端获取cookie数据
+     * @return 指定url响应的字符串数据
+     */
+    public static String httpPost(String url, Map<String, String> params, List<Cookie> cookieList, boolean getCookie) {
+        HttpPost httpPost = new HttpPost(url);
+        List<NameValuePair> nameValuePairs = new ArrayList<>();
+        Set<Map.Entry<String, String>> entrySet = params.entrySet();
+        for (Map.Entry<String, String> entry : entrySet) {
+            nameValuePairs.add(new BasicNameValuePair(entry.getKey(), entry.getValue()));
+        }
+        try {
+            httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs, CharsetEnum.UTF8.getValue()));
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        return send(NONE_GET, httpPost, cookieList, getCookie, stringResponseHandler);
     }
 
     /**
@@ -117,7 +151,7 @@ public class HttpUtils {
      * @return 请求响应返回的字符串数据
      */
     public static String httpPost(String url, Map<String, String> params, String inputName, File file) {
-        Map<String, File> files = new HashMap<String, File>(1);
+        Map<String, File> files = new HashMap<>(1);
         files.put(inputName, file);
         return httpPost(url, params, files);
     }
@@ -142,7 +176,7 @@ public class HttpUtils {
         }
         HttpEntity entity = multipartEntityBuilder.build();
         httpPost.setEntity(entity);
-        return send(null, httpPost, stringResponseHandler);
+        return send(NONE_GET, httpPost, stringResponseHandler);
     }
 
     /**
@@ -177,7 +211,24 @@ public class HttpUtils {
         httpPost.addHeader("Content-type", dataTypeEnum.getMime() + "; charset=" + CharsetEnum.UTF8.getValue());
         httpPost.addHeader("Accept", dataTypeEnum.getMime());
         httpPost.setEntity(new StringEntity(data, CharsetEnum.UTF8.getValue()));
-        return send(null, httpPost, stringResponseHandler);
+        return send(NONE_GET, httpPost, stringResponseHandler);
+    }
+
+    /**
+     * 通过指定的数据类型把数据post提交到指定的url
+     * @param url url，可以包含查询字符串
+     * @param data 需要提交的数据
+     * @param dataTypeEnum 提交数据的MIME type
+     * @param cookieList 提交到服务端的cookie数据
+     * @param getCookie 是否需要从服务端获取cookie数据
+     * @return 指定url响应的字符串数据，并获取由服务端返回的cookie数据
+     */
+    private static String httpPost(String url, String data, MIMETypeEnum dataTypeEnum, List<Cookie> cookieList, boolean getCookie) {
+        HttpPost httpPost = new HttpPost(url);
+        httpPost.addHeader("Content-type", dataTypeEnum.getMime() + "; charset=" + CharsetEnum.UTF8.getValue());
+        httpPost.addHeader("Accept", dataTypeEnum.getMime());
+        httpPost.setEntity(new StringEntity(data, CharsetEnum.UTF8.getValue()));
+        return send(NONE_GET, httpPost, cookieList, getCookie, stringResponseHandler);
     }
 
     /**
@@ -207,7 +258,53 @@ public class HttpUtils {
     }
 
     /**
-     * 获取String字符串响应的ResponseHandler
+     * 获取服务端返回的cookie数据
+     * @return 服务端返回的cookie数据
+     */
+    public static List<Cookie> getCookies() {
+        return cookies;
+    }
+
+    /**
+     * 发送HTTP请求，请求方式可以是GET，也可以是POST，并且需要指定相应的ResponseHandler
+     * @param httpGet 如果是GET请求，则传入HttpGet对象，如果为null，表示不使用GET请求
+     * @param httpPost 如果是POST请求，则传入HttpPost对象，如果为null，表示不使用POST请求
+     * @param cookieList 需要提交到服务端的cookie数据
+     * @param getCookie 是否需要从服务端获取cookie数据
+     * @param responseHandler ResponseHandler响应处理对象
+     * @param <T> 响应处理对象中可通过泛型来指定返回的具体数据类型
+     * @return 通过在ResponseHandler中指定的具体类型来返回响应数据，并获取由服务端返回的cookie数据到cookies成员变量中
+     */
+    private static <T> T send(HttpGet httpGet, HttpPost httpPost, List<Cookie> cookieList, boolean getCookie, ResponseHandler<T> responseHandler) {
+        CookieStore cookieStore = new BasicCookieStore();
+        CloseableHttpClient httpClient = HttpClients.custom().setDefaultCookieStore(cookieStore).build();
+        if (cookieList != null) {
+            for (Cookie cookie : cookieList) {
+                cookieStore.addCookie(cookie);
+            }
+        }
+        T t = null;
+        try {
+            if (httpGet != null) {
+                httpGet.setConfig(requestConfig);
+                t = httpClient.execute(httpGet, responseHandler);
+            } else {
+                httpPost.setConfig(requestConfig);
+                t = httpClient.execute(httpPost, responseHandler);
+            }
+            if (getCookie) {
+                cookies = cookieStore.getCookies();
+            }
+            httpClient.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return t;
+    }
+
+    /**
+     * 获取String字符串响应的ResponseHandler<br/>
+     * 如果状态为200，则直接获取response结果，如果状态为302，则获取重定向的url，其他状态暂时返回非正常响应状态
      */
     private static ResponseHandler<String> stringResponseHandler = new ResponseHandler<String>() {
 
