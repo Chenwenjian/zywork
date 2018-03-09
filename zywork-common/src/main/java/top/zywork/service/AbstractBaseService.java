@@ -102,37 +102,6 @@ public abstract class AbstractBaseService implements BaseService {
         return pagerDTO;
     }
 
-    @Override
-    public List<Object> listAllDTO() {
-        return baseDAO.listAllDTO();
-    }
-
-    @Override
-    public PagerDTO listPageDTO(PageQuery pageQuery) {
-        PagerDTO pagerDTO = new PagerDTO(pageQuery.getPageNo(), pageQuery.getPageSize());
-        Long count = baseDAO.countDTO();
-        pagerDTO.setTotal(count);
-        if (count > 0) {
-            pagerDTO.setRows(baseDAO.listPageDTO(pageQuery));
-        }else {
-            pagerDTO.setRows(new ArrayList<>());
-        }
-        return pagerDTO;
-    }
-
-    @Override
-    public PagerDTO listPageDTOByCondition(PageQuery pageQuery, Object queryObj) {
-        PagerDTO pagerDTO = new PagerDTO(pageQuery.getPageNo(), pageQuery.getPageSize());
-        Long count = baseDAO.countDTOByCondition(queryObj);
-        pagerDTO.setTotal(count);
-        if (count > 0) {
-            pagerDTO.setRows(baseDAO.listPageDTOByCondition(pageQuery, queryObj));
-        } else {
-            pagerDTO.setRows(new ArrayList<>());
-        }
-        return pagerDTO;
-    }
-
     @Autowired
     public void setBeanMapper(Mapper beanMapper) {
         this.beanMapper = beanMapper;
