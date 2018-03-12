@@ -20,6 +20,7 @@
         <module>zywork-config</module>
         <module>zywork-log</module>
         <module>zywork-schedule</module>
+        <module>zywork-autocode</module>
     </modules>
 
     <repositories>
@@ -82,6 +83,7 @@
         <hibernate.version>5.2.12.Final</hibernate.version>
         <mybatis.version>3.4.5</mybatis.version>
         <mybatis-spring.version>1.3.1</mybatis-spring.version>
+        <mybatis-generator.version>1.3.6</mybatis-generator.version>
         <spring-session.version>1.3.1.RELEASE</spring-session.version>
         <jedis.version>2.9.0</jedis.version>
         <spring-data-redis.version>1.8.9.RELEASE</spring-data-redis.version>
@@ -110,6 +112,7 @@
         <maven-jar-plugin.version>3.0.2</maven-jar-plugin.version>
         <maven-dependency-plugin.version>3.0.2</maven-dependency-plugin.version>
         <maven-surefire-plugin.version>2.20.1</maven-surefire-plugin.version>
+        <mybatis-generator-plugin.version>1.3.6</mybatis-generator-plugin.version>
     </properties>
 
     <dependencyManagement>
@@ -201,6 +204,11 @@
                 <groupId>org.mybatis</groupId>
                 <artifactId>mybatis-spring</artifactId>
                 <version>${mybatis-spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis.generator</groupId>
+                <artifactId>mybatis-generator-core</artifactId>
+                <version>${mybatis-generator.version}</version>
             </dependency>
             <!-- db -->
             <dependency>

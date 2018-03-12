@@ -4,6 +4,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * JavaBean属性工具类<br />
@@ -49,48 +50,6 @@ public class PropertyUtils {
             property.append(column);
         }
         return property.toString();
-    }
-
-    public static String propertyToColumn(String property) {
-        List<Character> characterList = stringToList(property);
-        List<Integer> indexes = new ArrayList<>();
-        for (int i = 0, len =characterList.size(); i < len; i++) {
-            if (characterList.get(i) >= 65 && characterList.get(i) <= 90) {
-                indexes.add(i);
-            }
-        }
-        int count = 0;
-        for (Integer index : indexes) {
-            characterList.add(index + count, '_');
-            characterList.set(index + count + 1, (char) (characterList.get(index + count + 1) + 32));
-            count++;
-        }
-        return listToString(characterList);
-    }
-
-    private static List<Character> stringToList(String str) {
-        char[] chars = str.toCharArray();
-        List<Character> characters = new ArrayList<>();
-        for (char c : chars) {
-            characters.add(c);
-        }
-        return characters;
-    }
-
-    private static String listToString(List<Character> characters) {
-        StringBuilder sb = new StringBuilder("");
-        for (Character c : characters) {
-            sb.append(c);
-        }
-        return sb.toString();
-    }
-
-    /**
-     * 产生serialVersionId
-     * @return serialVersionId
-     */
-    public static Long generateSerialVersionId() {
-        return Long.MIN_VALUE + RandomUtils.randomNum(0, Integer.MAX_VALUE);
     }
 
 }

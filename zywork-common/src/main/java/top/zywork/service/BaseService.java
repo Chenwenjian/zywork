@@ -37,6 +37,12 @@ public interface BaseService {
     void removeById(Serializable id);
 
     /**
+     * 根据多个主键批量删除数据
+     * @param ids 多个主键组成的数组
+     */
+    void removeByIds(Serializable[] ids);
+
+    /**
      * 根据对象更新数据库中的数据
      * @param dataTransferObj DTO数据传输对象
      */

@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/zywork.iml" filepath="$PROJECT_DIR$/zywork.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zywork-autocode/zywork-autocode.iml" filepath="$PROJECT_DIR$/zywork-autocode/zywork-autocode.iml" />
       <module fileurl="file://$PROJECT_DIR$/zywork-bpms/zywork-bpms.iml" filepath="$PROJECT_DIR$/zywork-bpms/zywork-bpms.iml" />
       <module fileurl="file://$PROJECT_DIR$/zywork-bpms/zywork-bpms-common/zywork-bpms-common.iml" filepath="$PROJECT_DIR$/zywork-bpms/zywork-bpms-common/zywork-bpms-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/zywork-bpms/zywork-bpms-dao/zywork-bpms-dao.iml" filepath="$PROJECT_DIR$/zywork-bpms/zywork-bpms-dao/zywork-bpms-dao.iml" />

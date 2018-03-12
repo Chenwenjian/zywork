@@ -3,6 +3,7 @@ package top.zywork.service;
 import org.dozer.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import top.zywork.common.DozerMapperUtils;
+import top.zywork.common.ExceptionUtils;
 import top.zywork.dao.BaseDAO;
 import top.zywork.dto.PagerDTO;
 import top.zywork.query.PageQuery;
@@ -31,75 +32,120 @@ public abstract class AbstractBaseService implements BaseService {
 
     @Override
     public void save(Object dataTransferObj) {
-        baseDAO.save(beanMapper.map(dataTransferObj, doClass));
+        try {
+            baseDAO.save(beanMapper.map(dataTransferObj, doClass));
+        } catch (RuntimeException e) {
+            throw ExceptionUtils.serviceException(e);
+        }
     }
 
     @Override
     public void remove(Object dataTransferObj) {
-        baseDAO.remove(beanMapper.map(dataTransferObj, doClass));
+        try {
+            baseDAO.remove(beanMapper.map(dataTransferObj, doClass));
+        } catch (RuntimeException e) {
+            throw ExceptionUtils.serviceException(e);
+        }
     }
 
     @Override
     public void removeById(Serializable id) {
-        baseDAO.removeById(id);
+        try {
+            baseDAO.removeById(id);
+        } catch (RuntimeException e) {
+            throw ExceptionUtils.serviceException(e);
+        }
+    }
+
+    @Override
+    public void removeByIds(Serializable[] ids) {
+        try {
+            baseDAO.removeByIds(ids);
+        } catch (RuntimeException e) {
+            throw ExceptionUtils.serviceException(e);
+        }
     }
 
     @Override
     public void update(Object dataTransferObj) {
-        baseDAO.update(beanMapper.map(dataTransferObj, doClass));
+        try {
+            baseDAO.update(beanMapper.map(dataTransferObj, doClass));
+        } catch (RuntimeException e) {
+            throw ExceptionUtils.serviceException(e);
+        }
     }
 
     @Override
     public void updateActiveStatus(StatusQuery statusQuery) {
-        baseDAO.updateActiveStatus(statusQuery);
+        try {
+            baseDAO.updateActiveStatus(statusQuery);
+        } catch (RuntimeException e) {
+            throw ExceptionUtils.serviceException(e);
+        }
     }
 
     @Override
     public Object getById(Serializable id) {
-        Object doObject = baseDAO.getById(id);
-        Object dtoObject = null;
-        if (doObject != null) {
-            dtoObject = beanMapper.map(doObject, dtoClass);
+        try {
+            Object doObject = baseDAO.getById(id);
+            Object dtoObject = null;
+            if (doObject != null) {
+                dtoObject = beanMapper.map(doObject, dtoClass);
+            }
+            return dtoObject;
+        } catch (RuntimeException e) {
+            throw ExceptionUtils.serviceException(e);
         }
-        return dtoObject;
     }
 
     @Override
     public List<Object> listAll() {
-        List<Object> doObjList = baseDAO.listAll();
-        List<Object> dtoObjList = new ArrayList<>();
-        if (doObjList != null && doObjList.size() > 0) {
-            dtoObjList = DozerMapperUtils.mapList(beanMapper, doObjList, dtoClass);
+        try {
+            List<Object> doObjList = baseDAO.listAll();
+            List<Object> dtoObjList = new ArrayList<>();
+            if (doObjList != null && doObjList.size() > 0) {
+                dtoObjList = DozerMapperUtils.mapList(beanMapper, doObjList, dtoClass);
+            }
+            return dtoObjList;
+        } catch (RuntimeException e) {
+            throw ExceptionUtils.serviceException(e);
         }
-        return dtoObjList;
     }
 
     @Override
     public PagerDTO listPage(PageQuery pageQuery) {
         PagerDTO pagerDTO = new PagerDTO(pageQuery.getPageNo(), pageQuery.getPageSize());
-        Long count = baseDAO.count();
-        pagerDTO.setTotal(count);
-        if (count > 0) {
-            List<Object> doObjList = baseDAO.listPage(pageQuery);
-            pagerDTO.setRows(DozerMapperUtils.mapList(beanMapper, doObjList, dtoClass));
-        }else {
-            pagerDTO.setRows(new ArrayList<>());
+        try {
+            Long count = baseDAO.count();
+            pagerDTO.setTotal(count);
+            if (count > 0) {
+                List<Object> doObjList = baseDAO.listPage(pageQuery);
+                pagerDTO.setRows(DozerMapperUtils.mapList(beanMapper, doObjList, dtoClass));
+            } else {
+                pagerDTO.setRows(new ArrayList<>());
+            }
+            return pagerDTO;
+        } catch (RuntimeException e) {
+            throw ExceptionUtils.serviceException(e);
         }
-        return pagerDTO;
     }
 
     @Override
     public PagerDTO listPageByCondition(PageQuery pageQuery, Object queryObj) {
         PagerDTO pagerDTO = new PagerDTO(pageQuery.getPageNo(), pageQuery.getPageSize());
-        Long count = baseDAO.countByCondition(queryObj);
-        pagerDTO.setTotal(count);
-        if (count > 0) {
-            List<Object> doObjList = baseDAO.listPageByCondition(pageQuery, queryObj);
-            pagerDTO.setRows(DozerMapperUtils.mapList(beanMapper, doObjList, dtoClass));
-        } else {
-            pagerDTO.setRows(new ArrayList<>());
+        try {
+            Long count = baseDAO.countByCondition(queryObj);
+            pagerDTO.setTotal(count);
+            if (count > 0) {
+                List<Object> doObjList = baseDAO.listPageByCondition(pageQuery, queryObj);
+                pagerDTO.setRows(DozerMapperUtils.mapList(beanMapper, doObjList, dtoClass));
+            } else {
+                pagerDTO.setRows(new ArrayList<>());
+            }
+            return pagerDTO;
+        } catch (RuntimeException e) {
+            throw ExceptionUtils.serviceException(e);
         }
-        return pagerDTO;
     }
 
     @Autowired

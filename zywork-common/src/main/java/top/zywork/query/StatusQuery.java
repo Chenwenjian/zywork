@@ -8,24 +8,24 @@ package top.zywork.query;
  * @author 王振宇
  * @version 1.0
  */
-public class StatusQuery<PK> extends BaseQuery {
+public class StatusQuery extends BaseQuery {
 
     private static final long serialVersionUID = -8543807353237586473L;
-    private PK id;
+    private Long id;
     private Integer status;
 
     public StatusQuery() {}
 
-    public StatusQuery(PK id, Integer status) {
+    public StatusQuery(Long id, Integer status) {
         this.id = id;
         this.status = status;
     }
 
-    public PK getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(PK id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
