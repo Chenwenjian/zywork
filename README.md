@@ -7,19 +7,20 @@ zywork项目是基于SSM框架的多个子系统的集合，使用分布式服�
 zywork项目包含的功能有：
 
 1. 通用工具类
-2. 用户注册、登录，使用QQ，微信，微博等第三方登录的**用户中心**
-3. 基于Apache Shiro的**权限管理**
-4. 基于Activiti的**业务流程管理**
-5. 基于POI和JasperReport的**Excel处理和PDF报表导出**
-6. 基于ECharts的**HTML5 WEB报表**
-7. 基于Redis的**数据缓存**
-8. 基于Spring Session的**分布式会话管理**
-9. 基于Apache ZooKeeper和Dubbo的**分布式服务架构**
-10. 基于Logback的**日志记录**
-11. 基于Spring Task或QuartZ的**作业调度**
-12. 基于JavaMail和阿里云短信API的**消息发送**
-13. 基于微信支付，支付宝支付的**支付中心**
-14. 基于Vue.js和Element UI的前端及后台**用户界面**
+2. 代码自动生成器
+3. 用户注册、登录，使用QQ，微信，微博等第三方登录的**用户中心**
+4. 基于Apache Shiro的**权限管理**
+5. 基于Activiti的**业务流程管理**
+6. 基于POI和JasperReport的**Excel处理和PDF报表导出**
+7. 基于ECharts的**HTML5 WEB报表**
+8. 基于Redis的**数据缓存**
+9. 基于Spring Session的**分布式会话管理**
+10. 基于Apache ZooKeeper和Dubbo的**分布式服务架构**
+11. 基于Logback的**日志记录**
+12. 基于Spring Task或QuartZ的**作业调度**
+13. 基于JavaMail和阿里云短信API的**消息发送**
+14. 基于微信支付，支付宝支付的**支付中心**
+15. 基于Vue.js和Element UI的前端及后台**用户界面**
 
 #### 系统基本架构 
 ```SpringMVC + Spring + MyBatis```，但是同时也提供了Hibernate相关的工具类，尽管此项目并没有使用Hibernate。
@@ -38,6 +39,10 @@ zywork项目包含的功能有：
 		<tr>
 			<td>zywork-common</td>
 			<td>通用模块，包含有常用的工具类</td>
+		</tr>
+		<tr>
+			<td>zywork-autocode</td>
+			<td>代码自动生成器模块，可自动生成项目中所需要的实体类，DAO接口及其MyBatis映射文件，Service接口及其实现类，Controller</td>
 		</tr>
 		<tr>
 			<td>zywork-config</td>
