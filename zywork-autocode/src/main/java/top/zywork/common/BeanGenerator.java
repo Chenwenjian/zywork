@@ -155,10 +155,10 @@ public class BeanGenerator {
         StringBuilder fields = new StringBuilder("");
         for (ColumnDetail columnDetail : columnDetailList) {
             fields.append("/**\n")
-                    .append("\t*")
+                    .append("\t * ")
                     .append(columnDetail.getComment())
                     .append("\n")
-                    .append("\t*/\n")
+                    .append("\t */\n")
                     .append("\tprivate ")
                     .append(columnDetail.getJavaTypeName())
                     .append(" ")
