@@ -140,23 +140,31 @@ public class MapperGenerator {
         for (int i = 0, size = columnDetails.size(); i < size; i++) {
             ColumnDetail columnDetail = columnDetails.get(i);
             String field = PropertyUtils.columnToProperty(columnDetail.getName());
+            boolean isString = columnDetail.getJavaTypeName().equals("String");
             whereClause.append("<if test=\"query != null and query.")
                     .append(field);
-            if (columnDetail.getJavaTypeName().equals("String")) {
+            if (isString) {
                 whereClause.append(" != null and query.").append(field).append(" != ''\">\n\t\t\t");
             } else {
                 whereClause.append(" != null\">\n\t\t\t");
             }
-
             if (i != 0) {
                 whereClause.append("and ");
             }
-            whereClause.append(columnDetail.getName())
-                    .append(" = ")
-                    .append("#{")
-                    .append(field)
-                    .append("}")
-                    .append(",\n\t\t</if>\n\t\t");
+            if (isString) {
+                whereClause.append(columnDetail.getName())
+                        .append(" like concat('%', ")
+                        .append("#{")
+                        .append(field)
+                        .append("}, '%')");
+            } else {
+                whereClause.append(columnDetail.getName())
+                        .append(" = ")
+                        .append("#{")
+                        .append(field)
+                        .append("}");
+            }
+            whereClause.append(",\n\t\t</if>\n\t\t");
         }
         return fileContent.replace(TemplateConstants.WHERE_CLAUSE, whereClause.toString());
     }
