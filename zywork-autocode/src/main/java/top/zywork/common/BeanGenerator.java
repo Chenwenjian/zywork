@@ -24,7 +24,7 @@ public class BeanGenerator {
      * @param tableColumns 表数据
      */
     public static void generateDO(TableColumns tableColumns) {
-        String beanName = GeneratorUtils.tableNameToClassName(tableColumns.getTableName(), "t");
+        String beanName = GeneratorUtils.tableNameToClassName(tableColumns.getTableName(), GeneratorConstants.TABLE_PREFIX);
         String packagePath = GeneratorUtils.createPackage(GeneratorConstants.DO_PACKAGE);
         String fileContent = GeneratorUtils.readTemplate(GeneratorConstants.DO_TEMPLATE);
         fileContent = fileContent.replace(TemplateConstants.CREATE_DATE,
@@ -55,7 +55,7 @@ public class BeanGenerator {
      * @param tableColumns 表数据
      */
     public static void generateDTO(TableColumns tableColumns) {
-        String beanName = GeneratorUtils.tableNameToClassName(tableColumns.getTableName(), "t");
+        String beanName = GeneratorUtils.tableNameToClassName(tableColumns.getTableName(), GeneratorConstants.TABLE_PREFIX);
         String packagePath = GeneratorUtils.createPackage(GeneratorConstants.DTO_PACKAGE);
         String fileContent = GeneratorUtils.readTemplate(GeneratorConstants.DTO_TEMPLATE);
         fileContent = fileContent.replace(TemplateConstants.CREATE_DATE,
@@ -86,7 +86,7 @@ public class BeanGenerator {
      * @param tableColumns 表数据
      */
     public static void generateVO(TableColumns tableColumns) {
-        String beanName = GeneratorUtils.tableNameToClassName(tableColumns.getTableName(), "t");
+        String beanName = GeneratorUtils.tableNameToClassName(tableColumns.getTableName(), GeneratorConstants.TABLE_PREFIX);
         String packagePath = GeneratorUtils.createPackage(GeneratorConstants.VO_PACKAGE);
         String fileContent = GeneratorUtils.readTemplate(GeneratorConstants.VO_TEMPLATE);
         fileContent = fileContent.replace(TemplateConstants.CREATE_DATE,
@@ -117,7 +117,7 @@ public class BeanGenerator {
      * @param tableColumns 表数据
      */
     public static void generateQuery(TableColumns tableColumns) {
-        String beanName = GeneratorUtils.tableNameToClassName(tableColumns.getTableName(), "t");
+        String beanName = GeneratorUtils.tableNameToClassName(tableColumns.getTableName(), GeneratorConstants.TABLE_PREFIX);
         String packagePath = GeneratorUtils.createPackage(GeneratorConstants.QUERY_PACKAGE);
         String fileContent = GeneratorUtils.readTemplate(GeneratorConstants.QUERY_TEMPLATE);
         fileContent = fileContent.replace(TemplateConstants.CREATE_DATE,

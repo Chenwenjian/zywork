@@ -10,6 +10,8 @@ package top.zywork.constant;
  */
 public class GeneratorConstants {
 
+    public static final String TABLE_PREFIX = "t";
+
     public static final String AUTHOR = "http://zywork.top 王振宇";
 
     public static final String SAVE_BASE_DIR = "zywork-autocode/src/main/";
