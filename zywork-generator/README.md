@@ -44,10 +44,10 @@ public class GeneratorApp {
 
 zywork-generator还提供了可视化的网页自动生成单表及关联表的代码，详细操作可直接参考网页提示，网页图示如下：
 
-![](https://github.com/GZWgssmart/zywork/blob/master/zywork-generator/iamge/jdbc.png)
+![](https://github.com/GZWgssmart/zywork/blob/master/zywork-generator/image/jdbc.png)
 
-![](https://github.com/GZWgssmart/zywork/blob/master/zywork-generator/iamge/generator.png)
+![](https://github.com/GZWgssmart/zywork/blob/master/zywork-generator/image/generator.png)
 
-![](https://github.com/GZWgssmart/zywork/blob/master/zywork-generator/iamge/single.png)
+![](https://github.com/GZWgssmart/zywork/blob/master/zywork-generator/image/single.png)
 
-![](https://github.com/GZWgssmart/zywork/blob/master/zywork-generator/iamge/join.png)
+![](https://github.com/GZWgssmart/zywork/blob/master/zywork-generator/image/join.png)
