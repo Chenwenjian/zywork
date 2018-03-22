@@ -2,6 +2,7 @@ package top.zywork.generator.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import top.zywork.common.FileUtils;
 import top.zywork.generator.bean.Generator;
 import top.zywork.generator.bean.TableColumns;
 import top.zywork.generator.constant.TemplateConstants;
@@ -10,6 +11,7 @@ import top.zywork.vo.ControllerStatusVO;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
+import java.io.File;
 import java.util.List;
 
 @Controller
@@ -51,10 +53,17 @@ public class GeneratorController {
                                                String[] columns, String whereClause, HttpServletRequest request) {
         ServletContext servletContext = request.getServletContext();
         Generator generator = (Generator) servletContext.getAttribute("generator");
-        List<TableColumns> tableColumnsList = (List<TableColumns>) servletContext.getAttribute("tableColumnsList");
-        CodeGenerator.generateJoinCodes(beanName, requestMapping, generator, primaryTable, columns, tableColumnsList, whereClause);
+        String dir = generator.getSaveBaseDir() + generator.getJavaSrcDir()
+                + generator.getBasePackage().replace(".", File.separator) + File.separator + generator.getDoPackage();
+        String fileName = beanName + generator.getDoSuffix();
         ControllerStatusVO statusVO = new ControllerStatusVO();
-        statusVO.okStatus(200, "成功生成所选关联表的代码！共生成" + TemplateConstants.TOTAL_TEMPLATES + "个文件");
+        if (FileUtils.exist(dir, fileName)) {
+            statusVO.errorStatus(500, "已经存在指定名称的实体类，请重新填写实体类名称后再生成代码");
+        } else {
+            List<TableColumns> tableColumnsList = (List<TableColumns>) servletContext.getAttribute("tableColumnsList");
+            CodeGenerator.generateJoinCodes(beanName, requestMapping, generator, primaryTable, columns, tableColumnsList, whereClause);
+            statusVO.okStatus(200, "成功生成所选关联表的代码！共生成" + TemplateConstants.TOTAL_TEMPLATES + "个文件");
+        }
         return statusVO;
     }
 

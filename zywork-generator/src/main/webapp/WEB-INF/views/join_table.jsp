@@ -168,8 +168,8 @@
 
     function generateJoinCode() {
         let tables = $('#all-tables').val();
-        if (tables === null || tables === '') {
-            swal('提示', '请选择数据表', 'warning');
+        if (tables === null || tables === '' || (tables + '').indexOf(",") === -1) {
+            swal('提示', '请选择需要关联的数据表', 'warning');
         } else if ($('#where_clause').val() === '') {
             swal('提示', '请输入WHERE查询条件', 'warning');
         } else if ($('input[name="columns"]:checked').length <= 0) {
@@ -178,7 +178,11 @@
             $.post('/generator/join-code',
                 $('#table-column-info').serialize(),
                 function (data) {
-                    swal('提示', data.message, 'success');
+                    if (data.code === 200) {
+                        swal('提示', data.message, 'success');
+                    } else {
+                        swal('提示', data.message, 'warning');
+                    }
                 }, 'json');
         }
     }

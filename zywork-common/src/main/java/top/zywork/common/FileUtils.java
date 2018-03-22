@@ -144,4 +144,25 @@ public class FileUtils {
         return file.lastModified() > otherFile.lastModified();
     }
 
+
+    /**
+     * 判断指定目录中是否存在指定名称的文件
+     * @param dir 指定的目录
+     * @param name 文件名
+     * @return 如果存在返回true，否则返回false
+     */
+    public static boolean exist(String dir, String name) {
+        File file = new File(dir);
+        if (file.isDirectory()) {
+            File[] files = file.listFiles();
+            if (files != null && files.length > 0) {
+                for (File file1 : files) {
+                    if (file1.getName().equals(name)) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
 }
