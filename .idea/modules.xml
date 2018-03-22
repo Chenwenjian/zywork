@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/zywork.iml" filepath="$PROJECT_DIR$/zywork.iml" />
-      <module fileurl="file://$PROJECT_DIR$/zywork-autocode/zywork-autocode.iml" filepath="$PROJECT_DIR$/zywork-autocode/zywork-autocode.iml" />
       <module fileurl="file://$PROJECT_DIR$/zywork-bpms/zywork-bpms.iml" filepath="$PROJECT_DIR$/zywork-bpms/zywork-bpms.iml" />
       <module fileurl="file://$PROJECT_DIR$/zywork-bpms/zywork-bpms-common/zywork-bpms-common.iml" filepath="$PROJECT_DIR$/zywork-bpms/zywork-bpms-common/zywork-bpms-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/zywork-bpms/zywork-bpms-dao/zywork-bpms-dao.iml" filepath="$PROJECT_DIR$/zywork-bpms/zywork-bpms-dao/zywork-bpms-dao.iml" />
@@ -22,6 +21,7 @@
       <module fileurl="file://$PROJECT_DIR$/zywork-config/zywork-config-dao/zywork-config-dao.iml" filepath="$PROJECT_DIR$/zywork-config/zywork-config-dao/zywork-config-dao.iml" />
       <module fileurl="file://$PROJECT_DIR$/zywork-config/zywork-config-service/zywork-config-service.iml" filepath="$PROJECT_DIR$/zywork-config/zywork-config-service/zywork-config-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/zywork-config/zywork-config-web/zywork-config-web.iml" filepath="$PROJECT_DIR$/zywork-config/zywork-config-web/zywork-config-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zywork-generator/zywork-generator.iml" filepath="$PROJECT_DIR$/zywork-generator/zywork-generator.iml" />
       <module fileurl="file://$PROJECT_DIR$/zywork-log/zywork-log.iml" filepath="$PROJECT_DIR$/zywork-log/zywork-log.iml" />
       <module fileurl="file://$PROJECT_DIR$/zywork-log/zywork-log-common/zywork-log-common.iml" filepath="$PROJECT_DIR$/zywork-log/zywork-log-common/zywork-log-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/zywork-log/zywork-log-dao/zywork-log-dao.iml" filepath="$PROJECT_DIR$/zywork-log/zywork-log-dao/zywork-log-dao.iml" />

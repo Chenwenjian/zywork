@@ -20,7 +20,7 @@
         <module>zywork-config</module>
         <module>zywork-log</module>
         <module>zywork-schedule</module>
-        <module>zywork-autocode</module>
+        <module>zywork-generator</module>
     </modules>
 
     <repositories>
@@ -104,6 +104,7 @@
         <activation.version>1.1.1</activation.version>
         <commons-codec.version>1.11</commons-codec.version>
         <commons-logging.version>1.2</commons-logging.version>
+        <commons-io.version>2.6</commons-io.version>
         <commons-fileupload.version>1.3.3</commons-fileupload.version>
         <commons-collections.version>3.2.2</commons-collections.version>
         <junit.version>4.12</junit.version>
@@ -381,6 +382,11 @@
                 <groupId>commons-codec</groupId>
                 <artifactId>commons-codec</artifactId>
                 <version>${commons-codec.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons-io.version}</version>
             </dependency>
             <dependency>
                 <groupId>commons-fileupload</groupId>

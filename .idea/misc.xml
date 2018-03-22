@@ -3,6 +3,7 @@
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/zywork-bpms/zywork-bpms-web" />
     <file type="web" url="file://$PROJECT_DIR$/zywork-cms/zywork-cms-web" />
+    <file type="web" url="file://$PROJECT_DIR$/zywork-generator" />
     <file type="web" url="file://$PROJECT_DIR$/zywork-log/zywork-log-web" />
     <file type="web" url="file://$PROJECT_DIR$/zywork-message/zywork-message-web" />
     <file type="web" url="file://$PROJECT_DIR$/zywork-report/zywork-report-web" />
@@ -19,6 +20,11 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/zywork-common/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/zywork-autocode/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">

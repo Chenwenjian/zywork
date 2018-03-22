@@ -6,7 +6,6 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="zywork-autocode" />
         <module name="zywork-bpms-common" />
         <module name="zywork-bpms-dao" />
         <module name="zywork-bpms-service-api" />
@@ -22,6 +21,7 @@
         <module name="zywork-config-dao" />
         <module name="zywork-config-service" />
         <module name="zywork-config-web" />
+        <module name="zywork-generator" />
         <module name="zywork-log-common" />
         <module name="zywork-log-dao" />
         <module name="zywork-log-service-api" />
@@ -78,6 +78,7 @@
       <module name="zywork-config-service" target="1.8" />
       <module name="zywork-config-shiro" target="1.8" />
       <module name="zywork-config-web" target="1.8" />
+      <module name="zywork-generator" target="1.8" />
       <module name="zywork-log" target="1.8" />
       <module name="zywork-log-common" target="1.8" />
       <module name="zywork-log-dao" target="1.8" />
