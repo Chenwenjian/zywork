@@ -41,7 +41,7 @@ zywork项目包含的功能有：
 			<td>通用模块，包含有常用的工具类</td>
 		</tr>
 		<tr>
-			<td>zywork-autocode</td>
+			<td>zywork-generator</td>
 			<td>代码自动生成器模块，可自动生成项目中所需要的实体类，DAO接口及其MyBatis映射文件，Service接口及其实现类，Controller</td>
 		</tr>
 		<tr>
