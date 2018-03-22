@@ -8,7 +8,7 @@ zywork-generator是根据zywork项目规范和架构编写的代码自动生成�
 
 所有DAO接口和Service接口严格继承自BaseDAO接口和BaseService接口，MyBatis Mapper映射文件实现了BaseDAO中定义的所有方法的映射，Service实现类中实现了BaseService接口中定义的所有方法。
 
-zywork-generator提供了Java main方法的运行方式，在top.zywork.autocode包中找到GeneratorApp类，并执行main方法即可（使用前请修改数据库连接参数）：
+zywork-generator提供了Java main方法的运行方式，在top.zywork.generator包中找到GeneratorApp类，并执行main方法即可（使用前请修改jdbc.json文件中的数据库连接参数）：
 
 ```
 /**
