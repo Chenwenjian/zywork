@@ -42,7 +42,7 @@ public class GeneratorApp {
 }
 ```
 
-zywork-generator还提供了可视化的网页自动生成单表及关联表的代码，详细操作可直接参考网页提示，网页图示如下：
+zywork-generator还提供了可视化的网页自动生成单表及关联表的代码，可在zywork-generator项目的dist目录中下载```zywork-generator.war```包部署运行。详细操作可直接参考网页提示，网页图示如下：
 
 ![](https://github.com/GZWgssmart/zywork/blob/master/zywork-generator/image/jdbc.png)
 
