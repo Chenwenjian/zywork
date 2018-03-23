@@ -145,7 +145,7 @@
                     + '<h3>'
                     + table
                     + '&nbsp;&nbsp;<input id="' + table + '" type="radio" name="primaryTable" value="' + table + '"/>&nbsp;&nbsp;'
-                    + '<label for="' + table + '">选择为主表</label>'
+                    + '<label for="' + table + '">设置为主表</label>'
                     + '</h3>';
         $.each(tableColumns, function (index, columnDetail) {
             let id = table + '-' + columnDetail.name + '-' + columnDetail.javaTypeName;
