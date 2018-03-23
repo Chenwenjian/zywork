@@ -152,17 +152,6 @@ public class FileUtils {
      * @return 如果存在返回true，否则返回false
      */
     public static boolean exist(String dir, String name) {
-        File file = new File(dir);
-        if (file.isDirectory()) {
-            File[] files = file.listFiles();
-            if (files != null && files.length > 0) {
-                for (File file1 : files) {
-                    if (file1.getName().equals(name)) {
-                        return true;
-                    }
-                }
-            }
-        }
-        return false;
+        return new File(dir, name).exists();
     }
 }

@@ -170,7 +170,11 @@
         let tables = $('#all-tables').val();
         if (tables === null || tables === '' || (tables + '').indexOf(",") === -1) {
             swal('提示', '请选择需要关联的数据表', 'warning');
-        } else if ($('#where_clause').val() === '') {
+        } else if ($('#bean_name').val().trim() === '') {
+            swal('提示', '请输入实体类名称', 'warning');
+        } else if ($('#request_mapping').val().trim() === '') {
+            swal('提示', '请输入控制映射URL', 'warning');
+        } else if ($('#where_clause').val().trim() === '') {
             swal('提示', '请输入WHERE查询条件', 'warning');
         } else if ($('input[name="columns"]:checked').length <= 0) {
             swal('提示', '请选择需要查询的字段', 'warning');
