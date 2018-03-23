@@ -14,6 +14,14 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.util.List;
 
+/**
+ * 代码生成控制器<br/>
+ *
+ * 创建于2018-03-22<br/>
+ *
+ * @author 王振宇
+ * @version 1.0
+ */
 @Controller
 @RequestMapping("/generator")
 public class GeneratorController {

@@ -40,6 +40,14 @@ public class MapperGenerator {
         GeneratorUtils.writeFile(fileContent, resDir, beanName + generator.getMapperSuffix());
     }
 
+    /**
+     * 生成关联表的Mapper映射xml文件
+     * @param beanName bean名称
+     * @param generator Generator实例
+     * @param primaryTable 主表名称
+     * @param columns 所选的字段
+     * @param joinWhereClause 关联条件
+     */
     public static void generateJoinMapper(String beanName, Generator generator, String primaryTable, String[] columns, String joinWhereClause) {
         StringBuilder tableName = new StringBuilder();
         for (String column : columns) {
@@ -152,6 +160,12 @@ public class MapperGenerator {
         return fileContent.replace(TemplateConstants.SELECT_COLUMNS, selectColumns.toString().replaceFirst(", ", ""));
     }
 
+    /**
+     * 生成关联表查询的select字段部分
+     * @param fileContent 文件内容
+     * @param columns 所选的字段
+     * @return
+     */
     private static String generateJoinSelectColumns(String fileContent, String[] columns){
         StringBuilder selectColumns = new StringBuilder("");
         for (String column : columns) {
@@ -205,6 +219,13 @@ public class MapperGenerator {
         return fileContent.replace(TemplateConstants.QUERY_WHERE_CLAUSE, whereClause.toString());
     }
 
+    /**
+     * 生成关联表的查询条件部分
+     * @param generator Generator实例
+     * @param fileContent 文件内容
+     * @param columns 所选的字段
+     * @return
+     */
     private static String generateJoinQueryWhereClause(Generator generator, String fileContent, String[] columns){
         StringBuilder whereClause = new StringBuilder("");
         for (int i = 0, len = columns.length; i < len; i++) {
@@ -244,6 +265,12 @@ public class MapperGenerator {
         return fileContent.replace(TemplateConstants.QUERY_WHERE_CLAUSE, whereClause.toString());
     }
 
+    /**
+     * 生成关联表的关联条件部分
+     * @param fileContent 文件内容
+     * @param joinWhereClause 关联条件
+     * @return
+     */
     private static String generateJoinWhereClause(String fileContent, String joinWhereClause){
         return fileContent.replace(TemplateConstants.JOIN_WHERE_CLAUSE, joinWhereClause);
     }

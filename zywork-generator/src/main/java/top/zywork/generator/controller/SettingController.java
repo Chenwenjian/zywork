@@ -7,12 +7,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import top.zywork.generator.bean.Generator;
 import top.zywork.generator.bean.JDBC;
-import top.zywork.generator.constant.TemplateConstants;
 import top.zywork.vo.ControllerStatusVO;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ * 显示JDBC和Generator配置页面的控制器<br/>
+ *
+ * 创建于2018-03-22<br/>
+ *
+ * @author 王振宇
+ * @version 1.0
+ */
 @Controller
 @RequestMapping("/setting")
 public class SettingController {

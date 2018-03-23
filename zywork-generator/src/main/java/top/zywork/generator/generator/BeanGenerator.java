@@ -25,11 +25,14 @@ import java.util.List;
  */
 public class BeanGenerator {
 
+    /**
+     * 用于存储表字段对应的属性信息
+     */
     private static List<FieldDetail> fieldDetailList = new ArrayList<>();
 
     /**
      * 生成表对应的DO实体类
-     * @param generator
+     * @param generator Generator实例
      * @param tableColumns 表数据
      */
     public static void generateDO(Generator generator, TableColumns tableColumns) {
@@ -49,6 +52,13 @@ public class BeanGenerator {
         GeneratorUtils.writeFile(fileContent, packagePath, beanName + generator.getDoSuffix());
     }
 
+    /**
+     * 生成关联表DO
+     * @param beanName bean名称
+     * @param generator Generator实例
+     * @param columns 所选的字段
+     * @param tableColumnsList 所有表字段信息列表
+     */
     public static void generateJoinDO(String beanName, Generator generator, String[] columns, List<TableColumns> tableColumnsList) {
         String packagePath = GeneratorUtils.createPackage(generator, generator.getDoPackage());
         String fileContent = GeneratorUtils.readTemplate(generator, TemplateConstants.DO_TEMPLATE);
@@ -98,6 +108,13 @@ public class BeanGenerator {
         GeneratorUtils.writeFile(fileContent, packagePath, beanName + generator.getDtoSuffix());
     }
 
+    /**
+     * 生成关联表DTO对象
+     * @param beanName bean名称
+     * @param generator Generator实例
+     * @param columns 所选的字段
+     * @param tableColumnsList 所有表的字段信息列表
+     */
     public static void generateJoinDTO(String beanName, Generator generator, String[] columns, List<TableColumns> tableColumnsList) {
         String packagePath = GeneratorUtils.createPackage(generator, generator.getDtoPackage());
         String fileContent = GeneratorUtils.readTemplate(generator, TemplateConstants.DTO_TEMPLATE);
@@ -147,6 +164,13 @@ public class BeanGenerator {
         GeneratorUtils.writeFile(fileContent, packagePath, beanName + generator.getVoSuffix());
     }
 
+    /**
+     * 生成关联表的VO对象
+     * @param beanName bean名称
+     * @param generator Generator实例
+     * @param columns 所选的字段
+     * @param tableColumnsList 所有表字段信息列表
+     */
     public static void generateJoinVO(String beanName, Generator generator, String[] columns, List<TableColumns> tableColumnsList) {
         String packagePath = GeneratorUtils.createPackage(generator, generator.getVoPackage());
         String fileContent = GeneratorUtils.readTemplate(generator, TemplateConstants.VO_TEMPLATE);
@@ -197,6 +221,13 @@ public class BeanGenerator {
         GeneratorUtils.writeFile(fileContent, packagePath, beanName + generator.getQuerySuffix());
     }
 
+    /**
+     * 生成关联表的Query对象
+     * @param beanName bean名称
+     * @param generator Generator实例
+     * @param columns 所选的字段
+     * @param tableColumnsList 所有表字段信息的列表
+     */
     public static void generateJoinQuery(String beanName, Generator generator, String[] columns, List<TableColumns> tableColumnsList) {
         String packagePath = GeneratorUtils.createPackage(generator, generator.getQueryPackage());
         String fileContent = GeneratorUtils.readTemplate(generator, TemplateConstants.QUERY_TEMPLATE);
@@ -253,6 +284,14 @@ public class BeanGenerator {
         return fileContent.replace(TemplateConstants.FIELDS, fields.toString());
     }
 
+    /**
+     * 生成关联表的所有属性
+     * @param generator Generator实例
+     * @param fileContent 文件内容
+     * @param columns 所选的字段
+     * @param tableColumnsList 所有表字段信息的列表
+     * @return
+     */
     private static String generateJoinFields(Generator generator, String fileContent, String[] columns, List<TableColumns> tableColumnsList) {
         fieldDetailList.clear();
         StringBuilder fields = new StringBuilder("");
@@ -314,6 +353,11 @@ public class BeanGenerator {
         return fileContent.replace(TemplateConstants.CONSTRUCTOR_PARAMS, constructorParams.toString().replaceFirst(", ", ""));
     }
 
+    /**
+     * 生成关联表的构造方法的所有参数
+     * @param fileContent 文件内容
+     * @return
+     */
     private static String generatorJoinConstructorParams(String fileContent) {
         StringBuilder constructorParams = new StringBuilder("");
         for (FieldDetail fieldDetail : fieldDetailList) {
@@ -342,6 +386,11 @@ public class BeanGenerator {
         return fileContent.replace(TemplateConstants.CONSTRUCTOR, constructor.toString());
     }
 
+    /**
+     * 生成关联表对象的构造方法
+     * @param fileContent 文件内容
+     * @return
+     */
     private static String generatorJoinConstructor(String fileContent) {
         StringBuilder constructor = new StringBuilder("");
         for (FieldDetail fieldDetail : fieldDetailList) {
@@ -393,6 +442,11 @@ public class BeanGenerator {
         return fileContent.replace(TemplateConstants.FIELDS_GETTER_SETTER, getterSetters.toString());
     }
 
+    /**
+     * 生成关联表对象的getter/setter
+     * @param fileContent 文件内容
+     * @return
+     */
     private static String generateJoinGetterSetters(String fileContent) {
         StringBuilder getterSetters = new StringBuilder("");
         for (FieldDetail fieldDetail : fieldDetailList) {
@@ -441,6 +495,11 @@ public class BeanGenerator {
         return fileContent.replace(TemplateConstants.TO_STRING, toString.toString().replaceFirst(", ", ""));
     }
 
+    /**
+     * 生成关联表对象的toString方法
+     * @param fileContent 文件内容
+     * @return
+     */
     private static String generateJoinToString(String fileContent) {
         StringBuilder toString = new StringBuilder("");
         for (FieldDetail fieldDetail : fieldDetailList) {

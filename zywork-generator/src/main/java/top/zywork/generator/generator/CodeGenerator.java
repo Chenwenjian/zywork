@@ -1,6 +1,5 @@
 package top.zywork.generator.generator;
 
-import com.sun.tools.javah.Gen;
 import top.zywork.generator.bean.Generator;
 import top.zywork.generator.bean.JDBC;
 import top.zywork.generator.bean.TableColumns;
@@ -27,20 +26,14 @@ public class CodeGenerator {
         JDBCUtils jdbcUtils = new JDBCUtils();
         jdbcUtils.connect(jdbc.getDriverClassName(), jdbc.getUrl(), jdbc.getUsername(), jdbc.getPassword());
         List<TableColumns> tableColumnsList = jdbcUtils.getTableColumns();
-        BeanGenerator.generateDOs(generator, tableColumnsList);
-        BeanGenerator.generateDTOs(generator, tableColumnsList);
-        BeanGenerator.generateVOs(generator, tableColumnsList);
-        BeanGenerator.generateQuerys(generator, tableColumnsList);
-
-        DAOGenerator.generateDAOs(generator, tableColumnsList);
-        MapperGenerator.generateMappers(generator, tableColumnsList);
-
-        ServiceGenerator.generateServices(generator, tableColumnsList);
-        ServiceGenerator.generateServiceImpls(generator, tableColumnsList);
-
-        ControllerGenerator.generateControllers(generator, tableColumnsList);
+        generateCodes(generator, tableColumnsList);
     }
 
+    /**
+     * 根据Generator和所有表字段信息生成所有单表的代码
+     * @param generator Generator实例
+     * @param tableColumnsList 所有表字段信息列表
+     */
     public static void generateCodes(Generator generator, List<TableColumns> tableColumnsList) {
         BeanGenerator.generateDOs(generator, tableColumnsList);
         BeanGenerator.generateDTOs(generator, tableColumnsList);
@@ -56,6 +49,11 @@ public class CodeGenerator {
         ControllerGenerator.generateControllers(generator, tableColumnsList);
     }
 
+    /**
+     * 根据Generator和单表的字段信息生成指定的一张表的代码
+     * @param generator Generator实例
+     * @param tableColumns 单个表的字段信息
+     */
     public static void generateCode(Generator generator, TableColumns tableColumns) {
         BeanGenerator.generateDO(generator, tableColumns);
         BeanGenerator.generateDTO(generator, tableColumns);
@@ -71,6 +69,16 @@ public class CodeGenerator {
         ControllerGenerator.generateController(generator, tableColumns);
     }
 
+    /**
+     * 生成关联表的代码
+     * @param beanName bean名称
+     * @param mappingUrl 控制器映射url
+     * @param jdbc JDBC实例
+     * @param generator Generator实例
+     * @param primaryTable 主表名称
+     * @param columns 所选表字段
+     * @param joinWhereClause 关联条件
+     */
     public static void generateJoinCodes(String beanName, String mappingUrl, JDBC jdbc,
                                          Generator generator, String primaryTable, String[] columns, String joinWhereClause) {
         JDBCUtils jdbcUtils = new JDBCUtils();
@@ -90,6 +98,15 @@ public class CodeGenerator {
         ControllerGenerator.generateJoinController(beanName, mappingUrl, generator);
     }
 
+    /**
+     * 生成关联表的代码
+     * @param beanName bean名称
+     * @param mappingUrl 控制器映射url
+     * @param generator Generator实例
+     * @param primaryTable 主表名称
+     * @param columns 所选表字段
+     * @param joinWhereClause 关联条件
+     */
     public static void generateJoinCodes(String beanName, String mappingUrl, Generator generator, String primaryTable,
                                          String[] columns, List<TableColumns> tableColumnsList, String joinWhereClause) {
         BeanGenerator.generateJoinDO(beanName, generator, columns, tableColumnsList);

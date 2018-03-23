@@ -39,6 +39,12 @@ public class ControllerGenerator {
         GeneratorUtils.writeFile(fileContent, packagePath, beanName + generator.getControllerSuffix());
     }
 
+    /**
+     * 生成关联表的Controller
+     * @param beanName bean名称
+     * @param mappingUrl 控制器映射url
+     * @param generator Generator实例
+     */
     public static void generateJoinController(String beanName, String mappingUrl, Generator generator) {
         String packagePath = GeneratorUtils.createPackage(generator, generator.getControllerPackage());
         String fileContent = GeneratorUtils.readTemplate(generator, TemplateConstants.JOIN_CONTROLLER_TEMPLATE);

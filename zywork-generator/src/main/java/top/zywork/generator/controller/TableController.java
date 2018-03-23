@@ -17,6 +17,14 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 获取表及表字段信息的控制器<br/>
+ *
+ * 创建于2018-03-22<br/>
+ *
+ * @author 王振宇
+ * @version 1.0
+ */
 @Controller
 @RequestMapping("/table")
 public class TableController {

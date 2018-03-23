@@ -1,5 +1,13 @@
 package top.zywork.generator.bean;
 
+/**
+ * Generator配置信息的封装类<br/>
+ *
+ * 创建于2018-03-22<br/>
+ *
+ * @author 王振宇
+ * @version 1.0
+ */
 public class Generator {
 
     private String charset;

@@ -1,11 +1,11 @@
 package top.zywork.generator.generator;
 
+import top.zywork.common.DateFormatUtils;
+import top.zywork.enums.DatePatternEnum;
 import top.zywork.generator.bean.Generator;
 import top.zywork.generator.bean.TableColumns;
 import top.zywork.generator.common.GeneratorUtils;
 import top.zywork.generator.constant.TemplateConstants;
-import top.zywork.common.DateFormatUtils;
-import top.zywork.enums.DatePatternEnum;
 
 import java.util.Calendar;
 import java.util.List;
@@ -30,6 +30,11 @@ public class DAOGenerator {
         generateJoinDAO(beanName, generator);
     }
 
+    /**
+     * 生成关联表的DAO接口
+     * @param beanName bean名称
+     * @param generator Generator实例
+     */
     public static void generateJoinDAO(String beanName, Generator generator) {
         String packagePath = GeneratorUtils.createPackage(generator, generator.getDaoPackage());
         String fileContent = GeneratorUtils.readTemplate(generator, TemplateConstants.DAO_TEMPLATE);
