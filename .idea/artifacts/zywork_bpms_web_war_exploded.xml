@@ -21,7 +21,6 @@
           <element id="library" level="project" name="Maven: net.sf.dozer:dozer:5.5.1" />
           <element id="library" level="project" name="Maven: commons-beanutils:commons-beanutils:1.9.3" />
           <element id="library" level="project" name="Maven: commons-collections:commons-collections:3.2.2" />
-          <element id="library" level="project" name="Maven: org.apache.commons:commons-lang3:3.5" />
           <element id="library" level="project" name="Maven: net.sf.dozer:dozer-spring:5.5.1" />
           <element id="library" level="project" name="Maven: org.apache.httpcomponents:httpclient:4.5.3" />
           <element id="library" level="project" name="Maven: org.apache.httpcomponents:httpcore:4.4.6" />
@@ -46,12 +45,30 @@
           <element id="library" level="project" name="Maven: ch.qos.logback:logback-core:1.2.3" />
           <element id="library" level="project" name="Maven: org.logback-extensions:logback-ext-spring:0.1.4" />
           <element id="library" level="project" name="Maven: com.alibaba:druid:1.1.2" />
+          <element id="library" level="project" name="Maven: org.activiti:activiti-engine:6.0.0" />
+          <element id="library" level="project" name="Maven: org.activiti:activiti-bpmn-converter:6.0.0" />
+          <element id="library" level="project" name="Maven: org.activiti:activiti-bpmn-model:6.0.0" />
+          <element id="library" level="project" name="Maven: org.activiti:activiti-process-validation:6.0.0" />
+          <element id="library" level="project" name="Maven: org.activiti:activiti-image-generator:6.0.0" />
+          <element id="library" level="project" name="Maven: org.activiti:activiti-dmn-api:6.0.0" />
+          <element id="library" level="project" name="Maven: org.activiti:activiti-dmn-model:6.0.0" />
+          <element id="library" level="project" name="Maven: org.activiti:activiti-form-model:6.0.0" />
+          <element id="library" level="project" name="Maven: org.activiti:activiti-form-api:6.0.0" />
+          <element id="library" level="project" name="Maven: org.apache.commons:commons-email:1.4" />
+          <element id="library" level="project" name="Maven: org.apache.commons:commons-lang3:3.5" />
+          <element id="library" level="project" name="Maven: org.mybatis:mybatis:3.4.5" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-beans:4.3.13.RELEASE" />
+          <element id="library" level="project" name="Maven: de.odysseus.juel:juel-api:2.2.7" />
+          <element id="library" level="project" name="Maven: de.odysseus.juel:juel-impl:2.2.7" />
+          <element id="library" level="project" name="Maven: de.odysseus.juel:juel-spi:2.2.7" />
+          <element id="library" level="project" name="Maven: joda-time:joda-time:2.6" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.25" />
+          <element id="library" level="project" name="Maven: org.slf4j:jcl-over-slf4j:1.7.25" />
           <element id="archive" name="zywork-config-web-1.0.0.jar">
             <element id="module-output" name="zywork-config-web" />
           </element>
           <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:4.3.13.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-aop:4.3.13.RELEASE" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-beans:4.3.13.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-context:4.3.13.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-core:4.3.13.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-expression:4.3.13.RELEASE" />
@@ -65,7 +82,6 @@
           <element id="library" level="project" name="Maven: org.javassist:javassist:3.21.0-GA" />
           <element id="library" level="project" name="Maven: org.jboss.netty:netty:3.2.5.Final" />
           <element id="library" level="project" name="Maven: org.apache.zookeeper:zookeeper:3.4.11" />
-          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.25" />
           <element id="library" level="project" name="Maven: jline:jline:0.9.94" />
           <element id="library" level="project" name="Maven: org.apache.yetus:audience-annotations:0.5.0" />
           <element id="library" level="project" name="Maven: io.netty:netty:3.10.5.Final" />
@@ -80,7 +96,6 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-tx:4.3.13.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-oxm:4.3.13.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-context-support:4.3.13.RELEASE" />
-          <element id="library" level="project" name="Maven: org.slf4j:jcl-over-slf4j:1.7.25" />
         </element>
       </element>
       <element id="directory" name="META-INF">

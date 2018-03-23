@@ -18,6 +18,11 @@
             <artifactId>zywork-bpms-common</artifactId>
             <version>${zywork.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.activiti</groupId>
+            <artifactId>activiti-engine</artifactId>
+        </dependency>
     </dependencies>
 
 </project>
