@@ -40,7 +40,7 @@ public class GeneratorReservedApp {
         File[] files = file.listFiles();
         int count = 0;
         for (File f : files) {
-            if (f.isDirectory() && StringUtils.isInArray(reservedDir.split(","), f.getName())) {
+            if (f.isDirectory() && !StringUtils.isInArray(reservedDir.split(","), f.getName())) {
                 FileUtils.deleteFiles(f.getAbsolutePath());
                 count++;
             }

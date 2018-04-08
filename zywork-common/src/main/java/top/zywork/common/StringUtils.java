@@ -47,10 +47,10 @@ public class StringUtils {
     public static boolean isInArray(String[] strArray, String str) {
         for (String s : strArray) {
             if (s.equals(str)) {
-                return false;
+                return true;
             }
         }
-        return true;
+        return false;
     }
 
 }
