@@ -157,8 +157,10 @@ public class {beanName}Controller extends BaseController {
 
     @RequestMapping("pager")
     @ResponseBody
-    public PagerVO listPage(PageQuery pageQuery) {
+    public PagerVO listPage(int offset, int limit, PageQuery pageQuery) {
         PagerVO pagerVO = new PagerVO();
+        pageQuery.setPageNo(offset / limit + 1);
+        pageQuery.setPageSize(limit);
         try {
             PagerDTO pagerDTO = {beanNameLowerCase}Service.listPage(pageQuery);
             Mapper mapper = getBeanMapper();
