@@ -18,7 +18,7 @@ public class JoinTableController {
 
     @GetMapping("page")
     public String singleTable() {
-        return "join_table";
+        return "generator/join_table";
     }
 
 }

@@ -18,7 +18,7 @@ public class SingleTableController {
 
     @GetMapping("page")
     public String singleTable() {
-        return "single_table";
+        return "generator/single_table";
     }
 
 }

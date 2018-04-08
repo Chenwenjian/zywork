@@ -269,10 +269,11 @@ public class BeanGenerator {
         for (ColumnDetail columnDetail : columnDetailList) {
             String field = columnDetail.getFieldName();
             String javaType = columnDetail.getJavaTypeName();
-            fieldDetailList.add(new FieldDetail(field, javaType));
+            String comment = columnDetail.getComment();
+            fieldDetailList.add(new FieldDetail(field, javaType, comment));
             fields.append("/**\n")
                     .append("\t * ")
-                    .append(columnDetail.getComment())
+                    .append(comment)
                     .append("\n")
                     .append("\t */\n")
                     .append("\tprivate ")
@@ -318,10 +319,11 @@ public class BeanGenerator {
                             String field = StringUtils.uncapitalize(GeneratorUtils.tableNameToClassName(tableName, generator.getTablePrefix()))
                                     + StringUtils.capitalize(columnDetail.getFieldName());
                             String javaType = columnDetail.getJavaTypeName();
-                            fieldDetailList.add(new FieldDetail(field, javaType));
+                            String comment = columnDetail.getComment();
+                            fieldDetailList.add(new FieldDetail(field, javaType, comment));
                             fields.append("/**\n")
                                     .append("\t * ")
-                                    .append(columnDetail.getComment())
+                                    .append(comment)
                                     .append("\n")
                                     .append("\t */\n")
                                     .append("\tprivate ")

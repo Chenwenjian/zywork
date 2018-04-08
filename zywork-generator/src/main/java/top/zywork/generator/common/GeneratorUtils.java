@@ -84,6 +84,34 @@ public class GeneratorUtils {
     }
 
     /**
+     * 在src/main/webapp/static目录下创建css和js目录
+     * @param generator Generator实例
+     * @param resDir 资源目录名
+     * @return
+     */
+    public static String createViewResDir(Generator generator, String resDir) {
+        File file = new File(generator.getSaveBaseDir() + resDir);
+        if (!file.exists()) {
+            file.mkdirs();
+        }
+        return file.getAbsolutePath();
+    }
+
+    /**
+     * 在src/main/webapp/WEB-INF目录中创建views目录
+     * @param generator Generator实例
+     * @param viewDir 需要创建的视图目录名
+     * @return
+     */
+    public static String createViewDir(Generator generator, String viewDir) {
+        File file = new File(generator.getSaveBaseDir() + generator.getViewFileDir() + viewDir);
+        if (!file.exists()) {
+            file.mkdirs();
+        }
+        return file.getAbsolutePath();
+    }
+
+    /**
      * 写出文件
      * @param fileContent 文件内容，字符串
      * @param path 文件路径

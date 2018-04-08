@@ -18,12 +18,12 @@ public class IndexController {
 
     @GetMapping("index")
     public String index() {
-        return "index";
+        return "generator/index";
     }
 
     @GetMapping("home")
     public String home() {
-        return "home";
+        return "generator/home";
     }
 
 }

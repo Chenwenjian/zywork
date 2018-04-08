@@ -26,12 +26,12 @@ public class SettingController {
 
     @GetMapping("jdbc-page")
     public String jdbcPage() {
-        return "jdbc_setting";
+        return "generator/jdbc_setting";
     }
 
     @GetMapping("generator-page")
     public String generatorPage() {
-        return "generator_setting";
+        return "generator/generator_setting";
     }
 
     @PostMapping("jdbc")

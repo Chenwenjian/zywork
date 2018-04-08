@@ -47,6 +47,9 @@ public class CodeGenerator {
         ServiceGenerator.generateServiceImpls(generator, tableColumnsList);
 
         ControllerGenerator.generateControllers(generator, tableColumnsList);
+
+        ViewGenerator.generateViews(generator, tableColumnsList);
+        ViewGenerator.generateJss(generator, tableColumnsList);
     }
 
     /**
@@ -67,6 +70,9 @@ public class CodeGenerator {
         ServiceGenerator.generateServiceImpl(generator, tableColumns);
 
         ControllerGenerator.generateController(generator, tableColumns);
+
+        ViewGenerator.generateView(generator, tableColumns);
+        ViewGenerator.generateJs(generator, tableColumns);
     }
 
     /**

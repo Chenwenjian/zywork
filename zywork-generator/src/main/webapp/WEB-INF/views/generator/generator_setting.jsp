@@ -205,6 +205,27 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label class="col-sm-3 control-label">JS文件存储目录：</label>
+
+                    <div class="col-sm-9">
+                        <input type="text" name="jsFileDir" placeholder="JS文件存储目录" class="form-control" value="${applicationScope.generator.jsFileDir}"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">CSS文件存储目录：</label>
+
+                    <div class="col-sm-9">
+                        <input type="text" name="cssFileDir" placeholder="CSS文件存储目录" class="form-control" value="${applicationScope.generator.cssFileDir}"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">视图文件存储目录：</label>
+
+                    <div class="col-sm-9">
+                        <input type="text" name="viewFileDir" placeholder="视图文件存储目录" class="form-control" value="${applicationScope.generator.viewFileDir}"/>
+                    </div>
+                </div>
+                <div class="form-group">
                     <div class="col-sm-offset-3 col-sm-9">
                         <button class="btn btn-primary" type="button" onclick="saveGenerator();">确定</button>
                     </div>

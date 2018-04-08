@@ -36,6 +36,9 @@ public class Generator {
     private String serviceImplSuffix;
     private String controllerSuffix;
     private String mapperSuffix;
+    private String jsFileDir;
+    private String cssFileDir;
+    private String viewFileDir;
 
     public String getCharset() {
         return charset;
@@ -243,5 +246,29 @@ public class Generator {
 
     public void setMapperSuffix(String mapperSuffix) {
         this.mapperSuffix = mapperSuffix;
+    }
+
+    public String getJsFileDir() {
+        return jsFileDir;
+    }
+
+    public void setJsFileDir(String jsFileDir) {
+        this.jsFileDir = jsFileDir;
+    }
+
+    public String getCssFileDir() {
+        return cssFileDir;
+    }
+
+    public void setCssFileDir(String cssFileDir) {
+        this.cssFileDir = cssFileDir;
+    }
+
+    public String getViewFileDir() {
+        return viewFileDir;
+    }
+
+    public void setViewFileDir(String viewFileDir) {
+        this.viewFileDir = viewFileDir;
     }
 }

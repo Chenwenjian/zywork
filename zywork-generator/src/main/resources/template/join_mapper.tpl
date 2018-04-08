@@ -54,10 +54,10 @@
         and
         {joinWhereClause}
         order by {primaryTable}.update_time desc, {primaryTable}.create_time desc
-        limit #{beginIndex}, #{pageSize}
+        limit #{pager.beginIndex}, #{pager.pageSize}
     </select>
 
-    <select id="countByCondition" parameterType="{beanNameLowerCase}Query" resultType="long">
+    <select id="countByCondition" resultType="long">
         select count(*) from {tableName}
         <where>
             <include refid="query_where_clause"/>

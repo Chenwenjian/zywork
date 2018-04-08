@@ -10,7 +10,7 @@ package top.zywork.generator.constant;
  */
 public class TemplateConstants {
 
-    public static final Integer TOTAL_TEMPLATES = 9;
+    public static final Integer TOTAL_TEMPLATES = 11;
 
     public static final String DO_TEMPLATE = "do.tpl";
     public static final String DTO_TEMPLATE = "dto.tpl";
@@ -23,6 +23,12 @@ public class TemplateConstants {
     public static final String JOIN_CONTROLLER_TEMPLATE = "join_controller.tpl";
     public static final String MAPPER_TEMPLATE = "mapper.tpl";
     public static final String JOIN_MAPPER_TEMPLATE = "join_mapper.tpl";
+    public static final String VIEW_TEMPLATE = "view.tpl";
+    public static final String VIEW_JS_TEMPLATE = "view_js.tpl";
+    public static final String VIEW_RADIO_TEMPLATE = "view_radio.tpl";
+    public static final String VIEW_SELECT_TEMPLATE = "view_select.tpl";
+    public static final String VIEW_TEXT_TEMPLATE = "view_text.tpl";
+    public static final String VIEW_TEXTAREA_TEMPLATE = "view_textarea.tpl";
 
     public static final String CREATE_DATE = "{createDate}";
 
@@ -61,5 +67,31 @@ public class TemplateConstants {
     public static final String PRIMARY_TABLE = "{primaryTable}";
 
     public static final String JOIN_WHERE_CLAUSE = "{joinWhereClause}";
+
+    public static final String VIEW_PAGE_TITLE = "{zywork.pageTitle}";
+
+    public static final String VIEW_ADD_FORM_FIELDS = "{zywork.addFormFields}";
+
+    public static final String VIEW_SAVE_URL = "{zywork.saveUrl}";
+
+    public static final String VIEW_TABLE_URL = "{zywork.tableUrl}";
+
+    public static final String VIEW_EDIT_FORM_FIELDS = "{zywork.editFormFields}";
+
+    public static final String VIEW_EDIT_URL = "{zywork.editUrl}";
+
+    public static final String VIEW_JS_FILE_NAME = "{zywork.jsFileName}";
+
+    public static final String VIEW_TABLE_FIELDS = "{zywork.tableFields}";
+
+    public static final String VIEW_REMOVE_URL = "{zywork.removeUrl}";
+
+    public static final String VIEW_FIELD_NAME_EN = "{zywork.fieldNameEN}";
+
+    public static final String VIEW_ID_FIELD_NAME_EN = "{zywork.idFieldNameEN}";
+
+    public static final String VIEW_FIELD_NAME_CN = "{zywork.fieldNameCN}";
+
+    public static final String VIEW_FIELD_PLACEHOLDER = "{zywork.fieldPlaceholder}";
 
 }

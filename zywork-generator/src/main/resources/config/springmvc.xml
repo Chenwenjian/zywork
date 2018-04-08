@@ -10,7 +10,7 @@
        http://www.springframework.org/schema/mvc
        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-    <context:component-scan base-package="top.zywork.generator.controller"/>
+    <context:component-scan base-package="top.zywork"/>
     <mvc:annotation-driven/>
     <bean class="org.springframework.format.support.FormattingConversionServiceFactoryBean"/>
 
@@ -48,9 +48,11 @@
     <mvc:resources location="/static/" mapping="/static/**"/>
     <mvc:resources location="/uploads/" mapping="/uploads/**"/>
 
+    <!--
     <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
         <property name="defaultErrorView" value="common/error"/>
     </bean>
+    -->
 
     <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
         <property name="basenames">

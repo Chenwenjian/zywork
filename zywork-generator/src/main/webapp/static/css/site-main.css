@@ -1,0 +1,27 @@
+/**
+下拉菜单式按钮
+ */
+.btn-group>.btn+.dropdown-toggle {
+    padding-top: 14px;
+    padding-bottom: 14px;
+}
+/**
+bootstrap-table顶部按钮
+ */
+.columns .btn {
+    height: 34px;
+}
+
+/**
+modal中打开select2下拉菜单
+ */
+.select2-container--bootstrap{
+    z-index: 9999999;
+}
+
+/**
+bootstrap-table中的操作按钮
+ */
+.operation-column {
+    min-width: 120px;
+}

@@ -24,5 +24,8 @@
   "serviceSuffix": "Service.java",
   "serviceImplSuffix": "ServiceImpl.java",
   "controllerSuffix": "Controller.java",
-  "mapperSuffix": "DAOMapper.xml"
+  "mapperSuffix": "DAOMapper.xml",
+  "jsFileDir": "webapp/static/js/",
+  "cssFileDir": "webapp/static/css/",
+  "viewFileDir": "webapp/WEB-INF/views/"
 }
