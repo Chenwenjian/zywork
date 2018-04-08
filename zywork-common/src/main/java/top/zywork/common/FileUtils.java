@@ -154,4 +154,23 @@ public class FileUtils {
     public static boolean exist(String dir, String name) {
         return new File(dir, name).exists();
     }
+
+    /**
+     * 删除指定目录及目录下的所有文件和目录
+     * @param srcDir 需要删除的目录
+     */
+    public static void deleteFiles(String srcDir) {
+        File file = new File(srcDir);
+        File[] files = file.listFiles();
+        if (files != null && files.length > 0) {
+            for (File f : files) {
+                if (f.isDirectory()) {
+                    deleteFiles(f.getAbsolutePath());
+                } else {
+                    f.delete();
+                }
+            }
+        }
+        file.delete();
+    }
 }

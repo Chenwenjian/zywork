@@ -1,0 +1,13 @@
+{
+  "baseDir": "/Users/wangzhenyu/development/git_projects/zywork/zywork-generator/src/main/",
+  "baseJavaDir": "java/top/zywork/",
+  "reservedJavaDir": "generator",
+  "baseResDir": "resources/",
+  "reservedResDir": "config,template",
+  "baseCssDir": "webapp/static/css/",
+  "reservedCssDir": "patterns,plugins",
+  "baseJsDir": "webapp/static/js/",
+  "reservedJsDir": "plugins,tpl",
+  "baseViewDir": "webapp/WEB-INF/views",
+  "reservedViewDir": "generator,master,tpl"
+}

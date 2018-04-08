@@ -38,4 +38,19 @@ public class StringUtils {
         return integerArray;
     }
 
+    /**
+     * 判断一个字符串是否出现在指定的字符串数组中
+     * @param strArray 字符串数组
+     * @param str 字符串
+     * @return 如果字符串出现在指定的字符串数组中，返回true，否则返回false
+     */
+    public static boolean isInArray(String[] strArray, String str) {
+        for (String s : strArray) {
+            if (s.equals(str)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
 }
