@@ -62,6 +62,7 @@
             </div>
             <div class="modal-body">
                 <form id="edit-form" class="form-horizontal row" enctype="multipart/form-data">
+                    <input type="hidden" name="id"/>
                     {zywork.editFormFields}
                 </form>
             </div>
