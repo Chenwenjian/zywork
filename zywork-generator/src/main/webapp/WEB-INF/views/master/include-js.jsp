@@ -1,0 +1,12 @@
+<script src="<%=path%>/static/js/jquery.min.js"></script>
+<script src="<%=path%>/static/js/bootstrap.min.js"></script>
+<script src="<%=path%>/static/js/plugins/metisMenu/metisMenu.min.js"></script>
+<script src="<%=path%>/static/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="<%=path%>/static/js/plugins/select2/select2.min.js"></script>
+<script src="<%=path%>/static/js/plugins/select2/i18n/zh-CN.js"></script>
+<script src="<%=path%>/static/js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+<script src="<%=path%>/static/js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+<script src="<%=path%>/static/js/plugins/sweetalert/sweetalert2.min.js"></script>
+<script src="<%=path%>/static/js/plugins/iCheck/icheck.min.js"></script>
+<script src="<%=path%>/static/js/plugins/formautofill/jquery.formautofill.min.js"></script>
+<script src="<%=path%>/static/js/site-main.js"></script>
