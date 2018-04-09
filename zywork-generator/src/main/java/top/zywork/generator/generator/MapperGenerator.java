@@ -67,7 +67,7 @@ public class MapperGenerator {
         fileContent = generateJoinInsertColumns(fileContent, generator, primaryTable, columns);
         fileContent = generateJoinInsertValues(fileContent, generator, primaryTable, columns);
         fileContent = generateJoinSetClause(fileContent, generator, primaryTable, columns);
-        fileContent = generateJoinSelectColumns(fileContent, columns);
+        fileContent = generateJoinSelectColumns(fileContent, generator, columns);
         fileContent = generateJoinQueryWhereClause(generator, fileContent, columns);
         fileContent = generateJoinWhereClause(fileContent, joinWhereClause);
         GeneratorUtils.writeFile(fileContent, resDir, beanName + generator.getMapperSuffix());
@@ -276,14 +276,17 @@ public class MapperGenerator {
      * @param columns 所选的字段
      * @return
      */
-    private static String generateJoinSelectColumns(String fileContent, String[] columns){
+    private static String generateJoinSelectColumns(String fileContent, Generator generator, String[] columns){
         StringBuilder selectColumns = new StringBuilder("");
         for (String column : columns) {
             String[] tableNameAndColumn = column.split("-");
             String tableName = tableNameAndColumn[0];
             String columnName = tableNameAndColumn[1];
             selectColumns.append(", ")
-                    .append(tableName + "." + columnName);
+                    .append(tableName + "." + columnName)
+                    .append(" as ")
+                    .append(StringUtils.uncapitalize(GeneratorUtils.tableNameToClassName(tableName, generator.getTablePrefix()))
+                    + StringUtils.capitalize(PropertyUtils.columnToProperty(columnName)));
         }
         return fileContent.replace(TemplateConstants.SELECT_COLUMNS, selectColumns.toString().replaceFirst(", ", ""));
     }

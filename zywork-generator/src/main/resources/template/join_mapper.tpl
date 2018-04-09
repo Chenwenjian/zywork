@@ -47,6 +47,8 @@
 
     <sql id="query_where_clause">
         {queryWhereClause}
+        and
+        {joinWhereClause}
     </sql>
 
     <select id="getById" parameterType="long" resultType="{beanNameLowerCase}DO">
@@ -88,8 +90,6 @@
         <where>
             <include refid="query_where_clause"/>
         </where>
-        and
-        {joinWhereClause}
         order by {primaryTable}.update_time desc, {primaryTable}.create_time desc
         limit #{pager.beginIndex}, #{pager.pageSize}
     </select>
@@ -99,8 +99,6 @@
         <where>
             <include refid="query_where_clause"/>
         </where>
-        and
-        {joinWhereClause}
     </select>
 
 </mapper>
