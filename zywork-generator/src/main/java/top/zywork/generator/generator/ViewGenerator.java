@@ -149,15 +149,17 @@ public class ViewGenerator {
                         if (columnName.equals(columnDetail.getName())) {
                             String field = StringUtils.uncapitalize(GeneratorUtils.tableNameToClassName(tableName, generator.getTablePrefix()))
                                     + StringUtils.capitalize(PropertyUtils.columnToProperty(columnName));
-                            columnFields.append(",\n{\n")
-                                    .append("\ttitle: '")
-                                    .append(columnDetail.getComment())
-                                    .append("',\n")
-                                    .append("\tfield: '")
-                                    .append(field)
-                                    .append("',\n")
-                                    .append("\talign: 'center'\n")
-                                    .append("}");
+                            if (!field.equals(id)) {
+                                columnFields.append(",\n{\n")
+                                        .append("\ttitle: '")
+                                        .append(columnDetail.getComment())
+                                        .append("',\n")
+                                        .append("\tfield: '")
+                                        .append(field)
+                                        .append("',\n")
+                                        .append("\talign: 'center'\n")
+                                        .append("}");
+                            }
                         }
                     }
                 }
