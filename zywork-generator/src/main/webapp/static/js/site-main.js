@@ -138,8 +138,8 @@ function saveOrEditWithFile(modalId, formId, postUrl, tableId, tableUrl) {
     });
 }
 
-function remove(row, url, tableId, tableUrl) {
-    $.get(contextPath + url  + row.id,
+function remove(url, tableId, tableUrl) {
+    $.get(contextPath + url,
         function (data){
             if (data.code === 200) {
                 swalSuccess(data.message);

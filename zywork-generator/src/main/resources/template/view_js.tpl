@@ -10,7 +10,7 @@ function loadTable() {
         dataType: 'json',
         method: 'get',
         singleSelect: false,
-        idField: 'id',
+        idField: '{idField}',
         striped: true,
         pagination: true,
         sidePagination: 'server',
@@ -66,7 +66,7 @@ window.operateEvents = {
             showCancelButton: true
         }).then((result) =>  {
             if (result.value) {
-                remove(row, '{zywork.removeUrl}', 'data-list', '{zywork.tableUrl}');
+                remove(row, '{zywork.removeUrl}' + row.{idField}, 'data-list', '{zywork.tableUrl}');
             }
         })
     }

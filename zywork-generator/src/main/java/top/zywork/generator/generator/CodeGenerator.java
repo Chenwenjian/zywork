@@ -102,6 +102,9 @@ public class CodeGenerator {
         ServiceGenerator.generateJoinServiceImpl(beanName, generator);
 
         ControllerGenerator.generateJoinController(beanName, mappingUrl, generator);
+
+        ViewGenerator.generateJoinView(beanName, mappingUrl, generator, primaryTable, columns, tableColumnsList);
+        ViewGenerator.generateJoinJs(beanName, mappingUrl, generator, primaryTable, columns, tableColumnsList);
     }
 
     /**
@@ -127,6 +130,9 @@ public class CodeGenerator {
         ServiceGenerator.generateJoinServiceImpl(beanName, generator);
 
         ControllerGenerator.generateJoinController(beanName, mappingUrl, generator);
+
+        ViewGenerator.generateJoinView(beanName, mappingUrl, generator, primaryTable, columns, tableColumnsList);
+        ViewGenerator.generateJoinJs(beanName, mappingUrl, generator, primaryTable, columns, tableColumnsList);
     }
 
 }

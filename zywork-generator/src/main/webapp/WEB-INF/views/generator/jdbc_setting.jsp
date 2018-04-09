@@ -69,7 +69,7 @@
 
 <script>
     function saveJdbc() {
-        $.post('/setting/jdbc',
+        $.post('<%=path%>/setting/jdbc',
             $('#jdbc-form').serialize(),
             function (data) {
                 swal('提示', data.message, "success");

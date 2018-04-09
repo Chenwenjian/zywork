@@ -35,7 +35,7 @@ public class ControllerGenerator {
                 DateFormatUtils.format(Calendar.getInstance(), DatePatternEnum.DATE.getValue()))
                 .replace(TemplateConstants.AUTHOR, generator.getAuthor())
                 .replace(TemplateConstants.BEAN_NAME, beanName).replace(TemplateConstants.MODULE_NAME, moduleName)
-        .replace(TemplateConstants.BEAN_NAME_LOWER_CASE, StringUtils.uncapitalize(beanName));
+                .replace(TemplateConstants.BEAN_NAME_LOWER_CASE, StringUtils.uncapitalize(beanName));
         GeneratorUtils.writeFile(fileContent, packagePath, beanName + generator.getControllerSuffix());
     }
 
@@ -47,7 +47,7 @@ public class ControllerGenerator {
      */
     public static void generateJoinController(String beanName, String mappingUrl, Generator generator) {
         String packagePath = GeneratorUtils.createPackage(generator, generator.getControllerPackage());
-        String fileContent = GeneratorUtils.readTemplate(generator, TemplateConstants.JOIN_CONTROLLER_TEMPLATE);
+        String fileContent = GeneratorUtils.readTemplate(generator, TemplateConstants.CONTROLLER_TEMPLATE);
         fileContent = fileContent.replace(TemplateConstants.CREATE_DATE,
                 DateFormatUtils.format(Calendar.getInstance(), DatePatternEnum.DATE.getValue()))
                 .replace(TemplateConstants.AUTHOR, generator.getAuthor())

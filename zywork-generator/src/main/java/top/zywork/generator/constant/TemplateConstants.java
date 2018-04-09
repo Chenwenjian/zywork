@@ -66,6 +66,8 @@ public class TemplateConstants {
 
     public static final String PRIMARY_TABLE = "{primaryTable}";
 
+    public static final String PRIMARY_ID = "{primaryId}";
+
     public static final String JOIN_WHERE_CLAUSE = "{joinWhereClause}";
 
     public static final String VIEW_PAGE_TITLE = "{zywork.pageTitle}";
@@ -83,6 +85,8 @@ public class TemplateConstants {
     public static final String VIEW_JS_FILE_NAME = "{zywork.jsFileName}";
 
     public static final String VIEW_TABLE_FIELDS = "{zywork.tableFields}";
+
+    public static final String VIEW_ID_FIELD = "{idField}";
 
     public static final String VIEW_REMOVE_URL = "{zywork.removeUrl}";
 

@@ -4,6 +4,43 @@
 
 <mapper namespace="top.zywork.dao.{beanName}DAO">
 
+    <insert id="save" parameterType="{beanNameLowerCase}DO">
+        insert into {primaryTable}
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            {insertColumns}
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            {insertValues}
+        </trim>
+    </insert>
+
+    <delete id="remove" parameterType="{beanNameLowerCase}DO">
+        delete from {primaryTable} where id = #{{primaryId}}
+    </delete>
+
+    <delete id="removeById" parameterType="long">
+        delete from {primaryTable} where id = #{id}
+    </delete>
+
+    <delete id="removeByIds">
+        delete from {primaryTable} where id in
+        <foreach item="id" collection="array" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <update id="update" parameterType="{beanNameLowerCase}DO">
+        update {primaryTable}
+        <set>
+            {setClause}
+        </set>
+        where id = #{{primaryId}}
+    </update>
+
+    <update id="updateActiveStatus" parameterType="top.zywork.query.StatusQuery">
+        update {primaryTable} set is_active = #{status} where id = #{id}
+    </update>
+
     <sql id="select_columns">
         {selectColumns}
     </sql>

@@ -61,7 +61,12 @@ public class MapperGenerator {
         fileContent = fileContent.replace(TemplateConstants.BEAN_NAME, beanName)
                 .replace(TemplateConstants.BEAN_NAME_LOWER_CASE, StringUtils.uncapitalize(beanName))
                 .replace(TemplateConstants.TABLE_NAME, tableName.toString().substring(2).replace("[", "").replace("]", ""))
-                .replace(TemplateConstants.PRIMARY_TABLE, primaryTable);
+                .replace(TemplateConstants.PRIMARY_TABLE, primaryTable)
+                .replace(TemplateConstants.PRIMARY_ID, StringUtils.uncapitalize(GeneratorUtils.tableNameToClassName(primaryTable,
+                        generator.getTablePrefix())) + StringUtils.capitalize(PropertyUtils.columnToProperty("id")));
+        fileContent = generateJoinInsertColumns(fileContent, generator, primaryTable, columns);
+        fileContent = generateJoinInsertValues(fileContent, generator, primaryTable, columns);
+        fileContent = generateJoinSetClause(fileContent, generator, primaryTable, columns);
         fileContent = generateJoinSelectColumns(fileContent, columns);
         fileContent = generateJoinQueryWhereClause(generator, fileContent, columns);
         fileContent = generateJoinWhereClause(fileContent, joinWhereClause);
@@ -89,11 +94,44 @@ public class MapperGenerator {
         List<ColumnDetail> columnDetails = tableColumns.getColumns();
         StringBuilder insertColumns = new StringBuilder("");
         for (ColumnDetail columnDetail : columnDetails) {
-            insertColumns.append("<if test=\"")
-                    .append(columnDetail.getFieldName())
-                    .append(" != null\">\n\t\t\t\t")
-                    .append(columnDetail.getName())
-                    .append(",\n\t\t\t</if>\n\t\t\t");
+            if (!columnDetail.getName().equals("id")) {
+                insertColumns.append("<if test=\"")
+                        .append(columnDetail.getFieldName())
+                        .append(" != null\">\n\t\t\t\t")
+                        .append(columnDetail.getName())
+                        .append(",\n\t\t\t</if>\n\t\t\t");
+            }
+        }
+        return fileContent.replace(TemplateConstants.INSERT_COLUMNS, insertColumns.toString());
+    }
+
+    /**
+     * 生成多表Mapper映射文件中主表的insert语句中的column部分
+     * @param fileContent 文件内容
+     * @param generator Generator实例
+     * @param primaryTable 主表名称
+     * @param columns 所选的表字段
+     * @return 添加了insert语句的文件内容
+     */
+    private static String generateJoinInsertColumns(String fileContent, Generator generator, String primaryTable, String[] columns) {
+        StringBuilder insertColumns = new StringBuilder("");
+        String id = StringUtils.uncapitalize(GeneratorUtils.tableNameToClassName(primaryTable,
+                generator.getTablePrefix())) + StringUtils.capitalize(PropertyUtils.columnToProperty("id"));
+        for (String column : columns) {
+            String[] tableNameAndColumn = column.split("-");
+            String tableName = tableNameAndColumn[0];
+            String columnName = tableNameAndColumn[1];
+            if (tableName.equals(primaryTable)) {
+                String field = StringUtils.uncapitalize(GeneratorUtils.tableNameToClassName(primaryTable, generator.getTablePrefix()))
+                        + StringUtils.capitalize(PropertyUtils.columnToProperty(columnName));
+                if (!field.equals(id)) {
+                    insertColumns.append("<if test=\"")
+                            .append(field)
+                            .append(" != null\">\n\t\t\t\t")
+                            .append(columnName)
+                            .append(",\n\t\t\t</if>\n\t\t\t");
+                }
+            }
         }
         return fileContent.replace(TemplateConstants.INSERT_COLUMNS, insertColumns.toString());
     }
@@ -108,14 +146,49 @@ public class MapperGenerator {
         List<ColumnDetail> columnDetails = tableColumns.getColumns();
         StringBuilder insertValues = new StringBuilder("");
         for (ColumnDetail columnDetail : columnDetails) {
-            String field = columnDetail.getFieldName();
-            insertValues.append("<if test=\"")
-                    .append(field)
-                    .append(" != null\">\n\t\t\t\t")
-                    .append("#{")
-                    .append(field)
-                    .append("}")
-                    .append(",\n\t\t\t</if>\n\t\t\t");
+            if (!columnDetail.getName().equals("id")) {
+                String field = columnDetail.getFieldName();
+                insertValues.append("<if test=\"")
+                        .append(field)
+                        .append(" != null\">\n\t\t\t\t")
+                        .append("#{")
+                        .append(field)
+                        .append("}")
+                        .append(",\n\t\t\t</if>\n\t\t\t");
+            }
+        }
+        return fileContent.replace(TemplateConstants.INSERT_VALUES, insertValues.toString());
+    }
+
+    /**
+     * 生成多表Mapper映射文件中主表的insert语句中的值部分
+     * @param fileContent 文件内容
+     * @param generator Generator实例
+     * @param primaryTable 主表名称
+     * @param columns 所选的表字段
+     * @return 添加了insert语句的文件内容
+     */
+    private static String generateJoinInsertValues(String fileContent, Generator generator, String primaryTable, String[] columns){
+        StringBuilder insertValues = new StringBuilder("");
+        String id = StringUtils.uncapitalize(GeneratorUtils.tableNameToClassName(primaryTable,
+                generator.getTablePrefix())) + StringUtils.capitalize(PropertyUtils.columnToProperty("id"));
+        for (String column : columns) {
+            String[] tableNameAndColumn = column.split("-");
+            String tableName = tableNameAndColumn[0];
+            String columnName = tableNameAndColumn[1];
+            if (tableName.equals(primaryTable)) {
+                String field = StringUtils.uncapitalize(GeneratorUtils.tableNameToClassName(primaryTable, generator.getTablePrefix()))
+                        + StringUtils.capitalize(PropertyUtils.columnToProperty(columnName));
+                if (!field.equals(id)) {
+                    insertValues.append("<if test=\"")
+                            .append(field)
+                            .append(" != null\">\n\t\t\t\t")
+                            .append("#{")
+                            .append(field)
+                            .append("}")
+                            .append(",\n\t\t\t</if>\n\t\t\t");
+                }
+            }
         }
         return fileContent.replace(TemplateConstants.INSERT_VALUES, insertValues.toString());
     }
@@ -130,16 +203,53 @@ public class MapperGenerator {
         List<ColumnDetail> columnDetails = tableColumns.getColumns();
         StringBuilder setClause = new StringBuilder("");
         for (ColumnDetail columnDetail : columnDetails) {
-            String field = columnDetail.getFieldName();
-            setClause.append("<if test=\"")
-                    .append(field)
-                    .append(" != null\">\n\t\t\t\t")
-                    .append(columnDetail.getName())
-                    .append(" = ")
-                    .append("#{")
-                    .append(field)
-                    .append("}")
-                    .append(",\n\t\t\t</if>\n\t\t\t");
+            if (!columnDetail.getName().equals("id")) {
+                String field = columnDetail.getFieldName();
+                setClause.append("<if test=\"")
+                        .append(field)
+                        .append(" != null\">\n\t\t\t\t")
+                        .append(columnDetail.getName())
+                        .append(" = ")
+                        .append("#{")
+                        .append(field)
+                        .append("}")
+                        .append(",\n\t\t\t</if>\n\t\t\t");
+            }
+        }
+        return fileContent.replace(TemplateConstants.SET_CLAUSE, setClause.toString());
+    }
+
+    /**
+     * 生成多表Mapper映射文件中主表的update语句的set部分
+     * @param fileContent 文件内容
+     * @param generator Generator实例
+     * @param primaryTable 主表名称
+     * @param columns 所选的表字段
+     * @return 添加了update语句的文件内容
+     */
+    private static String generateJoinSetClause(String fileContent, Generator generator, String primaryTable, String[] columns){
+        StringBuilder setClause = new StringBuilder("");
+        String id = StringUtils.uncapitalize(GeneratorUtils.tableNameToClassName(primaryTable,
+                generator.getTablePrefix())) + StringUtils.capitalize(PropertyUtils.columnToProperty("id"));
+        for (String column : columns) {
+            String[] tableNameAndColumn = column.split("-");
+            String tableName = tableNameAndColumn[0];
+            String columnName = tableNameAndColumn[1];
+            if (tableName.equals(primaryTable)) {
+                String field = StringUtils.uncapitalize(GeneratorUtils.tableNameToClassName(primaryTable, generator.getTablePrefix()))
+                        + StringUtils.capitalize(PropertyUtils.columnToProperty(columnName));
+                if (!field.equals(id)) {
+                    setClause.append("<if test=\"")
+                            .append(field)
+                            .append(" != null\">\n\t\t\t\t")
+                            .append(columnName)
+                            .append(" = ")
+                            .append("#{")
+                            .append(field)
+                            .append("}")
+                            .append(",\n\t\t\t</if>\n\t\t\t");
+                }
+            }
         }
         return fileContent.replace(TemplateConstants.SET_CLAUSE, setClause.toString());
     }
