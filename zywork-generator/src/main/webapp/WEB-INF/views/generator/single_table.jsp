@@ -30,18 +30,27 @@
                 数据表总数：<span id="total-tables"></span><br/>
                 <button class="btn btn-primary" onclick="refreshTables();">刷新所有表</button>
                 <button class="btn btn-primary" onclick="generateAllCodes();">生成所有表的代码</button>
-                <button class="btn btn-primary" onclick="generateCode();">生成所选表的代码</button>
+                <button class="btn btn-primary" onclick="generateCode();">生成所选单个表的代码</button>
+                <button class="btn btn-primary" onclick="generateCodes();">生成所选多个表的代码</button>
             </div>
         </div>
         <br/>
         <div class="row">
             <div class="col-sm-12">
-                <form class="form-horizontal">
+                <form id="form" class="form-horizontal">
                     <div class="form-group">
                         <label class="col-sm-3 control-label">请选择单个数据表：</label>
 
                         <div class="col-sm-9">
                             <select id="all-tables" class="form-control" data-placeholder="请选择数据表"></select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="all-tables" class="col-sm-3 control-label">请选择多个数据表：</label>
+
+                        <div class="col-sm-9">
+                            <select id="all-tables-multiple" name="tableNames" class="form-control" multiple></select>
                         </div>
                     </div>
 
@@ -90,6 +99,14 @@
                 width: '100%',
                 theme: "bootstrap"
             });
+
+            $("#all-tables-multiple").select2({
+                data: data,
+                language: 'zh-CN',
+                placeholder:'请选择多个数据表',
+                width: '100%',
+                theme: "bootstrap"
+            });
             usingSelect2 = true;
 
             loadTableData(data[0].id)
@@ -115,6 +132,16 @@
         $.get('/generator/code/' + $('#all-tables').val(), function (data) {
             swal("提示", data.message, "success");
         }, 'json');
+    }
+
+    function generateCodes() {
+        console.log($('#all-tables-multiple').val())
+        $.post('/generator/codes',
+            $('#form').serialize(),
+            function (data) {
+                swal('提示', data.message, 'success');
+            }, 'json'
+        )
     }
 
     function loadTableData(tableName) {

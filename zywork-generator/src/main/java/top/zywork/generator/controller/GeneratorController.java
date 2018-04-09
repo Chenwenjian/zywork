@@ -55,6 +55,24 @@ public class GeneratorController {
         return statusVO;
     }
 
+    @PostMapping("codes")
+    @ResponseBody
+    public ControllerStatusVO generateCodes(String[] tableNames, HttpServletRequest request) {
+        ServletContext servletContext = request.getServletContext();
+        Generator generator = (Generator) servletContext.getAttribute("generator");
+        List<TableColumns> tableColumnsList = (List<TableColumns>) servletContext.getAttribute("tableColumnsList");
+        for (String tableName : tableNames) {
+            for (TableColumns tableColumns : tableColumnsList) {
+                if (tableName.equals(tableColumns.getTableName())) {
+                    CodeGenerator.generateCode(generator, tableColumns);
+                }
+            }
+        }
+        ControllerStatusVO statusVO = new ControllerStatusVO();
+        statusVO.okStatus(200, "成功生成所选表的代码！共生成" + tableNames.length * TemplateConstants.TOTAL_TEMPLATES + "个文件");
+        return statusVO;
+    }
+
     @PostMapping("join-code")
     @ResponseBody
     public ControllerStatusVO generateJoinCode(String beanName, String requestMapping, String primaryTable,
