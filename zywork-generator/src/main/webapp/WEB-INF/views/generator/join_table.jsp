@@ -70,10 +70,10 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="where_clause" class="col-sm-3 control-label">请输入SQL语句WHERE条件查询部分：</label>
+                        <label for="where_clause" class="col-sm-3 control-label">请输入SQL语句WHERE关联条件部分：</label>
 
                         <div class="col-sm-9">
-                            <textarea id="where_clause" name="whereClause" class="form-control" rows="3" placeholder="使用完整的[表名.字段]的形式输入查询条件，如t_user.id = t_role.user_id"></textarea>
+                            <textarea id="where_clause" name="whereClause" class="form-control" rows="3" placeholder="使用完整的[表名.字段]的形式输入关联条件，如t_user.id = t_role.user_id"></textarea>
                         </div>
                     </div>
                     <h4>所选表的字段信息</h4>
