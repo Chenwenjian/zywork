@@ -45,7 +45,7 @@
                         <i class="fa fa-search"></i>
                         搜索所有
                     </button>
-                    <button type="button" class="btn btn-primary" onclick="hideSearchForm('data-list', ''search-form')">
+                    <button type="button" class="btn btn-primary" onclick="hideSearchForm('data-list', 'search-form')">
                         <i class="fa fa-eye-slash"></i>
                         取消搜索
                     </button>
