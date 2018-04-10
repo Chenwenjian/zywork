@@ -317,13 +317,13 @@ public class MapperGenerator {
             if (isString) {
                 whereClause.append(columnDetail.getName())
                         .append(" like concat('%', ")
-                        .append("#{")
+                        .append("#{query.")
                         .append(field)
                         .append("}, '%')");
             } else {
                 whereClause.append(columnDetail.getName())
                         .append(" = ")
-                        .append("#{")
+                        .append("#{query.")
                         .append(field)
                         .append("}");
             }
@@ -363,13 +363,13 @@ public class MapperGenerator {
             if (isString) {
                 whereClause.append(fullColumnName)
                         .append(" like concat('%', ")
-                        .append("#{")
+                        .append("#{query.")
                         .append(field)
                         .append("}, '%')");
             } else {
                 whereClause.append(fullColumnName)
                         .append(" = ")
-                        .append("#{")
+                        .append("#{query.")
                         .append(field)
                         .append("}");
             }

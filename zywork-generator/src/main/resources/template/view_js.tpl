@@ -16,10 +16,11 @@ function loadTable() {
         pageNumber: 1,
         pageSize: 10,
         pageList: [10, 20, 30],
+        queryParams: queryParams,
         singleSelect: false,
         maintainSelected: true,
         striped: true,
-        search: true,
+        search: false,
         showColumns: true,
         showRefresh: true,
         showToggle: true,
@@ -96,4 +97,16 @@ function formatDetail(index, row) {
         }
     });
     return detail;
+}
+
+function queryParams(params) {
+    let query = {
+        limit:params.limit,
+        offset:params.offset,
+        sortOrder: params.order
+    };
+    $.each($('#search-form').serializeArray(), function(index, field){
+        query[field.name] = field.value;
+    });
+    return query;
 }

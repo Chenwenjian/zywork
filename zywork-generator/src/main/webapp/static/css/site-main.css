@@ -39,3 +39,11 @@ bootstrap-table表格详情中的标题
 .row-detail-title {
     font-weight: bold;
 }
+
+.search-form {
+    margin-top: 15px;
+}
+
+.search-form div {
+    margin-top:10px;
+}

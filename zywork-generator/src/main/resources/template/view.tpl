@@ -28,6 +28,29 @@
                 <i class="fa fa-remove"></i>
                 批量删除
             </button>
+            <button class="btn btn-primary" onclick="showSearchForm('search-form')">
+            <i class="fa fa-eye"></i>
+                高级搜索
+            </button>
+
+            <form id="search-form" class="row form-inline search-form" style="display: none;">
+                {zywork.searchFormFields}
+
+                <div class="col-sm-6 form-group">
+                    <button type="button" class="btn btn-primary" onclick="doSearch('data-list')">
+                    <i class="fa fa-search"></i>
+                        搜索
+                    </button>
+                    <button type="button" class="btn btn-primary" onclick="doSearchAll('data-list', 'search-form')">
+                        <i class="fa fa-search"></i>
+                        搜索所有
+                    </button>
+                    <button type="button" class="btn btn-primary" onclick="hideSearchForm('data-list', ''search-form')">
+                        <i class="fa fa-eye-slash"></i>
+                        取消搜索
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
 

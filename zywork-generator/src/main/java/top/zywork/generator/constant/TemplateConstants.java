@@ -29,6 +29,7 @@ public class TemplateConstants {
     public static final String VIEW_SELECT_TEMPLATE = "view_select.tpl";
     public static final String VIEW_TEXT_TEMPLATE = "view_text.tpl";
     public static final String VIEW_TEXTAREA_TEMPLATE = "view_textarea.tpl";
+    public static final String VIEW_SEARCH_TEXT = "view_search.tpl";
 
     public static final String CREATE_DATE = "{createDate}";
 
@@ -99,5 +100,7 @@ public class TemplateConstants {
     public static final String VIEW_FIELD_NAME_CN = "{zywork.fieldNameCN}";
 
     public static final String VIEW_FIELD_PLACEHOLDER = "{zywork.fieldPlaceholder}";
+
+    public static final String VIEW_SEARCH_FORM_FIELDS = "{zywork.searchFormFields}";
 
 }

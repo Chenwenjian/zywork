@@ -26,10 +26,8 @@ function loadTable(tableId, url, columns) {
     });
 }
 
-function refreshTable(tableId, url) {
-    $('#' + tableId).bootstrapTable('refresh', {
-        url: url
-    })
+function refreshTable(tableId) {
+    $('#' + tableId).bootstrapTable('refresh');
 }
 
 function destroyTable(tableId) {
@@ -172,4 +170,24 @@ function timestampToDate(value) {
         second = second < 10 ? '0' + second : second;
         return year + "-" + month + "-" + day + " " + hour + ":" + minute + ":" + second;
     }
+}
+
+function showSearchForm(formId) {
+    $('#' + formId).fadeIn();
+}
+
+function hideSearchForm(tableId, formId) {
+    let form = $('#' + formId);
+    form.fadeOut();
+    form[0].reset();
+    refreshTable(tableId);
+}
+
+function doSearch(tableId) {
+    refreshTable(tableId);
+}
+
+function doSearchAll(tableId, formId) {
+    $('#' + formId)[0].reset();
+    refreshTable(tableId);
 }

@@ -22,6 +22,7 @@ public class ViewGenerator {
 
     private static final String ADD_FORM_FIELD_SUFFIX = "";
     private static final String EDIT_FORM_FIELD_SUFFIX = "Edit";
+    private static final String SEARCH_FORM_FIELD_SUFFIX = "Search";
 
     /**
      * 生成单表的JS文件
@@ -240,6 +241,7 @@ public class ViewGenerator {
         String moduleName = GeneratorUtils.getModuleName(tableColumns.getTableName(), generator.getTablePrefix());
         String fileContent = GeneratorUtils.readTemplate(generator, TemplateConstants.VIEW_TEMPLATE);
         fileContent = fileContent.replace(TemplateConstants.VIEW_PAGE_TITLE, beanName)
+                .replace(TemplateConstants.VIEW_SEARCH_FORM_FIELDS, generateSearchFormFields(generator, tableColumns))
                 .replace(TemplateConstants.VIEW_ADD_FORM_FIELDS, generateFormFields(generator, tableColumns, ADD_FORM_FIELD_SUFFIX))
                 .replace(TemplateConstants.VIEW_SAVE_URL, "/" + moduleName + "/save")
                 .replace(TemplateConstants.VIEW_TABLE_URL, "/" + moduleName + "/pager-cond")
@@ -262,6 +264,7 @@ public class ViewGenerator {
         String saveDir = GeneratorUtils.createViewDir(generator, beanName);
         String fileContent = GeneratorUtils.readTemplate(generator, TemplateConstants.VIEW_TEMPLATE);
         fileContent = fileContent.replace(TemplateConstants.VIEW_PAGE_TITLE, beanName)
+                .replace(TemplateConstants.VIEW_SEARCH_FORM_FIELDS, generateJoinSearchFormFields(generator, primaryTable, columns, tableColumnsList))
                 .replace(TemplateConstants.VIEW_ADD_FORM_FIELDS, generateJoinFormFields(generator, primaryTable, columns, tableColumnsList, ADD_FORM_FIELD_SUFFIX))
                 .replace(TemplateConstants.VIEW_SAVE_URL, "/" + mappingUrl + "/save")
                 .replace(TemplateConstants.VIEW_TABLE_URL, "/" + mappingUrl + "/pager-cond")
@@ -293,13 +296,35 @@ public class ViewGenerator {
      */
     private static String generateFormFields(Generator generator, TableColumns tableColumns, String fieldSuffix) {
         String text = GeneratorUtils.readTemplate(generator, TemplateConstants.VIEW_TEXT_TEMPLATE);
+        return generateFields(text, tableColumns, fieldSuffix);
+    }
+
+    /**
+     * 生成视图中搜索表单字段信息
+     * @param generator Generator实例
+     * @param tableColumns 表字段信息
+     * @return
+     */
+    private static String generateSearchFormFields(Generator generator, TableColumns tableColumns) {
+        String text = GeneratorUtils.readTemplate(generator, TemplateConstants.VIEW_SEARCH_TEXT);
+        return generateFields(text, tableColumns, SEARCH_FORM_FIELD_SUFFIX);
+    }
+
+    /**
+     * 生成表单字段信息
+     * @param fileContent 表单模板文件内容
+     * @param tableColumns 所选表字段信息
+     * @param fieldSuffix 表单字段id后缀
+     * @return
+     */
+    private static String generateFields(String fileContent, TableColumns tableColumns, String fieldSuffix) {
         List<ColumnDetail> columnDetailList = tableColumns.getColumns();
         StringBuilder formFields = new StringBuilder();
         for (ColumnDetail columnDetail : columnDetailList) {
             String fieldName = columnDetail.getFieldName();
             String title = columnDetail.getComment();
             if (!fieldName.equals("id")) {
-                formFields.append(text.replace(TemplateConstants.VIEW_FIELD_NAME_EN, fieldName)
+                formFields.append(fileContent.replace(TemplateConstants.VIEW_FIELD_NAME_EN, fieldName)
                         .replace(TemplateConstants.VIEW_ID_FIELD_NAME_EN, fieldName + fieldSuffix)
                         .replace(TemplateConstants.VIEW_FIELD_NAME_CN, title)
                         .replace(TemplateConstants.VIEW_FIELD_PLACEHOLDER, "请输入" + title))
@@ -319,6 +344,31 @@ public class ViewGenerator {
      */
     private static String generateJoinFormFields(Generator generator, String primaryTable, String[] columns, List<TableColumns> tableColumnsList, String fieldSuffix) {
         String text = GeneratorUtils.readTemplate(generator, TemplateConstants.VIEW_TEXT_TEMPLATE);
+        return generateJoinFields(text, generator, primaryTable, columns, tableColumnsList, fieldSuffix);
+    }
+
+    /**
+     * 生成关联表视图中主表的添加和修改的表单字段信息
+     * @param generator Generator实例
+     * @param primaryTable 主表名称
+     * @param columns 所选表字段信息
+     * @return
+     */
+    private static String generateJoinSearchFormFields(Generator generator, String primaryTable, String[] columns, List<TableColumns> tableColumnsList) {
+        String text = GeneratorUtils.readTemplate(generator, TemplateConstants.VIEW_SEARCH_TEXT);
+        return generateJoinFields(text, generator, primaryTable, columns, tableColumnsList, SEARCH_FORM_FIELD_SUFFIX);
+    }
+
+    /**
+     * 生成关联表视图中主表的添加和修改的表单字段信息
+     * @param fileContent 模板文件内容
+     * @param generator Generator实例
+     * @param primaryTable 主表名称
+     * @param columns 所选表字段信息
+     * @param fieldSuffix 表单字段id的后缀
+     * @return
+     */
+    private static String generateJoinFields(String fileContent, Generator generator, String primaryTable, String[] columns, List<TableColumns> tableColumnsList, String fieldSuffix) {
         String id = StringUtils.uncapitalize(GeneratorUtils.tableNameToClassName(primaryTable,
                 generator.getTablePrefix())) + StringUtils.capitalize(PropertyUtils.columnToProperty("id"));
         StringBuilder formFields = new StringBuilder();
@@ -336,7 +386,7 @@ public class ViewGenerator {
                                         + StringUtils.capitalize(PropertyUtils.columnToProperty(columnName));
                                 String title = columnDetail.getComment();
                                 if (!id.equals(field)) {
-                                    formFields.append(text.replace(TemplateConstants.VIEW_FIELD_NAME_EN, field)
+                                    formFields.append(fileContent.replace(TemplateConstants.VIEW_FIELD_NAME_EN, field)
                                             .replace(TemplateConstants.VIEW_ID_FIELD_NAME_EN, field + fieldSuffix)
                                             .replace(TemplateConstants.VIEW_FIELD_NAME_CN, title)
                                             .replace(TemplateConstants.VIEW_FIELD_PLACEHOLDER, "请输入" + title))
