@@ -29,7 +29,7 @@ bootstrap-table中的操作按钮
 /**
 bootstrap-table表格的详情展开列
  */
-.table tbody tr:first-child td {
+.table tbody tr td:first-child {
     text-align: center;
 }
 
