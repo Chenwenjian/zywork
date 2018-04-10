@@ -25,3 +25,17 @@ bootstrap-table中的操作按钮
 .operation-column {
     min-width: 120px;
 }
+
+/**
+bootstrap-table表格的详情展开列
+ */
+.table tbody tr:first-child td {
+    text-align: center;
+}
+
+/**
+bootstrap-table表格详情中的标题
+ */
+.row-detail-title {
+    font-weight: bold;
+}

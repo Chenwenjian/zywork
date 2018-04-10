@@ -8,22 +8,29 @@ function loadTable() {
     $('#data-list').bootstrapTable({
         url: contextPath + '{zywork.tableUrl}',
         dataType: 'json',
-        method: 'get',
-        singleSelect: false,
-        idField: '{idField}',
-        striped: true,
+        method: 'post',
+        contentType: "application/x-www-form-urlencoded",
+        idField: '{zywork.idField}',
         pagination: true,
         sidePagination: 'server',
+        pageNumber: 1,
+        pageSize: 10,
+        pageList: [10, 20, 30],
+        singleSelect: false,
         maintainSelected: true,
+        striped: true,
         search: true,
         showColumns: true,
         showRefresh: true,
         showToggle: true,
         detailView: true,
+        detailFormatter: formatDetail,
         icons: {
             refresh: 'glyphicon-refresh icon-refresh',
             toggle: 'glyphicon-list-alt icon-list-alt',
-            columns: 'glyphicon-th icon-th'
+            columns: 'glyphicon-th icon-th',
+            detailOpen: 'glyphicon-plus icon-plus',
+            detailClose: 'glyphicon-minus icon-minus'
         },
         columns: [
                      {zywork.tableFields},
@@ -66,8 +73,27 @@ window.operateEvents = {
             showCancelButton: true
         }).then((result) =>  {
             if (result.value) {
-                remove(row, '{zywork.removeUrl}' + row.{idField}, 'data-list', '{zywork.tableUrl}');
+                remove(row, '{zywork.removeUrl}' + row.{zywork.idField}, 'data-list', '{zywork.tableUrl}');
             }
         })
     }
 };
+
+function formatDetail(index, row) {
+    let detail = '';
+    let idx = 0;
+    let titles = [{zywork.rowDetailTitles}];
+    $.each(row, function(key, value) {
+        if (value !== undefined) {
+            detail += '<div class="col-xs-12 col-sm-4 col-md-2 col-lg-2">'
+                + '<span class="row-detail-title">'
+                + titles[idx]
+                + ':</span>'
+                + '</div><div class="col-xs-12 col-sm-8 col-md-4 col-lg-4">'
+                + (value === null ? '-' : value)
+                + '</div>';
+            idx++;
+        }
+    });
+    return detail;
+}

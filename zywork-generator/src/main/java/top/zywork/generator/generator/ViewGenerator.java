@@ -36,7 +36,8 @@ public class ViewGenerator {
         fileContent = fileContent.replace(TemplateConstants.VIEW_TABLE_FIELDS, generateTableFields(generator, tableColumns))
                 .replace(TemplateConstants.VIEW_REMOVE_URL, "/" + moduleName + "/remove/")
                 .replace(TemplateConstants.VIEW_TABLE_URL, "/" + moduleName + "/pager-cond")
-                .replace(TemplateConstants.VIEW_ID_FIELD, "id");
+                .replace(TemplateConstants.VIEW_ID_FIELD, "id")
+                .replace(TemplateConstants.VIEW_ROW_DETAIL_TITLES, generateTableRowDetail(generator, tableColumns));
         GeneratorUtils.writeFile(fileContent, saveDir, beanName + ".js");
     }
 
@@ -54,7 +55,8 @@ public class ViewGenerator {
                 .replace(TemplateConstants.VIEW_REMOVE_URL, "/" + mappingUrl + "/remove/")
                 .replace(TemplateConstants.VIEW_TABLE_URL, "/" + mappingUrl + "/pager-cond")
                 .replace(TemplateConstants.VIEW_ID_FIELD, StringUtils.uncapitalize(GeneratorUtils.tableNameToClassName(primaryTable,
-                        generator.getTablePrefix())) + StringUtils.capitalize(PropertyUtils.columnToProperty("id")));
+                        generator.getTablePrefix())) + StringUtils.capitalize(PropertyUtils.columnToProperty("id")))
+                .replace(TemplateConstants.VIEW_ROW_DETAIL_TITLES, generateJoinTableRowDetail(generator, primaryTable, columns, tableColumnsList));
         GeneratorUtils.writeFile(fileContent, saveDir, beanName + ".js");
     }
 
@@ -174,6 +176,57 @@ public class ViewGenerator {
             }
         }
         return columnFields.toString();
+    }
+
+    /**
+     * 生成表格中行详情的标题
+     * @param generator Generator实例
+     * @param tableColumns 所选表的字段信息
+     * @return
+     */
+    private static String generateTableRowDetail(Generator generator, TableColumns tableColumns) {
+        List<ColumnDetail> columnDetailList = tableColumns.getColumns();
+        StringBuilder rowDetailTitles = new StringBuilder();
+        for (ColumnDetail columnDetail : columnDetailList) {
+            rowDetailTitles.append(",")
+                    .append("'")
+                    .append(columnDetail.getComment())
+                    .append("'");
+        }
+        return rowDetailTitles.toString().substring(1);
+    }
+
+    /**
+     * 生成关联表格中行详情的标题
+     * @param generator Generator实例
+     * @param primaryTable 主表名称
+     * @param columns 所选表字段信息
+     * @param tableColumnsList 所有表的字段信息
+     * @return
+     */
+    private static String generateJoinTableRowDetail(Generator generator, String primaryTable, String[] columns, List<TableColumns> tableColumnsList) {
+        StringBuilder rowDetailTitles = new StringBuilder();
+        for (String column : columns) {
+            String[] tableNameAndColumn = column.split("-");
+            String tableName = tableNameAndColumn[0];
+            String columnName = tableNameAndColumn[1];
+            for (TableColumns tableColumns : tableColumnsList) {
+                if (tableName.equals(tableColumns.getTableName())) {
+                    List<ColumnDetail> columnDetailList = tableColumns.getColumns();
+                    for (ColumnDetail columnDetail : columnDetailList) {
+                        if (columnName.equals(columnDetail.getName())) {
+                            String field = StringUtils.uncapitalize(GeneratorUtils.tableNameToClassName(tableName, generator.getTablePrefix()))
+                                    + StringUtils.capitalize(PropertyUtils.columnToProperty(columnName));
+                            rowDetailTitles.append(",")
+                                    .append("'")
+                                    .append(columnDetail.getComment())
+                                    .append("'");
+                        }
+                    }
+                }
+            }
+        }
+        return rowDetailTitles.toString().substring(1);
     }
 
     /**

@@ -86,7 +86,9 @@ public class TemplateConstants {
 
     public static final String VIEW_TABLE_FIELDS = "{zywork.tableFields}";
 
-    public static final String VIEW_ID_FIELD = "{idField}";
+    public static final String VIEW_ID_FIELD = "{zywork.idField}";
+
+    public static final String VIEW_ROW_DETAIL_TITLES = "{zywork.rowDetailTitles}";
 
     public static final String VIEW_REMOVE_URL = "{zywork.removeUrl}";
 
