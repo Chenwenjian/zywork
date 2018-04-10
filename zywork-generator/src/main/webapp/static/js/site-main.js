@@ -41,6 +41,10 @@ function formatTableIndex(value, row, index) {
     return (options.pageNumber - 1) * options.pageSize + index + 1;
 }
 
+function formatDate(value, row, index) {
+    return timestampToDate(value);
+}
+
 function showModal(modalId) {
     $('#' + modalId).modal('show');
 }
@@ -148,4 +152,24 @@ function remove(url, tableId, tableUrl) {
                 swalError(data.message);
             }
         }, 'json')
+}
+
+function timestampToDate(value) {
+    if (value === undefined || value === null || value === '') {
+        return "-";
+    } else {
+        let date = new Date(value);
+        let year = date.getFullYear().toString();
+        let month = (date.getMonth() + 1);
+        let day = date.getDate().toString();
+        let hour = date.getHours().toString();
+        let minute = date.getMinutes().toString();
+        let second = date.getSeconds().toString();
+        month = month < 10 ? '0' + month : month;
+        day = day < 10 ? '0' + day : day;
+        hour = hour < 10 ? '0' + hour : hour;
+        minute = minute < 10 ? '0' + minute : minute;
+        second = second < 10 ? '0' + second : second;
+        return year + "-" + month + "-" + day + " " + hour + ":" + minute + ":" + second;
+    }
 }

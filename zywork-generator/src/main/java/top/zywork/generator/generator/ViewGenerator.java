@@ -103,8 +103,12 @@ public class ViewGenerator {
                         .append("\tfield: '")
                         .append(columnDetail.getFieldName())
                         .append("',\n")
-                        .append("\talign: 'center'\n")
-                        .append("}");
+                        .append("\talign: 'center'");
+                if (columnDetail.getJavaTypeName().equals("Date")) {
+                    columnFields.append(",\n")
+                            .append("\tformatter: formatDate");
+                }
+                columnFields.append("\n}");
             }
         }
         return columnFields.toString();
@@ -157,8 +161,12 @@ public class ViewGenerator {
                                         .append("\tfield: '")
                                         .append(field)
                                         .append("',\n")
-                                        .append("\talign: 'center'\n")
-                                        .append("}");
+                                        .append("\talign: 'center'");
+                                if (columnDetail.getJavaTypeName().equals("Date")) {
+                                    columnFields.append(",\n")
+                                            .append("\tformatter: formatDate");
+                                }
+                                columnFields.append("\n}");
                             }
                         }
                     }
