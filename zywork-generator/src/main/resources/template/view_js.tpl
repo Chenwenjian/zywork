@@ -74,7 +74,7 @@ window.operateEvents = {
             showCancelButton: true
         }).then((result) =>  {
             if (result.value) {
-                remove(row, '{zywork.removeUrl}' + row.{zywork.idField}, 'data-list', '{zywork.tableUrl}');
+                remove('{zywork.removeUrl}' + row.{zywork.idField}, 'data-list', '{zywork.tableUrl}');
             }
         })
     }
