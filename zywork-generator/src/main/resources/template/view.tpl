@@ -33,10 +33,10 @@
                 高级搜索
             </button>
 
-            <form id="search-form" class="row form-inline search-form" style="display: none;">
+            <form id="search-form" class="row form-horizontal search-form" style="display: none;">
                 {zywork.searchFormFields}
 
-                <div class="col-sm-6 form-group">
+                <div class="col-sm-6 form-group text-right" style="padding-right: 30px;">
                     <button type="button" class="btn btn-primary" onclick="doSearch('data-list')">
                     <i class="fa fa-search"></i>
                         搜索

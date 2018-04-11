@@ -1,6 +1,7 @@
 $(function () {
     loadTable();
     initICheck('green');
+    initDatetime();
 });
 
 function loadTable() {

@@ -295,8 +295,9 @@ public class ViewGenerator {
      * @return
      */
     private static String generateFormFields(Generator generator, TableColumns tableColumns, String fieldSuffix) {
-        String text = GeneratorUtils.readTemplate(generator, TemplateConstants.VIEW_TEXT_TEMPLATE);
-        return generateFields(text, tableColumns, fieldSuffix);
+        String textContent = GeneratorUtils.readTemplate(generator, TemplateConstants.VIEW_TEXT_TEMPLATE);
+        String dateContent = GeneratorUtils.readTemplate(generator, TemplateConstants.VIEW_DATE_TEMPLATE);
+        return generateFields(textContent, dateContent, tableColumns, fieldSuffix);
     }
 
     /**
@@ -306,29 +307,39 @@ public class ViewGenerator {
      * @return
      */
     private static String generateSearchFormFields(Generator generator, TableColumns tableColumns) {
-        String text = GeneratorUtils.readTemplate(generator, TemplateConstants.VIEW_SEARCH_TEXT);
-        return generateFields(text, tableColumns, SEARCH_FORM_FIELD_SUFFIX);
+        String textContent = GeneratorUtils.readTemplate(generator, TemplateConstants.VIEW_SEARCH_TEXT_TEMPLATE);
+        String dateContent = GeneratorUtils.readTemplate(generator, TemplateConstants.VIEW_SEARCH_DATE_TEMPLATE);
+        return generateFields(textContent, dateContent, tableColumns, SEARCH_FORM_FIELD_SUFFIX);
     }
 
     /**
      * 生成表单字段信息
-     * @param fileContent 表单模板文件内容
+     * @param textFileContent 文本框模板文件内容
+     * @param dateFileContent 日期选择框模板文件内容
      * @param tableColumns 所选表字段信息
      * @param fieldSuffix 表单字段id后缀
      * @return
      */
-    private static String generateFields(String fileContent, TableColumns tableColumns, String fieldSuffix) {
+    private static String generateFields(String textFileContent, String dateFileContent, TableColumns tableColumns, String fieldSuffix) {
         List<ColumnDetail> columnDetailList = tableColumns.getColumns();
         StringBuilder formFields = new StringBuilder();
         for (ColumnDetail columnDetail : columnDetailList) {
             String fieldName = columnDetail.getFieldName();
             String title = columnDetail.getComment();
             if (!fieldName.equals("id")) {
-                formFields.append(fileContent.replace(TemplateConstants.VIEW_FIELD_NAME_EN, fieldName)
-                        .replace(TemplateConstants.VIEW_ID_FIELD_NAME_EN, fieldName + fieldSuffix)
-                        .replace(TemplateConstants.VIEW_FIELD_NAME_CN, title)
-                        .replace(TemplateConstants.VIEW_FIELD_PLACEHOLDER, "请输入" + title))
-                        .append("\n");
+                if (columnDetail.getJavaTypeName().equals("Date")) {
+                    formFields.append(dateFileContent.replace(TemplateConstants.VIEW_FIELD_NAME_EN, fieldName)
+                            .replace(TemplateConstants.VIEW_ID_FIELD_NAME_EN, fieldName + fieldSuffix)
+                            .replace(TemplateConstants.VIEW_FIELD_NAME_CN, title)
+                            .replace(TemplateConstants.VIEW_FIELD_PLACEHOLDER, "请选择" + title))
+                            .append("\n");
+                } else {
+                    formFields.append(textFileContent.replace(TemplateConstants.VIEW_FIELD_NAME_EN, fieldName)
+                            .replace(TemplateConstants.VIEW_ID_FIELD_NAME_EN, fieldName + fieldSuffix)
+                            .replace(TemplateConstants.VIEW_FIELD_NAME_CN, title)
+                            .replace(TemplateConstants.VIEW_FIELD_PLACEHOLDER, "请输入" + title))
+                            .append("\n");
+                }
             }
         }
         return formFields.toString();
@@ -343,8 +354,9 @@ public class ViewGenerator {
      * @return
      */
     private static String generateJoinFormFields(Generator generator, String primaryTable, String[] columns, List<TableColumns> tableColumnsList, String fieldSuffix) {
-        String text = GeneratorUtils.readTemplate(generator, TemplateConstants.VIEW_TEXT_TEMPLATE);
-        return generateJoinFields(text, generator, primaryTable, columns, tableColumnsList, fieldSuffix);
+        String textContent = GeneratorUtils.readTemplate(generator, TemplateConstants.VIEW_TEXT_TEMPLATE);
+        String dateContent = GeneratorUtils.readTemplate(generator, TemplateConstants.VIEW_SEARCH_DATE_TEMPLATE);
+        return generateJoinFields(textContent, dateContent, generator, primaryTable, columns, tableColumnsList, fieldSuffix);
     }
 
     /**
@@ -355,20 +367,22 @@ public class ViewGenerator {
      * @return
      */
     private static String generateJoinSearchFormFields(Generator generator, String primaryTable, String[] columns, List<TableColumns> tableColumnsList) {
-        String text = GeneratorUtils.readTemplate(generator, TemplateConstants.VIEW_SEARCH_TEXT);
-        return generateJoinFields(text, generator, primaryTable, columns, tableColumnsList, SEARCH_FORM_FIELD_SUFFIX);
+        String textContent = GeneratorUtils.readTemplate(generator, TemplateConstants.VIEW_SEARCH_TEXT_TEMPLATE);
+        String dateContent = GeneratorUtils.readTemplate(generator, TemplateConstants.VIEW_SEARCH_DATE_TEMPLATE);
+        return generateJoinFields(textContent, dateContent, generator, primaryTable, columns, tableColumnsList, SEARCH_FORM_FIELD_SUFFIX);
     }
 
     /**
      * 生成关联表视图中主表的添加和修改的表单字段信息
-     * @param fileContent 模板文件内容
+     * @param textFileContent 文本框模板文件内容
+     * @param dateFileContent 日期选择框模板文件内容
      * @param generator Generator实例
      * @param primaryTable 主表名称
      * @param columns 所选表字段信息
      * @param fieldSuffix 表单字段id的后缀
      * @return
      */
-    private static String generateJoinFields(String fileContent, Generator generator, String primaryTable, String[] columns, List<TableColumns> tableColumnsList, String fieldSuffix) {
+    private static String generateJoinFields(String textFileContent, String dateFileContent, Generator generator, String primaryTable, String[] columns, List<TableColumns> tableColumnsList, String fieldSuffix) {
         String id = StringUtils.uncapitalize(GeneratorUtils.tableNameToClassName(primaryTable,
                 generator.getTablePrefix())) + StringUtils.capitalize(PropertyUtils.columnToProperty("id"));
         StringBuilder formFields = new StringBuilder();
@@ -386,11 +400,19 @@ public class ViewGenerator {
                                         + StringUtils.capitalize(PropertyUtils.columnToProperty(columnName));
                                 String title = columnDetail.getComment();
                                 if (!id.equals(field)) {
-                                    formFields.append(fileContent.replace(TemplateConstants.VIEW_FIELD_NAME_EN, field)
-                                            .replace(TemplateConstants.VIEW_ID_FIELD_NAME_EN, field + fieldSuffix)
-                                            .replace(TemplateConstants.VIEW_FIELD_NAME_CN, title)
-                                            .replace(TemplateConstants.VIEW_FIELD_PLACEHOLDER, "请输入" + title))
-                                            .append("\n");
+                                    if (columnDetail.getJavaTypeName().equals("Date")) {
+                                        formFields.append(dateFileContent.replace(TemplateConstants.VIEW_FIELD_NAME_EN, field)
+                                                .replace(TemplateConstants.VIEW_ID_FIELD_NAME_EN, field + fieldSuffix)
+                                                .replace(TemplateConstants.VIEW_FIELD_NAME_CN, title)
+                                                .replace(TemplateConstants.VIEW_FIELD_PLACEHOLDER, "请选择" + title))
+                                                .append("\n");
+                                    } else {
+                                        formFields.append(textFileContent.replace(TemplateConstants.VIEW_FIELD_NAME_EN, field)
+                                                .replace(TemplateConstants.VIEW_ID_FIELD_NAME_EN, field + fieldSuffix)
+                                                .replace(TemplateConstants.VIEW_FIELD_NAME_CN, title)
+                                                .replace(TemplateConstants.VIEW_FIELD_PLACEHOLDER, "请输入" + title))
+                                                .append("\n");
+                                    }
                                 }
                             }
                         }

@@ -180,7 +180,7 @@ CREATE TABLE `t_scheduler` (
   `trigger_group` varchar(50) DEFAULT NULL COMMENT '触发器组',
   `description` varchar(500) DEFAULT NULL COMMENT '作业描述',
   `job_status` tinyint(4) DEFAULT NULL COMMENT '作业状态',
-  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `create_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_time` datetime DEFAULT NULL COMMENT '最近一次更新时间',
   `is_active` tinyint(4) DEFAULT '0' COMMENT '是否可用',
   PRIMARY KEY (`id`)

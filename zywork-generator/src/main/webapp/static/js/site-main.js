@@ -50,6 +50,14 @@ function showModal(modalId) {
 function showEditModal(modalId, formId, row) {
     $('#' + modalId).modal('show');
     $('#' + formId).autofill(row);
+    showDatetimeInEditModal(formId, row);
+}
+
+function showDatetimeInEditModal(formId, row) {
+    $('#' + formId + " .input-datetime").each(function () {
+        let date = timestampToDate(row[$(this).attr('name')]);
+        $(this).val(date === '-' ? "" : date);
+    });
 }
 
 function hideModal(modalId) {
@@ -84,6 +92,40 @@ function initSelect2(selectId, jsonData) {
 
 function emptySelect2(selectId) {
     $('#' + selectId).select2('destroy').empty();
+}
+
+function initDate(dateId) {
+    let date;
+    if (dateId === undefined) {
+        date = $('.form_date');
+    } else {
+        date = $('#' + dateId);
+    }
+    date.datetimepicker({
+        language: 'zh-CN',
+        format: 'yyyy-mm-dd',
+        todayHighlight: true,
+        weekStart: 1,
+        todayBtn:  true,
+        autoclose: true
+    });
+}
+
+function initDatetime(datetimeId) {
+    let date;
+    if (datetimeId === undefined) {
+        date = $('.form_datetime');
+    } else {
+        date = $('#' + dateId);
+    }
+    date.datetimepicker({
+        language: 'zh-CN',
+        format: 'yyyy-mm-dd hh:ii:ss',
+        todayHighlight: true,
+        weekStart: 1,
+        todayBtn:  true,
+        autoclose: true
+    });
 }
 
 function swalInfo(message) {
