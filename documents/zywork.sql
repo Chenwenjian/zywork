@@ -360,7 +360,7 @@ CREATE TABLE `t_user_social` (
   `user_id` bigint(20) DEFAULT NULL COMMENT '用户编号',
   `openid` varchar(200) DEFAULT NULL COMMENT '第三方登录OAuth openid',
   `social_type_id` bigint(20) DEFAULT NULL COMMENT '第三方登录类型编号',
-  `create_time` datetime DEFAULT NULL COMMENT '第三方登录绑定时间',
+  `create_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '第三方登录绑定时间',
   PRIMARY KEY (`id`),
   KEY `fk_user_social_id_idx` (`user_id`),
   KEY `fk_user_social_type_id_idx` (`social_type_id`),
