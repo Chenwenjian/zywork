@@ -19,11 +19,8 @@ modal中打开select2下拉菜单
     z-index: 9999999;
 }
 
-/**
-bootstrap-table中的操作按钮
- */
-.operation-column {
-    min-width: 120px;
+.table {
+    table-layout: fixed;
 }
 
 /**

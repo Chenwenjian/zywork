@@ -98,6 +98,7 @@ public class ViewGenerator {
                 "\ttitle: '序号',\n" +
                 "\tfield: '_number',\n" +
                 "\talign: 'center',\n" +
+                "\twidth: '60px',\n" +
                 "\tformatter: formatTableIndex\n" +
                 "}");
         for (ColumnDetail columnDetail : columnDetailList) {
@@ -110,7 +111,8 @@ public class ViewGenerator {
                         .append("\tfield: '")
                         .append(columnDetail.getFieldName())
                         .append("',\n")
-                        .append("\talign: 'center'");
+                        .append("\talign: 'center',\n")
+                        .append("\twidth: '120px'");
                 if (columnDetail.getJavaTypeName().equals("Date")) {
                     columnFields.append(",\n")
                             .append("\tformatter: formatDate");
@@ -147,6 +149,7 @@ public class ViewGenerator {
                 "\ttitle: '序号',\n" +
                 "\tfield: '_number',\n" +
                 "\talign: 'center',\n" +
+                "\twidth: '60px',\n" +
                 "\tformatter: formatTableIndex\n" +
                 "}");
         for (String column : columns) {
@@ -168,7 +171,8 @@ public class ViewGenerator {
                                         .append("\tfield: '")
                                         .append(field)
                                         .append("',\n")
-                                        .append("\talign: 'center'");
+                                        .append("\talign: 'center',\n")
+                                        .append("\twidth: '120px'");
                                 if (columnDetail.getJavaTypeName().equals("Date")) {
                                     columnFields.append(",\n")
                                             .append("\tformatter: formatDate");
@@ -205,7 +209,7 @@ public class ViewGenerator {
             }
         }
         rowDetailAndDateIndex[0] = rowDetailTitles.toString().substring(1);
-        rowDetailAndDateIndex[1] = dateIndex.toString().substring(1);
+        rowDetailAndDateIndex[1] = dateIndex.toString().contains(",") ? dateIndex.toString().substring(1) : "-1";
         return rowDetailAndDateIndex;
     }
 
@@ -244,7 +248,7 @@ public class ViewGenerator {
             }
         }
         rowDetailAndDateIndex[0] = rowDetailTitles.toString().substring(1);
-        rowDetailAndDateIndex[1] = dateIndex.toString().substring(1);
+        rowDetailAndDateIndex[1] = dateIndex.toString().contains(",") ? dateIndex.toString().substring(1) : "-1";
         return rowDetailAndDateIndex;
     }
 
