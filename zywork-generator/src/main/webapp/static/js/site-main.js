@@ -40,7 +40,7 @@ function formatTableIndex(value, row, index) {
 }
 
 function formatDate(value, row, index) {
-    return timestampToDate(value);
+    return timestampToDatetime(value);
 }
 
 function showModal(modalId) {
@@ -194,17 +194,17 @@ function remove(url, tableId, tableUrl) {
         }, 'json')
 }
 
-function timestampToDate(value) {
+function timestampToDatetime(value) {
     if (value === undefined || value === null || value === '') {
         return "-";
     } else {
         let date = new Date(value);
-        let year = date.getFullYear().toString();
-        let month = (date.getMonth() + 1);
-        let day = date.getDate().toString();
-        let hour = date.getHours().toString();
-        let minute = date.getMinutes().toString();
-        let second = date.getSeconds().toString();
+        let year = date.getFullYear();
+        let month = date.getMonth() + 1;
+        let day = date.getDate();
+        let hour = date.getHours();
+        let minute = date.getMinutes();
+        let second = date.getSeconds();
         month = month < 10 ? '0' + month : month;
         day = day < 10 ? '0' + day : day;
         hour = hour < 10 ? '0' + hour : hour;
