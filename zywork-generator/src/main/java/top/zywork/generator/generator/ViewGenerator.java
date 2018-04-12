@@ -332,10 +332,15 @@ public class ViewGenerator {
                         || !top.zywork.common.StringUtils.isInArray(exclusiveColumns, columnDetail.getName()))) {
                 String title = columnDetail.getComment();
                 if (columnDetail.getJavaTypeName().equals("Date")) {
-                    formFields.append(dateFileContent.replace(TemplateConstants.VIEW_FIELD_NAME_EN, fieldName)
-                            .replace(TemplateConstants.VIEW_ID_FIELD_NAME_EN, fieldName + fieldSuffix)
-                            .replace(TemplateConstants.VIEW_FIELD_NAME_CN, title)
-                            .replace(TemplateConstants.VIEW_FIELD_PLACEHOLDER, "请选择" + title))
+                    formFields.append(dateFileContent.replace(TemplateConstants.VIEW_FIELD_NAME_EN, fieldName + "Start")
+                            .replace(TemplateConstants.VIEW_ID_FIELD_NAME_EN, fieldName + "Start" + fieldSuffix)
+                            .replace(TemplateConstants.VIEW_FIELD_NAME_CN, title + "(开始)")
+                            .replace(TemplateConstants.VIEW_FIELD_PLACEHOLDER, "请选择" + title + "(开始)"))
+                            .append("\n");
+                    formFields.append(dateFileContent.replace(TemplateConstants.VIEW_FIELD_NAME_EN, fieldName + "End")
+                            .replace(TemplateConstants.VIEW_ID_FIELD_NAME_EN, fieldName + "End" + fieldSuffix)
+                            .replace(TemplateConstants.VIEW_FIELD_NAME_CN, title + "(结束)")
+                            .replace(TemplateConstants.VIEW_FIELD_PLACEHOLDER, "请选择" + title + "(结束)"))
                             .append("\n");
                 } else {
                     formFields.append(textFileContent.replace(TemplateConstants.VIEW_FIELD_NAME_EN, fieldName)
@@ -408,10 +413,15 @@ public class ViewGenerator {
                                             || !top.zywork.common.StringUtils.isInArray(exclusiveColumns, columnDetail.getName()))) {
                                     String title = columnDetail.getComment();
                                     if (columnDetail.getJavaTypeName().equals("Date")) {
-                                        formFields.append(dateFileContent.replace(TemplateConstants.VIEW_FIELD_NAME_EN, field)
-                                                .replace(TemplateConstants.VIEW_ID_FIELD_NAME_EN, field + fieldSuffix)
-                                                .replace(TemplateConstants.VIEW_FIELD_NAME_CN, title)
-                                                .replace(TemplateConstants.VIEW_FIELD_PLACEHOLDER, "请选择" + title))
+                                        formFields.append(dateFileContent.replace(TemplateConstants.VIEW_FIELD_NAME_EN, field + "Start")
+                                                .replace(TemplateConstants.VIEW_ID_FIELD_NAME_EN, field + "Start" + fieldSuffix)
+                                                .replace(TemplateConstants.VIEW_FIELD_NAME_CN, title + "(开始)")
+                                                .replace(TemplateConstants.VIEW_FIELD_PLACEHOLDER, "请选择" + title + "(开始)"))
+                                                .append("\n");
+                                        formFields.append(dateFileContent.replace(TemplateConstants.VIEW_FIELD_NAME_EN, field + "End")
+                                                .replace(TemplateConstants.VIEW_ID_FIELD_NAME_EN, field + "End" + fieldSuffix)
+                                                .replace(TemplateConstants.VIEW_FIELD_NAME_CN, title + "(结束)")
+                                                .replace(TemplateConstants.VIEW_FIELD_PLACEHOLDER, "请选择" + title + "(结束)"))
                                                 .append("\n");
                                     } else {
                                         formFields.append(textFileContent.replace(TemplateConstants.VIEW_FIELD_NAME_EN, field)

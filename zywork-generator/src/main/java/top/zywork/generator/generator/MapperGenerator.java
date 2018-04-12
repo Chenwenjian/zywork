@@ -20,6 +20,10 @@ import java.util.List;
  */
 public class MapperGenerator {
 
+    private static final int GREATER_THEN_DATE = 0;
+    private static final int LOWER_THEN_DATE = 1;
+    private static final int BETWEEN_DATE = 2;
+
     /**
      * 生成Mapper映射xml文件
      * @param generator
@@ -303,31 +307,70 @@ public class MapperGenerator {
         for (int i = 0, size = columnDetails.size(); i < size; i++) {
             ColumnDetail columnDetail = columnDetails.get(i);
             String field = columnDetail.getFieldName();
-            boolean isString = columnDetail.getJavaTypeName().equals("String");
-            whereClause.append("<if test=\"query != null and query.")
-                    .append(field);
-            if (isString) {
-                whereClause.append(" != null and query.").append(field).append(" != ''\">\n\t\t\t");
-            } else {
-                whereClause.append(" != null\">\n\t\t\t");
-            }
-            if (i != 0) {
-                whereClause.append("and ");
-            }
-            if (isString) {
+            if (columnDetail.getJavaTypeName().equals("String")) {
+                whereClause.append("<if test=\"query != null and query.")
+                        .append(field).append(" != null and query.").append(field).append(" != ''\">\n\t\t\t");
+                if (i != 0) {
+                    whereClause.append("and ");
+                }
                 whereClause.append(columnDetail.getName())
                         .append(" like concat('%', ")
                         .append("#{query.")
                         .append(field)
-                        .append("}, '%')");
+                        .append("}, '%')")
+                        .append("\n\t\t</if>\n\t\t");
+            } else if (columnDetail.getJavaTypeName().equals("Date")) {
+                whereClause.append("<if test=\"query != null and query.")
+                        .append(field).append("Start != null and query.").append(field).append("End == null").append("\">\n\t\t\t");
+                if (i != 0) {
+                    whereClause.append("and ");
+                }
+                whereClause.append(columnDetail.getName())
+                        .append(" <![CDATA[ >= ]]> ")
+                        .append("#{query.")
+                        .append(field).append("Start")
+                        .append("}")
+                        .append("\n\t\t</if>\n\t\t");
+                whereClause.append("<if test=\"query != null and query.")
+                        .append(field).append("Start == null and query.").append(field).append("End != null").append("\">\n\t\t\t");
+                if (i != 0) {
+                    whereClause.append("and ");
+                }
+                whereClause.append(columnDetail.getName())
+                        .append(" <![CDATA[ <= ]]> ")
+                        .append("#{query.")
+                        .append(field).append("End")
+                        .append("}")
+                        .append("\n\t\t</if>\n\t\t");
+                whereClause.append("<if test=\"query != null and query.")
+                        .append(field).append("Start != null and query.").append(field).append("End != null").append("\">\n\t\t\t");
+                if (i != 0) {
+                    whereClause.append("and ");
+                }
+                whereClause.append(columnDetail.getName())
+                        .append(" <![CDATA[ >= ]]> ")
+                        .append("#{query.")
+                        .append(field).append("Start")
+                        .append("}")
+                        .append(" and ")
+                        .append(columnDetail.getName())
+                        .append(" <![CDATA[ <= ]]> ")
+                        .append("#{query.")
+                        .append(field).append("End")
+                        .append("}")
+                        .append("\n\t\t</if>\n\t\t");
             } else {
+                whereClause.append("<if test=\"query != null and query.").append(field).append(" != null\">\n\t\t\t");
+                if (i != 0) {
+                    whereClause.append("and ");
+                }
                 whereClause.append(columnDetail.getName())
                         .append(" = ")
                         .append("#{query.")
                         .append(field)
-                        .append("}");
+                        .append("}")
+                        .append("\n\t\t</if>\n\t\t");
             }
-            whereClause.append("\n\t\t</if>\n\t\t");
         }
         return fileContent.replace(TemplateConstants.QUERY_WHERE_CLAUSE, whereClause.toString());
     }
@@ -349,31 +392,70 @@ public class MapperGenerator {
             String fullColumnName = tableName + "." + columnName;
             String field = StringUtils.uncapitalize(GeneratorUtils.tableNameToClassName(tableName, generator.getTablePrefix()))
                     + StringUtils.capitalize(PropertyUtils.columnToProperty(columnName));
-            boolean isString = javaType.equals("String");
-            whereClause.append("<if test=\"query != null and query.")
-                    .append(field);
-            if (isString) {
-                whereClause.append(" != null and query.").append(field).append(" != ''\">\n\t\t\t");
-            } else {
-                whereClause.append(" != null\">\n\t\t\t");
-            }
-            if (i != 0) {
-                whereClause.append("and ");
-            }
-            if (isString) {
+            if (javaType.equals("String")) {
+                whereClause.append("<if test=\"query != null and query.")
+                        .append(field).append(" != null and query.").append(field).append(" != ''\">\n\t\t\t");
+                if (i != 0) {
+                    whereClause.append("and ");
+                }
                 whereClause.append(fullColumnName)
                         .append(" like concat('%', ")
                         .append("#{query.")
                         .append(field)
-                        .append("}, '%')");
+                        .append("}, '%')")
+                        .append("\n\t\t</if>\n\t\t");
+            } else if (javaType.equals("Date")) {
+                whereClause.append("<if test=\"query != null and query.")
+                        .append(field).append("Start != null and query.").append(field).append("End == null").append("\">\n\t\t\t");
+                if (i != 0) {
+                    whereClause.append("and ");
+                }
+                whereClause.append(fullColumnName)
+                        .append(" <![CDATA[ >= ]]> ")
+                        .append("#{query.")
+                        .append(field).append("Start")
+                        .append("}")
+                        .append("\n\t\t</if>\n\t\t");
+                whereClause.append("<if test=\"query != null and query.")
+                        .append(field).append("Start == null and query.").append(field).append("End != null").append("\">\n\t\t\t");
+                if (i != 0) {
+                    whereClause.append("and ");
+                }
+                whereClause.append(fullColumnName)
+                        .append(" <![CDATA[ <= ]]> ")
+                        .append("#{query.")
+                        .append(field).append("End")
+                        .append("}")
+                        .append("\n\t\t</if>\n\t\t");
+                whereClause.append("<if test=\"query != null and query.")
+                        .append(field).append("Start != null and query.").append(field).append("End != null").append("\">\n\t\t\t");
+                if (i != 0) {
+                    whereClause.append("and ");
+                }
+                whereClause.append(fullColumnName)
+                        .append(" <![CDATA[ >= ]]> ")
+                        .append("#{query.")
+                        .append(field).append("Start")
+                        .append("}")
+                        .append(" and ")
+                        .append(fullColumnName)
+                        .append(" <![CDATA[ <= ]]> ")
+                        .append("#{query.")
+                        .append(field).append("End")
+                        .append("}")
+                        .append("\n\t\t</if>\n\t\t");
             } else {
+                whereClause.append("<if test=\"query != null and query.").append(field).append(" != null\">\n\t\t\t");
+                if (i != 0) {
+                    whereClause.append("and ");
+                }
                 whereClause.append(fullColumnName)
                         .append(" = ")
                         .append("#{query.")
                         .append(field)
-                        .append("}");
+                        .append("}")
+                        .append("\n\t\t</if>\n\t\t");
             }
-            whereClause.append("\n\t\t</if>\n\t\t");
         }
         return fileContent.replace(TemplateConstants.QUERY_WHERE_CLAUSE, whereClause.toString());
     }

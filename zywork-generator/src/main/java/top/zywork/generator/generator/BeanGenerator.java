@@ -25,6 +25,11 @@ import java.util.List;
  */
 public class BeanGenerator {
 
+    private static final String DO_BEAN = "do";
+    private static final String DTO_BEAN = "dto";
+    private static final String VO_BEAN = "vo";
+    private static final String QUERY_BEAN = "query";
+
     /**
      * 用于存储表字段对应的属性信息
      */
@@ -44,7 +49,7 @@ public class BeanGenerator {
                 .replace(TemplateConstants.AUTHOR, generator.getAuthor())
                 .replace(TemplateConstants.BEAN_NAME, beanName)
                 .replace(TemplateConstants.SERIAL_VERSION_ID, GeneratorUtils.generateSerialVersionId() + "");
-        fileContent = generateFields(fileContent, tableColumns);
+        fileContent = generateFields(fileContent, tableColumns, DO_BEAN);
         fileContent = generatorConstructorParams(fileContent);
         fileContent = generatorConstructor(fileContent);
         fileContent = generateGetterSetters(fileContent);
@@ -67,7 +72,7 @@ public class BeanGenerator {
                 .replace(TemplateConstants.AUTHOR, generator.getAuthor())
                 .replace(TemplateConstants.BEAN_NAME, beanName)
                 .replace(TemplateConstants.SERIAL_VERSION_ID, GeneratorUtils.generateSerialVersionId() + "");
-        fileContent = generateJoinFields(generator, fileContent, columns, tableColumnsList);
+        fileContent = generateJoinFields(generator, fileContent, columns, tableColumnsList, DO_BEAN);
         fileContent = generatorJoinConstructorParams(fileContent);
         fileContent = generatorJoinConstructor(fileContent);
         fileContent = generateJoinGetterSetters(fileContent);
@@ -100,7 +105,7 @@ public class BeanGenerator {
                 .replace(TemplateConstants.AUTHOR, generator.getAuthor())
                 .replace(TemplateConstants.BEAN_NAME, beanName)
                 .replace(TemplateConstants.SERIAL_VERSION_ID, GeneratorUtils.generateSerialVersionId() + "");
-        fileContent = generateFields(fileContent, tableColumns);
+        fileContent = generateFields(fileContent, tableColumns, DTO_BEAN);
         fileContent = generatorConstructorParams(fileContent);
         fileContent = generatorConstructor(fileContent);
         fileContent = generateGetterSetters(fileContent);
@@ -123,7 +128,7 @@ public class BeanGenerator {
                 .replace(TemplateConstants.AUTHOR, generator.getAuthor())
                 .replace(TemplateConstants.BEAN_NAME, beanName)
                 .replace(TemplateConstants.SERIAL_VERSION_ID, GeneratorUtils.generateSerialVersionId() + "");
-        fileContent = generateJoinFields(generator, fileContent, columns, tableColumnsList);
+        fileContent = generateJoinFields(generator, fileContent, columns, tableColumnsList, DTO_BEAN);
         fileContent = generatorJoinConstructorParams(fileContent);
         fileContent = generatorJoinConstructor(fileContent);
         fileContent = generateJoinGetterSetters(fileContent);
@@ -156,7 +161,7 @@ public class BeanGenerator {
                 .replace(TemplateConstants.AUTHOR, generator.getAuthor())
                 .replace(TemplateConstants.BEAN_NAME, beanName)
                 .replace(TemplateConstants.SERIAL_VERSION_ID, GeneratorUtils.generateSerialVersionId() + "");
-        fileContent = generateFields(fileContent, tableColumns);
+        fileContent = generateFields(fileContent, tableColumns, VO_BEAN);
         fileContent = generatorConstructorParams(fileContent);
         fileContent = generatorConstructor(fileContent);
         fileContent = generateGetterSetters(fileContent);
@@ -179,7 +184,7 @@ public class BeanGenerator {
                 .replace(TemplateConstants.AUTHOR, generator.getAuthor())
                 .replace(TemplateConstants.BEAN_NAME, beanName)
                 .replace(TemplateConstants.SERIAL_VERSION_ID, GeneratorUtils.generateSerialVersionId() + "");
-        fileContent = generateJoinFields(generator, fileContent, columns, tableColumnsList);
+        fileContent = generateJoinFields(generator, fileContent, columns, tableColumnsList, VO_BEAN);
         fileContent = generatorJoinConstructorParams(fileContent);
         fileContent = generatorJoinConstructor(fileContent);
         fileContent = generateJoinGetterSetters(fileContent);
@@ -212,7 +217,7 @@ public class BeanGenerator {
                 .replace(TemplateConstants.AUTHOR, generator.getAuthor())
                 .replace(TemplateConstants.BEAN_NAME, beanName)
                 .replace(TemplateConstants.SERIAL_VERSION_ID, GeneratorUtils.generateSerialVersionId() + "");
-        fileContent = generateFields(fileContent, tableColumns);
+        fileContent = generateFields(fileContent, tableColumns, QUERY_BEAN);
         fileContent = generatorConstructorParams(fileContent);
         fileContent = generatorConstructor(fileContent);
         fileContent = generateGetterSetters(fileContent);
@@ -236,7 +241,7 @@ public class BeanGenerator {
                 .replace(TemplateConstants.AUTHOR, generator.getAuthor())
                 .replace(TemplateConstants.BEAN_NAME, beanName)
                 .replace(TemplateConstants.SERIAL_VERSION_ID, GeneratorUtils.generateSerialVersionId() + "");
-        fileContent = generateJoinFields(generator, fileContent, columns, tableColumnsList);
+        fileContent = generateJoinFields(generator, fileContent, columns, tableColumnsList, QUERY_BEAN);
         fileContent = generatorJoinConstructorParams(fileContent);
         fileContent = generatorJoinConstructor(fileContent);
         fileContent = generateJoinGetterSetters(fileContent);
@@ -262,7 +267,7 @@ public class BeanGenerator {
      * @param tableColumns 表数据
      * @return 添加了所有属性的文件内容
      */
-    private static String generateFields(String fileContent, TableColumns tableColumns) {
+    private static String generateFields(String fileContent, TableColumns tableColumns, String beanType) {
         fieldDetailList.clear();
         List<ColumnDetail> columnDetailList = tableColumns.getColumns();
         StringBuilder fields = new StringBuilder("");
@@ -271,16 +276,13 @@ public class BeanGenerator {
             String javaType = columnDetail.getJavaTypeName();
             String comment = columnDetail.getComment();
             fieldDetailList.add(new FieldDetail(field, javaType, comment));
-            fields.append("/**\n")
-                    .append("\t * ")
-                    .append(comment)
-                    .append("\n")
-                    .append("\t */\n")
-                    .append("\tprivate ")
-                    .append(javaType)
-                    .append(" ")
-                    .append(field)
-                    .append(";\n\t");
+            fields.append(field(comment, javaType, field));
+            if (beanType.equals(QUERY_BEAN) && javaType.equals("Date")) {
+                fieldDetailList.add(new FieldDetail(field + "Start", javaType, comment));
+                fieldDetailList.add(new FieldDetail(field + "End", javaType, comment));
+                fields.append(field(comment + "(开始)", javaType, field + "Start"));
+                fields.append(field(comment + "(结束)", javaType, field + "End"));
+            }
         }
         return fileContent.replace(TemplateConstants.FIELDS, fields.toString());
     }
@@ -293,7 +295,7 @@ public class BeanGenerator {
      * @param tableColumnsList 所有表字段信息的列表
      * @return
      */
-    private static String generateJoinFields(Generator generator, String fileContent, String[] columns, List<TableColumns> tableColumnsList) {
+    private static String generateJoinFields(Generator generator, String fileContent, String[] columns, List<TableColumns> tableColumnsList, String beanType) {
         fieldDetailList.clear();
         StringBuilder fields = new StringBuilder("");
         String lastTableName = null;
@@ -321,22 +323,34 @@ public class BeanGenerator {
                             String javaType = columnDetail.getJavaTypeName();
                             String comment = columnDetail.getComment();
                             fieldDetailList.add(new FieldDetail(field, javaType, comment));
-                            fields.append("/**\n")
-                                    .append("\t * ")
-                                    .append(comment)
-                                    .append("\n")
-                                    .append("\t */\n")
-                                    .append("\tprivate ")
-                                    .append(javaType)
-                                    .append(" ")
-                                    .append(field)
-                                    .append(";\n\t");
+                            fields.append(field(comment, javaType, field));
+                            if (beanType.equals(QUERY_BEAN) && javaType.equals("Date")) {
+                                fieldDetailList.add(new FieldDetail(field + "Start", javaType, comment));
+                                fieldDetailList.add(new FieldDetail(field + "End", javaType, comment));
+                                fields.append(field(comment + "(开始)", javaType, field + "Start"));
+                                fields.append(field(comment + "(结束)", javaType, field + "End"));
+                            }
                         }
                     }
                 }
             }
         }
         return fileContent.replace(TemplateConstants.FIELDS, fields.toString());
+    }
+
+    private static String field(String comment, String javaType, String fieldName) {
+        StringBuilder field = new StringBuilder();
+        field.append("/**\n")
+                .append("\t * ")
+                .append(comment)
+                .append("\n")
+                .append("\t */\n")
+                .append("\tprivate ")
+                .append(javaType)
+                .append(" ")
+                .append(fieldName)
+                .append(";\n\t");
+        return field.toString();
     }
 
     /**
