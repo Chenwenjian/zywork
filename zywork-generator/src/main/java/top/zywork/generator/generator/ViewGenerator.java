@@ -34,11 +34,13 @@ public class ViewGenerator {
         String saveDir = GeneratorUtils.createViewResDir(generator, generator.getJsFileDir() + beanName);
         String moduleName = GeneratorUtils.getModuleName(tableColumns.getTableName(), generator.getTablePrefix());
         String fileContent = GeneratorUtils.readTemplate(generator, TemplateConstants.VIEW_JS_TEMPLATE);
+        String[] rowDetailDateIndex = generateTableRowDetail(generator, tableColumns);
         fileContent = fileContent.replace(TemplateConstants.VIEW_TABLE_FIELDS, generateTableFields(generator, tableColumns))
                 .replace(TemplateConstants.VIEW_REMOVE_URL, "/" + moduleName + "/remove/")
                 .replace(TemplateConstants.VIEW_TABLE_URL, "/" + moduleName + "/pager-cond")
                 .replace(TemplateConstants.VIEW_ID_FIELD, "id")
-                .replace(TemplateConstants.VIEW_ROW_DETAIL_TITLES, generateTableRowDetail(generator, tableColumns));
+                .replace(TemplateConstants.VIEW_ROW_DETAIL_TITLES, rowDetailDateIndex[0])
+                .replace(TemplateConstants.VIEW_ROW_DATE_INDEX, rowDetailDateIndex[1]);
         GeneratorUtils.writeFile(fileContent, saveDir, beanName + ".js");
     }
 
@@ -52,12 +54,14 @@ public class ViewGenerator {
     public static void generateJoinJs(String beanName, String mappingUrl, Generator generator, String primaryTable, String[] columns, List<TableColumns> tableColumnsList) {
         String saveDir = GeneratorUtils.createViewResDir(generator, generator.getJsFileDir() + beanName);
         String fileContent = GeneratorUtils.readTemplate(generator, TemplateConstants.VIEW_JS_TEMPLATE);
+        String[] rowDetailDateIndex = generateJoinTableRowDetail(generator, primaryTable, columns, tableColumnsList);
         fileContent = fileContent.replace(TemplateConstants.VIEW_TABLE_FIELDS, generateJoinTableFields(generator, primaryTable, columns, tableColumnsList))
                 .replace(TemplateConstants.VIEW_REMOVE_URL, "/" + mappingUrl + "/remove/")
                 .replace(TemplateConstants.VIEW_TABLE_URL, "/" + mappingUrl + "/pager-cond")
                 .replace(TemplateConstants.VIEW_ID_FIELD, StringUtils.uncapitalize(GeneratorUtils.tableNameToClassName(primaryTable,
                         generator.getTablePrefix())) + StringUtils.capitalize(PropertyUtils.columnToProperty("id")))
-                .replace(TemplateConstants.VIEW_ROW_DETAIL_TITLES, generateJoinTableRowDetail(generator, primaryTable, columns, tableColumnsList));
+                .replace(TemplateConstants.VIEW_ROW_DETAIL_TITLES, rowDetailDateIndex[0])
+                .replace(TemplateConstants.VIEW_ROW_DATE_INDEX, rowDetailDateIndex[1]);
         GeneratorUtils.writeFile(fileContent, saveDir, beanName + ".js");
     }
 
@@ -185,16 +189,24 @@ public class ViewGenerator {
      * @param tableColumns 所选表的字段信息
      * @return
      */
-    private static String generateTableRowDetail(Generator generator, TableColumns tableColumns) {
+    private static String[] generateTableRowDetail(Generator generator, TableColumns tableColumns) {
+        String[] rowDetailAndDateIndex = new String[2];
         List<ColumnDetail> columnDetailList = tableColumns.getColumns();
         StringBuilder rowDetailTitles = new StringBuilder();
-        for (ColumnDetail columnDetail : columnDetailList) {
+        StringBuilder dateIndex = new StringBuilder();
+        for (int i = 0, len = columnDetailList.size(); i < len; i++) {
+            ColumnDetail columnDetail = columnDetailList.get(i);
             rowDetailTitles.append(",")
                     .append("'")
                     .append(columnDetail.getComment())
                     .append("'");
+            if (columnDetail.getJavaTypeName().equals("Date")) {
+                dateIndex.append(",").append(i);
+            }
         }
-        return rowDetailTitles.toString().substring(1);
+        rowDetailAndDateIndex[0] = rowDetailTitles.toString().substring(1);
+        rowDetailAndDateIndex[1] = dateIndex.toString().substring(1);
+        return rowDetailAndDateIndex;
     }
 
     /**
@@ -205,9 +217,12 @@ public class ViewGenerator {
      * @param tableColumnsList 所有表的字段信息
      * @return
      */
-    private static String generateJoinTableRowDetail(Generator generator, String primaryTable, String[] columns, List<TableColumns> tableColumnsList) {
+    private static String[] generateJoinTableRowDetail(Generator generator, String primaryTable, String[] columns, List<TableColumns> tableColumnsList) {
+        String[] rowDetailAndDateIndex = new String[2];
         StringBuilder rowDetailTitles = new StringBuilder();
-        for (String column : columns) {
+        StringBuilder dateIndex = new StringBuilder();
+        for (int i = 0, len = columns.length; i < len; i++) {
+            String column = columns[i];
             String[] tableNameAndColumn = column.split("-");
             String tableName = tableNameAndColumn[0];
             String columnName = tableNameAndColumn[1];
@@ -216,18 +231,21 @@ public class ViewGenerator {
                     List<ColumnDetail> columnDetailList = tableColumns.getColumns();
                     for (ColumnDetail columnDetail : columnDetailList) {
                         if (columnName.equals(columnDetail.getName())) {
-                            String field = StringUtils.uncapitalize(GeneratorUtils.tableNameToClassName(tableName, generator.getTablePrefix()))
-                                    + StringUtils.capitalize(PropertyUtils.columnToProperty(columnName));
                             rowDetailTitles.append(",")
                                     .append("'")
                                     .append(columnDetail.getComment())
                                     .append("'");
+                            if (columnDetail.getJavaTypeName().equals("Date")) {
+                                dateIndex.append(",").append(i);
+                            }
                         }
                     }
                 }
             }
         }
-        return rowDetailTitles.toString().substring(1);
+        rowDetailAndDateIndex[0] = rowDetailTitles.toString().substring(1);
+        rowDetailAndDateIndex[1] = dateIndex.toString().substring(1);
+        return rowDetailAndDateIndex;
     }
 
     /**

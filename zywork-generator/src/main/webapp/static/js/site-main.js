@@ -233,3 +233,12 @@ function doSearchAll(tableId, formId) {
     $('#' + formId)[0].reset();
     refreshTable(tableId);
 }
+
+function isNumInArray(array, num) {
+    for (let i = 0, len = array.length; i < len; i++) {
+        if (array[i] === num) {
+            return true;
+        }
+    }
+    return false;
+}

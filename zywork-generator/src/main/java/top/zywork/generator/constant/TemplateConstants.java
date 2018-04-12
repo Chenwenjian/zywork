@@ -93,6 +93,8 @@ public class TemplateConstants {
 
     public static final String VIEW_ROW_DETAIL_TITLES = "{zywork.rowDetailTitles}";
 
+    public static final String VIEW_ROW_DATE_INDEX = "{zywork.dateIndex}";
+
     public static final String VIEW_REMOVE_URL = "{zywork.removeUrl}";
 
     public static final String VIEW_FIELD_NAME_EN = "{zywork.fieldNameEN}";

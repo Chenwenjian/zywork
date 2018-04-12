@@ -85,6 +85,7 @@ function formatDetail(index, row) {
     let detail = '';
     let idx = 0;
     let titles = [{zywork.rowDetailTitles}];
+    let dateIndexArray = [{zywork.dateIndex}];
     $.each(row, function(key, value) {
         if (value !== undefined) {
             detail += '<div class="col-xs-12 col-sm-4 col-md-2 col-lg-2">'
@@ -92,7 +93,7 @@ function formatDetail(index, row) {
                 + titles[idx]
                 + ':</span>'
                 + '</div><div class="col-xs-12 col-sm-8 col-md-4 col-lg-4">'
-                + (value === null ? '-' : value)
+                + (value === null ? '-' : isNumInArray(dateIndexArray, idx) ? timestampToDatetime(value) : value)
                 + '</div>';
             idx++;
         }
