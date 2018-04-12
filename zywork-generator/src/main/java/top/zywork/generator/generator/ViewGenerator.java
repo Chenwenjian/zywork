@@ -297,7 +297,7 @@ public class ViewGenerator {
     private static String generateFormFields(Generator generator, TableColumns tableColumns, String fieldSuffix) {
         String textContent = GeneratorUtils.readTemplate(generator, TemplateConstants.VIEW_TEXT_TEMPLATE);
         String dateContent = GeneratorUtils.readTemplate(generator, TemplateConstants.VIEW_DATE_TEMPLATE);
-        return generateFields(textContent, dateContent, tableColumns, fieldSuffix);
+        return generateFields(textContent, dateContent, generator, tableColumns, fieldSuffix);
     }
 
     /**
@@ -309,24 +309,28 @@ public class ViewGenerator {
     private static String generateSearchFormFields(Generator generator, TableColumns tableColumns) {
         String textContent = GeneratorUtils.readTemplate(generator, TemplateConstants.VIEW_SEARCH_TEXT_TEMPLATE);
         String dateContent = GeneratorUtils.readTemplate(generator, TemplateConstants.VIEW_SEARCH_DATE_TEMPLATE);
-        return generateFields(textContent, dateContent, tableColumns, SEARCH_FORM_FIELD_SUFFIX);
+        return generateFields(textContent, dateContent, generator, tableColumns, SEARCH_FORM_FIELD_SUFFIX);
     }
 
     /**
      * 生成表单字段信息
      * @param textFileContent 文本框模板文件内容
      * @param dateFileContent 日期选择框模板文件内容
+     * @param generator Generator实例
      * @param tableColumns 所选表字段信息
      * @param fieldSuffix 表单字段id后缀
      * @return
      */
-    private static String generateFields(String textFileContent, String dateFileContent, TableColumns tableColumns, String fieldSuffix) {
+    private static String generateFields(String textFileContent, String dateFileContent, Generator generator, TableColumns tableColumns, String fieldSuffix) {
         List<ColumnDetail> columnDetailList = tableColumns.getColumns();
+        String[] exclusiveColumns = generator.getExclusiveAddEditColumns().split(",");
         StringBuilder formFields = new StringBuilder();
         for (ColumnDetail columnDetail : columnDetailList) {
             String fieldName = columnDetail.getFieldName();
-            String title = columnDetail.getComment();
-            if (!fieldName.equals("id")) {
+            if (!fieldName.equals("id")
+                    && (fieldSuffix.equals(SEARCH_FORM_FIELD_SUFFIX)
+                        || !top.zywork.common.StringUtils.isInArray(exclusiveColumns, columnDetail.getName()))) {
+                String title = columnDetail.getComment();
                 if (columnDetail.getJavaTypeName().equals("Date")) {
                     formFields.append(dateFileContent.replace(TemplateConstants.VIEW_FIELD_NAME_EN, fieldName)
                             .replace(TemplateConstants.VIEW_ID_FIELD_NAME_EN, fieldName + fieldSuffix)
@@ -385,6 +389,7 @@ public class ViewGenerator {
     private static String generateJoinFields(String textFileContent, String dateFileContent, Generator generator, String primaryTable, String[] columns, List<TableColumns> tableColumnsList, String fieldSuffix) {
         String id = StringUtils.uncapitalize(GeneratorUtils.tableNameToClassName(primaryTable,
                 generator.getTablePrefix())) + StringUtils.capitalize(PropertyUtils.columnToProperty("id"));
+        String[] exclusiveColumns = generator.getExclusiveAddEditColumns().split(",");
         StringBuilder formFields = new StringBuilder();
         for (String column : columns) {
             String[] tableNameAndColumn = column.split("-");
@@ -398,8 +403,10 @@ public class ViewGenerator {
                             if (columnName.equals(columnDetail.getName())) {
                                 String field = StringUtils.uncapitalize(GeneratorUtils.tableNameToClassName(primaryTable, generator.getTablePrefix()))
                                         + StringUtils.capitalize(PropertyUtils.columnToProperty(columnName));
-                                String title = columnDetail.getComment();
-                                if (!id.equals(field)) {
+                                if (!id.equals(field)
+                                        && (fieldSuffix.equals(SEARCH_FORM_FIELD_SUFFIX)
+                                            || !top.zywork.common.StringUtils.isInArray(exclusiveColumns, columnDetail.getName()))) {
+                                    String title = columnDetail.getComment();
                                     if (columnDetail.getJavaTypeName().equals("Date")) {
                                         formFields.append(dateFileContent.replace(TemplateConstants.VIEW_FIELD_NAME_EN, field)
                                                 .replace(TemplateConstants.VIEW_ID_FIELD_NAME_EN, field + fieldSuffix)

@@ -226,6 +226,13 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label class="col-sm-3 control-label">添加和编辑表单排除字段：</label>
+
+                    <div class="col-sm-9">
+                        <input type="text" name="exclusiveAddEditColumns" placeholder="添加和编辑表单排除字段" class="form-control" value="${applicationScope.generator.exclusiveAddEditColumns}"/>
+                    </div>
+                </div>
+                <div class="form-group">
                     <div class="col-sm-offset-3 col-sm-9">
                         <button class="btn btn-primary" type="button" onclick="saveGenerator();">确定</button>
                     </div>

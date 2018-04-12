@@ -39,6 +39,7 @@ public class Generator {
     private String jsFileDir;
     private String cssFileDir;
     private String viewFileDir;
+    private String exclusiveAddEditColumns;
 
     public String getCharset() {
         return charset;
@@ -270,5 +271,13 @@ public class Generator {
 
     public void setViewFileDir(String viewFileDir) {
         this.viewFileDir = viewFileDir;
+    }
+
+    public String getExclusiveAddEditColumns() {
+        return exclusiveAddEditColumns;
+    }
+
+    public void setExclusiveAddEditColumns(String exclusiveAddEditColumns) {
+        this.exclusiveAddEditColumns = exclusiveAddEditColumns;
     }
 }

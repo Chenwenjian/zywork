@@ -345,6 +345,7 @@
       <Position>10</Position>
       <Comment>创建时间</Comment>
       <DataType>datetime|0</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
     </column>
     <column id="82" parent="17" name="update_time">
       <Position>11</Position>
@@ -659,6 +660,7 @@
       <Position>5</Position>
       <Comment>第三方登录绑定时间</Comment>
       <DataType>datetime|0</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
     </column>
     <index id="141" parent="23" name="fk_user_social_id_idx">
       <ColNames>user_id</ColNames>
