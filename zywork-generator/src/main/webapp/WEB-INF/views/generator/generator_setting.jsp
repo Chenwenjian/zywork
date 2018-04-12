@@ -198,7 +198,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Mapper映射文件Java后缀：</label>
+                    <label class="col-sm-3 control-label">Mapper映射文件后缀：</label>
 
                     <div class="col-sm-9">
                         <input type="text" name="mapperSuffix" placeholder="Mapper映射文件Java后缀" class="form-control" value="${applicationScope.generator.mapperSuffix}"/>
