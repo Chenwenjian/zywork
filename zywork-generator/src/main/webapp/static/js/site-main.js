@@ -48,15 +48,26 @@ function showModal(modalId) {
 }
 
 function showAddModal(modalId, formId, validateFields) {
-    $('#' + modalId).modal('show');
+    let modal = $('#' + modalId);
+    modal.modal('show');
     validateForm(formId, 'btn-save', validateFields);
+    modal.on('hidden.bs.modal', function (e) {
+        $('#' + formId)[0].reset();
+        resetValidateForm(formId);
+    });
 }
 
 function showEditModal(modalId, formId, row, validateFields) {
-    $('#' + modalId).modal('show');
-    $('#' + formId).autofill(row);
+    let modal = $('#' + modalId);
+    let form = $('#' + formId);
+    modal.modal('show');
+    form.autofill(row);
     showDatetimeInEditModal(formId, row);
     validateForm(formId, 'edit-save', validateFields);
+    modal.on('hidden.bs.modal', function (e) {
+        form[0].reset();
+        resetValidateForm(formId);
+    });
 }
 
 function showDatetimeInEditModal(formId, row) {
@@ -270,4 +281,8 @@ function validateForm(formId, btnId, validateFields) {
         },
         fields: validateFields
     });
+}
+
+function resetValidateForm(formId) {
+    $('#' + formId).data('bootstrapValidator').destroy();
 }
