@@ -34,13 +34,13 @@ public class ViewGenerator {
         String saveDir = GeneratorUtils.createViewResDir(generator, generator.getJsFileDir() + beanName);
         String moduleName = GeneratorUtils.getModuleName(tableColumns.getTableName(), generator.getTablePrefix());
         String fileContent = GeneratorUtils.readTemplate(generator, TemplateConstants.VIEW_JS_TEMPLATE);
-        String[] rowDetailDateIndex = generateTableRowDetail(generator, tableColumns);
+        String[] rowDetails = generateTableRowDetail(generator, tableColumns);
         fileContent = fileContent.replace(TemplateConstants.VIEW_TABLE_FIELDS, generateTableFields(generator, tableColumns))
                 .replace(TemplateConstants.VIEW_REMOVE_URL, "/" + moduleName + "/remove/")
                 .replace(TemplateConstants.VIEW_TABLE_URL, "/" + moduleName + "/pager-cond")
                 .replace(TemplateConstants.VIEW_ID_FIELD, "id")
-                .replace(TemplateConstants.VIEW_ROW_DETAIL_TITLES, rowDetailDateIndex[0])
-                .replace(TemplateConstants.VIEW_ROW_DATE_INDEX, rowDetailDateIndex[1]);
+                .replace(TemplateConstants.VIEW_ROW_DETAIL_TITLES, rowDetails[0])
+                .replace(TemplateConstants.VIEW_ROW_DETAIL_FIELDS, rowDetails[1]);
         GeneratorUtils.writeFile(fileContent, saveDir, beanName + ".js");
     }
 
@@ -54,14 +54,14 @@ public class ViewGenerator {
     public static void generateJoinJs(String beanName, String mappingUrl, Generator generator, String primaryTable, String[] columns, List<TableColumns> tableColumnsList) {
         String saveDir = GeneratorUtils.createViewResDir(generator, generator.getJsFileDir() + beanName);
         String fileContent = GeneratorUtils.readTemplate(generator, TemplateConstants.VIEW_JS_TEMPLATE);
-        String[] rowDetailDateIndex = generateJoinTableRowDetail(generator, primaryTable, columns, tableColumnsList);
+        String[] rowDetails = generateJoinTableRowDetail(generator, primaryTable, columns, tableColumnsList);
         fileContent = fileContent.replace(TemplateConstants.VIEW_TABLE_FIELDS, generateJoinTableFields(generator, primaryTable, columns, tableColumnsList))
                 .replace(TemplateConstants.VIEW_REMOVE_URL, "/" + mappingUrl + "/remove/")
                 .replace(TemplateConstants.VIEW_TABLE_URL, "/" + mappingUrl + "/pager-cond")
                 .replace(TemplateConstants.VIEW_ID_FIELD, StringUtils.uncapitalize(GeneratorUtils.tableNameToClassName(primaryTable,
                         generator.getTablePrefix())) + StringUtils.capitalize(PropertyUtils.columnToProperty("id")))
-                .replace(TemplateConstants.VIEW_ROW_DETAIL_TITLES, rowDetailDateIndex[0])
-                .replace(TemplateConstants.VIEW_ROW_DATE_INDEX, rowDetailDateIndex[1]);
+                .replace(TemplateConstants.VIEW_ROW_DETAIL_TITLES, rowDetails[0])
+                .replace(TemplateConstants.VIEW_ROW_DETAIL_FIELDS, rowDetails[1]);
         GeneratorUtils.writeFile(fileContent, saveDir, beanName + ".js");
     }
 
@@ -104,20 +104,7 @@ public class ViewGenerator {
         for (ColumnDetail columnDetail : columnDetailList) {
             String name = columnDetail.getFieldName();
             if (!name.equals("id")) {
-                columnFields.append(",\n{\n")
-                        .append("\ttitle: '")
-                        .append(columnDetail.getComment())
-                        .append("',\n")
-                        .append("\tfield: '")
-                        .append(columnDetail.getFieldName())
-                        .append("',\n")
-                        .append("\talign: 'center',\n")
-                        .append("\twidth: '120px'");
-                if (columnDetail.getJavaTypeName().equals("Date")) {
-                    columnFields.append(",\n")
-                            .append("\tformatter: formatDate");
-                }
-                columnFields.append("\n}");
+                columnFields.append(columnField(columnDetail.getComment(), name, columnDetail.getJavaTypeName()));
             }
         }
         return columnFields.toString();
@@ -133,9 +120,10 @@ public class ViewGenerator {
      */
     private static String generateJoinTableFields(Generator generator, String primaryTable, String[] columns, List<TableColumns> tableColumnsList) {
         StringBuilder columnFields = new StringBuilder();
+        StringBuilder primaryColumnFields = new StringBuilder();
         String id = StringUtils.uncapitalize(GeneratorUtils.tableNameToClassName(primaryTable,
                 generator.getTablePrefix())) + StringUtils.capitalize(PropertyUtils.columnToProperty("id"));
-        columnFields.append("{\n" +
+        primaryColumnFields.append("{\n" +
                 "\tfield: '_checkbox',\n" +
                 "\tcheckbox: true\n" +
                 "},\n" +
@@ -163,28 +151,40 @@ public class ViewGenerator {
                         if (columnName.equals(columnDetail.getName())) {
                             String field = StringUtils.uncapitalize(GeneratorUtils.tableNameToClassName(tableName, generator.getTablePrefix()))
                                     + StringUtils.capitalize(PropertyUtils.columnToProperty(columnName));
+                            String title = columnDetail.getComment();
+                            String javaTypeName = columnDetail.getJavaTypeName();
                             if (!field.equals(id)) {
-                                columnFields.append(",\n{\n")
-                                        .append("\ttitle: '")
-                                        .append(columnDetail.getComment())
-                                        .append("',\n")
-                                        .append("\tfield: '")
-                                        .append(field)
-                                        .append("',\n")
-                                        .append("\talign: 'center',\n")
-                                        .append("\twidth: '120px'");
-                                if (columnDetail.getJavaTypeName().equals("Date")) {
-                                    columnFields.append(",\n")
-                                            .append("\tformatter: formatDate");
+                                if (tableName.equals(primaryTable)) {
+                                    primaryColumnFields.append(columnField(title, field, javaTypeName));
+                                } else {
+                                    columnFields.append(columnField(title, field, javaTypeName));
                                 }
-                                columnFields.append("\n}");
                             }
                         }
                     }
                 }
             }
         }
-        return columnFields.toString();
+        return primaryColumnFields.append(columnFields).toString();
+    }
+
+    private static String columnField(String title, String fieldName, String javaTypeName) {
+        StringBuilder columnField = new StringBuilder();
+        columnField.append(",\n{\n")
+                .append("\ttitle: '")
+                .append(title)
+                .append("',\n")
+                .append("\tfield: '")
+                .append(fieldName)
+                .append("',\n")
+                .append("\talign: 'center',\n")
+                .append("\twidth: '120px'");
+        if (javaTypeName.equals("Date")) {
+            columnField.append(",\n")
+                    .append("\tformatter: formatDate");
+        }
+        columnField.append("\n}");
+        return columnField.toString();
     }
 
     /**
@@ -194,23 +194,18 @@ public class ViewGenerator {
      * @return
      */
     private static String[] generateTableRowDetail(Generator generator, TableColumns tableColumns) {
-        String[] rowDetailAndDateIndex = new String[2];
+        String[] rowDetailAndFields = new String[2];
         List<ColumnDetail> columnDetailList = tableColumns.getColumns();
         StringBuilder rowDetailTitles = new StringBuilder();
-        StringBuilder dateIndex = new StringBuilder();
+        StringBuilder rowDetailFields = new StringBuilder();
         for (int i = 0, len = columnDetailList.size(); i < len; i++) {
             ColumnDetail columnDetail = columnDetailList.get(i);
-            rowDetailTitles.append(",")
-                    .append("'")
-                    .append(columnDetail.getComment())
-                    .append("'");
-            if (columnDetail.getJavaTypeName().equals("Date")) {
-                dateIndex.append(",").append(i);
-            }
+            rowDetailTitles.append(rowDetailTitle(columnDetail.getComment()));
+            rowDetailFields.append(rowDetailField(columnDetail.getFieldName(), columnDetail.getJavaTypeName()));
         }
-        rowDetailAndDateIndex[0] = rowDetailTitles.toString().substring(1);
-        rowDetailAndDateIndex[1] = dateIndex.toString().contains(",") ? dateIndex.toString().substring(1) : "-1";
-        return rowDetailAndDateIndex;
+        rowDetailAndFields[0] = rowDetailTitles.toString().substring(1);
+        rowDetailAndFields[1] = rowDetailFields.toString().substring(1);
+        return rowDetailAndFields;
     }
 
     /**
@@ -222,9 +217,11 @@ public class ViewGenerator {
      * @return
      */
     private static String[] generateJoinTableRowDetail(Generator generator, String primaryTable, String[] columns, List<TableColumns> tableColumnsList) {
-        String[] rowDetailAndDateIndex = new String[2];
+        String[] rowDetailAndFields = new String[2];
         StringBuilder rowDetailTitles = new StringBuilder();
-        StringBuilder dateIndex = new StringBuilder();
+        StringBuilder primaryRowDetailTitles = new StringBuilder();
+        StringBuilder rowDetailFields = new StringBuilder();
+        StringBuilder primaryRowDetailFields = new StringBuilder();
         for (int i = 0, len = columns.length; i < len; i++) {
             String column = columns[i];
             String[] tableNameAndColumn = column.split("-");
@@ -235,21 +232,44 @@ public class ViewGenerator {
                     List<ColumnDetail> columnDetailList = tableColumns.getColumns();
                     for (ColumnDetail columnDetail : columnDetailList) {
                         if (columnName.equals(columnDetail.getName())) {
-                            rowDetailTitles.append(",")
-                                    .append("'")
-                                    .append(columnDetail.getComment())
-                                    .append("'");
-                            if (columnDetail.getJavaTypeName().equals("Date")) {
-                                dateIndex.append(",").append(i);
+                            String field = StringUtils.uncapitalize(GeneratorUtils.tableNameToClassName(tableName, generator.getTablePrefix()))
+                                    + StringUtils.capitalize(PropertyUtils.columnToProperty(columnName));
+                            String title = columnDetail.getComment();
+                            String javaTypeName = columnDetail.getJavaTypeName();
+                            if (tableName.equals(primaryTable)) {
+                                primaryRowDetailTitles.append(rowDetailTitle(title));
+                                primaryRowDetailFields.append(rowDetailField(field, javaTypeName));
+                            } else {
+                                rowDetailTitles.append(rowDetailTitle(title));
+                                rowDetailFields.append(rowDetailField(field, javaTypeName));
                             }
                         }
                     }
                 }
             }
         }
-        rowDetailAndDateIndex[0] = rowDetailTitles.toString().substring(1);
-        rowDetailAndDateIndex[1] = dateIndex.toString().contains(",") ? dateIndex.toString().substring(1) : "-1";
-        return rowDetailAndDateIndex;
+        rowDetailAndFields[0] = primaryRowDetailTitles.append(rowDetailTitles).toString().substring(1);
+        rowDetailAndFields[1] = primaryRowDetailFields.append(rowDetailFields).toString().substring(1);
+        return rowDetailAndFields;
+    }
+
+    private static String rowDetailTitle(String title) {
+        StringBuilder rowDetailTitle = new StringBuilder();
+        rowDetailTitle.append(",")
+                .append("'")
+                .append(title)
+                .append("'");
+        return rowDetailTitle.toString();
+    }
+
+    private static String rowDetailField(String field, String javaTypeName) {
+        StringBuilder rowDetailField = new StringBuilder();
+        if (javaTypeName.equals("Date")) {
+            rowDetailField.append(",'").append(field).append("-").append("date'");
+        } else {
+            rowDetailField.append(",'").append(field).append("'");
+        }
+        return rowDetailField.toString();
     }
 
     /**

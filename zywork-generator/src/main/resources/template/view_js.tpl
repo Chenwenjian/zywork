@@ -83,21 +83,21 @@ window.operateEvents = {
 
 function formatDetail(index, row) {
     let detail = '';
-    let idx = 0;
     let titles = [{zywork.rowDetailTitles}];
-    let dateIndexArray = [{zywork.dateIndex}];
-    $.each(row, function(key, value) {
+    let fields = [{zywork.rowDetailFields}];
+    for (let i = 0, len = fields.length; i < len; i++) {
+        let fieldArray = fields[i].split("-");
+        let value = row[fieldArray[0]];
         if (value !== undefined) {
             detail += '<div class="col-xs-12 col-sm-4 col-md-2 col-lg-2">'
                 + '<span class="row-detail-title">'
-                + titles[idx]
+                + titles[i]
                 + ':</span>'
                 + '</div><div class="col-xs-12 col-sm-8 col-md-4 col-lg-4">'
-                + (value === null ? '-' : isNumInArray(dateIndexArray, idx) ? timestampToDatetime(value) : value)
+                + (value === null ? '-' : fieldArray[1] !== undefined && fieldArray[1] === 'date' ? timestampToDatetime(value) : value)
                 + '</div>';
-            idx++;
-        }
-    });
+            }
+    }
     return detail;
 }
 
