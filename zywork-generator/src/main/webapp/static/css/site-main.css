@@ -19,8 +19,8 @@ modal中打开select2下拉菜单
     z-index: 9999999;
 }
 
-.table {
-    table-layout: fixed;
+.operation-column {
+    min-width: 120px;
 }
 
 /**

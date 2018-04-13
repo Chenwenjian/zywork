@@ -17,7 +17,7 @@
 <body class="gray-bg">
 <div class="row wrapper wrapper-content animated fadeInRight">
     <div class="col-sm-12">
-        <table id="data-list" data-classes="table table-hover" data-toolbar="#toolbar"></table>
+        <table id="data-list" data-classes="table table-hover text-nowrap" data-toolbar="#toolbar"></table>
 
         <div id="toolbar">
             <button class="btn btn-primary" onclick="showAddModal('add-modal', 'add-form', validateFields())">

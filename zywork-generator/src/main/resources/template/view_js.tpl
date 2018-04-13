@@ -42,7 +42,7 @@ function loadTable() {
                          align: 'center',
                          events: operateEvents,
                          formatter: formatOperators,
-                         width: '120px'
+                         class: 'operation-column'
                      }
                  ]
     });

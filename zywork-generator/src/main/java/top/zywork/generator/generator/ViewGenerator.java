@@ -155,7 +155,6 @@ public class ViewGenerator {
                 "\ttitle: '序号',\n" +
                 "\tfield: '_number',\n" +
                 "\talign: 'center',\n" +
-                "\twidth: '60px',\n" +
                 "\tformatter: formatTableIndex\n" +
                 "}";
     }
@@ -169,8 +168,7 @@ public class ViewGenerator {
                 .append("\tfield: '")
                 .append(fieldName)
                 .append("',\n")
-                .append("\talign: 'center',\n")
-                .append("\twidth: '120px'");
+                .append("\talign: 'center'\n");
         if (javaTypeName.equals("Date")) {
             columnField.append(",\n")
                     .append("\tformatter: formatDate");
