@@ -85,22 +85,7 @@ public class ViewGenerator {
     private static String generateTableFields(Generator generator, TableColumns tableColumns) {
         List<ColumnDetail> columnDetailList = tableColumns.getColumns();
         StringBuilder columnFields = new StringBuilder();
-        columnFields.append("{\n" +
-                "\tfield: '_checkbox',\n" +
-                "\tcheckbox: true\n" +
-                "},\n" +
-                "{\n" +
-                "\tfield: 'id',\n" +
-                "\talign: 'center',\n" +
-                "\tvisible: false\n" +
-                "},\n" +
-                "{\n" +
-                "\ttitle: '序号',\n" +
-                "\tfield: '_number',\n" +
-                "\talign: 'center',\n" +
-                "\twidth: '60px',\n" +
-                "\tformatter: formatTableIndex\n" +
-                "}");
+        columnFields.append(commonField("id"));
         for (ColumnDetail columnDetail : columnDetailList) {
             String name = columnDetail.getFieldName();
             if (!name.equals("id")) {
@@ -123,23 +108,7 @@ public class ViewGenerator {
         StringBuilder primaryColumnFields = new StringBuilder();
         String id = StringUtils.uncapitalize(GeneratorUtils.tableNameToClassName(primaryTable,
                 generator.getTablePrefix())) + StringUtils.capitalize(PropertyUtils.columnToProperty("id"));
-        primaryColumnFields.append("{\n" +
-                "\tfield: '_checkbox',\n" +
-                "\tcheckbox: true\n" +
-                "},\n" +
-                "{\n" +
-                "\tfield: '" + id +
-                "',\n" +
-                "\talign: 'center',\n" +
-                "\tvisible: false\n" +
-                "},\n" +
-                "{\n" +
-                "\ttitle: '序号',\n" +
-                "\tfield: '_number',\n" +
-                "\talign: 'center',\n" +
-                "\twidth: '60px',\n" +
-                "\tformatter: formatTableIndex\n" +
-                "}");
+        primaryColumnFields.append(commonField(id));
         for (String column : columns) {
             String[] tableNameAndColumn = column.split("-");
             String tableName = tableNameAndColumn[0];
@@ -166,6 +135,26 @@ public class ViewGenerator {
             }
         }
         return primaryColumnFields.append(columnFields).toString();
+    }
+
+    private static String commonField(String id) {
+        return "{\n" +
+                "\tfield: '_checkbox',\n" +
+                "\tcheckbox: true\n" +
+                "},\n" +
+                "{\n" +
+                "\tfield: '" + id +
+                "',\n" +
+                "\talign: 'center',\n" +
+                "\tvisible: false\n" +
+                "},\n" +
+                "{\n" +
+                "\ttitle: '序号',\n" +
+                "\tfield: '_number',\n" +
+                "\talign: 'center',\n" +
+                "\twidth: '60px',\n" +
+                "\tformatter: formatTableIndex\n" +
+                "}";
     }
 
     private static String columnField(String title, String fieldName, String javaTypeName) {
@@ -373,24 +362,8 @@ public class ViewGenerator {
                     && (fieldSuffix.equals(SEARCH_FORM_FIELD_SUFFIX)
                         || !top.zywork.common.StringUtils.isInArray(exclusiveColumns, columnDetail.getName()))) {
                 String title = columnDetail.getComment();
-                if (columnDetail.getJavaTypeName().equals("Date")) {
-                    formFields.append(dateFileContent.replace(TemplateConstants.VIEW_FIELD_NAME_EN, fieldName + "Start")
-                            .replace(TemplateConstants.VIEW_ID_FIELD_NAME_EN, fieldName + "Start" + fieldSuffix)
-                            .replace(TemplateConstants.VIEW_FIELD_NAME_CN, title + "(开始)")
-                            .replace(TemplateConstants.VIEW_FIELD_PLACEHOLDER, "请选择" + title + "(开始)"))
-                            .append("\n");
-                    formFields.append(dateFileContent.replace(TemplateConstants.VIEW_FIELD_NAME_EN, fieldName + "End")
-                            .replace(TemplateConstants.VIEW_ID_FIELD_NAME_EN, fieldName + "End" + fieldSuffix)
-                            .replace(TemplateConstants.VIEW_FIELD_NAME_CN, title + "(结束)")
-                            .replace(TemplateConstants.VIEW_FIELD_PLACEHOLDER, "请选择" + title + "(结束)"))
-                            .append("\n");
-                } else {
-                    formFields.append(textFileContent.replace(TemplateConstants.VIEW_FIELD_NAME_EN, fieldName)
-                            .replace(TemplateConstants.VIEW_ID_FIELD_NAME_EN, fieldName + fieldSuffix)
-                            .replace(TemplateConstants.VIEW_FIELD_NAME_CN, title)
-                            .replace(TemplateConstants.VIEW_FIELD_PLACEHOLDER, "请输入" + title))
-                            .append("\n");
-                }
+                String javaTypeName = columnDetail.getJavaTypeName();
+                formField(formFields, textFileContent, dateFileContent, fieldName, fieldSuffix, title, javaTypeName);
             }
         }
         return formFields.toString();
@@ -454,24 +427,8 @@ public class ViewGenerator {
                                         && (fieldSuffix.equals(SEARCH_FORM_FIELD_SUFFIX)
                                             || !top.zywork.common.StringUtils.isInArray(exclusiveColumns, columnDetail.getName()))) {
                                     String title = columnDetail.getComment();
-                                    if (columnDetail.getJavaTypeName().equals("Date")) {
-                                        formFields.append(dateFileContent.replace(TemplateConstants.VIEW_FIELD_NAME_EN, field + "Start")
-                                                .replace(TemplateConstants.VIEW_ID_FIELD_NAME_EN, field + "Start" + fieldSuffix)
-                                                .replace(TemplateConstants.VIEW_FIELD_NAME_CN, title + "(开始)")
-                                                .replace(TemplateConstants.VIEW_FIELD_PLACEHOLDER, "请选择" + title + "(开始)"))
-                                                .append("\n");
-                                        formFields.append(dateFileContent.replace(TemplateConstants.VIEW_FIELD_NAME_EN, field + "End")
-                                                .replace(TemplateConstants.VIEW_ID_FIELD_NAME_EN, field + "End" + fieldSuffix)
-                                                .replace(TemplateConstants.VIEW_FIELD_NAME_CN, title + "(结束)")
-                                                .replace(TemplateConstants.VIEW_FIELD_PLACEHOLDER, "请选择" + title + "(结束)"))
-                                                .append("\n");
-                                    } else {
-                                        formFields.append(textFileContent.replace(TemplateConstants.VIEW_FIELD_NAME_EN, field)
-                                                .replace(TemplateConstants.VIEW_ID_FIELD_NAME_EN, field + fieldSuffix)
-                                                .replace(TemplateConstants.VIEW_FIELD_NAME_CN, title)
-                                                .replace(TemplateConstants.VIEW_FIELD_PLACEHOLDER, "请输入" + title))
-                                                .append("\n");
-                                    }
+                                    String javaTypeName = columnDetail.getJavaTypeName();
+                                    formField(formFields, textFileContent, dateFileContent, field, fieldSuffix, title, javaTypeName);
                                 }
                             }
                         }
@@ -481,6 +438,28 @@ public class ViewGenerator {
             }
         }
         return formFields.toString();
+    }
+
+    private static void formField(StringBuilder formFields, String textFileContent, String dateFileContent,
+                                  String field, String fieldSuffix, String title, String javaTypeName) {
+        if (javaTypeName.equals("Date")) {
+            formFields.append(dateFileContent.replace(TemplateConstants.VIEW_FIELD_NAME_EN, field + "Start")
+                    .replace(TemplateConstants.VIEW_ID_FIELD_NAME_EN, field + "Start" + fieldSuffix)
+                    .replace(TemplateConstants.VIEW_FIELD_NAME_CN, title + "(开始)")
+                    .replace(TemplateConstants.VIEW_FIELD_PLACEHOLDER, "请选择" + title + "(开始)"))
+                    .append("\n");
+            formFields.append(dateFileContent.replace(TemplateConstants.VIEW_FIELD_NAME_EN, field + "End")
+                    .replace(TemplateConstants.VIEW_ID_FIELD_NAME_EN, field + "End" + fieldSuffix)
+                    .replace(TemplateConstants.VIEW_FIELD_NAME_CN, title + "(结束)")
+                    .replace(TemplateConstants.VIEW_FIELD_PLACEHOLDER, "请选择" + title + "(结束)"))
+                    .append("\n");
+        } else {
+            formFields.append(textFileContent.replace(TemplateConstants.VIEW_FIELD_NAME_EN, field)
+                    .replace(TemplateConstants.VIEW_ID_FIELD_NAME_EN, field + fieldSuffix)
+                    .replace(TemplateConstants.VIEW_FIELD_NAME_CN, title)
+                    .replace(TemplateConstants.VIEW_FIELD_PLACEHOLDER, "请输入" + title))
+                    .append("\n");
+        }
     }
 
 }

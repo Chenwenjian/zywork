@@ -278,10 +278,8 @@ public class BeanGenerator {
             fieldDetailList.add(new FieldDetail(field, javaType, comment));
             fields.append(field(comment, javaType, field));
             if (beanType.equals(QUERY_BEAN) && javaType.equals("Date")) {
-                fieldDetailList.add(new FieldDetail(field + "Start", javaType, comment));
-                fieldDetailList.add(new FieldDetail(field + "End", javaType, comment));
-                fields.append(field(comment + "(开始)", javaType, field + "Start"));
-                fields.append(field(comment + "(结束)", javaType, field + "End"));
+                fields.append(dateField(comment, field, javaType));
+
             }
         }
         return fileContent.replace(TemplateConstants.FIELDS, fields.toString());
@@ -325,10 +323,7 @@ public class BeanGenerator {
                             fieldDetailList.add(new FieldDetail(field, javaType, comment));
                             fields.append(field(comment, javaType, field));
                             if (beanType.equals(QUERY_BEAN) && javaType.equals("Date")) {
-                                fieldDetailList.add(new FieldDetail(field + "Start", javaType, comment));
-                                fieldDetailList.add(new FieldDetail(field + "End", javaType, comment));
-                                fields.append(field(comment + "(开始)", javaType, field + "Start"));
-                                fields.append(field(comment + "(结束)", javaType, field + "End"));
+                                fields.append(dateField(comment, field, javaType));
                             }
                         }
                     }
@@ -338,11 +333,11 @@ public class BeanGenerator {
         return fileContent.replace(TemplateConstants.FIELDS, fields.toString());
     }
 
-    private static String field(String comment, String javaType, String fieldName) {
+    private static String field(String title, String javaType, String fieldName) {
         StringBuilder field = new StringBuilder();
         field.append("/**\n")
                 .append("\t * ")
-                .append(comment)
+                .append(title)
                 .append("\n")
                 .append("\t */\n")
                 .append("\tprivate ")
@@ -351,6 +346,15 @@ public class BeanGenerator {
                 .append(fieldName)
                 .append(";\n\t");
         return field.toString();
+    }
+
+    private static String dateField(String title, String field, String javaType) {
+        StringBuilder dateField = new StringBuilder();
+        fieldDetailList.add(new FieldDetail(field + "Start", javaType, title));
+        fieldDetailList.add(new FieldDetail(field + "End", javaType, title));
+        dateField.append(field(title + "(开始)", javaType, field + "Start"));
+        dateField.append(field(title + "(结束)", javaType, field + "End"));
+        return dateField.toString();
     }
 
     /**
@@ -375,15 +379,7 @@ public class BeanGenerator {
      * @return
      */
     private static String generatorJoinConstructorParams(String fileContent) {
-        StringBuilder constructorParams = new StringBuilder("");
-        for (FieldDetail fieldDetail : fieldDetailList) {
-            constructorParams.append(", ")
-                    .append(fieldDetail.getJavaType())
-                    .append(" ")
-                    .append(fieldDetail.getName());
-
-        }
-        return fileContent.replace(TemplateConstants.CONSTRUCTOR_PARAMS, constructorParams.toString().replaceFirst(", ", ""));
+        return generatorConstructorParams(fileContent);
     }
 
     /**
@@ -408,15 +404,7 @@ public class BeanGenerator {
      * @return
      */
     private static String generatorJoinConstructor(String fileContent) {
-        StringBuilder constructor = new StringBuilder("");
-        for (FieldDetail fieldDetail : fieldDetailList) {
-            String field = fieldDetail.getName();
-            constructor.append("this.")
-                    .append(field)
-                    .append(" = ").append(field).append(";\n\t\t");
-        }
-
-        return fileContent.replace(TemplateConstants.CONSTRUCTOR, constructor.toString());
+        return generatorConstructor(fileContent);
     }
 
     /**
@@ -464,37 +452,7 @@ public class BeanGenerator {
      * @return
      */
     private static String generateJoinGetterSetters(String fileContent) {
-        StringBuilder getterSetters = new StringBuilder("");
-        for (FieldDetail fieldDetail : fieldDetailList) {
-            String field = fieldDetail.getName();
-            String javaType = fieldDetail.getJavaType();
-            // getter
-            getterSetters.append("public ")
-                    .append(javaType)
-                    .append(" ")
-                    .append(PropertyUtils.getter(field))
-                    .append("()")
-                    .append(" {\n")
-                    .append("\t\treturn ")
-                    .append(field)
-                    .append(";\n")
-                    .append("\t}\n\n")
-                    // setter
-                    .append("\tpublic void ")
-                    .append(PropertyUtils.setter(field))
-                    .append("(")
-                    .append(javaType)
-                    .append(" ")
-                    .append(field)
-                    .append(") {\n")
-                    .append("\t\tthis.")
-                    .append(field)
-                    .append(" = ")
-                    .append(field)
-                    .append(";\n")
-                    .append("\t}\n\n\t");
-        }
-        return fileContent.replace(TemplateConstants.FIELDS_GETTER_SETTER, getterSetters.toString());
+        return generateGetterSetters(fileContent);
     }
 
     /**
@@ -517,12 +475,7 @@ public class BeanGenerator {
      * @return
      */
     private static String generateJoinToString(String fileContent) {
-        StringBuilder toString = new StringBuilder("");
-        for (FieldDetail fieldDetail : fieldDetailList) {
-            String field = fieldDetail.getName();
-            toString.append("\", ").append(field).append(" = \" + ").append(field).append(" + ").append("\n\t\t\t\t");
-        }
-        return fileContent.replace(TemplateConstants.TO_STRING, toString.toString().replaceFirst(", ", ""));
+        return generateToString(fileContent);
     }
 
 }

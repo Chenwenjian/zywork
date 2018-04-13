@@ -99,11 +99,7 @@ public class MapperGenerator {
         StringBuilder insertColumns = new StringBuilder("");
         for (ColumnDetail columnDetail : columnDetails) {
             if (!columnDetail.getName().equals("id")) {
-                insertColumns.append("<if test=\"")
-                        .append(columnDetail.getFieldName())
-                        .append(" != null\">\n\t\t\t\t")
-                        .append(columnDetail.getName())
-                        .append(",\n\t\t\t</if>\n\t\t\t");
+                insertColumns.append(insertColumn(columnDetail.getFieldName(), columnDetail.getName()));
             }
         }
         return fileContent.replace(TemplateConstants.INSERT_COLUMNS, insertColumns.toString());
@@ -129,15 +125,21 @@ public class MapperGenerator {
                 String field = StringUtils.uncapitalize(GeneratorUtils.tableNameToClassName(primaryTable, generator.getTablePrefix()))
                         + StringUtils.capitalize(PropertyUtils.columnToProperty(columnName));
                 if (!field.equals(id)) {
-                    insertColumns.append("<if test=\"")
-                            .append(field)
-                            .append(" != null\">\n\t\t\t\t")
-                            .append(columnName)
-                            .append(",\n\t\t\t</if>\n\t\t\t");
+                    insertColumns.append(insertColumn(field, columnName));
                 }
             }
         }
         return fileContent.replace(TemplateConstants.INSERT_COLUMNS, insertColumns.toString());
+    }
+
+    private static String insertColumn(String field, String column) {
+        StringBuilder insertColumn = new StringBuilder();
+        insertColumn.append("<if test=\"")
+                .append(field)
+                .append(" != null\">\n\t\t\t\t")
+                .append(column)
+                .append(",\n\t\t\t</if>\n\t\t\t");
+        return insertColumn.toString();
     }
 
     /**
@@ -152,13 +154,7 @@ public class MapperGenerator {
         for (ColumnDetail columnDetail : columnDetails) {
             if (!columnDetail.getName().equals("id")) {
                 String field = columnDetail.getFieldName();
-                insertValues.append("<if test=\"")
-                        .append(field)
-                        .append(" != null\">\n\t\t\t\t")
-                        .append("#{")
-                        .append(field)
-                        .append("}")
-                        .append(",\n\t\t\t</if>\n\t\t\t");
+                insertValues.append(insertValue(field));
             }
         }
         return fileContent.replace(TemplateConstants.INSERT_VALUES, insertValues.toString());
@@ -184,17 +180,23 @@ public class MapperGenerator {
                 String field = StringUtils.uncapitalize(GeneratorUtils.tableNameToClassName(primaryTable, generator.getTablePrefix()))
                         + StringUtils.capitalize(PropertyUtils.columnToProperty(columnName));
                 if (!field.equals(id)) {
-                    insertValues.append("<if test=\"")
-                            .append(field)
-                            .append(" != null\">\n\t\t\t\t")
-                            .append("#{")
-                            .append(field)
-                            .append("}")
-                            .append(",\n\t\t\t</if>\n\t\t\t");
+                    insertValues.append(insertValue(field));
                 }
             }
         }
         return fileContent.replace(TemplateConstants.INSERT_VALUES, insertValues.toString());
+    }
+
+    private static String insertValue(String field) {
+        StringBuilder insertValue = new StringBuilder();
+        insertValue.append("<if test=\"")
+                .append(field)
+                .append(" != null\">\n\t\t\t\t")
+                .append("#{")
+                .append(field)
+                .append("}")
+                .append(",\n\t\t\t</if>\n\t\t\t");
+        return insertValue.toString();
     }
 
     /**
@@ -207,17 +209,10 @@ public class MapperGenerator {
         List<ColumnDetail> columnDetails = tableColumns.getColumns();
         StringBuilder setClause = new StringBuilder("");
         for (ColumnDetail columnDetail : columnDetails) {
-            if (!columnDetail.getName().equals("id")) {
+            String column = columnDetail.getName();
+            if (!column.equals("id")) {
                 String field = columnDetail.getFieldName();
-                setClause.append("<if test=\"")
-                        .append(field)
-                        .append(" != null\">\n\t\t\t\t")
-                        .append(columnDetail.getName())
-                        .append(" = ")
-                        .append("#{")
-                        .append(field)
-                        .append("}")
-                        .append(",\n\t\t\t</if>\n\t\t\t");
+                setClause.append(setValue(field, column));
             }
         }
         return fileContent.replace(TemplateConstants.SET_CLAUSE, setClause.toString());
@@ -243,19 +238,25 @@ public class MapperGenerator {
                 String field = StringUtils.uncapitalize(GeneratorUtils.tableNameToClassName(primaryTable, generator.getTablePrefix()))
                         + StringUtils.capitalize(PropertyUtils.columnToProperty(columnName));
                 if (!field.equals(id)) {
-                    setClause.append("<if test=\"")
-                            .append(field)
-                            .append(" != null\">\n\t\t\t\t")
-                            .append(columnName)
-                            .append(" = ")
-                            .append("#{")
-                            .append(field)
-                            .append("}")
-                            .append(",\n\t\t\t</if>\n\t\t\t");
+                    setClause.append(setValue(field, columnName));
                 }
             }
         }
         return fileContent.replace(TemplateConstants.SET_CLAUSE, setClause.toString());
+    }
+
+    private static String setValue(String field, String column) {
+        StringBuilder setValue = new StringBuilder();
+        setValue.append("<if test=\"")
+                .append(field)
+                .append(" != null\">\n\t\t\t\t")
+                .append(column)
+                .append(" = ")
+                .append("#{")
+                .append(field)
+                .append("}")
+                .append(",\n\t\t\t</if>\n\t\t\t");
+        return setValue.toString();
     }
 
     /**
@@ -306,71 +307,7 @@ public class MapperGenerator {
         StringBuilder whereClause = new StringBuilder("");
         for (int i = 0, size = columnDetails.size(); i < size; i++) {
             ColumnDetail columnDetail = columnDetails.get(i);
-            String field = columnDetail.getFieldName();
-            if (columnDetail.getJavaTypeName().equals("String")) {
-                whereClause.append("<if test=\"query != null and query.")
-                        .append(field).append(" != null and query.").append(field).append(" != ''\">\n\t\t\t");
-                if (i != 0) {
-                    whereClause.append("and ");
-                }
-                whereClause.append(columnDetail.getName())
-                        .append(" like concat('%', ")
-                        .append("#{query.")
-                        .append(field)
-                        .append("}, '%')")
-                        .append("\n\t\t</if>\n\t\t");
-            } else if (columnDetail.getJavaTypeName().equals("Date")) {
-                whereClause.append("<if test=\"query != null and query.")
-                        .append(field).append("Start != null and query.").append(field).append("End == null").append("\">\n\t\t\t");
-                if (i != 0) {
-                    whereClause.append("and ");
-                }
-                whereClause.append(columnDetail.getName())
-                        .append(" <![CDATA[ >= ]]> ")
-                        .append("#{query.")
-                        .append(field).append("Start")
-                        .append("}")
-                        .append("\n\t\t</if>\n\t\t");
-                whereClause.append("<if test=\"query != null and query.")
-                        .append(field).append("Start == null and query.").append(field).append("End != null").append("\">\n\t\t\t");
-                if (i != 0) {
-                    whereClause.append("and ");
-                }
-                whereClause.append(columnDetail.getName())
-                        .append(" <![CDATA[ <= ]]> ")
-                        .append("#{query.")
-                        .append(field).append("End")
-                        .append("}")
-                        .append("\n\t\t</if>\n\t\t");
-                whereClause.append("<if test=\"query != null and query.")
-                        .append(field).append("Start != null and query.").append(field).append("End != null").append("\">\n\t\t\t");
-                if (i != 0) {
-                    whereClause.append("and ");
-                }
-                whereClause.append(columnDetail.getName())
-                        .append(" <![CDATA[ >= ]]> ")
-                        .append("#{query.")
-                        .append(field).append("Start")
-                        .append("}")
-                        .append(" and ")
-                        .append(columnDetail.getName())
-                        .append(" <![CDATA[ <= ]]> ")
-                        .append("#{query.")
-                        .append(field).append("End")
-                        .append("}")
-                        .append("\n\t\t</if>\n\t\t");
-            } else {
-                whereClause.append("<if test=\"query != null and query.").append(field).append(" != null\">\n\t\t\t");
-                if (i != 0) {
-                    whereClause.append("and ");
-                }
-                whereClause.append(columnDetail.getName())
-                        .append(" = ")
-                        .append("#{query.")
-                        .append(field)
-                        .append("}")
-                        .append("\n\t\t</if>\n\t\t");
-            }
+            whereClause(whereClause, i, columnDetail.getFieldName(), columnDetail.getName(), columnDetail.getJavaTypeName());
         }
         return fileContent.replace(TemplateConstants.QUERY_WHERE_CLAUSE, whereClause.toString());
     }
@@ -392,72 +329,76 @@ public class MapperGenerator {
             String fullColumnName = tableName + "." + columnName;
             String field = StringUtils.uncapitalize(GeneratorUtils.tableNameToClassName(tableName, generator.getTablePrefix()))
                     + StringUtils.capitalize(PropertyUtils.columnToProperty(columnName));
-            if (javaType.equals("String")) {
-                whereClause.append("<if test=\"query != null and query.")
-                        .append(field).append(" != null and query.").append(field).append(" != ''\">\n\t\t\t");
-                if (i != 0) {
-                    whereClause.append("and ");
-                }
-                whereClause.append(fullColumnName)
-                        .append(" like concat('%', ")
-                        .append("#{query.")
-                        .append(field)
-                        .append("}, '%')")
-                        .append("\n\t\t</if>\n\t\t");
-            } else if (javaType.equals("Date")) {
-                whereClause.append("<if test=\"query != null and query.")
-                        .append(field).append("Start != null and query.").append(field).append("End == null").append("\">\n\t\t\t");
-                if (i != 0) {
-                    whereClause.append("and ");
-                }
-                whereClause.append(fullColumnName)
-                        .append(" <![CDATA[ >= ]]> ")
-                        .append("#{query.")
-                        .append(field).append("Start")
-                        .append("}")
-                        .append("\n\t\t</if>\n\t\t");
-                whereClause.append("<if test=\"query != null and query.")
-                        .append(field).append("Start == null and query.").append(field).append("End != null").append("\">\n\t\t\t");
-                if (i != 0) {
-                    whereClause.append("and ");
-                }
-                whereClause.append(fullColumnName)
-                        .append(" <![CDATA[ <= ]]> ")
-                        .append("#{query.")
-                        .append(field).append("End")
-                        .append("}")
-                        .append("\n\t\t</if>\n\t\t");
-                whereClause.append("<if test=\"query != null and query.")
-                        .append(field).append("Start != null and query.").append(field).append("End != null").append("\">\n\t\t\t");
-                if (i != 0) {
-                    whereClause.append("and ");
-                }
-                whereClause.append(fullColumnName)
-                        .append(" <![CDATA[ >= ]]> ")
-                        .append("#{query.")
-                        .append(field).append("Start")
-                        .append("}")
-                        .append(" and ")
-                        .append(fullColumnName)
-                        .append(" <![CDATA[ <= ]]> ")
-                        .append("#{query.")
-                        .append(field).append("End")
-                        .append("}")
-                        .append("\n\t\t</if>\n\t\t");
-            } else {
-                whereClause.append("<if test=\"query != null and query.").append(field).append(" != null\">\n\t\t\t");
-                if (i != 0) {
-                    whereClause.append("and ");
-                }
-                whereClause.append(fullColumnName)
-                        .append(" = ")
-                        .append("#{query.")
-                        .append(field)
-                        .append("}")
-                        .append("\n\t\t</if>\n\t\t");
-            }
+            whereClause(whereClause, i, field, fullColumnName, javaType);
         }
         return fileContent.replace(TemplateConstants.QUERY_WHERE_CLAUSE, whereClause.toString());
+    }
+
+    private static void whereClause(StringBuilder whereClause, int columnIndex, String field, String column, String javaType) {
+        if (javaType.equals("String")) {
+            whereClause.append("<if test=\"query != null and query.")
+                    .append(field).append(" != null and query.").append(field).append(" != ''\">\n\t\t\t");
+            if (columnIndex != 0) {
+                whereClause.append("and ");
+            }
+            whereClause.append(column)
+                    .append(" like concat('%', ")
+                    .append("#{query.")
+                    .append(field)
+                    .append("}, '%')")
+                    .append("\n\t\t</if>\n\t\t");
+        } else if (javaType.equals("Date")) {
+            whereClause.append("<if test=\"query != null and query.")
+                    .append(field).append("Start != null and query.").append(field).append("End == null").append("\">\n\t\t\t");
+            if (columnIndex != 0) {
+                whereClause.append("and ");
+            }
+            whereClause.append(column)
+                    .append(" <![CDATA[ >= ]]> ")
+                    .append("#{query.")
+                    .append(field).append("Start")
+                    .append("}")
+                    .append("\n\t\t</if>\n\t\t");
+            whereClause.append("<if test=\"query != null and query.")
+                    .append(field).append("Start == null and query.").append(field).append("End != null").append("\">\n\t\t\t");
+            if (columnIndex != 0) {
+                whereClause.append("and ");
+            }
+            whereClause.append(column)
+                    .append(" <![CDATA[ <= ]]> ")
+                    .append("#{query.")
+                    .append(field).append("End")
+                    .append("}")
+                    .append("\n\t\t</if>\n\t\t");
+            whereClause.append("<if test=\"query != null and query.")
+                    .append(field).append("Start != null and query.").append(field).append("End != null").append("\">\n\t\t\t");
+            if (columnIndex != 0) {
+                whereClause.append("and ");
+            }
+            whereClause.append(column)
+                    .append(" <![CDATA[ >= ]]> ")
+                    .append("#{query.")
+                    .append(field).append("Start")
+                    .append("}")
+                    .append(" and ")
+                    .append(column)
+                    .append(" <![CDATA[ <= ]]> ")
+                    .append("#{query.")
+                    .append(field).append("End")
+                    .append("}")
+                    .append("\n\t\t</if>\n\t\t");
+        } else {
+            whereClause.append("<if test=\"query != null and query.").append(field).append(" != null\">\n\t\t\t");
+            if (columnIndex != 0) {
+                whereClause.append("and ");
+            }
+            whereClause.append(column)
+                    .append(" = ")
+                    .append("#{query.")
+                    .append(field)
+                    .append("}")
+                    .append("\n\t\t</if>\n\t\t");
+        }
     }
 
     /**
