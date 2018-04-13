@@ -47,10 +47,16 @@ function showModal(modalId) {
     $('#' + modalId).modal('show');
 }
 
-function showEditModal(modalId, formId, row) {
+function showAddModal(modalId, formId, validateFields) {
+    $('#' + modalId).modal('show');
+    validateForm(formId, 'btn-save', validateFields);
+}
+
+function showEditModal(modalId, formId, row, validateFields) {
     $('#' + modalId).modal('show');
     $('#' + formId).autofill(row);
     showDatetimeInEditModal(formId, row);
+    validateForm(formId, 'edit-save', validateFields);
 }
 
 function showDatetimeInEditModal(formId, row) {
@@ -145,41 +151,49 @@ function swalError(message) {
 }
 
 function saveOrEdit(modalId, formId, postUrl, tableId, tableUrl) {
-    $.post(contextPath + postUrl,
-        $('#' + formId).serialize(),
-        function (data) {
-            if (data.code === 200) {
-                swalSuccess(data.message);
-                hideModal(modalId);
-                refreshTable(tableId, contextPath + tableUrl);
-            } else {
-                swalError(data.message);
-            }
-        }, 'json'
-    );
+    let form = $('#' + formId);
+    form.bootstrapValidator('validate');
+    if (form.data('bootstrapValidator').isValid()) {
+        $.post(contextPath + postUrl,
+            form.serialize(),
+            function (data) {
+                if (data.code === 200) {
+                    swalSuccess(data.message);
+                    hideModal(modalId);
+                    refreshTable(tableId, contextPath + tableUrl);
+                } else {
+                    swalError(data.message);
+                }
+            }, 'json'
+        );
+    }
 }
 
 function saveOrEditWithFile(modalId, formId, postUrl, tableId, tableUrl) {
-    let formData = new FormData($('#' + formId)[0]);
-    $.ajax({
-        url: contextPath + postUrl,
-        type: 'POST',
-        data:formData,
-        contentType: false,
-        processData: false,
-        success:function (data) {
-            if (data.code === 200) {
-                swalSuccess(data.message);
-                hideModal(modalId);
-                refreshTable(tableId, contextPath + tableUrl);
-            } else {
-                swalError(data.message)
+    let form = $('#' + formId);
+    form.bootstrapValidator('validate');
+    if (form.data('bootstrapValidator').isValid()) {
+        let formData = new FormData(form[0]);
+        $.ajax({
+            url: contextPath + postUrl,
+            type: 'POST',
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                if (data.code === 200) {
+                    swalSuccess(data.message);
+                    hideModal(modalId);
+                    refreshTable(tableId, contextPath + tableUrl);
+                } else {
+                    swalError(data.message)
+                }
+            },
+            error: function (data) {
+                swalError("提交失败")
             }
-        },
-        error: function (data) {
-            swalError("提交失败")
-        }
-    });
+        });
+    }
 }
 
 function remove(url, tableId, tableUrl) {
@@ -241,4 +255,19 @@ function isNumInArray(array, num) {
         }
     }
     return false;
+}
+
+function validateForm(formId, btnId, validateFields) {
+    $('#' + formId).bootstrapValidator({
+        live: 'enabled',
+        // excluded: [':disabled', ':hidden', ':not(:visible)'],
+        submitButtons: '#' + btnId,
+        message: '请输入或选择合法的值',
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: validateFields
+    });
 }

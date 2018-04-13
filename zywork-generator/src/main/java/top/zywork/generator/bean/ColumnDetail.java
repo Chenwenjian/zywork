@@ -16,15 +16,19 @@ public class ColumnDetail {
     private Integer type;
     private String jdbcTypeName;
     private String javaTypeName;
+    private Integer columnSize;
+    private Integer nullable;
 
     public ColumnDetail() {}
 
-    public ColumnDetail(String name, String comment, Integer type, String jdbcTypeName, String javaTypeName) {
+    public ColumnDetail(String name, String comment, Integer type, String jdbcTypeName, String javaTypeName, Integer columnSize, Integer nullable) {
         this.name = name;
         this.comment = comment;
         this.type = type;
         this.jdbcTypeName = jdbcTypeName;
         this.javaTypeName = javaTypeName;
+        this.columnSize = columnSize;
+        this.nullable = nullable;
     }
 
     public String getName() {
@@ -73,5 +77,21 @@ public class ColumnDetail {
 
     public void setJavaTypeName(String javaTypeName) {
         this.javaTypeName = javaTypeName;
+    }
+
+    public Integer getColumnSize() {
+        return columnSize;
+    }
+
+    public void setColumnSize(Integer columnSize) {
+        this.columnSize = columnSize;
+    }
+
+    public void setNullable(Integer nullable) {
+        this.nullable = nullable;
+    }
+
+    public Integer getNullable() {
+        return nullable;
     }
 }

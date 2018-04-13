@@ -20,7 +20,7 @@
         <table id="data-list" data-classes="table table-hover" data-toolbar="#toolbar"></table>
 
         <div id="toolbar">
-            <button class="btn btn-primary" onclick="showModal('add-modal')">
+            <button class="btn btn-primary" onclick="showAddModal('add-modal', 'add-form', validateFields())">
                 <i class="fa fa-plus"></i>
                 添加
             </button>
@@ -70,7 +70,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-white" data-dismiss="modal">取消</button>
-                <button type="button" class="btn btn-primary" onclick="saveOrEdit('add-modal', 'add-form', '{zywork.saveUrl}', 'data-list', '{zywork.tableUrl}')">确认</button>
+                <button id="btn-save" type="button" class="btn btn-primary" onclick="saveOrEdit('add-modal', 'add-form', '{zywork.saveUrl}', 'data-list', '{zywork.tableUrl}')">确认</button>
             </div>
         </div>
     </div>
@@ -91,7 +91,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-white" data-dismiss="modal">取消</button>
-                <button type="button" class="btn btn-primary" onclick="saveOrEdit('edit-modal', 'edit-form', '{zywork.editUrl}', 'data-list', '{zywork.tableUrl}')">确认</button>
+                <button id="btn-edit" type="button" class="btn btn-primary" onclick="saveOrEdit('edit-modal', 'edit-form', '{zywork.editUrl}', 'data-list', '{zywork.tableUrl}')">确认</button>
             </div>
         </div>
     </div>

@@ -11,4 +11,5 @@
 <script src="<%=path%>/static/js/plugins/formautofill/jquery.formautofill.min.js"></script>
 <script src="<%=path%>/static/js/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script>
 <script src="<%=path%>/static/js/plugins/bootstrap-datetimepicker/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+<script src="<%=path%>/static/js/plugins/bootstrapValidator/bootstrapValidator.min.js"></script>
 <script src="<%=path%>/static/js/site-main.js"></script>

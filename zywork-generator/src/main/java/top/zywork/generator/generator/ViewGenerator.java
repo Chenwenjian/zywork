@@ -8,6 +8,7 @@ import top.zywork.generator.common.GeneratorUtils;
 import top.zywork.generator.common.PropertyUtils;
 import top.zywork.generator.constant.TemplateConstants;
 
+import java.sql.DatabaseMetaData;
 import java.util.List;
 
 /**
@@ -36,6 +37,7 @@ public class ViewGenerator {
         String fileContent = GeneratorUtils.readTemplate(generator, TemplateConstants.VIEW_JS_TEMPLATE);
         String[] rowDetails = generateTableRowDetail(generator, tableColumns);
         fileContent = fileContent.replace(TemplateConstants.VIEW_TABLE_FIELDS, generateTableFields(generator, tableColumns))
+                .replace(TemplateConstants.VIEW_VALIDATE_FIELDS, generateValidateFields(generator, tableColumns))
                 .replace(TemplateConstants.VIEW_REMOVE_URL, "/" + moduleName + "/remove/")
                 .replace(TemplateConstants.VIEW_TABLE_URL, "/" + moduleName + "/pager-cond")
                 .replace(TemplateConstants.VIEW_ID_FIELD, "id")
@@ -56,6 +58,7 @@ public class ViewGenerator {
         String fileContent = GeneratorUtils.readTemplate(generator, TemplateConstants.VIEW_JS_TEMPLATE);
         String[] rowDetails = generateJoinTableRowDetail(generator, primaryTable, columns, tableColumnsList);
         fileContent = fileContent.replace(TemplateConstants.VIEW_TABLE_FIELDS, generateJoinTableFields(generator, primaryTable, columns, tableColumnsList))
+                .replace(TemplateConstants.VIEW_VALIDATE_FIELDS, generateJoinValidateFields(generator, primaryTable, columns, tableColumnsList))
                 .replace(TemplateConstants.VIEW_REMOVE_URL, "/" + mappingUrl + "/remove/")
                 .replace(TemplateConstants.VIEW_TABLE_URL, "/" + mappingUrl + "/pager-cond")
                 .replace(TemplateConstants.VIEW_ID_FIELD, StringUtils.uncapitalize(GeneratorUtils.tableNameToClassName(primaryTable,
@@ -262,6 +265,108 @@ public class ViewGenerator {
     }
 
     /**
+     * 生成添加和修改表单验证
+     * @param generator Generator实例
+     * @param tableColumns 选中的表字段列表
+     * @return
+     */
+    public static String generateValidateFields(Generator generator, TableColumns tableColumns) {
+        StringBuilder validateFields = new StringBuilder();
+        List<ColumnDetail> columnDetailList = tableColumns.getColumns();
+        for (ColumnDetail columnDetail : columnDetailList) {
+            String fieldName = columnDetail.getFieldName();
+            if (!fieldName.equals("id")) {
+                validateFields.append(validateField(fieldName, columnDetail.getComment(), columnDetail.getName(),
+                        generator.getExclusiveAddEditColumns().split(","), columnDetail.getColumnSize(),
+                        columnDetail.getNullable(), columnDetail.getJavaTypeName()));
+            }
+        }
+        return validateFields.toString().substring(1);
+    }
+
+    /**
+     * 生成关联表的添加和修改表单验证
+     * @param generator Generator实例
+     * @param primaryTable 主表名称
+     * @param columns 所选表的所有字段
+     * @param tableColumnsList 所有表字段列表
+     * @return
+     */
+    public static String generateJoinValidateFields(Generator generator, String primaryTable, String[] columns, List<TableColumns> tableColumnsList) {
+        StringBuilder validateFields = new StringBuilder();
+        String id = StringUtils.uncapitalize(GeneratorUtils.tableNameToClassName(primaryTable,
+                generator.getTablePrefix())) + StringUtils.capitalize(PropertyUtils.columnToProperty("id"));
+        for (String column : columns) {
+            String[] tableNameAndColumn = column.split("-");
+            String tableName = tableNameAndColumn[0];
+            String columnName = tableNameAndColumn[1];
+            for (TableColumns tableColumns : tableColumnsList) {
+                if (tableName.equals(tableColumns.getTableName())) {
+                    List<ColumnDetail> columnDetailList = tableColumns.getColumns();
+                    for (ColumnDetail columnDetail : columnDetailList) {
+                        if (columnName.equals(columnDetail.getName())) {
+                            String field = StringUtils.uncapitalize(GeneratorUtils.tableNameToClassName(tableName, generator.getTablePrefix()))
+                                    + StringUtils.capitalize(PropertyUtils.columnToProperty(columnName));
+                            String title = columnDetail.getComment();
+                            String javaTypeName = columnDetail.getJavaTypeName();
+                            if (!field.equals(id)) {
+                                validateFields.append(validateField(field, title, columnName, generator.getExclusiveAddEditColumns().split(","),
+                                        columnDetail.getColumnSize(), columnDetail.getNullable(), javaTypeName));
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return validateFields.toString().substring(1);
+    }
+
+    private static String validateField(String field, String title, String column,
+                                        String[] exclusiveColumns, int columnSize, int nullable, String javaType) {
+        StringBuilder validateField = new StringBuilder();
+        if (!top.zywork.common.StringUtils.isInArray(exclusiveColumns, column)) {
+            validateField.append(",\n")
+                    .append(field)
+                    .append(": {\n")
+                    .append("\tvalidators: {\n");
+            if (nullable == DatabaseMetaData.columnNoNulls) {
+                validateField.append("\t\tnotEmpty: {\n")
+                        .append("\t\t\tmessage: '")
+                        .append(title)
+                        .append("是必须项'")
+                        .append("\n\t\t},");
+            }
+            if (javaType.equals("String") && nullable == DatabaseMetaData.columnNoNulls) {
+                validateField.append("\n\t\tstringLength: {\n")
+                        .append("\t\t\tmin: 1,\n")
+                        .append("\t\t\tmax: ")
+                        .append(columnSize / 2)
+                        .append(",\n")
+                        .append("\t\t\tmessage: '")
+                        .append("必须是1-")
+                        .append(columnSize / 2)
+                        .append("个中文字符'\n")
+                        .append("\t\t},");
+            }
+            if (javaType.equals("String") && nullable == DatabaseMetaData.columnNullable) {
+                validateField.append("\n\t\tstringLength: {\n")
+                        .append("\t\t\tmin: 0,\n")
+                        .append("\t\t\tmax: ")
+                        .append(columnSize / 2)
+                        .append(",\n")
+                        .append("\t\t\tmessage: '")
+                        .append("必须小于")
+                        .append(columnSize / 2)
+                        .append("个中文字符'\n")
+                        .append("\t\t},");
+            }
+        }
+        validateField = !validateField.toString().equals("") ?
+                new StringBuilder(validateField.substring(0, validateField.length() - 1)).append("\n\t}\n}") : new StringBuilder(" ");
+        return validateField.toString();
+    }
+
+    /**
      * 生成单表对应的视图
      * @param generator Generator实例
      * @param tableColumns 表字段信息
@@ -438,8 +543,8 @@ public class ViewGenerator {
 
     private static void formField(StringBuilder formFields, String textFileContent, String dateFileContent,
                                   String field, String fieldSuffix, String title, String column , String javaTypeName, String[] exclusiveColumns) {
-        if (javaTypeName.equals("Date")) {
-            if (fieldSuffix.equals(SEARCH_FORM_FIELD_SUFFIX)) {
+        if (fieldSuffix.equals(SEARCH_FORM_FIELD_SUFFIX)) {
+            if (javaTypeName.equals("Date")) {
                 formFields.append(dateFileContent.replace(TemplateConstants.VIEW_FIELD_NAME_EN, field + "Start")
                         .replace(TemplateConstants.VIEW_ID_FIELD_NAME_EN, field + "Start" + fieldSuffix)
                         .replace(TemplateConstants.VIEW_FIELD_NAME_CN, title + "(开始)")
@@ -450,19 +555,27 @@ public class ViewGenerator {
                         .replace(TemplateConstants.VIEW_FIELD_NAME_CN, title + "(结束)")
                         .replace(TemplateConstants.VIEW_FIELD_PLACEHOLDER, "请选择" + title + "(结束)"))
                         .append("\n");
-            } else if(!fieldSuffix.equals(SEARCH_FORM_FIELD_SUFFIX) && !top.zywork.common.StringUtils.isInArray(exclusiveColumns, column)) {
+            } else {
+                formFields.append(textFileContent.replace(TemplateConstants.VIEW_FIELD_NAME_EN, field)
+                        .replace(TemplateConstants.VIEW_ID_FIELD_NAME_EN, field + fieldSuffix)
+                        .replace(TemplateConstants.VIEW_FIELD_NAME_CN, title)
+                        .replace(TemplateConstants.VIEW_FIELD_PLACEHOLDER, "请输入" + title))
+                        .append("\n");
+            }
+        } else if (!fieldSuffix.equals(SEARCH_FORM_FIELD_SUFFIX) && !top.zywork.common.StringUtils.isInArray(exclusiveColumns, column)) {
+            if (javaTypeName.equals("Date")) {
                 formFields.append(dateFileContent.replace(TemplateConstants.VIEW_FIELD_NAME_EN, field)
                         .replace(TemplateConstants.VIEW_ID_FIELD_NAME_EN, field + fieldSuffix)
                         .replace(TemplateConstants.VIEW_FIELD_NAME_CN, title)
                         .replace(TemplateConstants.VIEW_FIELD_PLACEHOLDER, "请选择" + title))
                         .append("\n");
+            } else {
+                formFields.append(textFileContent.replace(TemplateConstants.VIEW_FIELD_NAME_EN, field)
+                        .replace(TemplateConstants.VIEW_ID_FIELD_NAME_EN, field + fieldSuffix)
+                        .replace(TemplateConstants.VIEW_FIELD_NAME_CN, title)
+                        .replace(TemplateConstants.VIEW_FIELD_PLACEHOLDER, "请输入" + title))
+                        .append("\n");
             }
-        } else {
-            formFields.append(textFileContent.replace(TemplateConstants.VIEW_FIELD_NAME_EN, field)
-                    .replace(TemplateConstants.VIEW_ID_FIELD_NAME_EN, field + fieldSuffix)
-                    .replace(TemplateConstants.VIEW_FIELD_NAME_CN, title)
-                    .replace(TemplateConstants.VIEW_FIELD_PLACEHOLDER, "请输入" + title))
-                    .append("\n");
         }
     }
 

@@ -65,7 +65,7 @@ function formatOperators(value, row, index) {
 
 window.operateEvents = {
     'click .to-edit': function (e, value, row, index) {
-        showEditModal('edit-modal', 'edit-form', row);
+        showEditModal('edit-modal', 'edit-form', row, validateFields());
     },
     'click .to-remove': function (e, value, row, index) {
         swal({
@@ -111,4 +111,10 @@ function queryParams(params) {
         query[field.name] = field.value;
     });
     return query;
+}
+
+function validateFields() {
+    return {
+        {zywork.validateFields}
+    };
 }

@@ -59,6 +59,8 @@ public class JDBCUtils {
                     columnDetail.setJavaTypeName(getJavaType(columnDetail.getJdbcTypeName()));
                     columnDetail.setComment(columnResultSet.getString("REMARKS"));
                     columnDetail.setFieldName(PropertyUtils.columnToProperty(columnDetail.getName()));
+                    columnDetail.setColumnSize(columnResultSet.getInt("COLUMN_SIZE"));
+                    columnDetail.setNullable(columnResultSet.getInt("NULLABLE"));
                     columnDetails.add(columnDetail);
                 }
                 tableColumns.setColumns(columnDetails);

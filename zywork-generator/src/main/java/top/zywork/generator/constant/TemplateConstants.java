@@ -95,6 +95,8 @@ public class TemplateConstants {
 
     public static final String VIEW_ROW_DETAIL_FIELDS = "{zywork.rowDetailFields}";
 
+    public static final String VIEW_VALIDATE_FIELDS = "{zywork.validateFields}";
+
     public static final String VIEW_REMOVE_URL = "{zywork.removeUrl}";
 
     public static final String VIEW_FIELD_NAME_EN = "{zywork.fieldNameEN}";

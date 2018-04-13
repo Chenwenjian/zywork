@@ -8,4 +8,5 @@
 <link href="<%=path%>/static/css/plugins/sweetalert/sweetalert2.min.css" rel="stylesheet"/>
 <link href="<%=path%>/static/css/plugins/iCheck/skins/all.css" rel="stylesheet"/>
 <link href="<%=path%>/static/css/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.min.css" rel="stylesheet"/>
+<link href="<%=path%>/static/css/plugins/bootstrapValidator/bootstrapValidator.min.css" rel="stylesheet"/>
 <link href="<%=path%>/static/css/site-main.css" rel="stylesheet"/>

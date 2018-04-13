@@ -172,9 +172,9 @@ DROP TABLE IF EXISTS `t_scheduler`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `t_scheduler` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '作业编号',
-  `name` varchar(50) DEFAULT NULL COMMENT '作业名称',
-  `class_name` varchar(200) DEFAULT NULL COMMENT '作业完整类名',
-  `cron_expression` varchar(50) DEFAULT NULL COMMENT 'CRON表达式',
+  `name` varchar(50) NOT NULL COMMENT '作业名称',
+  `class_name` varchar(200) NOT NULL COMMENT '作业完整类名',
+  `cron_expression` varchar(50) NOT NULL COMMENT 'CRON表达式',
   `group_name` varchar(50) DEFAULT NULL COMMENT '作业组名称',
   `trigger_name` varchar(50) DEFAULT NULL COMMENT '触发器名称',
   `trigger_group` varchar(50) DEFAULT NULL COMMENT '触发器组',
