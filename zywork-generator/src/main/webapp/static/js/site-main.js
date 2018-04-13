@@ -55,7 +55,7 @@ function showEditModal(modalId, formId, row) {
 
 function showDatetimeInEditModal(formId, row) {
     $('#' + formId + " .input-datetime").each(function () {
-        let date = timestampToDate(row[$(this).attr('name')]);
+        let date = timestampToDatetime(row[$(this).attr('name')]);
         $(this).val(date === '-' ? "" : date);
     });
 }

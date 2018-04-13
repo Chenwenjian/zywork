@@ -358,12 +358,10 @@ public class ViewGenerator {
         StringBuilder formFields = new StringBuilder();
         for (ColumnDetail columnDetail : columnDetailList) {
             String fieldName = columnDetail.getFieldName();
-            if (!fieldName.equals("id")
-                    && (fieldSuffix.equals(SEARCH_FORM_FIELD_SUFFIX)
-                        || !top.zywork.common.StringUtils.isInArray(exclusiveColumns, columnDetail.getName()))) {
+            if (!fieldName.equals("id")) {
                 String title = columnDetail.getComment();
                 String javaTypeName = columnDetail.getJavaTypeName();
-                formField(formFields, textFileContent, dateFileContent, fieldName, fieldSuffix, title, javaTypeName);
+                formField(formFields, textFileContent, dateFileContent, fieldName, fieldSuffix, title, columnDetail.getName(), javaTypeName, exclusiveColumns);
             }
         }
         return formFields.toString();
@@ -379,7 +377,7 @@ public class ViewGenerator {
      */
     private static String generateJoinFormFields(Generator generator, String primaryTable, String[] columns, List<TableColumns> tableColumnsList, String fieldSuffix) {
         String textContent = GeneratorUtils.readTemplate(generator, TemplateConstants.VIEW_TEXT_TEMPLATE);
-        String dateContent = GeneratorUtils.readTemplate(generator, TemplateConstants.VIEW_SEARCH_DATE_TEMPLATE);
+        String dateContent = GeneratorUtils.readTemplate(generator, TemplateConstants.VIEW_DATE_TEMPLATE);
         return generateJoinFields(textContent, dateContent, generator, primaryTable, columns, tableColumnsList, fieldSuffix);
     }
 
@@ -423,12 +421,10 @@ public class ViewGenerator {
                             if (columnName.equals(columnDetail.getName())) {
                                 String field = StringUtils.uncapitalize(GeneratorUtils.tableNameToClassName(primaryTable, generator.getTablePrefix()))
                                         + StringUtils.capitalize(PropertyUtils.columnToProperty(columnName));
-                                if (!id.equals(field)
-                                        && (fieldSuffix.equals(SEARCH_FORM_FIELD_SUFFIX)
-                                            || !top.zywork.common.StringUtils.isInArray(exclusiveColumns, columnDetail.getName()))) {
+                                if (!id.equals(field)) {
                                     String title = columnDetail.getComment();
                                     String javaTypeName = columnDetail.getJavaTypeName();
-                                    formField(formFields, textFileContent, dateFileContent, field, fieldSuffix, title, javaTypeName);
+                                    formField(formFields, textFileContent, dateFileContent, field, fieldSuffix, title, columnName, javaTypeName, exclusiveColumns);
                                 }
                             }
                         }
@@ -441,18 +437,26 @@ public class ViewGenerator {
     }
 
     private static void formField(StringBuilder formFields, String textFileContent, String dateFileContent,
-                                  String field, String fieldSuffix, String title, String javaTypeName) {
+                                  String field, String fieldSuffix, String title, String column , String javaTypeName, String[] exclusiveColumns) {
         if (javaTypeName.equals("Date")) {
-            formFields.append(dateFileContent.replace(TemplateConstants.VIEW_FIELD_NAME_EN, field + "Start")
-                    .replace(TemplateConstants.VIEW_ID_FIELD_NAME_EN, field + "Start" + fieldSuffix)
-                    .replace(TemplateConstants.VIEW_FIELD_NAME_CN, title + "(开始)")
-                    .replace(TemplateConstants.VIEW_FIELD_PLACEHOLDER, "请选择" + title + "(开始)"))
-                    .append("\n");
-            formFields.append(dateFileContent.replace(TemplateConstants.VIEW_FIELD_NAME_EN, field + "End")
-                    .replace(TemplateConstants.VIEW_ID_FIELD_NAME_EN, field + "End" + fieldSuffix)
-                    .replace(TemplateConstants.VIEW_FIELD_NAME_CN, title + "(结束)")
-                    .replace(TemplateConstants.VIEW_FIELD_PLACEHOLDER, "请选择" + title + "(结束)"))
-                    .append("\n");
+            if (fieldSuffix.equals(SEARCH_FORM_FIELD_SUFFIX)) {
+                formFields.append(dateFileContent.replace(TemplateConstants.VIEW_FIELD_NAME_EN, field + "Start")
+                        .replace(TemplateConstants.VIEW_ID_FIELD_NAME_EN, field + "Start" + fieldSuffix)
+                        .replace(TemplateConstants.VIEW_FIELD_NAME_CN, title + "(开始)")
+                        .replace(TemplateConstants.VIEW_FIELD_PLACEHOLDER, "请选择" + title + "(开始)"))
+                        .append("\n");
+                formFields.append(dateFileContent.replace(TemplateConstants.VIEW_FIELD_NAME_EN, field + "End")
+                        .replace(TemplateConstants.VIEW_ID_FIELD_NAME_EN, field + "End" + fieldSuffix)
+                        .replace(TemplateConstants.VIEW_FIELD_NAME_CN, title + "(结束)")
+                        .replace(TemplateConstants.VIEW_FIELD_PLACEHOLDER, "请选择" + title + "(结束)"))
+                        .append("\n");
+            } else if(!fieldSuffix.equals(SEARCH_FORM_FIELD_SUFFIX) && !top.zywork.common.StringUtils.isInArray(exclusiveColumns, column)) {
+                formFields.append(dateFileContent.replace(TemplateConstants.VIEW_FIELD_NAME_EN, field)
+                        .replace(TemplateConstants.VIEW_ID_FIELD_NAME_EN, field + fieldSuffix)
+                        .replace(TemplateConstants.VIEW_FIELD_NAME_CN, title)
+                        .replace(TemplateConstants.VIEW_FIELD_PLACEHOLDER, "请选择" + title))
+                        .append("\n");
+            }
         } else {
             formFields.append(textFileContent.replace(TemplateConstants.VIEW_FIELD_NAME_EN, field)
                     .replace(TemplateConstants.VIEW_ID_FIELD_NAME_EN, field + fieldSuffix)
