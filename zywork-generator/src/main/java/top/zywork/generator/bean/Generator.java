@@ -42,6 +42,8 @@ public class Generator {
     private String exclusiveAddEditColumns;
     private String jsSearchModalSuffix;
     private String viewSearchModalSuffix;
+    private String viewAddModalSuffix;
+    private String viewEditModalSuffix;
 
     public String getCharset() {
         return charset;
@@ -297,5 +299,21 @@ public class Generator {
 
     public void setViewSearchModalSuffix(String viewSearchModalSuffix) {
         this.viewSearchModalSuffix = viewSearchModalSuffix;
+    }
+
+    public String getViewAddModalSuffix() {
+        return viewAddModalSuffix;
+    }
+
+    public void setViewAddModalSuffix(String viewAddModalSuffix) {
+        this.viewAddModalSuffix = viewAddModalSuffix;
+    }
+
+    public String getViewEditModalSuffix() {
+        return viewEditModalSuffix;
+    }
+
+    public void setViewEditModalSuffix(String viewEditModalSuffix) {
+        this.viewEditModalSuffix = viewEditModalSuffix;
     }
 }

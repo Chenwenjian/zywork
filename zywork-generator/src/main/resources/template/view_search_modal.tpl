@@ -15,6 +15,7 @@
             <i class="fa fa-eye"></i>
             高级搜索
         </button>
+        <button type="button" class="btn btn-white" data-dismiss="modal">取消</button>
 
         <form id="{zywork.moduleName}-search-form" class="row form-horizontal search-form" style="display: none;">
             {zywork.searchFormFields}

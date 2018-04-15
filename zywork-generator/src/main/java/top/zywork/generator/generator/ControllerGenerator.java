@@ -35,7 +35,10 @@ public class ControllerGenerator {
                 DateFormatUtils.format(Calendar.getInstance(), DatePatternEnum.DATE.getValue()))
                 .replace(TemplateConstants.AUTHOR, generator.getAuthor())
                 .replace(TemplateConstants.BEAN_NAME, beanName).replace(TemplateConstants.MODULE_NAME, moduleName)
-                .replace(TemplateConstants.BEAN_NAME_LOWER_CASE, StringUtils.uncapitalize(beanName));
+                .replace(TemplateConstants.BEAN_NAME_LOWER_CASE, StringUtils.uncapitalize(beanName))
+                .replace(TemplateConstants.ADD_MODAL_PAGE, beanName + generator.getViewAddModalSuffix().replace(".jsp", ""))
+                .replace(TemplateConstants.EDIT_MODAL_PAGE, beanName + generator.getViewEditModalSuffix().replace(".jsp", ""))
+                .replace(TemplateConstants.SEARCH_MODAL_PAGE, beanName + generator.getViewSearchModalSuffix().replace(".jsp", ""));
         GeneratorUtils.writeFile(fileContent, packagePath, beanName + generator.getControllerSuffix());
     }
 
@@ -52,7 +55,10 @@ public class ControllerGenerator {
                 DateFormatUtils.format(Calendar.getInstance(), DatePatternEnum.DATE.getValue()))
                 .replace(TemplateConstants.AUTHOR, generator.getAuthor())
                 .replace(TemplateConstants.BEAN_NAME, beanName).replace(TemplateConstants.MODULE_NAME, mappingUrl)
-                .replace(TemplateConstants.BEAN_NAME_LOWER_CASE, StringUtils.uncapitalize(beanName));
+                .replace(TemplateConstants.BEAN_NAME_LOWER_CASE, StringUtils.uncapitalize(beanName))
+                .replace(TemplateConstants.ADD_MODAL_PAGE, beanName + generator.getViewAddModalSuffix().replace(".jsp", ""))
+                .replace(TemplateConstants.EDIT_MODAL_PAGE, beanName + generator.getViewEditModalSuffix().replace(".jsp", ""))
+                .replace(TemplateConstants.SEARCH_MODAL_PAGE, beanName + generator.getViewSearchModalSuffix().replace(".jsp", ""));
         GeneratorUtils.writeFile(fileContent, packagePath, beanName + generator.getControllerSuffix());
     }
 

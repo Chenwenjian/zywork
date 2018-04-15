@@ -30,5 +30,7 @@
   "cssFileDir": "webapp/static/css/",
   "viewFileDir": "webapp/WEB-INF/views/",
   "viewSearchModalSuffix": "SearchModal.jsp",
-  "exclusiveAddEditColumns":"create_time,update_time,is_active"
+  "exclusiveAddEditColumns":"create_time,update_time,is_active",
+  "viewAddModalSuffix": "AddModal.jsp",
+  "viewEditModalSuffix": "EditModal.jsp"
 }

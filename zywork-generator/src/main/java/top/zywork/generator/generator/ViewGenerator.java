@@ -38,6 +38,7 @@ public class ViewGenerator {
         String[] rowDetails = generateTableRowDetail(generator, tableColumns);
         fileContent = fileContent.replace(TemplateConstants.VIEW_TABLE_FIELDS, generateTableFields(generator, tableColumns))
                 .replace(TemplateConstants.VIEW_VALIDATE_FIELDS, generateValidateFields(generator, tableColumns))
+                .replace(TemplateConstants.VIEW_EDIT_MODAL_URL, "/" + moduleName + "/edit-modal")
                 .replace(TemplateConstants.VIEW_ACTIVE_URL, "/" + moduleName + "/active")
                 .replace(TemplateConstants.VIEW_REMOVE_URL, "/" + moduleName + "/remove/")
                 .replace(TemplateConstants.VIEW_TABLE_URL, "/" + moduleName + "/pager-cond")
@@ -78,6 +79,7 @@ public class ViewGenerator {
         String[] rowDetails = generateJoinTableRowDetail(generator, primaryTable, columns, tableColumnsList);
         fileContent = fileContent.replace(TemplateConstants.VIEW_TABLE_FIELDS, generateJoinTableFields(generator, primaryTable, columns, tableColumnsList))
                 .replace(TemplateConstants.VIEW_VALIDATE_FIELDS, generateJoinValidateFields(generator, primaryTable, columns, tableColumnsList))
+                .replace(TemplateConstants.VIEW_EDIT_MODAL_URL, "/" + mappingUrl + "/edit-modal")
                 .replace(TemplateConstants.VIEW_ACTIVE_URL, "/" + mappingUrl + "/active")
                 .replace(TemplateConstants.VIEW_REMOVE_URL, "/" + mappingUrl + "/remove/")
                 .replace(TemplateConstants.VIEW_TABLE_URL, "/" + mappingUrl + "/pager-cond")
@@ -409,6 +411,7 @@ public class ViewGenerator {
         String fileContent = GeneratorUtils.readTemplate(generator, TemplateConstants.VIEW_TEMPLATE);
         fileContent = fileContent.replace(TemplateConstants.VIEW_PAGE_TITLE, beanName)
                 .replace(TemplateConstants.VIEW_SEARCH_FORM_FIELDS, generateSearchFormFields(generator, tableColumns))
+                .replace(TemplateConstants.VIEW_ADD_MODAL_URL, "/" + moduleName + "/add-modal")
                 .replace(TemplateConstants.VIEW_ADD_FORM_FIELDS, generateFormFields(generator, tableColumns, ADD_FORM_FIELD_SUFFIX))
                 .replace(TemplateConstants.VIEW_SAVE_URL, "/" + moduleName + "/save")
                 .replace(TemplateConstants.VIEW_TABLE_URL, "/" + moduleName + "/pager-cond")
@@ -418,6 +421,39 @@ public class ViewGenerator {
                 .replace(TemplateConstants.VIEW_ID_FIELD, "id")
                 .replace(TemplateConstants.VIEW_JS_FILE_NAME, beanName + "/" + beanName + ".js");
         GeneratorUtils.writeFile(fileContent, saveDir, beanName + ".jsp");
+    }
+
+    /**
+     * 生成单表对应的视图
+     * @param generator Generator实例
+     * @param tableColumns 表字段信息
+     */
+    public static void generateViewAdd(Generator generator, TableColumns tableColumns) {
+        String beanName = GeneratorUtils.tableNameToClassName(tableColumns.getTableName(), generator.getTablePrefix());
+        String saveDir = GeneratorUtils.createViewDir(generator, beanName);
+        String moduleName = GeneratorUtils.getModuleName(tableColumns.getTableName(), generator.getTablePrefix());
+        String fileContent = GeneratorUtils.readTemplate(generator, TemplateConstants.VIEW_MODAL_ADD);
+        fileContent = fileContent.replace(TemplateConstants.VIEW_ADD_FORM_FIELDS, generateFormFields(generator, tableColumns, ADD_FORM_FIELD_SUFFIX))
+                .replace(TemplateConstants.VIEW_SAVE_URL, "/" + moduleName + "/save")
+                .replace(TemplateConstants.VIEW_TABLE_URL, "/" + moduleName + "/pager-cond");
+        GeneratorUtils.writeFile(fileContent, saveDir, beanName + generator.getViewAddModalSuffix());
+    }
+
+    /**
+     * 生成单表对应的视图
+     * @param generator Generator实例
+     * @param tableColumns 表字段信息
+     */
+    public static void generateViewEdit(Generator generator, TableColumns tableColumns) {
+        String beanName = GeneratorUtils.tableNameToClassName(tableColumns.getTableName(), generator.getTablePrefix());
+        String saveDir = GeneratorUtils.createViewDir(generator, beanName);
+        String moduleName = GeneratorUtils.getModuleName(tableColumns.getTableName(), generator.getTablePrefix());
+        String fileContent = GeneratorUtils.readTemplate(generator, TemplateConstants.VIEW_MODAL_EDIT);
+        fileContent = fileContent.replace(TemplateConstants.VIEW_EDIT_FORM_FIELDS, generateFormFields(generator, tableColumns, ADD_FORM_FIELD_SUFFIX))
+                .replace(TemplateConstants.VIEW_EDIT_URL, "/" + moduleName + "/update")
+                .replace(TemplateConstants.VIEW_TABLE_URL, "/" + moduleName + "/pager-cond")
+                .replace(TemplateConstants.VIEW_ID_FIELD, "id");
+        GeneratorUtils.writeFile(fileContent, saveDir, beanName + generator.getViewEditModalSuffix());
     }
 
     /**
@@ -450,6 +486,7 @@ public class ViewGenerator {
         String fileContent = GeneratorUtils.readTemplate(generator, TemplateConstants.VIEW_TEMPLATE);
         fileContent = fileContent.replace(TemplateConstants.VIEW_PAGE_TITLE, beanName)
                 .replace(TemplateConstants.VIEW_SEARCH_FORM_FIELDS, generateJoinSearchFormFields(generator, primaryTable, columns, tableColumnsList))
+                .replace(TemplateConstants.VIEW_ADD_MODAL_URL, "/" + mappingUrl + "/add-modal")
                 .replace(TemplateConstants.VIEW_ADD_FORM_FIELDS, generateJoinFormFields(generator, primaryTable, columns, tableColumnsList, ADD_FORM_FIELD_SUFFIX))
                 .replace(TemplateConstants.VIEW_SAVE_URL, "/" + mappingUrl + "/save")
                 .replace(TemplateConstants.VIEW_TABLE_URL, "/" + mappingUrl + "/pager-cond")
@@ -463,6 +500,42 @@ public class ViewGenerator {
     }
 
     /**
+     * 生成关联表对应的视图
+     * @param beanName 实体类名称
+     * @param mappingUrl url映射
+     * @param generator Generator实例
+     * @param primaryTable 主表名称
+     * @param columns 所选表字段信息
+     */
+    public static void generateJoinViewAdd(String beanName, String mappingUrl, Generator generator, String primaryTable, String[] columns, List<TableColumns> tableColumnsList) {
+        String saveDir = GeneratorUtils.createViewDir(generator, beanName);
+        String fileContent = GeneratorUtils.readTemplate(generator, TemplateConstants.VIEW_MODAL_ADD);
+        fileContent = fileContent.replace(TemplateConstants.VIEW_ADD_FORM_FIELDS, generateJoinFormFields(generator, primaryTable, columns, tableColumnsList, ADD_FORM_FIELD_SUFFIX))
+                .replace(TemplateConstants.VIEW_SAVE_URL, "/" + mappingUrl + "/save")
+                .replace(TemplateConstants.VIEW_TABLE_URL, "/" + mappingUrl + "/pager-cond");
+        GeneratorUtils.writeFile(fileContent, saveDir, beanName + generator.getViewAddModalSuffix());
+    }
+
+    /**
+     * 生成关联表对应的视图
+     * @param beanName 实体类名称
+     * @param mappingUrl url映射
+     * @param generator Generator实例
+     * @param primaryTable 主表名称
+     * @param columns 所选表字段信息
+     */
+    public static void generateJoinViewEdit(String beanName, String mappingUrl, Generator generator, String primaryTable, String[] columns, List<TableColumns> tableColumnsList) {
+        String saveDir = GeneratorUtils.createViewDir(generator, beanName);
+        String fileContent = GeneratorUtils.readTemplate(generator, TemplateConstants.VIEW_MODAL_EDIT);
+        fileContent = fileContent.replace(TemplateConstants.VIEW_TABLE_URL, "/" + mappingUrl + "/pager-cond")
+                .replace(TemplateConstants.VIEW_EDIT_FORM_FIELDS, generateJoinFormFields(generator, primaryTable, columns, tableColumnsList, EDIT_FORM_FIELD_SUFFIX))
+                .replace(TemplateConstants.VIEW_EDIT_URL, "/" + mappingUrl + "/update")
+                .replace(TemplateConstants.VIEW_ID_FIELD, StringUtils.uncapitalize(GeneratorUtils.tableNameToClassName(primaryTable,
+                        generator.getTablePrefix())) + StringUtils.capitalize(PropertyUtils.columnToProperty("id")));
+        GeneratorUtils.writeFile(fileContent, saveDir, beanName + generator.getViewEditModalSuffix());
+    }
+
+    /**
      * 生成所有表的视图
      * @param generator Generator实例
      * @param tableColumnsList 所有表字段信息的列表
@@ -470,6 +543,28 @@ public class ViewGenerator {
     public static void generateViews(Generator generator, List<TableColumns> tableColumnsList) {
         for (TableColumns tableColumns : tableColumnsList) {
             generateView(generator, tableColumns);
+        }
+    }
+
+    /**
+     * 生成所有表的视图
+     * @param generator Generator实例
+     * @param tableColumnsList 所有表字段信息的列表
+     */
+    public static void generateViewsAdd(Generator generator, List<TableColumns> tableColumnsList) {
+        for (TableColumns tableColumns : tableColumnsList) {
+            generateViewAdd(generator, tableColumns);
+        }
+    }
+
+    /**
+     * 生成所有表的视图
+     * @param generator Generator实例
+     * @param tableColumnsList 所有表字段信息的列表
+     */
+    public static void generateViewsEdit(Generator generator, List<TableColumns> tableColumnsList) {
+        for (TableColumns tableColumns : tableColumnsList) {
+            generateViewEdit(generator, tableColumns);
         }
     }
 

@@ -51,6 +51,9 @@ public class CodeGenerator {
         ViewGenerator.generateViews(generator, tableColumnsList);
         ViewGenerator.generateJss(generator, tableColumnsList);
 
+        ViewGenerator.generateViewsAdd(generator, tableColumnsList);
+        ViewGenerator.generateViewsEdit(generator, tableColumnsList);
+
         ViewGenerator.generateViewsSearch(generator, tableColumnsList);
         ViewGenerator.generateJssSearch(generator, tableColumnsList);
     }
@@ -76,6 +79,9 @@ public class CodeGenerator {
 
         ViewGenerator.generateView(generator, tableColumns);
         ViewGenerator.generateJs(generator, tableColumns);
+
+        ViewGenerator.generateViewAdd(generator, tableColumns);
+        ViewGenerator.generateViewEdit(generator, tableColumns);
 
         ViewGenerator.generateViewSearch(generator, tableColumns);
         ViewGenerator.generateJsSearch(generator, tableColumns);
@@ -125,6 +131,9 @@ public class CodeGenerator {
 
         ViewGenerator.generateJoinView(beanName, mappingUrl, generator, primaryTable, columns, tableColumnsList);
         ViewGenerator.generateJoinJs(beanName, mappingUrl, generator, primaryTable, columns, tableColumnsList);
+
+        ViewGenerator.generateJoinViewAdd(beanName, mappingUrl, generator, primaryTable, columns, tableColumnsList);
+        ViewGenerator.generateJoinViewEdit(beanName, mappingUrl, generator, primaryTable, columns, tableColumnsList);
     }
 
 }

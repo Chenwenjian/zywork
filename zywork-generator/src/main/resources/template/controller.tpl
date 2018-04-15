@@ -43,9 +43,19 @@ public class {beanName}Controller extends BaseController {
         return "{beanName}/{beanName}";
     }
 
-    @GetMapping("search-page")
-    public String searchPage() {
-        return "{beanName}/{beanName}SearchModal";
+    @GetMapping("add-modal")
+    public String addModal() {
+        return "{beanName}/{addModalPage}";
+    }
+
+    @GetMapping("edit-modal")
+    public String editModal() {
+        return "{beanName}/{editModalPage}";
+    }
+
+    @GetMapping("search-modal")
+    public String searchModal() {
+        return "{beanName}/{searchModalPage}";
     }
 
     @PostMapping("save")

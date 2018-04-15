@@ -70,7 +70,7 @@ function formatOperators(value, row, index) {
 
 window.operateEvents = {
     'click .to-edit': function (e, value, row, index) {
-        showEditModal('edit-modal', 'edit-form', row, validateFields());
+        showRemoteEditModal('edit-modal', '{zywork.editModalUrl}', 'edit-form', row, validateFields());
     },
     'click .to-inactive': function (e, value, row, index) {
         active('{zywork.activeUrl}', row.{zywork.idField}, 1, 'data-list', '{zywork.tableUrl}');

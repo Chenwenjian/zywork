@@ -10,8 +10,8 @@ package top.zywork.generator.constant;
  */
 public class TemplateConstants {
 
-    public static final Integer TOTAL_TEMPLATES = 13;
-    public static final Integer TOTAL_JOIN_TEMPLATES = 11;
+    public static final Integer TOTAL_TEMPLATES = 15;
+    public static final Integer TOTAL_JOIN_TEMPLATES = 13;
 
     public static final String DO_TEMPLATE = "do.tpl";
     public static final String DTO_TEMPLATE = "dto.tpl";
@@ -35,6 +35,8 @@ public class TemplateConstants {
     public static final String VIEW_SEARCH_DATE_TEMPLATE = "view_search_date.tpl";
     public static final String VIEW_JS_MODAL_SEARCH = "view_search_js.tpl";
     public static final String VIEW_MODAL_SEARCH = "view_search_modal.tpl";
+    public static final String VIEW_MODAL_ADD = "view_modal_add.tpl";
+    public static final String VIEW_MODAL_EDIT = "view_modal_edit.tpl";
 
     public static final String CREATE_DATE = "{createDate}";
 
@@ -57,6 +59,12 @@ public class TemplateConstants {
     public static final String TO_STRING = "{toString}";
 
     public static final String MODULE_NAME = "{moduleName}";
+
+    public static final String ADD_MODAL_PAGE = "{addModalPage}";
+
+    public static final String EDIT_MODAL_PAGE = "{editModalPage}";
+
+    public static final String SEARCH_MODAL_PAGE = "{searchModalPage}";
 
     public static final String TABLE_NAME = "{tableName}";
 
@@ -119,5 +127,9 @@ public class TemplateConstants {
     public static final String VIEW_SEARCH_FORM_FIELDS = "{zywork.searchFormFields}";
 
     public static final String VIEW_MODULE_NAME = "{zywork.moduleName}";
+
+    public static final String VIEW_ADD_MODAL_URL = "{zywork.addModalUrl}";
+
+    public static final String VIEW_EDIT_MODAL_URL = "{zywork.editModalUrl}";
 
 }

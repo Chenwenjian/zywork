@@ -247,6 +247,20 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label class="col-sm-3 control-label">添加表单模态框视图文件后缀：</label>
+
+                    <div class="col-sm-9">
+                        <input type="text" name="viewAddModalSuffix" placeholder="添加表单模态框视图文件后缀" class="form-control" value="${applicationScope.generator.viewAddModalSuffix}"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">修改表单模态框视图文件后缀：</label>
+
+                    <div class="col-sm-9">
+                        <input type="text" name="viewEditModalSuffix" placeholder="修改表单模态框视图文件后缀" class="form-control" value="${applicationScope.generator.viewEditModalSuffix}"/>
+                    </div>
+                </div>
+                <div class="form-group">
                     <div class="col-sm-offset-3 col-sm-9">
                         <button class="btn btn-primary" type="button" onclick="saveGenerator();">确定</button>
                     </div>

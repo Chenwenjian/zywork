@@ -20,7 +20,7 @@
         <table id="data-list" data-classes="table table-hover text-nowrap" data-toolbar="#toolbar"></table>
 
         <div id="toolbar">
-            <button class="btn btn-primary" onclick="showAddModal('add-modal', 'add-form', validateFields())">
+            <button class="btn btn-primary" onclick="showRemoteAddModal('add-modal', '{zywork.addModalUrl}', 'add-form', validateFields())">
                 <i class="fa fa-plus"></i>
                 添加
             </button>
@@ -59,19 +59,6 @@
 <div class="modal fade" id="add-modal" tabindex="-1" role="dialog"  aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title">添加</h4>
-            </div>
-            <div class="modal-body">
-                <form id="add-form" class="form-horizontal row" enctype="multipart/form-data">
-                    {zywork.addFormFields}
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-white" data-dismiss="modal">取消</button>
-                <button id="btn-save" type="button" class="btn btn-primary" onclick="saveOrEdit('add-modal', 'add-form', '{zywork.saveUrl}', 'data-list', '{zywork.tableUrl}')">确认</button>
-            </div>
         </div>
     </div>
 </div>
@@ -79,20 +66,6 @@
 <div class="modal fade" id="edit-modal" tabindex="-1" role="dialog"  aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title">编辑</h4>
-            </div>
-            <div class="modal-body">
-                <form id="edit-form" class="form-horizontal row" enctype="multipart/form-data">
-                    <input type="hidden" name="{zywork.idField}"/>
-                    {zywork.editFormFields}
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-white" data-dismiss="modal">取消</button>
-                <button id="btn-edit" type="button" class="btn btn-primary" onclick="saveOrEdit('edit-modal', 'edit-form', '{zywork.editUrl}', 'data-list', '{zywork.tableUrl}')">确认</button>
-            </div>
         </div>
     </div>
 </div>

@@ -57,6 +57,20 @@ function showAddModal(modalId, formId, validateFields) {
     });
 }
 
+function showRemoteAddModal(modalId, url, formId, validateFields) {
+    let modal = $('#' + modalId);
+    modal.on('shown.bs.modal', function (e) {
+        validateForm(formId, 'btn-save', validateFields);
+    });
+    modal.on('hidden.bs.modal', function (e) {
+        $('#' + formId)[0].reset();
+        resetValidateForm(formId);
+    });
+    modal.modal({
+        remote: url
+    });
+}
+
 function showEditModal(modalId, formId, row, validateFields) {
     let modal = $('#' + modalId);
     let form = $('#' + formId);
@@ -67,6 +81,22 @@ function showEditModal(modalId, formId, row, validateFields) {
     modal.on('hidden.bs.modal', function (e) {
         form[0].reset();
         resetValidateForm(formId);
+    });
+}
+
+function showRemoteEditModal(modalId, url, formId, row, validateFields) {
+    let modal = $('#' + modalId);
+    modal.on('shown.bs.modal', function (e) {
+        $('#' + formId).autofill(row);
+        showDatetimeInEditModal(formId, row);
+        validateForm(formId, 'edit-save', validateFields);
+    });
+    modal.on('hidden.bs.modal', function (e) {
+        $('#' + formId)[0].reset();
+        resetValidateForm(formId);
+    });
+    modal.modal({
+        remote: url
     });
 }
 
@@ -349,5 +379,8 @@ function validateForm(formId, btnId, validateFields) {
 }
 
 function resetValidateForm(formId) {
-    $('#' + formId).data('bootstrapValidator').destroy();
+    let formValidator = $('#' + formId).data('bootstrapValidator');
+    if (formValidator !== undefined) {
+        formValidator.destroy();
+    }
 }
