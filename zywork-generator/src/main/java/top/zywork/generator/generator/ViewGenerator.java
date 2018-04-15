@@ -49,6 +49,23 @@ public class ViewGenerator {
     }
 
     /**
+     * 生成单表的JS文件
+     * @param generator Generator实例
+     * @param tableColumns 表字段信息
+     */
+    public static void generateJsSearch(Generator generator, TableColumns tableColumns) {
+        String beanName = GeneratorUtils.tableNameToClassName(tableColumns.getTableName(), generator.getTablePrefix());
+        String saveDir = GeneratorUtils.createViewResDir(generator, generator.getJsFileDir() + beanName);
+        String moduleName = GeneratorUtils.getModuleName(tableColumns.getTableName(), generator.getTablePrefix());
+        String fileContent = GeneratorUtils.readTemplate(generator, TemplateConstants.VIEW_JS_MODAL_SEARCH);
+        fileContent = fileContent.replace(TemplateConstants.VIEW_MODULE_NAME, moduleName)
+                .replace(TemplateConstants.VIEW_TABLE_FIELDS, generateTableFields(generator, tableColumns))
+                .replace(TemplateConstants.VIEW_TABLE_URL, "/" + moduleName + "/pager-cond")
+                .replace(TemplateConstants.VIEW_ID_FIELD, "id");
+        GeneratorUtils.writeFile(fileContent, saveDir, beanName + generator.getJsSearchModalSuffix());
+    }
+
+    /**
      * 生成关联表的JS文件
      * @param beanName 实体类名称
      * @param mappingUrl url映射
@@ -81,6 +98,17 @@ public class ViewGenerator {
     public static void generateJss(Generator generator, List<TableColumns> tableColumnsList) {
         for (TableColumns tableColumns : tableColumnsList) {
             generateJs(generator, tableColumns);
+        }
+    }
+
+    /**
+     * 生成所有表的JS文件
+     * @param generator Generator实例
+     * @param tableColumnsList 所有表的字段信息列表
+     */
+    public static void generateJssSearch(Generator generator, List<TableColumns> tableColumnsList) {
+        for (TableColumns tableColumns : tableColumnsList) {
+            generateJsSearch(generator, tableColumns);
         }
     }
 
@@ -393,6 +421,23 @@ public class ViewGenerator {
     }
 
     /**
+     * 生成单表对应的视图
+     * @param generator Generator实例
+     * @param tableColumns 表字段信息
+     */
+    public static void generateViewSearch(Generator generator, TableColumns tableColumns) {
+        String beanName = GeneratorUtils.tableNameToClassName(tableColumns.getTableName(), generator.getTablePrefix());
+        String saveDir = GeneratorUtils.createViewDir(generator, beanName);
+        String moduleName = GeneratorUtils.getModuleName(tableColumns.getTableName(), generator.getTablePrefix());
+        String fileContent = GeneratorUtils.readTemplate(generator, TemplateConstants.VIEW_MODAL_SEARCH);
+        fileContent = fileContent.replace(TemplateConstants.VIEW_SEARCH_FORM_FIELDS, generateSearchFormFields(generator, tableColumns))
+                .replace(TemplateConstants.VIEW_TABLE_URL, "/" + moduleName + "/pager-cond")
+                .replace(TemplateConstants.VIEW_ID_FIELD, "id")
+                .replace(TemplateConstants.VIEW_MODULE_NAME, moduleName);
+        GeneratorUtils.writeFile(fileContent, saveDir, beanName + generator.getViewSearchModalSuffix());
+    }
+
+    /**
      * 生成关联表对应的视图
      * @param beanName 实体类名称
      * @param mappingUrl url映射
@@ -425,6 +470,17 @@ public class ViewGenerator {
     public static void generateViews(Generator generator, List<TableColumns> tableColumnsList) {
         for (TableColumns tableColumns : tableColumnsList) {
             generateView(generator, tableColumns);
+        }
+    }
+
+    /**
+     * 生成所有表的视图
+     * @param generator Generator实例
+     * @param tableColumnsList 所有表字段信息的列表
+     */
+    public static void generateViewsSearch(Generator generator, List<TableColumns> tableColumnsList) {
+        for (TableColumns tableColumns : tableColumnsList) {
+            generateViewSearch(generator, tableColumns);
         }
     }
 

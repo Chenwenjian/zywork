@@ -88,7 +88,7 @@ public class GeneratorController {
         } else {
             List<TableColumns> tableColumnsList = (List<TableColumns>) servletContext.getAttribute("tableColumnsList");
             CodeGenerator.generateJoinCodes(beanName, requestMapping, generator, primaryTable, columns, tableColumnsList, whereClause);
-            statusVO.okStatus(200, "成功生成所选关联表的代码！共生成" + TemplateConstants.TOTAL_TEMPLATES + "个文件");
+            statusVO.okStatus(200, "成功生成所选关联表的代码！共生成" + TemplateConstants.TOTAL_JOIN_TEMPLATES + "个文件");
         }
         return statusVO;
     }

@@ -50,6 +50,9 @@ public class CodeGenerator {
 
         ViewGenerator.generateViews(generator, tableColumnsList);
         ViewGenerator.generateJss(generator, tableColumnsList);
+
+        ViewGenerator.generateViewsSearch(generator, tableColumnsList);
+        ViewGenerator.generateJssSearch(generator, tableColumnsList);
     }
 
     /**
@@ -73,6 +76,9 @@ public class CodeGenerator {
 
         ViewGenerator.generateView(generator, tableColumns);
         ViewGenerator.generateJs(generator, tableColumns);
+
+        ViewGenerator.generateViewSearch(generator, tableColumns);
+        ViewGenerator.generateJsSearch(generator, tableColumns);
     }
 
     /**
@@ -90,21 +96,7 @@ public class CodeGenerator {
         JDBCUtils jdbcUtils = new JDBCUtils();
         jdbcUtils.connect(jdbc.getDriverClassName(), jdbc.getUrl(), jdbc.getUsername(), jdbc.getPassword());
         List<TableColumns> tableColumnsList = jdbcUtils.getTableColumns();
-        BeanGenerator.generateJoinDO(beanName, generator, columns, tableColumnsList);
-        BeanGenerator.generateJoinDTO(beanName, generator, columns, tableColumnsList);
-        BeanGenerator.generateJoinVO(beanName, generator, columns, tableColumnsList);
-        BeanGenerator.generateJoinQuery(beanName, generator, columns, tableColumnsList);
-
-        DAOGenerator.generateJoinDAO(beanName, generator);
-        MapperGenerator.generateJoinMapper(beanName, generator, primaryTable, columns, joinWhereClause);
-
-        ServiceGenerator.generateJoinService(beanName, generator);
-        ServiceGenerator.generateJoinServiceImpl(beanName, generator);
-
-        ControllerGenerator.generateJoinController(beanName, mappingUrl, generator);
-
-        ViewGenerator.generateJoinView(beanName, mappingUrl, generator, primaryTable, columns, tableColumnsList);
-        ViewGenerator.generateJoinJs(beanName, mappingUrl, generator, primaryTable, columns, tableColumnsList);
+        generateJoinCodes(beanName, mappingUrl, generator, primaryTable, columns, tableColumnsList, joinWhereClause);
     }
 
     /**

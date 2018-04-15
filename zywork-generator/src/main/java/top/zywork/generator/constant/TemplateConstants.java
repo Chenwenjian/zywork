@@ -10,7 +10,8 @@ package top.zywork.generator.constant;
  */
 public class TemplateConstants {
 
-    public static final Integer TOTAL_TEMPLATES = 11;
+    public static final Integer TOTAL_TEMPLATES = 13;
+    public static final Integer TOTAL_JOIN_TEMPLATES = 11;
 
     public static final String DO_TEMPLATE = "do.tpl";
     public static final String DTO_TEMPLATE = "dto.tpl";
@@ -32,6 +33,8 @@ public class TemplateConstants {
     public static final String VIEW_DATE_TEMPLATE = "view_date.tpl";
     public static final String VIEW_SEARCH_TEXT_TEMPLATE = "view_search_text.tpl";
     public static final String VIEW_SEARCH_DATE_TEMPLATE = "view_search_date.tpl";
+    public static final String VIEW_JS_MODAL_SEARCH = "view_search_js.tpl";
+    public static final String VIEW_MODAL_SEARCH = "view_search_modal.tpl";
 
     public static final String CREATE_DATE = "{createDate}";
 
@@ -114,5 +117,7 @@ public class TemplateConstants {
     public static final String VIEW_FIELD_PLACEHOLDER = "{zywork.fieldPlaceholder}";
 
     public static final String VIEW_SEARCH_FORM_FIELDS = "{zywork.searchFormFields}";
+
+    public static final String VIEW_MODULE_NAME = "{zywork.moduleName}";
 
 }

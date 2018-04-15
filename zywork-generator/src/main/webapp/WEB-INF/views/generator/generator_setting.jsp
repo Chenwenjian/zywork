@@ -233,6 +233,20 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label class="col-sm-3 control-label">表格模态框JS文件后缀：</label>
+
+                    <div class="col-sm-9">
+                        <input type="text" name="jsSearchModalSuffix" placeholder="表格模态框JS文件后缀" class="form-control" value="${applicationScope.generator.jsSearchModalSuffix}"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">表格模态框视图文件后缀：</label>
+
+                    <div class="col-sm-9">
+                        <input type="text" name="viewSearchModalSuffix" placeholder="表格模态框视图文件后缀" class="form-control" value="${applicationScope.generator.viewSearchModalSuffix}"/>
+                    </div>
+                </div>
+                <div class="form-group">
                     <div class="col-sm-offset-3 col-sm-9">
                         <button class="btn btn-primary" type="button" onclick="saveGenerator();">确定</button>
                     </div>

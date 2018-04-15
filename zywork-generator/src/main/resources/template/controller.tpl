@@ -43,6 +43,11 @@ public class {beanName}Controller extends BaseController {
         return "{beanName}/{beanName}";
     }
 
+    @GetMapping("search-page")
+    public String searchPage() {
+        return "{beanName}/{beanName}SearchModal";
+    }
+
     @PostMapping("save")
     @ResponseBody
     public ControllerStatusVO save({beanName}VO {beanNameLowerCase}VO) {
