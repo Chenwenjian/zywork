@@ -103,6 +103,8 @@ public class TemplateConstants {
 
     public static final String VIEW_REMOVE_URL = "{zywork.removeUrl}";
 
+    public static final String VIEW_BATCH_REMOVE_URL = "{zywork.batchRemoveUrl}";
+
     public static final String VIEW_FIELD_NAME_EN = "{zywork.fieldNameEN}";
 
     public static final String VIEW_ID_FIELD_NAME_EN = "{zywork.idFieldNameEN}";

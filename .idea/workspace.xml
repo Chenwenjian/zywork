@@ -10,11 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3891c4bd-30e2-4dc3-9494-cb36e46aec05" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-generator/src/main/java/top/zywork/generator/constant/TemplateConstants.java" afterPath="$PROJECT_DIR$/zywork-generator/src/main/java/top/zywork/generator/constant/TemplateConstants.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-generator/src/main/java/top/zywork/generator/generator/ViewGenerator.java" afterPath="$PROJECT_DIR$/zywork-generator/src/main/java/top/zywork/generator/generator/ViewGenerator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-generator/src/main/resources/template/view.tpl" afterPath="$PROJECT_DIR$/zywork-generator/src/main/resources/template/view.tpl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-generator/src/main/resources/template/view_js.tpl" afterPath="$PROJECT_DIR$/zywork-generator/src/main/resources/template/view_js.tpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-generator/src/main/webapp/WEB-INF/views/generator/index.jsp" afterPath="$PROJECT_DIR$/zywork-generator/src/main/webapp/WEB-INF/views/generator/index.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-generator/src/main/webapp/static/js/site-main.js" afterPath="$PROJECT_DIR$/zywork-generator/src/main/webapp/static/js/site-main.js" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -132,10 +131,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>getBeanMapper</find>
-      <find>mail</find>
-      <find>fieldNameEN</find>
-      <find>{</find>
       <find>{{</find>
       <find>}}</find>
       <find>{zywork.</find>
@@ -162,6 +157,10 @@
       <find>width</find>
       <find>.join</find>
       <find>remove_url</find>
+      <find>.each</find>
+      <find>tableUrl</find>
+      <find>idfield</find>
+      <find>id_field</find>
     </findStrings>
     <replaceStrings>
       <replace>PK</replace>
@@ -238,12 +237,12 @@
         <option value="$PROJECT_DIR$/zywork-generator/src/main/java/top/zywork/generator/common/JDBCUtils.java" />
         <option value="$PROJECT_DIR$/documents/zywork.sql" />
         <option value="$PROJECT_DIR$/zywork-generator/src/main/webapp/static/css/site-main.css" />
-        <option value="$PROJECT_DIR$/zywork-generator/src/main/resources/template/view.tpl" />
         <option value="$PROJECT_DIR$/zywork-generator/src/main/webapp/WEB-INF/views/generator/index.jsp" />
-        <option value="$PROJECT_DIR$/zywork-generator/src/main/resources/template/view_js.tpl" />
         <option value="$PROJECT_DIR$/zywork-generator/src/main/java/top/zywork/generator/constant/TemplateConstants.java" />
-        <option value="$PROJECT_DIR$/zywork-generator/src/main/java/top/zywork/generator/generator/ViewGenerator.java" />
+        <option value="$PROJECT_DIR$/zywork-generator/src/main/resources/template/view_js.tpl" />
         <option value="$PROJECT_DIR$/zywork-generator/src/main/webapp/static/js/site-main.js" />
+        <option value="$PROJECT_DIR$/zywork-generator/src/main/resources/template/view.tpl" />
+        <option value="$PROJECT_DIR$/zywork-generator/src/main/java/top/zywork/generator/generator/ViewGenerator.java" />
       </list>
     </option>
   </component>
@@ -446,15 +445,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="mapper" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="zywork" type="b2602c69:ProjectViewProjectNode" />
-              <item name="zywork" type="462c0819:PsiDirectoryNode" />
-              <item name="zywork-generator" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="template" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -523,7 +513,7 @@
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="generator" type="462c0819:PsiDirectoryNode" />
+              <item name="Module" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -832,7 +822,7 @@
       <workItem from="1523059948325" duration="1185000" />
       <workItem from="1523068820621" duration="91885000" />
       <workItem from="1523518874938" duration="7491000" />
-      <workItem from="1523529651267" duration="37454000" />
+      <workItem from="1523529651267" duration="38983000" />
     </task>
     <servers />
   </component>
@@ -869,7 +859,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="755944000" />
+    <option name="totallyTimeSpent" value="757473000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -890,7 +880,7 @@
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13893376" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13893376" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959612" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -946,7 +936,7 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43695015" sideWeight="0.49676898" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.43695015" sideWeight="0.49676898" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991204" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293944" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
@@ -1009,13 +999,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/zywork-generator/src/main/resources/template/mapper.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1081">
-          <caret line="6" column="4" lean-forward="false" selection-start-line="6" selection-start-column="4" selection-end-line="41" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/zywork-generator/src/main/java/top/zywork/generator/GeneratorApp.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -1212,14 +1195,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/zywork-generator/src/main/webapp/WEB-INF/views/Module/Module.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1960">
-          <caret line="172" column="0" lean-forward="false" selection-start-line="172" selection-start-column="0" selection-end-line="172" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/zywork-generator/src/main/resources/template/view_date.tpl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -1311,28 +1286,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/zywork-generator/src/main/resources/template/view.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="73" lean-forward="false" selection-start-line="19" selection-start-column="73" selection-end-line="19" selection-end-column="73" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/zywork-generator/src/main/webapp/WEB-INF/views/generator/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1662">
           <caret line="109" column="16" lean-forward="false" selection-start-line="109" selection-start-column="16" selection-end-line="109" selection-end-column="16" />
           <folding>
-            <element signature="n#style#0;n#nav#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#nav#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/10d538e1/ed44ff0d-aa75-45ec-ae6d-2917247fd17a/zywork.t_module">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
@@ -1359,14 +1319,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/zywork-generator/src/main/webapp/static/js/Module/Module.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1573">
-          <caret line="185" column="0" lean-forward="false" selection-start-line="185" selection-start-column="0" selection-end-line="185" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/zywork-common/src/main/java/top/zywork/query/StatusQuery.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -1375,42 +1327,81 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/zywork-generator/src/main/java/top/zywork/generator/generator/ViewGenerator.java">
+    <entry file="file://$PROJECT_DIR$/zywork-common/src/main/java/top/zywork/common/StringUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="618">
-          <caret line="63" column="76" lean-forward="false" selection-start-line="63" selection-start-column="76" selection-end-line="63" selection-end-column="76" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zywork-generator/src/main/java/top/zywork/generator/constant/TemplateConstants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
-          <caret line="101" column="67" lean-forward="false" selection-start-line="101" selection-start-column="67" selection-end-line="101" selection-end-column="67" />
+        <state relative-caret-position="218">
+          <caret line="17" column="25" lean-forward="false" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/zywork-generator/src/main/java/top/zywork/controller/ModuleController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="117" column="58" lean-forward="false" selection-start-line="117" selection-start-column="58" selection-end-line="117" selection-end-column="58" />
+        <state relative-caret-position="418">
+          <caret line="92" column="57" lean-forward="false" selection-start-line="92" selection-start-column="57" selection-end-line="92" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zywork-generator/src/main/java/top/zywork/generator/constant/TemplateConstants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="445">
+          <caret line="105" column="81" lean-forward="false" selection-start-line="105" selection-start-column="81" selection-end-line="105" selection-end-column="81" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/zywork-generator/src/main/resources/template/view_js.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="79" column="4" lean-forward="false" selection-start-line="79" selection-start-column="4" selection-end-line="79" selection-end-column="4" />
+        <state relative-caret-position="393">
+          <caret line="81" column="8" lean-forward="false" selection-start-line="81" selection-start-column="8" selection-end-line="81" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zywork-generator/src/main/resources/template/view.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="370">
+          <caret line="26" column="142" lean-forward="false" selection-start-line="26" selection-start-column="142" selection-end-line="26" selection-end-column="142" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/zywork-generator/src/main/webapp/static/js/site-main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-54">
-          <caret line="207" column="1" lean-forward="true" selection-start-line="207" selection-start-column="1" selection-end-line="207" selection-end-column="1" />
+        <state relative-caret-position="160">
+          <caret line="263" column="53" lean-forward="false" selection-start-line="263" selection-start-column="53" selection-end-line="263" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zywork-generator/src/main/webapp/static/js/Module/Module.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2775">
+          <caret line="185" column="0" lean-forward="false" selection-start-line="185" selection-start-column="0" selection-end-line="185" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zywork-generator/src/main/webapp/WEB-INF/views/Module/Module.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2580">
+          <caret line="172" column="0" lean-forward="false" selection-start-line="172" selection-start-column="0" selection-end-line="172" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/10d538e1/ed44ff0d-aa75-45ec-ae6d-2917247fd17a/zywork.t_module">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zywork-generator/src/main/java/top/zywork/generator/generator/ViewGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="43" column="56" lean-forward="false" selection-start-line="43" selection-start-column="48" selection-end-line="43" selection-end-column="56" />
           <folding />
         </state>
       </provider>

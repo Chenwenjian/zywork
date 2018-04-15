@@ -225,16 +225,63 @@ function active(url, id, status, tableId, tableUrl) {
 }
 
 function remove(url, tableId, tableUrl) {
-    $.get(contextPath + url,
-        function (data){
-            if (data.code === 200) {
-                swalSuccess(data.message);
-                refreshTable(tableId, contextPath + tableUrl);
-            } else {
-                swalError(data.message);
+    swal({
+        title: "确定删除吗？",
+        text: "你将无法恢复删除的数据！",
+        type: "warning",
+        showCancelButton: true
+    }).then((result) =>  {
+        if (result.value) {
+            $.get(contextPath + url,
+                function (data){
+                    if (data.code === 200) {
+                        swalSuccess(data.message);
+                        refreshTable(tableId, contextPath + tableUrl);
+                    } else {
+                        swalError(data.message);
+                    }
+                }, 'json'
+            );
+        }
+    });
+}
+
+function batchRemove(url, tableId, tableUrl, tableIdField) {
+    let rows = $('#' + tableId).bootstrapTable('getSelections');
+    if (rows && rows.length > 0) {
+        swal({
+            title: "确定删除吗？",
+            text: "你将无法恢复删除的数据！",
+            type: "warning",
+            showCancelButton: true
+        }).then((result) =>  {
+            if (result.value) {
+                let ids = '';
+                $.each(rows, function (index, row) {
+                    if (ids === '') {
+                        ids += row[tableIdField];
+                    } else {
+                        ids += ',' + row[tableIdField];
+                    }
+                });
+                $.post(contextPath + url,
+                    {
+                        ids: ids
+                    },
+                    function (data) {
+                        if (data.code === 200) {
+                            swalSuccess(data.message);
+                            refreshTable(tableId, contextPath + tableUrl);
+                        } else {
+                            swalError(data.message);
+                        }
+                    }, 'json'
+                );
             }
-        }, 'json'
-    );
+        });
+    } else {
+        swalWarning('请选择需要批量删除的数据');
+    }
 }
 
 function timestampToDatetime(value) {

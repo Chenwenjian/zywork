@@ -79,16 +79,7 @@ window.operateEvents = {
         active('{zywork.activeUrl}', row.{zywork.idField}, 0, 'data-list', '{zywork.tableUrl}');
     },
     'click .to-remove': function (e, value, row, index) {
-        swal({
-            title: "确定删除吗？",
-            text: "你将无法恢复删除的数据！",
-            type: "warning",
-            showCancelButton: true
-        }).then((result) =>  {
-            if (result.value) {
-                remove('{zywork.removeUrl}' + row.{zywork.idField}, 'data-list', '{zywork.tableUrl}');
-            }
-        })
+        remove('{zywork.removeUrl}' + row.{zywork.idField}, 'data-list', '{zywork.tableUrl}');
     }
 };
 

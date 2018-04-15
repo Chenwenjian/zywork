@@ -24,7 +24,7 @@
                 <i class="fa fa-plus"></i>
                 添加
             </button>
-            <button class="btn btn-danger">
+            <button class="btn btn-danger" onclick="batchRemove('{zywork.batchRemoveUrl}', 'data-list', '{zywork.tableUrl}', '{zywork.idField}')">
                 <i class="fa fa-remove"></i>
                 批量删除
             </button>
