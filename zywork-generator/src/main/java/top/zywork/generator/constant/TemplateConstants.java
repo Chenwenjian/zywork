@@ -91,11 +91,15 @@ public class TemplateConstants {
 
     public static final String VIEW_ID_FIELD = "{zywork.idField}";
 
+    public static final String VIEW_IS_ACTIVE_FIELD = "{zywork.isActiveField}";
+
     public static final String VIEW_ROW_DETAIL_TITLES = "{zywork.rowDetailTitles}";
 
     public static final String VIEW_ROW_DETAIL_FIELDS = "{zywork.rowDetailFields}";
 
     public static final String VIEW_VALIDATE_FIELDS = "{zywork.validateFields}";
+
+    public static final String VIEW_ACTIVE_URL = "{zywork.activeUrl}";
 
     public static final String VIEW_REMOVE_URL = "{zywork.removeUrl}";
 

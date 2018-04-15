@@ -49,23 +49,34 @@ function loadTable() {
 }
 
 function formatOperators(value, row, index) {
-    return [
-        '<div class="btn-group">',
-        '<button type="button" class="to-edit btn btn-primary"><i class="fa fa-edit"></i>&nbsp;修改</button>',
-        '<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">',
-        '<span class="caret"></span>',
-        '<span class="sr-only">Toggle Dropdown</span>',
-        '</button>',
-        '<ul class="dropdown-menu">',
-        '<li><a href="javascript:void(0)" class="to-remove"><i class="fa fa-remove"></i>&nbsp;删除</a></li>',
-        '</ul>',
-        '</div>'
-    ].join('')
+    let strArray = [];
+    strArray.push('<div class="btn-group">');
+    strArray.push('<button type="button" class="to-edit btn btn-primary"><i class="fa fa-edit"></i>&nbsp;修改</button>');
+    strArray.push('<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">');
+    strArray.push('<span class="caret"></span>');
+    strArray.push('<span class="sr-only">Toggle Dropdown</span>');
+    strArray.push('</button>');
+    strArray.push('<ul class="dropdown-menu">');
+    if (row.{zywork.isActiveField} === 0) {
+        strArray.push('<li><a href="javascript:void(0)" class="to-inactive"><i class="fa fa-minus-square-o "></i>&nbsp;冻结</a></li>');
+    } else {
+        strArray.push('<li><a href="javascript:void(0)" class="to-active"><i class="fa fa-check-square-o "></i>&nbsp;激活</a></li>');
+    }
+    strArray.push('<li><a href="javascript:void(0)" class="to-remove"><i class="fa fa-remove"></i>&nbsp;删除</a></li>');
+    strArray.push('</ul>');
+    strArray.push('</div>');
+    return strArray.join('');
 }
 
 window.operateEvents = {
     'click .to-edit': function (e, value, row, index) {
         showEditModal('edit-modal', 'edit-form', row, validateFields());
+    },
+    'click .to-inactive': function (e, value, row, index) {
+        active('{zywork.activeUrl}', row.{zywork.idField}, 1, 'data-list', '{zywork.tableUrl}');
+    },
+    'click .to-active': function (e, value, row, index) {
+        active('{zywork.activeUrl}', row.{zywork.idField}, 0, 'data-list', '{zywork.tableUrl}');
     },
     'click .to-remove': function (e, value, row, index) {
         swal({

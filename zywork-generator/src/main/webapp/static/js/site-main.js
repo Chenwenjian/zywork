@@ -207,6 +207,23 @@ function saveOrEditWithFile(modalId, formId, postUrl, tableId, tableUrl) {
     }
 }
 
+function active(url, id, status, tableId, tableUrl) {
+    $.post(contextPath + url,
+        {
+            id: id,
+            status: status
+        },
+        function (data) {
+            if (data.code === 200) {
+                swalSuccess(data.message);
+                refreshTable(tableId, contextPath + tableUrl);
+            } else {
+                swalError(data.message);
+            }
+        }, 'json'
+    );
+}
+
 function remove(url, tableId, tableUrl) {
     $.get(contextPath + url,
         function (data){
@@ -216,7 +233,8 @@ function remove(url, tableId, tableUrl) {
             } else {
                 swalError(data.message);
             }
-        }, 'json')
+        }, 'json'
+    );
 }
 
 function timestampToDatetime(value) {

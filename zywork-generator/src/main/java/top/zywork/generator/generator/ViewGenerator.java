@@ -38,11 +38,13 @@ public class ViewGenerator {
         String[] rowDetails = generateTableRowDetail(generator, tableColumns);
         fileContent = fileContent.replace(TemplateConstants.VIEW_TABLE_FIELDS, generateTableFields(generator, tableColumns))
                 .replace(TemplateConstants.VIEW_VALIDATE_FIELDS, generateValidateFields(generator, tableColumns))
+                .replace(TemplateConstants.VIEW_ACTIVE_URL, "/" + moduleName + "/active")
                 .replace(TemplateConstants.VIEW_REMOVE_URL, "/" + moduleName + "/remove/")
                 .replace(TemplateConstants.VIEW_TABLE_URL, "/" + moduleName + "/pager-cond")
                 .replace(TemplateConstants.VIEW_ID_FIELD, "id")
                 .replace(TemplateConstants.VIEW_ROW_DETAIL_TITLES, rowDetails[0])
-                .replace(TemplateConstants.VIEW_ROW_DETAIL_FIELDS, rowDetails[1]);
+                .replace(TemplateConstants.VIEW_ROW_DETAIL_FIELDS, rowDetails[1])
+                .replace(TemplateConstants.VIEW_IS_ACTIVE_FIELD, "isActive");
         GeneratorUtils.writeFile(fileContent, saveDir, beanName + ".js");
     }
 
@@ -59,12 +61,15 @@ public class ViewGenerator {
         String[] rowDetails = generateJoinTableRowDetail(generator, primaryTable, columns, tableColumnsList);
         fileContent = fileContent.replace(TemplateConstants.VIEW_TABLE_FIELDS, generateJoinTableFields(generator, primaryTable, columns, tableColumnsList))
                 .replace(TemplateConstants.VIEW_VALIDATE_FIELDS, generateJoinValidateFields(generator, primaryTable, columns, tableColumnsList))
+                .replace(TemplateConstants.VIEW_ACTIVE_URL, "/" + mappingUrl + "/active")
                 .replace(TemplateConstants.VIEW_REMOVE_URL, "/" + mappingUrl + "/remove/")
                 .replace(TemplateConstants.VIEW_TABLE_URL, "/" + mappingUrl + "/pager-cond")
                 .replace(TemplateConstants.VIEW_ID_FIELD, StringUtils.uncapitalize(GeneratorUtils.tableNameToClassName(primaryTable,
                         generator.getTablePrefix())) + StringUtils.capitalize(PropertyUtils.columnToProperty("id")))
                 .replace(TemplateConstants.VIEW_ROW_DETAIL_TITLES, rowDetails[0])
-                .replace(TemplateConstants.VIEW_ROW_DETAIL_FIELDS, rowDetails[1]);
+                .replace(TemplateConstants.VIEW_ROW_DETAIL_FIELDS, rowDetails[1])
+                .replace(TemplateConstants.VIEW_IS_ACTIVE_FIELD, StringUtils.uncapitalize(GeneratorUtils.tableNameToClassName(primaryTable,
+                        generator.getTablePrefix())) + "IsActive");
         GeneratorUtils.writeFile(fileContent, saveDir, beanName + ".js");
     }
 
