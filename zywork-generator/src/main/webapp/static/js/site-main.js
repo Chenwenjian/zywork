@@ -1,4 +1,4 @@
-const contextPath = "";
+const contextPath = '';
 
 function loadTable(tableId, url, columns) {
     destroyTable(tableId);
@@ -101,9 +101,9 @@ function showRemoteEditModal(modalId, url, formId, row, validateFields) {
 }
 
 function showDatetimeInEditModal(formId, row) {
-    $('#' + formId + " .input-datetime").each(function () {
+    $('#' + formId + ' .input-datetime').each(function () {
         let date = timestampToDatetime(row[$(this).attr('name')]);
-        $(this).val(date === '-' ? "" : date);
+        $(this).val(date === '-' ? '' : date);
     });
 }
 
@@ -133,7 +133,7 @@ function initSelect2(selectId, jsonData) {
         language: 'zh-CN',
         placeholder:'请选择',
         width: '100%',
-        theme: "bootstrap"
+        theme: 'bootstrap'
     });
 }
 
@@ -227,11 +227,11 @@ function saveOrEditWithFile(modalId, formId, postUrl, tableId, tableUrl) {
                     hideModal(modalId);
                     refreshTable(tableId, contextPath + tableUrl);
                 } else {
-                    swalError(data.message)
+                    swalError(data.message);
                 }
             },
             error: function (data) {
-                swalError("提交失败")
+                swalError('提交失败');
             }
         });
     }
@@ -256,9 +256,9 @@ function active(url, id, status, tableId, tableUrl) {
 
 function remove(url, tableId, tableUrl) {
     swal({
-        title: "确定删除吗？",
-        text: "你将无法恢复删除的数据！",
-        type: "warning",
+        title: '确定删除吗？',
+        text: '你将无法恢复删除的数据！',
+        type: 'warning',
         showCancelButton: true
     }).then((result) =>  {
         if (result.value) {
@@ -280,9 +280,9 @@ function batchRemove(url, tableId, tableUrl, tableIdField) {
     let rows = $('#' + tableId).bootstrapTable('getSelections');
     if (rows && rows.length > 0) {
         swal({
-            title: "确定删除吗？",
-            text: "你将无法恢复删除的数据！",
-            type: "warning",
+            title: '确定删除吗？',
+            text: '你将无法恢复删除的数据！',
+            type: 'warning',
             showCancelButton: true
         }).then((result) =>  {
             if (result.value) {
@@ -316,7 +316,7 @@ function batchRemove(url, tableId, tableUrl, tableIdField) {
 
 function timestampToDatetime(value) {
     if (value === undefined || value === null || value === '') {
-        return "-";
+        return '-';
     } else {
         let date = new Date(value);
         let year = date.getFullYear();
@@ -330,7 +330,7 @@ function timestampToDatetime(value) {
         hour = hour < 10 ? '0' + hour : hour;
         minute = minute < 10 ? '0' + minute : minute;
         second = second < 10 ? '0' + second : second;
-        return year + "-" + month + "-" + day + " " + hour + ":" + minute + ":" + second;
+        return year + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':' + second;
     }
 }
 
