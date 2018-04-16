@@ -61,4 +61,10 @@
         <property name="useCodeAsDefaultMessage" value="true"/>
     </bean>
 
+    <mvc:annotation-driven validator="validator" />
+
+    <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+        <property name="providerClass" value="org.hibernate.validator.HibernateValidator" />
+    </bean>
+
 </beans>

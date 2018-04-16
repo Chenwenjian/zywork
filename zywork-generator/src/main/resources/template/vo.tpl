@@ -3,6 +3,10 @@ package top.zywork.vo;
 import java.math.BigDecimal;
 import java.util.Date;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 /**
  * {beanName}VO值对象类<br/>
  *

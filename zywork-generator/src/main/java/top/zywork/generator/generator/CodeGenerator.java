@@ -116,10 +116,10 @@ public class CodeGenerator {
      */
     public static void generateJoinCodes(String beanName, String mappingUrl, Generator generator, String primaryTable,
                                          String[] columns, List<TableColumns> tableColumnsList, String joinWhereClause) {
-        BeanGenerator.generateJoinDO(beanName, generator, columns, tableColumnsList);
-        BeanGenerator.generateJoinDTO(beanName, generator, columns, tableColumnsList);
-        BeanGenerator.generateJoinVO(beanName, generator, columns, tableColumnsList);
-        BeanGenerator.generateJoinQuery(beanName, generator, columns, tableColumnsList);
+        BeanGenerator.generateJoinDO(beanName, generator, primaryTable, columns, tableColumnsList);
+        BeanGenerator.generateJoinDTO(beanName, generator, primaryTable, columns, tableColumnsList);
+        BeanGenerator.generateJoinVO(beanName, generator, primaryTable, columns, tableColumnsList);
+        BeanGenerator.generateJoinQuery(beanName, generator, primaryTable, columns, tableColumnsList);
 
         DAOGenerator.generateJoinDAO(beanName, generator);
         MapperGenerator.generateJoinMapper(beanName, generator, primaryTable, columns, joinWhereClause);

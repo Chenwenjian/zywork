@@ -4,7 +4,10 @@ import org.dozer.Mapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import top.zywork.common.BindingResultUtils;
 import top.zywork.common.DozerMapperUtils;
 import top.zywork.common.StringUtils;
 import top.zywork.dto.PagerDTO;
@@ -60,14 +63,18 @@ public class {beanName}Controller extends BaseController {
 
     @PostMapping("save")
     @ResponseBody
-    public ControllerStatusVO save({beanName}VO {beanNameLowerCase}VO) {
+    public ControllerStatusVO save(@Validated {beanName}VO {beanNameLowerCase}VO, BindingResult bindingResult) {
         ControllerStatusVO statusVO = new ControllerStatusVO();
-        try {
-            {beanNameLowerCase}Service.save(getBeanMapper().map({beanNameLowerCase}VO, {beanName}DTO.class));
-            statusVO.okStatus(200, "添加成功");
-        } catch (ServiceException e) {
-            logger.error("添加失败：{}", e.getMessage());
-            statusVO.errorStatus(500, "添加失败");
+        if (bindingResult.hasErrors()) {
+            statusVO.dataErrorStatus(500, BindingResultUtils.errorString(bindingResult));
+        } else {
+            try {
+                {beanNameLowerCase}Service.save(getBeanMapper().map({beanNameLowerCase}VO, {beanName}DTO.class));
+                statusVO.okStatus(200, "添加成功");
+            } catch (ServiceException e) {
+                logger.error("添加失败：{}", e.getMessage());
+                statusVO.errorStatus(500, "添加失败");
+            }
         }
         return statusVO;
     }
@@ -116,14 +123,18 @@ public class {beanName}Controller extends BaseController {
 
     @PostMapping("update")
     @ResponseBody
-    public ControllerStatusVO update({beanName}VO {beanNameLowerCase}VO) {
+    public ControllerStatusVO update(@Validated {beanName}VO {beanNameLowerCase}VO, BindingResult bindingResult) {
         ControllerStatusVO statusVO = new ControllerStatusVO();
-        try {
-            {beanNameLowerCase}Service.update(getBeanMapper().map({beanNameLowerCase}VO, {beanName}DTO.class));
-            statusVO.okStatus(200, "更新成功");
-        } catch (ServiceException e) {
-            logger.error("更新失败：{}", e.getMessage());
-            statusVO.errorStatus(500, "更新失败");
+        if (bindingResult.hasErrors()) {
+            statusVO.dataErrorStatus(500, BindingResultUtils.errorString(bindingResult));
+        } else {
+            try {
+                {beanNameLowerCase}Service.update(getBeanMapper().map({beanNameLowerCase}VO, {beanName}DTO.class));
+                statusVO.okStatus(200, "更新成功");
+            } catch (ServiceException e) {
+                logger.error("更新失败：{}", e.getMessage());
+                statusVO.errorStatus(500, "更新失败");
+            }
         }
         return statusVO;
     }
