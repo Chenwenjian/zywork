@@ -74,19 +74,6 @@
                     </ul>
 
                 </li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa-home"></i>
-                        <span class="nav-label">页面示例</span>
-                        <span class="fa arrow"></span>
-                    </a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a class="J_menuItem" href="<%=path%>/module-permission/page" data-index="0">权限管理</a>
-                        </li>
-                    </ul>
-
-                </li>
 
             </ul>
         </div>
