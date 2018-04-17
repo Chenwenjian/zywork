@@ -1,5 +1,6 @@
 package top.zywork.generator.common;
 
+import top.zywork.common.ExceptionUtils;
 import top.zywork.generator.bean.ColumnDetail;
 import top.zywork.generator.bean.TableColumns;
 
@@ -33,7 +34,7 @@ public class JDBCUtils {
             Class.forName(driverClassName);
             this.connection = DriverManager.getConnection(url, username, password);
         } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
+            throw ExceptionUtils.appException(e);
         }
     }
 

@@ -5,8 +5,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import top.zywork.exception.AppException;
 import top.zywork.generator.bean.Generator;
 import top.zywork.generator.bean.JDBC;
+import top.zywork.generator.common.JDBCUtils;
 import top.zywork.vo.ControllerStatusVO;
 
 import javax.servlet.ServletContext;
@@ -38,10 +40,16 @@ public class SettingController {
     @ResponseBody
     public ControllerStatusVO saveJdbc(JDBC jdbc, HttpServletRequest request) {
         ServletContext servletContext = request.getServletContext();
-        servletContext.setAttribute("jdbc", jdbc);
-        servletContext.removeAttribute("tableColumnsList");
+        JDBCUtils jdbcUtils = new JDBCUtils();
         ControllerStatusVO statusVO = new ControllerStatusVO();
-        statusVO.okStatus(200, "已修改JDBC配置");
+        try {
+            jdbcUtils.connect(jdbc.getDriverClassName(), jdbc.getUrl(), jdbc.getUsername(), jdbc.getPassword());
+            servletContext.setAttribute("jdbc", jdbc);
+            servletContext.removeAttribute("tableColumnsList");
+            statusVO.okStatus(200, "已修改JDBC配置");
+        } catch (AppException e){
+            statusVO.errorStatus(500, "数据库连接测试失败，请重新修改JDBC配置");
+        }
         return statusVO;
     }
 

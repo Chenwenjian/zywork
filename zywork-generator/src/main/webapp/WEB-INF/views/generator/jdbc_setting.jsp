@@ -72,7 +72,11 @@
         $.post('<%=path%>/setting/jdbc',
             $('#jdbc-form').serialize(),
             function (data) {
-                swal('提示', data.message, "success");
+                if (data.code === 200) {
+                    swal('提示', data.message, "success");
+                } else {
+                    swal('提示', data.message, "warning");
+                }
             }, 'json'
         );
     }
