@@ -66,7 +66,13 @@
         select
         <include refid="select_columns"/>
         from {tableName}
-        order by update_time desc, create_time desc
+        order by
+        <if test="sort != null and sort != ''">
+            ${sort} ${order}
+        </if>
+        <if test="sort == null or sort == ''">
+            update_time desc, create_time desc
+        </if>
         limit #{beginIndex}, #{pageSize}
     </select>
 
@@ -81,7 +87,13 @@
         <where>
             <include refid="query_where_clause"/>
         </where>
-        order by update_time desc, create_time desc
+        order by
+        <if test="pager.sort != null and pager.sort != ''">
+            ${pager.sort} ${pager.order}
+        </if>
+        <if test="pager.sort == null or pager.sort == ''">
+            update_time desc, create_time desc
+        </if>
         limit #{pager.beginIndex}, #{pager.pageSize}
     </select>
 

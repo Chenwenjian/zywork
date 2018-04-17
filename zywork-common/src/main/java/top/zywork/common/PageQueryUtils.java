@@ -30,7 +30,7 @@ public class PageQueryUtils {
         if (pageSize <= 0) {
             pageSize = DEFAULT_PAGE_SIZE;
         }
-        return new PageQuery(pageNo, pageSize);
+        return new PageQuery(pageNo, pageSize, "", "");
     }
 
     /**

@@ -18,6 +18,7 @@ function loadTable() {
         pageSize: 10,
         pageList: [10, 20, 30],
         queryParams: queryParams,
+        sortable: true,
         singleSelect: false,
         maintainSelected: true,
         striped: true,
@@ -105,9 +106,10 @@ function formatDetail(index, row) {
 
 function queryParams(params) {
     let query = {
-        limit:params.limit,
-        offset:params.offset,
-        sortOrder: params.order
+        limit: params.limit,
+        offset: params.offset,
+        sort: params.sort,
+        order: params.order
     };
     $.each($('#search-form').serializeArray(), function(index, field){
         query[field.name] = field.value;

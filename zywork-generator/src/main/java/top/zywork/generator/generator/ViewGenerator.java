@@ -203,7 +203,8 @@ public class ViewGenerator {
                 .append("\tfield: '")
                 .append(fieldName)
                 .append("',\n")
-                .append("\talign: 'center'\n");
+                .append("\talign: 'center',\n")
+                .append("\tsortable: true");
         if (javaTypeName.equals("Date")) {
             columnField.append(",\n")
                     .append("\tformatter: formatDate");

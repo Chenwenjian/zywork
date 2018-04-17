@@ -183,10 +183,9 @@ public class {beanName}Controller extends BaseController {
 
     @RequestMapping("pager")
     @ResponseBody
-    public PagerVO listPage(int offset, int limit, PageQuery pageQuery) {
+    public PagerVO listPage(int offset, int limit, String sort, String order) {
         PagerVO pagerVO = new PagerVO();
-        pageQuery.setPageNo(offset / limit + 1);
-        pageQuery.setPageSize(limit);
+        PageQuery pageQuery = new PageQuery(offset / limit + 1, limit, sort, order);
         try {
             PagerDTO pagerDTO = {beanNameLowerCase}Service.listPage(pageQuery);
             Mapper mapper = getBeanMapper();
@@ -200,10 +199,9 @@ public class {beanName}Controller extends BaseController {
 
     @RequestMapping("pager-cond")
     @ResponseBody
-    public PagerVO listPageByCondition(int offset, int limit, PageQuery pageQuery, {beanName}Query {beanNameLowerCase}Query) {
+    public PagerVO listPageByCondition(int offset, int limit, String sort, String order, {beanName}Query {beanNameLowerCase}Query) {
         PagerVO pagerVO = new PagerVO();
-        pageQuery.setPageNo(offset / limit + 1);
-        pageQuery.setPageSize(limit);
+        PageQuery pageQuery = new PageQuery(offset / limit + 1, limit, sort, order);
         try {
             PagerDTO pagerDTO = {beanNameLowerCase}Service.listPageByCondition(pageQuery, {beanNameLowerCase}Query);
             Mapper mapper = getBeanMapper();

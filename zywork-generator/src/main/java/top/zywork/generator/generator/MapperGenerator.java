@@ -269,8 +269,11 @@ public class MapperGenerator {
         List<ColumnDetail> columnDetails = tableColumns.getColumns();
         StringBuilder selectColumns = new StringBuilder("");
         for (ColumnDetail columnDetail : columnDetails) {
+            String columnName = columnDetail.getName();
             selectColumns.append(", ")
-                    .append(columnDetail.getName());
+                    .append(columnName)
+                    .append(" as ")
+                    .append(PropertyUtils.columnToProperty(columnName));
         }
         return fileContent.replace(TemplateConstants.SELECT_COLUMNS, selectColumns.toString().replaceFirst(", ", ""));
     }
