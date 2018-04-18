@@ -104,9 +104,7 @@ public class TemplateConstants {
 
     public static final String VIEW_IS_ACTIVE_FIELD = "{zywork.isActiveField}";
 
-    public static final String VIEW_ROW_DETAIL_TITLES = "{zywork.rowDetailTitles}";
-
-    public static final String VIEW_ROW_DETAIL_FIELDS = "{zywork.rowDetailFields}";
+    public static final String VIEW_ROW_DETAIL_FIELD_TITLES = "{zywork.rowDetailFieldTitles}";
 
     public static final String VIEW_VALIDATE_FIELDS = "{zywork.validateFields}";
 

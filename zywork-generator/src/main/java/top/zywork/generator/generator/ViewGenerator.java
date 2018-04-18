@@ -35,7 +35,6 @@ public class ViewGenerator {
         String saveDir = GeneratorUtils.createViewResDir(generator, generator.getJsFileDir() + beanName);
         String moduleName = GeneratorUtils.getModuleName(tableColumns.getTableName(), generator.getTablePrefix());
         String fileContent = GeneratorUtils.readTemplate(generator, TemplateConstants.VIEW_JS_TEMPLATE);
-        String[] rowDetails = generateTableRowDetail(generator, tableColumns);
         fileContent = fileContent.replace(TemplateConstants.VIEW_TABLE_FIELDS, generateTableFields(generator, tableColumns))
                 .replace(TemplateConstants.VIEW_VALIDATE_FIELDS, generateValidateFields(generator, tableColumns))
                 .replace(TemplateConstants.VIEW_EDIT_MODAL_URL, "/" + moduleName + "/edit-modal")
@@ -43,8 +42,7 @@ public class ViewGenerator {
                 .replace(TemplateConstants.VIEW_REMOVE_URL, "/" + moduleName + "/remove/")
                 .replace(TemplateConstants.VIEW_TABLE_URL, "/" + moduleName + "/pager-cond")
                 .replace(TemplateConstants.VIEW_ID_FIELD, "id")
-                .replace(TemplateConstants.VIEW_ROW_DETAIL_TITLES, rowDetails[0])
-                .replace(TemplateConstants.VIEW_ROW_DETAIL_FIELDS, rowDetails[1])
+                .replace(TemplateConstants.VIEW_ROW_DETAIL_FIELD_TITLES, generateTableRowDetail(generator, tableColumns))
                 .replace(TemplateConstants.VIEW_IS_ACTIVE_FIELD, "isActive");
         GeneratorUtils.writeFile(fileContent, saveDir, beanName + ".js");
     }
@@ -76,7 +74,6 @@ public class ViewGenerator {
     public static void generateJoinJs(String beanName, String mappingUrl, Generator generator, String primaryTable, String[] columns, List<TableColumns> tableColumnsList) {
         String saveDir = GeneratorUtils.createViewResDir(generator, generator.getJsFileDir() + beanName);
         String fileContent = GeneratorUtils.readTemplate(generator, TemplateConstants.VIEW_JS_TEMPLATE);
-        String[] rowDetails = generateJoinTableRowDetail(generator, primaryTable, columns, tableColumnsList);
         fileContent = fileContent.replace(TemplateConstants.VIEW_TABLE_FIELDS, generateJoinTableFields(generator, primaryTable, columns, tableColumnsList))
                 .replace(TemplateConstants.VIEW_VALIDATE_FIELDS, generateJoinValidateFields(generator, primaryTable, columns, tableColumnsList))
                 .replace(TemplateConstants.VIEW_EDIT_MODAL_URL, "/" + mappingUrl + "/edit-modal")
@@ -85,8 +82,7 @@ public class ViewGenerator {
                 .replace(TemplateConstants.VIEW_TABLE_URL, "/" + mappingUrl + "/pager-cond")
                 .replace(TemplateConstants.VIEW_ID_FIELD, StringUtils.uncapitalize(GeneratorUtils.tableNameToClassName(primaryTable,
                         generator.getTablePrefix())) + StringUtils.capitalize(PropertyUtils.columnToProperty("id")))
-                .replace(TemplateConstants.VIEW_ROW_DETAIL_TITLES, rowDetails[0])
-                .replace(TemplateConstants.VIEW_ROW_DETAIL_FIELDS, rowDetails[1])
+                .replace(TemplateConstants.VIEW_ROW_DETAIL_FIELD_TITLES, generateJoinTableRowDetail(generator, primaryTable, columns, tableColumnsList))
                 .replace(TemplateConstants.VIEW_IS_ACTIVE_FIELD, StringUtils.uncapitalize(GeneratorUtils.tableNameToClassName(primaryTable,
                         generator.getTablePrefix())) + "IsActive");
         GeneratorUtils.writeFile(fileContent, saveDir, beanName + ".js");
@@ -219,19 +215,14 @@ public class ViewGenerator {
      * @param tableColumns 所选表的字段信息
      * @return
      */
-    private static String[] generateTableRowDetail(Generator generator, TableColumns tableColumns) {
-        String[] rowDetailAndFields = new String[2];
+    private static String generateTableRowDetail(Generator generator, TableColumns tableColumns) {
         List<ColumnDetail> columnDetailList = tableColumns.getColumns();
-        StringBuilder rowDetailTitles = new StringBuilder();
-        StringBuilder rowDetailFields = new StringBuilder();
+        StringBuilder rowDetailFieldTitles = new StringBuilder();
         for (int i = 0, len = columnDetailList.size(); i < len; i++) {
             ColumnDetail columnDetail = columnDetailList.get(i);
-            rowDetailTitles.append(rowDetailTitle(columnDetail.getComment()));
-            rowDetailFields.append(rowDetailField(columnDetail.getFieldName(), columnDetail.getJavaTypeName()));
+            rowDetailFieldTitles.append(rowDetailFieldTitle(columnDetail.getComment(), columnDetail.getFieldName(), columnDetail.getJavaTypeName()));
         }
-        rowDetailAndFields[0] = rowDetailTitles.toString().substring(1);
-        rowDetailAndFields[1] = rowDetailFields.toString().substring(1);
-        return rowDetailAndFields;
+        return rowDetailFieldTitles.toString().substring(1);
     }
 
     /**
@@ -242,12 +233,9 @@ public class ViewGenerator {
      * @param tableColumnsList 所有表的字段信息
      * @return
      */
-    private static String[] generateJoinTableRowDetail(Generator generator, String primaryTable, String[] columns, List<TableColumns> tableColumnsList) {
-        String[] rowDetailAndFields = new String[2];
+    private static String generateJoinTableRowDetail(Generator generator, String primaryTable, String[] columns, List<TableColumns> tableColumnsList) {
         StringBuilder rowDetailTitles = new StringBuilder();
         StringBuilder primaryRowDetailTitles = new StringBuilder();
-        StringBuilder rowDetailFields = new StringBuilder();
-        StringBuilder primaryRowDetailFields = new StringBuilder();
         for (int i = 0, len = columns.length; i < len; i++) {
             String column = columns[i];
             String[] tableNameAndColumn = column.split("-");
@@ -263,39 +251,29 @@ public class ViewGenerator {
                             String title = columnDetail.getComment();
                             String javaTypeName = columnDetail.getJavaTypeName();
                             if (tableName.equals(primaryTable)) {
-                                primaryRowDetailTitles.append(rowDetailTitle(title));
-                                primaryRowDetailFields.append(rowDetailField(field, javaTypeName));
+                                primaryRowDetailTitles.append(rowDetailFieldTitle(title, field, javaTypeName));
                             } else {
-                                rowDetailTitles.append(rowDetailTitle(title));
-                                rowDetailFields.append(rowDetailField(field, javaTypeName));
+                                rowDetailTitles.append(rowDetailFieldTitle(title, field, javaTypeName));
                             }
                         }
                     }
                 }
             }
         }
-        rowDetailAndFields[0] = primaryRowDetailTitles.append(rowDetailTitles).toString().substring(1);
-        rowDetailAndFields[1] = primaryRowDetailFields.append(rowDetailFields).toString().substring(1);
-        return rowDetailAndFields;
+        return primaryRowDetailTitles.append(rowDetailTitles).toString().substring(1);
     }
 
-    private static String rowDetailTitle(String title) {
-        StringBuilder rowDetailTitle = new StringBuilder();
-        rowDetailTitle.append(",")
-                .append("'")
+    private static String rowDetailFieldTitle(String title, String field, String javaTypeName) {
+        StringBuilder rowDetailFieldTitle = new StringBuilder();
+        if (javaTypeName.equals("Date")) {
+            rowDetailFieldTitle.append(",'").append(field).append("-").append("date':");
+        } else {
+            rowDetailFieldTitle.append(",'").append(field).append("':");
+        }
+        rowDetailFieldTitle.append("'")
                 .append(title)
                 .append("'");
-        return rowDetailTitle.toString();
-    }
-
-    private static String rowDetailField(String field, String javaTypeName) {
-        StringBuilder rowDetailField = new StringBuilder();
-        if (javaTypeName.equals("Date")) {
-            rowDetailField.append(",'").append(field).append("-").append("date'");
-        } else {
-            rowDetailField.append(",'").append(field).append("'");
-        }
-        return rowDetailField.toString();
+        return rowDetailFieldTitle.toString();
     }
 
     /**

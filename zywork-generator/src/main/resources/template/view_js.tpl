@@ -86,21 +86,20 @@ window.operateEvents = {
 
 function formatDetail(index, row) {
     let detail = '';
-    let titles = [{zywork.rowDetailTitles}];
-    let fields = [{zywork.rowDetailFields}];
-    for (let i = 0, len = fields.length; i < len; i++) {
-        let fieldArray = fields[i].split("-");
+    let fieldTitles = {{zywork.rowDetailFieldTitles}};
+    $.each(fieldTitles, function (field, title) {
+        let fieldArray = field.split("-");
         let value = row[fieldArray[0]];
         if (value !== undefined) {
             detail += '<div class="col-xs-12 col-sm-4 col-md-2 col-lg-2">'
                 + '<span class="row-detail-title">'
-                + titles[i]
+                + title
                 + ':</span>'
                 + '</div><div class="col-xs-12 col-sm-8 col-md-4 col-lg-4">'
                 + (value === null ? '-' : fieldArray[1] !== undefined && fieldArray[1] === 'date' ? timestampToDatetime(value) : value)
                 + '</div>';
-            }
-    }
+        }
+    });
     return detail;
 }
 
