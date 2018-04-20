@@ -60,11 +60,11 @@ function formatOperators(value, row, index) {
     strArray.push('<ul class="dropdown-menu">');
     strArray.push('<li><a href="javascript:void(0)" class="to-edit"><i class="fa fa-edit "></i>&nbsp;修改</a></li>');
     if (row.{zywork.isActiveField} === 0) {
-        strArray.push('<li><a href="javascript:void(0)" class="to-inactive"><i class="fa fa-minus-square-o "></i>&nbsp;冻结</a></li>');
+        strArray.push('<li><a href="javascript:void(0)" class="to-inactive"><i class="fa fa-minus-square-o text-danger"></i><span class="text-danger">&nbsp;冻结</span></a></li>');
     } else {
-        strArray.push('<li><a href="javascript:void(0)" class="to-active"><i class="fa fa-check-square-o "></i>&nbsp;激活</a></li>');
+        strArray.push('<li><a href="javascript:void(0)" class="to-active"><i class="fa fa-check-square-o text-success"></i><span class="text-success">&nbsp;激活</span></a></li>');
     }
-    strArray.push('<li><a href="javascript:void(0)" class="to-remove"><i class="fa fa-remove"></i>&nbsp;删除</a></li>');
+    strArray.push('<li><a href="javascript:void(0)" class="to-remove"><i class="fa fa-remove text-danger"></i><span class="text-danger">&nbsp;删除</span></a></li>');
     strArray.push('</ul>');
     strArray.push('</div>');
     return strArray.join('');

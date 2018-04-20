@@ -10,8 +10,8 @@ package top.zywork.generator.constant;
  */
 public class TemplateConstants {
 
-    public static final Integer TOTAL_TEMPLATES = 15;
-    public static final Integer TOTAL_JOIN_TEMPLATES = 13;
+    public static final Integer TOTAL_TEMPLATES = 16;
+    public static final Integer TOTAL_JOIN_TEMPLATES = 14;
 
     public static final String DO_TEMPLATE = "do.tpl";
     public static final String DTO_TEMPLATE = "dto.tpl";
@@ -115,6 +115,8 @@ public class TemplateConstants {
     public static final String VIEW_ACTIVE_URL = "{zywork.activeUrl}";
 
     public static final String VIEW_REMOVE_URL = "{zywork.removeUrl}";
+
+    public static final String VIEW_BATCH_ACTIVE_URL = "{zywork.batchActiveUrl}";
 
     public static final String VIEW_BATCH_REMOVE_URL = "{zywork.batchRemoveUrl}";
 

@@ -400,6 +400,7 @@ public class ViewGenerator {
                 .replace(TemplateConstants.VIEW_EDIT_FORM_FIELDS, generateFormFields(generator, tableColumns, EDIT_FORM_FIELD_SUFFIX))
                 .replace(TemplateConstants.VIEW_EDIT_URL, "/" + moduleName + "/update")
                 .replace(TemplateConstants.VIEW_BATCH_REMOVE_URL, "/" + moduleName + "/batch-remove")
+                .replace(TemplateConstants.VIEW_BATCH_ACTIVE_URL, "/" + moduleName + "/batch-active")
                 .replace(TemplateConstants.VIEW_ID_FIELD, "id")
                 .replace(TemplateConstants.VIEW_JS_FILE_NAME, beanName + "/" + beanName + ".js");
         GeneratorUtils.writeFile(fileContent, saveDir, beanName + ".jsp");
@@ -508,6 +509,7 @@ public class ViewGenerator {
                 .replace(TemplateConstants.VIEW_EDIT_FORM_FIELDS, generateJoinFormFields(generator, primaryTable, columns, tableColumnsList, EDIT_FORM_FIELD_SUFFIX))
                 .replace(TemplateConstants.VIEW_EDIT_URL, "/" + mappingUrl + "/update")
                 .replace(TemplateConstants.VIEW_BATCH_REMOVE_URL, "/" + mappingUrl + "/batch-remove")
+                .replace(TemplateConstants.VIEW_BATCH_ACTIVE_URL, "/" + mappingUrl + "/batch-active")
                 .replace(TemplateConstants.VIEW_ID_FIELD, StringUtils.uncapitalize(GeneratorUtils.tableNameToClassName(primaryTable,
                         generator.getTablePrefix())) + StringUtils.capitalize(PropertyUtils.columnToProperty("id")))
                 .replace(TemplateConstants.VIEW_JS_FILE_NAME, beanName + "/" + beanName + ".js");

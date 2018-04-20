@@ -41,6 +41,13 @@
         update {primaryTable} set is_active = #{status} where id = #{id}
     </update>
 
+    <update id="updateActiveStatuses" parameterType="top.zywork.query.StatusQueries">
+        update {primaryTable} set is_active = #{status} where id in
+        <foreach item="id" collection="ids" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </update>
+
     <sql id="select_columns">
         {selectColumns}
     </sql>

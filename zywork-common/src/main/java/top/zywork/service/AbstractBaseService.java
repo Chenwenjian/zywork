@@ -7,6 +7,7 @@ import top.zywork.common.ExceptionUtils;
 import top.zywork.dao.BaseDAO;
 import top.zywork.dto.PagerDTO;
 import top.zywork.query.PageQuery;
+import top.zywork.query.StatusQueries;
 import top.zywork.query.StatusQuery;
 
 import java.io.Serializable;
@@ -79,6 +80,15 @@ public abstract class AbstractBaseService implements BaseService {
     public void updateActiveStatus(StatusQuery statusQuery) {
         try {
             baseDAO.updateActiveStatus(statusQuery);
+        } catch (RuntimeException e) {
+            throw ExceptionUtils.serviceException(e);
+        }
+    }
+
+    @Override
+    public void updateActiveStatuses(StatusQueries statusQueries) {
+        try {
+            baseDAO.updateActiveStatuses(statusQueries);
         } catch (RuntimeException e) {
             throw ExceptionUtils.serviceException(e);
         }

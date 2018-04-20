@@ -2,6 +2,7 @@ package top.zywork.dao;
 
 
 import top.zywork.query.PageQuery;
+import top.zywork.query.StatusQueries;
 import top.zywork.query.StatusQuery;
 
 import java.io.Serializable;
@@ -52,6 +53,12 @@ public interface BaseDAO {
      * @param statusQuery 状态查询对象，包括id和status
      */
     void updateActiveStatus(StatusQuery statusQuery);
+
+    /**
+     * StatusQueries
+     * @param statusQueries 状态查询对象，包括ids和status
+     */
+    void updateActiveStatuses(StatusQueries statusQueries);
 
     /**
      * 根据主键id查找数据

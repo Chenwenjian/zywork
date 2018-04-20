@@ -24,12 +24,31 @@
                 <i class="fa fa-plus"></i>
                 添加
             </button>
-            <button class="btn btn-danger" onclick="batchRemove('{zywork.batchRemoveUrl}', 'data-list', '{zywork.tableUrl}', '{zywork.idField}')">
-                <i class="fa fa-remove"></i>
-                批量删除
-            </button>
+            <div class="btn-group">
+              <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-th-list"></i>
+                批量操作&nbsp;<span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                    <a href="javascript:void(0);" onclick="batchActive('{zywork.batchActiveUrl}', 0, 'data-list', '{zywork.tableUrl}', '{zywork.idField}')">
+                        <i class="fa fa-check-square-o text-success"></i><span class="text-success">&nbsp;批量激活</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" onclick="batchActive('{zywork.batchActiveUrl}', 1, 'data-list', '{zywork.tableUrl}', '{zywork.idField}')">
+                        <i class="fa fa-minus-square-o text-danger"></i><span class="text-danger">&nbsp;批量冻结</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" onclick="batchRemove('{zywork.batchRemoveUrl}', 'data-list', '{zywork.tableUrl}', '{zywork.idField}')">
+                        <i class="fa fa-remove text-danger"></i><span class="text-danger">&nbsp;批量删除</span>
+                    </a>
+                </li>
+              </ul>
+            </div>
             <button class="btn btn-primary" onclick="showSearchForm('search-form')">
-            <i class="fa fa-eye"></i>
+                <i class="fa fa-eye"></i>
                 高级搜索
             </button>
 

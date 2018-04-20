@@ -7,6 +7,7 @@ import org.hibernate.query.Query;
 import org.springframework.orm.hibernate4.HibernateCallback;
 import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
 import top.zywork.query.PageQuery;
+import top.zywork.query.StatusQueries;
 import top.zywork.query.StatusQuery;
 
 import javax.annotation.Resource;
@@ -55,6 +56,11 @@ public abstract class AbstractBaseDAO extends HibernateDaoSupport implements Bas
 
     @Override
     public void updateActiveStatus(StatusQuery statusQuery) {
+
+    }
+
+    @Override
+    public void updateActiveStatuses(StatusQueries statusQueries) {
 
     }
 

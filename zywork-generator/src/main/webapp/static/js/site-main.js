@@ -284,6 +284,36 @@ function active(url, id, status, tableId, tableUrl) {
     );
 }
 
+function batchActive(url, status, tableId, tableUrl, tableIdField) {
+    let rows = $('#' + tableId).bootstrapTable('getSelections');
+    if (rows && rows.length > 0) {
+        let ids = '';
+        $.each(rows, function (index, row) {
+            if (ids === '') {
+                ids += row[tableIdField];
+            } else {
+                ids += ',' + row[tableIdField];
+            }
+        });
+        $.post(contextPath + url,
+            {
+                ids: ids,
+                status: status
+            },
+            function (data) {
+                if (data.code === 200) {
+                    swalSuccess(data.message);
+                    refreshTable(tableId, contextPath + tableUrl);
+                } else {
+                    swalError(data.message);
+                }
+            }, 'json'
+        );
+    } else {
+        swalWarning(status === 1 ? '请选择需要批量冻结的数据' : '请选择需要批量激活的数据');
+    }
+}
+
 function remove(url, tableId, tableUrl) {
     swal({
         title: '确定删除吗？',

@@ -3,6 +3,7 @@ package top.zywork.service;
 
 import top.zywork.dto.PagerDTO;
 import top.zywork.query.PageQuery;
+import top.zywork.query.StatusQueries;
 import top.zywork.query.StatusQuery;
 
 import java.io.Serializable;
@@ -53,6 +54,12 @@ public interface BaseService {
      * @param statusQuery 状态查询对象，包括id和status
      */
     void updateActiveStatus(StatusQuery statusQuery);
+
+    /**
+     * 根据StatusQueries查询对象批量更新is_active状态值
+     * @param statusQueries 状态查询对象，包括ids和status
+     */
+    void updateActiveStatuses(StatusQueries statusQueries);
 
     /**
      * 根据主键id查找数据
