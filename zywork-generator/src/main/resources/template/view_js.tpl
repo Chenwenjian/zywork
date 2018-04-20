@@ -52,12 +52,13 @@ function loadTable() {
 function formatOperators(value, row, index) {
     let strArray = [];
     strArray.push('<div class="btn-group">');
-    strArray.push('<button type="button" class="to-edit btn btn-primary"><i class="fa fa-edit"></i>&nbsp;修改</button>');
+    strArray.push('<button type="button" class="to-detail btn btn-primary"><i class="fa fa-list"></i>&nbsp;详情</button>');
     strArray.push('<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">');
     strArray.push('<span class="caret"></span>');
     strArray.push('<span class="sr-only">Toggle Dropdown</span>');
     strArray.push('</button>');
     strArray.push('<ul class="dropdown-menu">');
+    strArray.push('<li><a href="javascript:void(0)" class="to-edit"><i class="fa fa-edit "></i>&nbsp;修改</a></li>');
     if (row.{zywork.isActiveField} === 0) {
         strArray.push('<li><a href="javascript:void(0)" class="to-inactive"><i class="fa fa-minus-square-o "></i>&nbsp;冻结</a></li>');
     } else {
@@ -69,7 +70,12 @@ function formatOperators(value, row, index) {
     return strArray.join('');
 }
 
+let fieldTitles = {{zywork.rowDetailFieldTitles}};
+
 window.operateEvents = {
+    'click .to-detail': function (e, value, row, index) {
+        showRemoteDetailModal('detail-modal', '{zywork.detailModalUrl}', row, fieldTitles);
+    },
     'click .to-edit': function (e, value, row, index) {
         showRemoteEditModal('edit-modal', '{zywork.editModalUrl}', 'edit-form', row, validateFields());
     },
@@ -86,7 +92,6 @@ window.operateEvents = {
 
 function formatDetail(index, row) {
     let detail = '';
-    let fieldTitles = {{zywork.rowDetailFieldTitles}};
     $.each(fieldTitles, function (field, title) {
         let fieldArray = field.split("-");
         let value = row[fieldArray[0]];

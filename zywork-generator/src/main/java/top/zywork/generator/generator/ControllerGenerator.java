@@ -38,6 +38,7 @@ public class ControllerGenerator {
                 .replace(TemplateConstants.BEAN_NAME_LOWER_CASE, StringUtils.uncapitalize(beanName))
                 .replace(TemplateConstants.ADD_MODAL_PAGE, beanName + generator.getViewAddModalSuffix().replace(".jsp", ""))
                 .replace(TemplateConstants.EDIT_MODAL_PAGE, beanName + generator.getViewEditModalSuffix().replace(".jsp", ""))
+                .replace(TemplateConstants.DETAIL_MODAL_PAGE, beanName + generator.getViewDetailModalSuffix().replace(".jsp", ""))
                 .replace(TemplateConstants.SEARCH_MODAL_PAGE, beanName + generator.getViewSearchModalSuffix().replace(".jsp", ""));
         GeneratorUtils.writeFile(fileContent, packagePath, beanName + generator.getControllerSuffix());
     }
@@ -58,6 +59,7 @@ public class ControllerGenerator {
                 .replace(TemplateConstants.BEAN_NAME_LOWER_CASE, StringUtils.uncapitalize(beanName))
                 .replace(TemplateConstants.ADD_MODAL_PAGE, beanName + generator.getViewAddModalSuffix().replace(".jsp", ""))
                 .replace(TemplateConstants.EDIT_MODAL_PAGE, beanName + generator.getViewEditModalSuffix().replace(".jsp", ""))
+                .replace(TemplateConstants.DETAIL_MODAL_PAGE, beanName + generator.getViewDetailModalSuffix().replace(".jsp", ""))
                 .replace(TemplateConstants.SEARCH_MODAL_PAGE, beanName + generator.getViewSearchModalSuffix().replace(".jsp", ""));
         GeneratorUtils.writeFile(fileContent, packagePath, beanName + generator.getControllerSuffix());
     }

@@ -44,6 +44,7 @@ public class Generator {
     private String viewSearchModalSuffix;
     private String viewAddModalSuffix;
     private String viewEditModalSuffix;
+    private String viewDetailModalSuffix;
 
     public String getCharset() {
         return charset;
@@ -315,5 +316,13 @@ public class Generator {
 
     public void setViewEditModalSuffix(String viewEditModalSuffix) {
         this.viewEditModalSuffix = viewEditModalSuffix;
+    }
+
+    public String getViewDetailModalSuffix() {
+        return viewDetailModalSuffix;
+    }
+
+    public void setViewDetailModalSuffix(String viewDetailModalSuffix) {
+        this.viewDetailModalSuffix = viewDetailModalSuffix;
     }
 }

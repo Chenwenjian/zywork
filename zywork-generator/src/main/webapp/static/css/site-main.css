@@ -40,3 +40,7 @@ bootstrap-table表格详情中的标题
 .search-form {
     margin-top: 15px;
 }
+
+.detail-content {
+    padding: 5px 0px 5px 0px;
+}

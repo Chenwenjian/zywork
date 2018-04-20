@@ -29,6 +29,7 @@ public class TemplateConstants {
     public static final String VIEW_RADIO_TEMPLATE = "view_radio.tpl";
     public static final String VIEW_SELECT_TEMPLATE = "view_select.tpl";
     public static final String VIEW_TEXT_TEMPLATE = "view_text.tpl";
+    public static final String VIEW_TEXT_DETAIL_TEMPLATE = "view_text_detail.tpl";
     public static final String VIEW_TEXTAREA_TEMPLATE = "view_textarea.tpl";
     public static final String VIEW_DATE_TEMPLATE = "view_date.tpl";
     public static final String VIEW_SEARCH_TEXT_TEMPLATE = "view_search_text.tpl";
@@ -37,6 +38,7 @@ public class TemplateConstants {
     public static final String VIEW_MODAL_SEARCH = "view_search_modal.tpl";
     public static final String VIEW_MODAL_ADD = "view_modal_add.tpl";
     public static final String VIEW_MODAL_EDIT = "view_modal_edit.tpl";
+    public static final String VIEW_MODAL_DETAIL = "view_modal_detail.tpl";
 
     public static final String CREATE_DATE = "{createDate}";
 
@@ -63,6 +65,8 @@ public class TemplateConstants {
     public static final String ADD_MODAL_PAGE = "{addModalPage}";
 
     public static final String EDIT_MODAL_PAGE = "{editModalPage}";
+
+    public static final String DETAIL_MODAL_PAGE = "{detailModalPage}";
 
     public static final String SEARCH_MODAL_PAGE = "{searchModalPage}";
 
@@ -129,5 +133,9 @@ public class TemplateConstants {
     public static final String VIEW_ADD_MODAL_URL = "{zywork.addModalUrl}";
 
     public static final String VIEW_EDIT_MODAL_URL = "{zywork.editModalUrl}";
+
+    public static final String VIEW_DETAIL_MODAL_URL = "{zywork.detailModalUrl}";
+
+    public static final String VIEW_DETAILS = "{zywork.details}";
 
 }

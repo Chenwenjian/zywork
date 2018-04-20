@@ -24,6 +24,7 @@ public class ViewGenerator {
     private static final String ADD_FORM_FIELD_SUFFIX = "";
     private static final String EDIT_FORM_FIELD_SUFFIX = "Edit";
     private static final String SEARCH_FORM_FIELD_SUFFIX = "Search";
+    private static final String DETAIL_SUFFIX = "Detail";
 
     /**
      * 生成单表的JS文件
@@ -38,6 +39,7 @@ public class ViewGenerator {
         fileContent = fileContent.replace(TemplateConstants.VIEW_TABLE_FIELDS, generateTableFields(generator, tableColumns))
                 .replace(TemplateConstants.VIEW_VALIDATE_FIELDS, generateValidateFields(generator, tableColumns))
                 .replace(TemplateConstants.VIEW_EDIT_MODAL_URL, "/" + moduleName + "/edit-modal")
+                .replace(TemplateConstants.VIEW_DETAIL_MODAL_URL, "/" + moduleName + "/detail-modal")
                 .replace(TemplateConstants.VIEW_ACTIVE_URL, "/" + moduleName + "/active")
                 .replace(TemplateConstants.VIEW_REMOVE_URL, "/" + moduleName + "/remove/")
                 .replace(TemplateConstants.VIEW_TABLE_URL, "/" + moduleName + "/pager-cond")
@@ -77,6 +79,7 @@ public class ViewGenerator {
         fileContent = fileContent.replace(TemplateConstants.VIEW_TABLE_FIELDS, generateJoinTableFields(generator, primaryTable, columns, tableColumnsList))
                 .replace(TemplateConstants.VIEW_VALIDATE_FIELDS, generateJoinValidateFields(generator, primaryTable, columns, tableColumnsList))
                 .replace(TemplateConstants.VIEW_EDIT_MODAL_URL, "/" + mappingUrl + "/edit-modal")
+                .replace(TemplateConstants.VIEW_DETAIL_MODAL_URL, "/" + mappingUrl + "/detail-modal")
                 .replace(TemplateConstants.VIEW_ACTIVE_URL, "/" + mappingUrl + "/active")
                 .replace(TemplateConstants.VIEW_REMOVE_URL, "/" + mappingUrl + "/remove/")
                 .replace(TemplateConstants.VIEW_TABLE_URL, "/" + mappingUrl + "/pager-cond")
@@ -440,6 +443,39 @@ public class ViewGenerator {
      * @param generator Generator实例
      * @param tableColumns 表字段信息
      */
+    public static void generateViewDetail(Generator generator, TableColumns tableColumns) {
+        String beanName = GeneratorUtils.tableNameToClassName(tableColumns.getTableName(), generator.getTablePrefix());
+        String saveDir = GeneratorUtils.createViewDir(generator, beanName);
+        String moduleName = GeneratorUtils.getModuleName(tableColumns.getTableName(), generator.getTablePrefix());
+        String fileContent = GeneratorUtils.readTemplate(generator, TemplateConstants.VIEW_MODAL_DETAIL);
+        fileContent = fileContent.replace(TemplateConstants.VIEW_DETAILS, generateDetails(generator, tableColumns));
+        GeneratorUtils.writeFile(fileContent, saveDir, beanName + generator.getViewDetailModalSuffix());
+    }
+
+    /**
+     * 生成表格中行详情
+     * @param generator Generator实例
+     * @param tableColumns 所选表的字段信息
+     * @return
+     */
+    private static String generateDetails(Generator generator, TableColumns tableColumns) {
+        String fileContent = GeneratorUtils.readTemplate(generator, TemplateConstants.VIEW_TEXT_DETAIL_TEMPLATE);
+        List<ColumnDetail> columnDetailList = tableColumns.getColumns();
+        StringBuilder details = new StringBuilder();
+        for (int i = 0, len = columnDetailList.size(); i < len; i++) {
+            ColumnDetail columnDetail = columnDetailList.get(i);
+            details.append(fileContent.replace(TemplateConstants.VIEW_FIELD_NAME_EN, columnDetail.getFieldName() + DETAIL_SUFFIX)
+                    .replace(TemplateConstants.VIEW_FIELD_NAME_CN, columnDetail.getComment()))
+                    .append("\n");
+        }
+        return details.toString();
+    }
+
+    /**
+     * 生成单表对应的视图
+     * @param generator Generator实例
+     * @param tableColumns 表字段信息
+     */
     public static void generateViewSearch(Generator generator, TableColumns tableColumns) {
         String beanName = GeneratorUtils.tableNameToClassName(tableColumns.getTableName(), generator.getTablePrefix());
         String saveDir = GeneratorUtils.createViewDir(generator, beanName);
@@ -515,6 +551,63 @@ public class ViewGenerator {
     }
 
     /**
+     * 生成关联表对应的视图
+     * @param beanName 实体类名称
+     * @param mappingUrl url映射
+     * @param generator Generator实例
+     * @param primaryTable 主表名称
+     * @param columns 所选表字段信息
+     */
+    public static void generateJoinViewDetail(String beanName, String mappingUrl, Generator generator, String primaryTable, String[] columns, List<TableColumns> tableColumnsList) {
+        String saveDir = GeneratorUtils.createViewDir(generator, beanName);
+        String fileContent = GeneratorUtils.readTemplate(generator, TemplateConstants.VIEW_MODAL_DETAIL);
+        fileContent = fileContent.replace(TemplateConstants.VIEW_DETAILS, generateJoinDetails(generator, primaryTable, columns, tableColumnsList));
+        GeneratorUtils.writeFile(fileContent, saveDir, beanName + generator.getViewDetailModalSuffix());
+    }
+
+    /**
+     * 生成关联表中行详情
+     * @param generator Generator实例
+     * @param primaryTable 主表名称
+     * @param columns 所选表字段信息
+     * @param tableColumnsList 所有表的字段信息
+     * @return
+     */
+    private static String generateJoinDetails(Generator generator, String primaryTable, String[] columns, List<TableColumns> tableColumnsList) {
+        String fileContent = GeneratorUtils.readTemplate(generator, TemplateConstants.VIEW_TEXT_DETAIL_TEMPLATE);
+        StringBuilder rowDetails = new StringBuilder();
+        StringBuilder primaryDetails = new StringBuilder();
+        for (int i = 0, len = columns.length; i < len; i++) {
+            String column = columns[i];
+            String[] tableNameAndColumn = column.split("-");
+            String tableName = tableNameAndColumn[0];
+            String columnName = tableNameAndColumn[1];
+            for (TableColumns tableColumns : tableColumnsList) {
+                if (tableName.equals(tableColumns.getTableName())) {
+                    List<ColumnDetail> columnDetailList = tableColumns.getColumns();
+                    for (ColumnDetail columnDetail : columnDetailList) {
+                        if (columnName.equals(columnDetail.getName())) {
+                            String field = StringUtils.uncapitalize(GeneratorUtils.tableNameToClassName(tableName, generator.getTablePrefix()))
+                                    + StringUtils.capitalize(PropertyUtils.columnToProperty(columnName));
+                            String title = columnDetail.getComment();
+                            if (tableName.equals(primaryTable)) {
+                                primaryDetails.append(fileContent.replace(TemplateConstants.VIEW_FIELD_NAME_EN, field + DETAIL_SUFFIX)
+                                        .replace(TemplateConstants.VIEW_FIELD_NAME_CN, title))
+                                        .append("\n");
+                            } else {
+                                rowDetails.append(fileContent.replace(TemplateConstants.VIEW_FIELD_NAME_EN, field + DETAIL_SUFFIX)
+                                        .replace(TemplateConstants.VIEW_FIELD_NAME_CN, title))
+                                        .append("\n");
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return primaryDetails.append(rowDetails).toString();
+    }
+
+    /**
      * 生成所有表的视图
      * @param generator Generator实例
      * @param tableColumnsList 所有表字段信息的列表
@@ -544,6 +637,17 @@ public class ViewGenerator {
     public static void generateViewsEdit(Generator generator, List<TableColumns> tableColumnsList) {
         for (TableColumns tableColumns : tableColumnsList) {
             generateViewEdit(generator, tableColumns);
+        }
+    }
+
+    /**
+     * 生成所有表的视图
+     * @param generator Generator实例
+     * @param tableColumnsList 所有表字段信息的列表
+     */
+    public static void generateViewsDetail(Generator generator, List<TableColumns> tableColumnsList) {
+        for (TableColumns tableColumns : tableColumnsList) {
+            generateViewDetail(generator, tableColumns);
         }
     }
 

@@ -32,5 +32,6 @@
   "viewSearchModalSuffix": "SearchModal.jsp",
   "exclusiveAddEditColumns":"create_time,update_time,is_active",
   "viewAddModalSuffix": "AddModal.jsp",
-  "viewEditModalSuffix": "EditModal.jsp"
+  "viewEditModalSuffix": "EditModal.jsp",
+  "viewDetailModalSuffix": "DetailModal.jsp"
 }

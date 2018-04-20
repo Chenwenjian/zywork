@@ -56,6 +56,11 @@ public class {beanName}Controller extends BaseController {
         return "{beanName}/{editModalPage}";
     }
 
+    @GetMapping("detail-modal")
+    public String detailModal() {
+        return "{beanName}/{detailModalPage}";
+    }
+
     @GetMapping("search-modal")
     public String searchModal() {
         return "{beanName}/{searchModalPage}";

@@ -71,6 +71,36 @@ function showRemoteAddModal(modalId, url, formId, validateFields) {
     });
 }
 
+function showDetailModal(modalId, row, rowDetailFieldTitles) {
+    let modal = $('#' + modalId);
+    $.each(rowDetailFieldTitles, function (field, title) {
+        let fieldArray = field.split("-");
+        let value = row[fieldArray[0]];
+        $('#' + fieldArray[0] + 'Detail').text((value === null ? '-' : fieldArray[1] !== undefined && fieldArray[1] === 'date' ? timestampToDatetime(value) : value));
+    });
+}
+
+function showRemoteDetailModal(modalId, url, row, rowDetailFieldTitles) {
+    let modal = $('#' + modalId);
+    modal.on('shown.bs.modal', function (e) {
+        $.each(rowDetailFieldTitles, function (field, title) {
+            let fieldArray = field.split("-");
+            let value = row[fieldArray[0]];
+            $('#' + fieldArray[0] + 'Detail').text((value === null ? '-' : fieldArray[1] !== undefined && fieldArray[1] === 'date' ? timestampToDatetime(value) : value));
+        });
+    });
+    modal.on('hidden.bs.modal', function (e) {
+        $.each(rowDetailFieldTitles, function (field, title) {
+            let fieldArray = field.split("-");
+            let value = row[fieldArray[0]];
+            $('#' + fieldArray[0] + 'Detail').text("");
+        });
+    });
+    modal.modal({
+        remote: url
+    });
+}
+
 function showEditModal(modalId, formId, row, validateFields) {
     let modal = $('#' + modalId);
     let form = $('#' + formId);

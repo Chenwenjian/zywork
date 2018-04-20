@@ -261,6 +261,13 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label class="col-sm-3 control-label">行详情模态框视图文件后缀：</label>
+
+                    <div class="col-sm-9">
+                        <input type="text" name="viewDetailModalSuffix" placeholder="行详情模态框视图文件后缀" class="form-control" value="${applicationScope.generator.viewDetailModalSuffix}"/>
+                    </div>
+                </div>
+                <div class="form-group">
                     <div class="col-sm-offset-3 col-sm-9">
                         <button class="btn btn-primary" type="button" onclick="saveGenerator();">确定</button>
                     </div>
