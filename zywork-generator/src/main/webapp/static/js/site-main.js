@@ -221,15 +221,18 @@ function swalError(message) {
     swal('提示', message, 'error');
 }
 
-function saveOrEdit(modalId, formId, postUrl, tableId, tableUrl) {
+function saveOrEdit(button, modalId, formId, postUrl, tableId, tableUrl) {
     let form = $('#' + formId);
     form.bootstrapValidator('validate');
     if (form.data('bootstrapValidator').isValid()) {
+        let btn = $(button);
+        btn.attr("disabled", "disabled");
         $.post(contextPath + postUrl,
             form.serialize(),
             function (data) {
                 if (data.code === 200) {
                     swalSuccess(data.message);
+                    btn.removeAttr("disabled");
                     hideModal(modalId);
                     refreshTable(tableId, contextPath + tableUrl);
                 } else {
@@ -240,10 +243,12 @@ function saveOrEdit(modalId, formId, postUrl, tableId, tableUrl) {
     }
 }
 
-function saveOrEditWithFile(modalId, formId, postUrl, tableId, tableUrl) {
+function saveOrEditWithFile(button, modalId, formId, postUrl, tableId, tableUrl) {
     let form = $('#' + formId);
     form.bootstrapValidator('validate');
     if (form.data('bootstrapValidator').isValid()) {
+        let btn = $(button);
+        btn.attr("disabled", "disabled");
         let formData = new FormData(form[0]);
         $.ajax({
             url: contextPath + postUrl,
@@ -254,6 +259,7 @@ function saveOrEditWithFile(modalId, formId, postUrl, tableId, tableUrl) {
             success: function (data) {
                 if (data.code === 200) {
                     swalSuccess(data.message);
+                    btn.removeAttr("disabled");
                     hideModal(modalId);
                     refreshTable(tableId, contextPath + tableUrl);
                 } else {
