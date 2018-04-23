@@ -1,5 +1,7 @@
 package top.zywork.service.impl;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import top.zywork.common.DozerMapperUtils;
@@ -23,6 +25,8 @@ import java.util.List;
 @Service(value = "roleService")
 public class RoleServiceImpl extends AbstractBaseService implements RoleService {
 
+    private static final Logger logger = LoggerFactory.getLogger(RoleServiceImpl.class);
+
     private RoleDAO roleDAO;
 
     @Override
@@ -31,6 +35,7 @@ public class RoleServiceImpl extends AbstractBaseService implements RoleService 
             List<RoleDO> roleDOList = roleDAO.listByAccount(account);
             return DozerMapperUtils.map(getBeanMapper(), roleDOList, RoleDTO.class);
         } catch (DAOException e) {
+            logger.error(e.getMessage());
             throw ExceptionUtils.serviceException(e);
         }
     }

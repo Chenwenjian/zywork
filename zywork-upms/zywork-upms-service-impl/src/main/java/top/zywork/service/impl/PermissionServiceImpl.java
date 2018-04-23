@@ -1,5 +1,7 @@
 package top.zywork.service.impl;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import top.zywork.common.DozerMapperUtils;
@@ -23,6 +25,8 @@ import java.util.List;
 @Service(value = "permissionService")
 public class PermissionServiceImpl extends AbstractBaseService implements PermissionService {
 
+    private static final Logger logger = LoggerFactory.getLogger(PermissionServiceImpl.class);
+
     private PermissionDAO permissionDAO;
 
     @Override
@@ -41,6 +45,7 @@ public class PermissionServiceImpl extends AbstractBaseService implements Permis
             List<PermissionDO> permissionDOList = permissionDAO.listByRoleIds(roleIds);
             return DozerMapperUtils.map(getBeanMapper(), permissionDOList, PermissionDTO.class);
         } catch (DAOException e) {
+            logger.error(e.getMessage());
             throw ExceptionUtils.serviceException(e);
         }
     }
@@ -51,6 +56,7 @@ public class PermissionServiceImpl extends AbstractBaseService implements Permis
             List<PermissionDO> permissionDOList = permissionDAO.listByAccount(account);
             return DozerMapperUtils.map(getBeanMapper(), permissionDOList, PermissionDTO.class);
         } catch (DAOException e) {
+            logger.error(e.getMessage());
             throw ExceptionUtils.serviceException(e);
         }
     }

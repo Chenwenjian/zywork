@@ -138,12 +138,20 @@ public class ExcelUtils {
      * @param path 新的文件路径
      */
     public static void writeExcel(Workbook workbook, String path) {
+        FileOutputStream outputStream = null;
         try {
-            FileOutputStream outputStream = new FileOutputStream(new File(path));
+            outputStream = new FileOutputStream(new File(path));
             workbook.write(outputStream);
-            outputStream.close();
         } catch (IOException e) {
             logger.error(e.getMessage());
+        } finally {
+            if (outputStream != null) {
+                try {
+                    outputStream.close();
+                } catch (IOException e) {
+                    logger.error(e.getMessage());
+                }
+            }
         }
     }
 

@@ -1,5 +1,7 @@
 package top.zywork.generator.common;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import top.zywork.common.ExceptionUtils;
 import top.zywork.generator.bean.ColumnDetail;
 import top.zywork.generator.bean.TableColumns;
@@ -18,6 +20,8 @@ import java.util.List;
  */
 public class JDBCUtils {
 
+    private static final Logger logger = LoggerFactory.getLogger(JDBCUtils.class);
+
     public static final String MYSQL_DRIVER = "com.mysql.jdbc.Driver";
 
     private Connection connection;
@@ -34,7 +38,7 @@ public class JDBCUtils {
             Class.forName(driverClassName);
             this.connection = DriverManager.getConnection(url, username, password);
         } catch (ClassNotFoundException | SQLException e) {
-            throw ExceptionUtils.appException(e);
+            logger.error(e.getMessage());
         }
     }
 
@@ -44,13 +48,15 @@ public class JDBCUtils {
      */
     public List<TableColumns> getTableColumns() {
         List<TableColumns> tableColumnsList = new ArrayList<>();
+        ResultSet tableResultSet = null;
+        ResultSet columnResultSet = null;
         try {
             DatabaseMetaData metaData = connection.getMetaData();
-            ResultSet tableResultSet = metaData.getTables(null, null, null, new String[] {"TABLE"});
+            tableResultSet = metaData.getTables(null, null, null, new String[] {"TABLE"});
             while (tableResultSet.next()) {
                 TableColumns tableColumns = new TableColumns();
                 tableColumns.setTableName(tableResultSet.getString("TABLE_NAME"));
-                ResultSet columnResultSet = metaData.getColumns(null, getSchema(), tableColumns.getTableName(), "%");
+                columnResultSet = metaData.getColumns(null, getSchema(), tableColumns.getTableName(), "%");
                 List<ColumnDetail> columnDetails = new ArrayList<>();
                 while (columnResultSet.next()) {
                     ColumnDetail columnDetail = new ColumnDetail();
@@ -68,7 +74,19 @@ public class JDBCUtils {
                 tableColumnsList.add(tableColumns);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
+        } finally {
+            try {
+                if (tableResultSet != null && !tableResultSet.isClosed()) {
+                    tableResultSet.close();
+                }
+                if (columnResultSet != null && !columnResultSet.isClosed()) {
+                    columnResultSet.close();
+                }
+            } catch (SQLException e) {
+                logger.error(e.getMessage());
+            }
+
         }
         return tableColumnsList;
     }
@@ -79,14 +97,23 @@ public class JDBCUtils {
      */
     public List<String> getTableNames() {
         List<String> tableNames = new ArrayList<>();
+        ResultSet tableResultSet = null;
         try {
             DatabaseMetaData metaData = connection.getMetaData();
-            ResultSet tableResultSet = metaData.getTables(null, null, null, new String[] {"TABLE"});
+            tableResultSet = metaData.getTables(null, null, null, new String[] {"TABLE"});
             while (tableResultSet.next()) {
                 tableNames.add(tableResultSet.getString("TABLE_NAME"));
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
+        } finally {
+            try {
+                if (tableResultSet != null && !tableResultSet.isClosed()) {
+                    tableResultSet.close();
+                }
+            } catch (SQLException e) {
+                logger.error(e.getMessage());
+            }
         }
         return tableNames;
     }
@@ -98,9 +125,10 @@ public class JDBCUtils {
      */
     public List<ColumnDetail> getColumnsFromTable(String table) {
         List<ColumnDetail> columnDetails = new ArrayList<>();
+        ResultSet rs = null;
         try {
             DatabaseMetaData metaData = connection.getMetaData();
-            ResultSet rs = metaData.getColumns(null, getSchema(), table, "%");
+            rs = metaData.getColumns(null, getSchema(), table, "%");
             while (rs.next()) {
                 ColumnDetail columnDetail = new ColumnDetail();
                 columnDetail.setName(rs.getString("COLUMN_NAME"));
@@ -111,7 +139,16 @@ public class JDBCUtils {
                 columnDetails.add(columnDetail);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
+            throw ExceptionUtils.appException(e);
+        } finally {
+            try {
+                if (rs != null && !rs.isClosed()) {
+                    rs.close();
+                }
+            } catch (SQLException e) {
+                logger.error(e.getMessage());
+            }
         }
         return columnDetails;
     }
@@ -124,9 +161,9 @@ public class JDBCUtils {
         try {
             return connection.getMetaData().getUserName();
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
+            throw ExceptionUtils.appException(e);
         }
-        return null;
     }
 
     /**

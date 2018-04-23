@@ -1,6 +1,8 @@
 package top.zywork.common;
 
 import org.dozer.Mapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +15,8 @@ import java.util.List;
  * @version 1.0
  */
 public class DozerMapperUtils {
+
+    private static final Logger logger = LoggerFactory.getLogger(DozerMapperUtils.class);
 
     /**
      * 把List<E>列表转成目标List<T>列表
@@ -30,7 +34,7 @@ public class DozerMapperUtils {
             try {
                 t = tClass.newInstance();
             } catch (InstantiationException | IllegalAccessException e1) {
-                e1.printStackTrace();
+                logger.error(e1.getMessage());
             }
             mapper.map(e, t);
             tList.add(t);

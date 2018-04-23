@@ -1,6 +1,8 @@
 package top.zywork.generator.common;
 
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import top.zywork.generator.bean.Generator;
 
 import java.io.*;
@@ -16,14 +18,17 @@ import java.util.Random;
  */
 public class GeneratorUtils {
 
+    private static final Logger logger = LoggerFactory.getLogger(GeneratorUtils.class);
+
     /**
      * 读取代码模板文件
      * @param templateFile 模板文件路径
      * @return 模板文件的字符串内容
      */
     public static String readTemplate(Generator generator, String templateFile) {
+        BufferedReader bufferedReader = null;
         try {
-            BufferedReader bufferedReader = new BufferedReader(
+            bufferedReader = new BufferedReader(
                     new InputStreamReader(
                             new FileInputStream(generator.getSaveBaseDir() + generator.getTemplateDir() + templateFile), generator.getCharset()));
             StringBuilder sb = new StringBuilder("");
@@ -31,10 +36,18 @@ public class GeneratorUtils {
             while ((line = bufferedReader.readLine()) != null) {
                 sb.append(line).append("\r\n");
             }
-            bufferedReader.close();
+
             return sb.toString();
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
+        } finally {
+            if (bufferedReader != null) {
+                try {
+                    bufferedReader.close();
+                } catch (IOException e) {
+                    logger.error(e.getMessage());
+                }
+            }
         }
         return null;
     }
@@ -118,14 +131,23 @@ public class GeneratorUtils {
      * @param fileName 文件名
      */
     public static void writeFile(String fileContent, String path, String fileName) {
+        BufferedWriter bufferedWriter = null;
         try {
-            BufferedWriter bufferedWriter = new BufferedWriter(
+            bufferedWriter = new BufferedWriter(
                     new OutputStreamWriter(
                             new FileOutputStream(path + File.separator + fileName), "UTF-8"));
             bufferedWriter.write(fileContent);
-            bufferedWriter.close();
+
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
+        } finally {
+            try {
+                if (bufferedWriter != null) {
+                    bufferedWriter.close();
+                }
+            } catch (IOException e) {
+                logger.error(e.getMessage());
+            }
         }
     }
 

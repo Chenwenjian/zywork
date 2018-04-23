@@ -1,5 +1,7 @@
 package top.zywork.common;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import top.zywork.enums.MIMETypeEnum;
 
 import javax.imageio.ImageIO;
@@ -15,19 +17,28 @@ import java.io.*;
  */
 public class ImageUtils {
 
+    private static final Logger logger = LoggerFactory.getLogger(ImageUtils.class);
+
     /**
      * 根据指定的图片路径，获取缓冲图片
      * @param imagePath 图片路径
      * @return 缓冲图对象
      */
     public static BufferedImage getBufferedImage(String imagePath) {
+        InputStream inputStream = null;
         try {
-            InputStream inputStream = new FileInputStream(new File(imagePath));
-            BufferedImage bufferedImage = ImageIO.read(inputStream);
-            inputStream.close();
-            return bufferedImage;
+            inputStream = new FileInputStream(new File(imagePath));
+            return ImageIO.read(inputStream);
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
+        } finally {
+            if (inputStream != null) {
+                try {
+                    inputStream.close();
+                } catch (IOException e) {
+                    logger.error(e.getMessage());
+                }
+            }
         }
         return null;
     }
@@ -43,7 +54,7 @@ public class ImageUtils {
             inputStream.close();
             return bufferedImage;
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         }
         return null;
     }
@@ -54,13 +65,17 @@ public class ImageUtils {
      * @return 缓冲图对象
      */
     public static BufferedImage getBufferedImage(byte[] imageData) {
+        ByteArrayInputStream inputStream = new ByteArrayInputStream(imageData);
         try {
-            ByteArrayInputStream inputStream = new ByteArrayInputStream(imageData);
-            BufferedImage bufferedImage = ImageIO.read(inputStream);
-            inputStream.close();
-            return bufferedImage;
+            return ImageIO.read(inputStream);
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
+        } finally {
+            try {
+                inputStream.close();
+            } catch (IOException e) {
+                logger.error(e.getMessage());
+            }
         }
         return null;
     }
@@ -76,7 +91,7 @@ public class ImageUtils {
             try {
                 ImageIO.write(bufferedImage, FileUtils.getExtensionWithoutDot(imagePath), out);
             } catch (IOException e) {
-                e.printStackTrace();
+                logger.error(e.getMessage());
             }
         }
     }
@@ -93,7 +108,7 @@ public class ImageUtils {
             try {
                 ImageIO.write(bufferedImage, imageType.getValue(), out);
             } catch (IOException e) {
-                e.printStackTrace();
+                logger.error(e.getMessage());
             }
         }
     }
@@ -110,7 +125,7 @@ public class ImageUtils {
         try {
             out.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         }
         return bytes;
     }
@@ -129,7 +144,7 @@ public class ImageUtils {
             inputStream.close();
             out.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         }
         return bytes;
     }
@@ -177,7 +192,7 @@ public class ImageUtils {
             try {
                 ImageIO.write(bufferedImage, imageType, imageFile);
             } catch (IOException e) {
-                e.printStackTrace();
+                logger.error(e.getMessage());
             }
         }
     }

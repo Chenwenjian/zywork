@@ -1,5 +1,7 @@
 package top.zywork.common;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import top.zywork.enums.DatePatternEnum;
 
 import java.text.ParseException;
@@ -17,6 +19,8 @@ import java.util.Date;
  * @version 1.0
  */
 public class DateParseUtils {
+
+    private static final Logger logger = LoggerFactory.getLogger(DateParseUtils.class);
 
     /**
      * 把时间字符串执照默认时间格式解析成Date实例
@@ -37,7 +41,7 @@ public class DateParseUtils {
         try {
             return DateFormatUtils.getDateFormat(pattern).parse(dateStr);
         } catch (ParseException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
             return null;
         }
     }

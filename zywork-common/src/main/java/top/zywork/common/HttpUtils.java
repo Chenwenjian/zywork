@@ -22,6 +22,8 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import top.zywork.enums.CharsetEnum;
 import top.zywork.enums.ContentTypeEnum;
 import top.zywork.enums.MIMETypeEnum;
@@ -39,6 +41,8 @@ import java.util.*;
  * @version 1.0
  */
 public class HttpUtils {
+
+    private static final Logger logger = LoggerFactory.getLogger(HttpUtils.class);
 
     private static final HttpGet NONE_GET = null;
     private static final HttpPost NONE_POST = null;
@@ -102,7 +106,7 @@ public class HttpUtils {
         try {
             httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs, CharsetEnum.UTF8.getValue()));
         } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         }
         return send(NONE_GET, httpPost, stringResponseHandler);
     }
@@ -125,7 +129,7 @@ public class HttpUtils {
         try {
             httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs, CharsetEnum.UTF8.getValue()));
         } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         }
         return send(NONE_GET, httpPost, cookieList, getCookie, stringResponseHandler);
     }
@@ -250,9 +254,14 @@ public class HttpUtils {
                 httpPost.setConfig(requestConfig);
                 t = httpClient.execute(httpPost, responseHandler);
             }
-            httpClient.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
+        } finally {
+            try {
+                httpClient.close();
+            } catch (IOException e) {
+                logger.error(e.getMessage());
+            }
         }
         return t;
     }
@@ -295,9 +304,14 @@ public class HttpUtils {
             if (getCookie) {
                 cookies = cookieStore.getCookies();
             }
-            httpClient.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
+        } finally {
+            try {
+                httpClient.close();
+            } catch (IOException e) {
+                logger.error(e.getMessage());
+            }
         }
         return t;
     }

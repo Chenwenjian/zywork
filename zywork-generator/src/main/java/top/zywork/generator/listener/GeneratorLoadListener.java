@@ -40,7 +40,7 @@ public class GeneratorLoadListener implements ServletContextListener {
             servletContext.setAttribute("jdbc", jdbc);
             servletContext.setAttribute("generator", generator);
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         }
     }
 

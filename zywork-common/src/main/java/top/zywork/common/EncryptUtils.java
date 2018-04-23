@@ -1,5 +1,7 @@
 package top.zywork.common;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import sun.misc.BASE64Encoder;
 import top.zywork.enums.AlgorithmEnum;
 import top.zywork.enums.CharsetEnum;
@@ -19,6 +21,8 @@ import java.security.NoSuchAlgorithmException;
  */
 public class EncryptUtils {
 
+    private static final Logger logger = LoggerFactory.getLogger(EncryptUtils.class);
+
     /**
      * 不使用盐值的md5加密
      * @param str 明文
@@ -29,7 +33,7 @@ public class EncryptUtils {
         try {
             encryptStr = oneWayEncrypt(str, "",  AlgorithmEnum.MD5.getValue());
         } catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         }
         return encryptStr;
     }
@@ -45,7 +49,7 @@ public class EncryptUtils {
         try {
             encryptStr = oneWayEncrypt(str, salt, AlgorithmEnum.MD5.getValue());
         } catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         }
         return encryptStr;
     }
@@ -60,7 +64,7 @@ public class EncryptUtils {
         try {
             encryptStr = oneWayEncrypt(str, "", AlgorithmEnum.SHA1.getValue());
         } catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         }
         return encryptStr;
     }
@@ -76,7 +80,7 @@ public class EncryptUtils {
         try {
             encryptStr = oneWayEncrypt(str, salt,  AlgorithmEnum.SHA1.getValue());
         } catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         }
         return encryptStr;
     }
@@ -91,7 +95,7 @@ public class EncryptUtils {
         try {
             encryptStr = oneWayEncrypt(str, "", AlgorithmEnum.SHA256.getValue());
         } catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         }
         return encryptStr;
     }
@@ -107,7 +111,7 @@ public class EncryptUtils {
         try {
             encryptStr = oneWayEncrypt(str, salt,  AlgorithmEnum.SHA256.getValue());
         } catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         }
         return encryptStr;
     }

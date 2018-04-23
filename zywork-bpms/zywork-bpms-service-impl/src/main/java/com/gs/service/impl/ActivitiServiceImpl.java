@@ -8,6 +8,8 @@ import org.activiti.engine.runtime.Execution;
 import org.activiti.engine.runtime.ProcessInstance;
 import org.activiti.engine.task.Task;
 import org.activiti.image.impl.DefaultProcessDiagramGenerator;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import top.zywork.common.ExceptionUtils;
@@ -34,6 +36,8 @@ import java.util.zip.ZipInputStream;
 @Service
 public class ActivitiServiceImpl implements ActivitiService {
 
+    private static final Logger logger = LoggerFactory.getLogger(ActivitiServiceImpl.class);
+
     private ProcessEngine processEngine;
     private RepositoryService repositoryService;
     private RuntimeService runtimeService;
@@ -43,15 +47,23 @@ public class ActivitiServiceImpl implements ActivitiService {
 
     @Override
     public Deployment deploy(String processName) {
+        ZipInputStream zipInputStream = null;
         try {
-            ZipInputStream zipInputStream = new ZipInputStream(
+            zipInputStream = new ZipInputStream(
                     new FileInputStream(
                             FileUtils.getBPMNDir() + processName + BPMNConstants.SUFFIX_ZIP));
-            Deployment deployment = repositoryService.createDeployment().addZipInputStream(zipInputStream).deploy();
-            zipInputStream.close();
-            return deployment;
+            return repositoryService.createDeployment().addZipInputStream(zipInputStream).deploy();
         } catch (IOException e) {
+            logger.error(e.getMessage());
             throw ExceptionUtils.serviceException(e);
+        } finally {
+            if (zipInputStream != null) {
+                try {
+                    zipInputStream.close();
+                } catch (IOException e) {
+                    logger.error(e.getMessage());
+                }
+            }
         }
     }
 

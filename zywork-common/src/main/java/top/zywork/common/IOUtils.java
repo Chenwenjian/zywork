@@ -1,5 +1,8 @@
 package top.zywork.common;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.*;
 
 /**
@@ -11,6 +14,8 @@ import java.io.*;
  */
 public class IOUtils {
 
+    private static final Logger logger = LoggerFactory.getLogger(IOUtils.class);
+
     /**
      * 获取指定文件内的所有字符文本内容
      * @param path 指定文件的路径
@@ -20,7 +25,7 @@ public class IOUtils {
         try {
             return getText(new FileInputStream(path));
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         }
         return null;
     }
@@ -32,14 +37,23 @@ public class IOUtils {
      */
     public static String getText(InputStream inputStream) {
         StringBuilder text = new StringBuilder();
+        BufferedReader reader = null;
         try {
-            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+            reader = new BufferedReader(new InputStreamReader(inputStream));
             String str;
             while ((str = reader.readLine()) != null) {
                 text.append(str);
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
+        } finally {
+            if (reader !=  null) {
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    logger.error(e.getMessage());
+                }
+            }
         }
         return text.toString();
     }
@@ -53,7 +67,7 @@ public class IOUtils {
         try {
             return getData(new FileInputStream(new File(path)));
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         }
         return null;
     }
@@ -70,7 +84,7 @@ public class IOUtils {
         try {
             outputStream.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         }
         return bytes;
     }
@@ -84,7 +98,7 @@ public class IOUtils {
         try {
             inputToOutput(new FileInputStream(new File(path)), outputStream);
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         }
     }
 
@@ -96,12 +110,12 @@ public class IOUtils {
     public static void inputToOutput(InputStream inputStream, OutputStream outputStream) {
         byte[] bytes = new byte[1024];
         try {
-            for (int length = -1; (length = inputStream.read(bytes)) != -1;) {
+            for (int length; (length = inputStream.read(bytes)) != -1;) {
                 outputStream.write(bytes, 0, length);
             }
             inputStream.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         }
     }
 

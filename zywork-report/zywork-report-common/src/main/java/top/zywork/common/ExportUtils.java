@@ -5,6 +5,8 @@ import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrintManager;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 import java.util.Map;
@@ -17,6 +19,8 @@ import java.util.Map;
  * @version 1.0
  */
 public class ExportUtils {
+
+    private static final Logger logger = LoggerFactory.getLogger(ExportUtils.class);
 
     /**
      * 根据指定的参数和Bean Collection数据源导出PDF文件
@@ -38,7 +42,7 @@ public class ExportUtils {
                 pdfFile = JasperExportManager.exportReportToPdfFile(jasperPrintFile);
             }
         } catch (JRException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         }
         return pdfFile;
     }
@@ -63,7 +67,7 @@ public class ExportUtils {
                 htmlFile = JasperExportManager.exportReportToHtmlFile(jasperPrintFile);
             }
         } catch (JRException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         }
         return htmlFile;
     }
@@ -79,7 +83,7 @@ public class ExportUtils {
         try {
             JasperPrintManager.printReport(getJasperPrintFile(jasperFile, params, dataSource), true);
         } catch (JRException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         }
     }
 

@@ -2,6 +2,8 @@ package top.zywork.common;
 
 import org.hibernate.Session;
 import org.hibernate.query.Query;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import top.zywork.query.BaseQuery;
 import top.zywork.query.PageQuery;
 
@@ -15,6 +17,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HibernateUtils {
+
+    private static final Logger logger = LoggerFactory.getLogger(HibernateUtils.class);
 
     @SuppressWarnings({"unchecked"})
     public static List<Object> listPageByCondition(Session session, Class<?> doClass, PageQuery pageQuery, BaseQuery queryObj) {
@@ -70,7 +74,7 @@ public class HibernateUtils {
                         predicateList.add(criteriaBuilder.like(root.get(fieldName), "%" + value + "%"));
                     }
                 } catch (IllegalAccessException e) {
-                    e.printStackTrace();
+                    logger.error(e.getMessage());
                 }
             }
             if (predicateList.size() > 0) {
@@ -104,12 +108,8 @@ public class HibernateUtils {
                 }
                 list.add(t);
             }
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (NoSuchFieldException e) {
-            e.printStackTrace();
+        } catch (InstantiationException | IllegalAccessException | NoSuchFieldException e) {
+            logger.error(e.getMessage());
         }
         return list;
     }
@@ -135,7 +135,7 @@ public class HibernateUtils {
                     }
                 }
             } catch (IllegalAccessException e) {
-                e.printStackTrace();
+                logger.error(e.getMessage());
             }
         }
         return sb.toString();

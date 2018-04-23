@@ -3,6 +3,8 @@ package top.zywork.controller;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.subject.Subject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,7 +30,9 @@ import javax.servlet.http.HttpServletRequest;
  */
 @RestController
 @RequestMapping("/user")
-public class UserController {
+public class UserController extends BaseController {
+
+    private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 
     private UserService userService;
 
@@ -47,6 +51,7 @@ public class UserController {
             // 使用账号和密码进行登录，此时并未生成token，不需要使用token进行用户认证
             subject.login(new CustomToken(username, hashPassword, null,null));
         } catch (AuthenticationException e) {
+            logger.error(e.getMessage());
             statusVO.dataErrorStatus(UserControllerStatusEnum.USER_LOGIN_DATA_ERROR.getCode(),
                     UserControllerStatusEnum.USER_LOGIN_DATA_ERROR.getMessage());
             return statusVO;
@@ -86,6 +91,7 @@ public class UserController {
                 try {
                     subject.login(new CustomToken(username, userToken, userTokenDTO.getTimestamp(), userToken));
                 } catch (AuthenticationException e) {
+                    logger.error(e.getMessage());
                     statusVO.dataErrorStatus(UserControllerStatusEnum.USER_LOGIN_DATA_ERROR.getCode(),
                             UserControllerStatusEnum.USER_LOGIN_DATA_ERROR.getMessage());
                     return statusVO;

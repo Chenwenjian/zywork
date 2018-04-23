@@ -1,5 +1,8 @@
 package top.zywork.common;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.*;
 import java.util.Properties;
 
@@ -11,6 +14,8 @@ import java.util.Properties;
  * @version 1.0
  */
 public class ConfigUtils {
+
+    private static final Logger logger = LoggerFactory.getLogger(ConfigUtils.class);
 
     protected Properties properties;
 
@@ -24,15 +29,23 @@ public class ConfigUtils {
      */
     public Properties build(String location) {
         properties = new Properties();
+        BufferedReader bufferedReader = null;
         try {
-            BufferedReader bufferedReader = new BufferedReader(
+            bufferedReader = new BufferedReader(
                     new InputStreamReader(
                             new BufferedInputStream(
                                     new FileInputStream(FileUtils.getResourcePath(location)))));
             properties.load(bufferedReader);
-            bufferedReader.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
+        } finally {
+            if (bufferedReader !=  null) {
+                try {
+                    bufferedReader.close();
+                } catch (IOException e) {
+                    logger.error(e.getMessage());
+                }
+            }
         }
         return properties;
     }

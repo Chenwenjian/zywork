@@ -30,7 +30,7 @@ public class ReflectUtils {
             Method method = clazz.getMethod(PropertyUtils.getter(property));
             return method.invoke(obj);
         } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
-            logger.warn(e.getMessage());
+            logger.error(e.getMessage());
         }
         return null;
     }
@@ -49,7 +49,7 @@ public class ReflectUtils {
                 Method method = clazz.getMethod(PropertyUtils.setter(property), param.getClass());
                 method.invoke(obj, param);
             } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
-                logger.warn(e.getMessage());
+                logger.error(e.getMessage());
             }
         }
     }

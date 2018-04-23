@@ -1,5 +1,7 @@
 package top.zywork.common;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.context.ContextLoader;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -20,6 +22,8 @@ import java.io.OutputStream;
  * @version 1.0
  */
 public class WebUtils {
+
+    private static final Logger logger = LoggerFactory.getLogger(WebUtils.class);
 
     public static final String SESSION_ID_NAME = "JSESSIONID";
 
@@ -52,7 +56,7 @@ public class WebUtils {
         try {
             out.close();
         } catch (IOException e) {
-            e.printStackTrace();
+           logger.error(e.getMessage());
         }
     }
 
@@ -67,7 +71,7 @@ public class WebUtils {
         try {
             outResponse(in, response.getOutputStream());
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         }
     }
 

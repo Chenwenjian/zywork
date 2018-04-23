@@ -2,8 +2,11 @@ package top.zywork.service.impl;
 
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import top.zywork.common.ExcelUtils;
+import top.zywork.common.ExceptionUtils;
 import top.zywork.common.ReflectUtils;
 import top.zywork.dto.ExcelImportDTO;
 import top.zywork.service.ExcelImportService;
@@ -24,6 +27,8 @@ import java.util.List;
 @Component
 public class ExcelImportServiceImpl implements ExcelImportService {
 
+    private static final Logger logger = LoggerFactory.getLogger(ExcelImportServiceImpl.class);
+
     @Override
     public List<Object> imports(Workbook workbook, ExcelImportDTO excelImportDTO) {
         Sheet sheet = workbook.getSheetAt(0);
@@ -43,7 +48,8 @@ public class ExcelImportServiceImpl implements ExcelImportService {
             }
 
         } catch (ClassNotFoundException | IllegalAccessException | InstantiationException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
+            throw ExceptionUtils.serviceException(e);
         }
         return rows;
     }
@@ -68,7 +74,8 @@ public class ExcelImportServiceImpl implements ExcelImportService {
                 return excelUtils.getBigDecimalCellValueAt(sheet, rowNo, colNo);
             }
         } catch (NoSuchFieldException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
+            throw ExceptionUtils.appException(e);
         }
         return null;
     }
