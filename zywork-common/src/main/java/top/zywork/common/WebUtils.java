@@ -5,6 +5,7 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.ServletContext;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -19,6 +20,8 @@ import java.io.OutputStream;
  * @version 1.0
  */
 public class WebUtils {
+
+    public static final String SESSION_ID_NAME = "JSESSIONID";
 
     /**
      * 获取网站根路径
@@ -90,6 +93,25 @@ public class WebUtils {
      */
     public static String getContextPath() {
         return getServletContext().getContextPath();
+    }
+
+    /**
+     * 从客户端cookies中获取会话id
+     * @param request HttpServletRequest对象
+     * @return
+     */
+    public static String getSessionIdFromCookie(HttpServletRequest request) {
+        String sessionId = null;
+        Cookie[] cookies = request.getCookies();
+        if (cookies != null && cookies.length > 0) {
+            for (Cookie cookie : cookies) {
+                if (cookie.getName().equals(SESSION_ID_NAME)) {
+                    sessionId = cookie.getValue();
+                    break;
+                }
+            }
+        }
+        return sessionId;
     }
 
 }

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import top.zywork.common.AuthUtils;
+import top.zywork.common.WebUtils;
 import top.zywork.dto.UserTokenDTO;
 import top.zywork.enums.UserControllerStatusEnum;
 import top.zywork.security.shiro.CustomToken;
@@ -15,7 +16,6 @@ import top.zywork.vo.LoginStatusVO;
 import top.zywork.vo.UserLoginVO;
 
 import javax.annotation.Resource;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -76,7 +76,7 @@ public class UserController {
         if (userTokenDTO != null && userToken.equals(userTokenDTO.getToken())) {
             Subject subject = SecurityUtils.getSubject();
             String theSessionId = subject.getSession().getId().toString();
-            if (theSessionId.equals(getSessionId(request))) {
+            if (theSessionId.equals(WebUtils.getSessionIdFromCookie(request))) {
                 // 如果sessionid一致，表示会话正常
                 statusVO.okStatus(UserControllerStatusEnum.USER_CHECK_LOGIN_SUCCESS.getCode(),
                         UserControllerStatusEnum.USER_CHECK_LOGIN_SUCCESS.getMessage());
@@ -116,24 +116,6 @@ public class UserController {
                     UserControllerStatusEnum.USER_LOGOUT_ERROR.getMessage());
         }
         return statusVO;
-    }
-
-    /**
-     * 从客户端cookies中获取会话id
-     * @param request HttpServletRequest对象
-     * @return
-     */
-    private String getSessionId(HttpServletRequest request) {
-        String sessionId = null;
-        Cookie[] cookies = request.getCookies();
-        if (cookies != null && cookies.length > 0) {
-            for (Cookie cookie : cookies) {
-                if (cookie.getName().equals("JSESSIONID")) {
-                    sessionId = cookie.getValue();
-                }
-            }
-        }
-        return sessionId;
     }
 
     @Resource
