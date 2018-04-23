@@ -29,7 +29,7 @@ public class UserRedisServiceImpl extends AbstractBaseService implements UserRed
     @Override
     public UserDTO getByAccountPassword(UserAccountPasswordQuery userAccountPasswordQuery) {
         ValueOperations<String, UserDO> valueOperations = redisTemplate.opsForValue();
-        UserDO userDO = valueOperations.get("user-" + userAccountPasswordQuery.getAccount());
+        UserDO userDO = valueOperations.get("user:" + userAccountPasswordQuery.getAccount());
         if (userDO != null) {
             System.out.println("从缓存获取用户对象");
             return getBeanMapper().map(userDO, UserDTO.class);
@@ -38,7 +38,7 @@ public class UserRedisServiceImpl extends AbstractBaseService implements UserRed
             userDO = userDAO.getByAccountPassword(userAccountPasswordQuery);
             if (userDO != null) {
                 System.out.println("从数据库获取用户对象");
-                valueOperations.set("user-" + userAccountPasswordQuery.getAccount(), userDO);
+                valueOperations.set("user:" + userAccountPasswordQuery.getAccount(), userDO);
                 return getBeanMapper().map(userDO, UserDTO.class);
             }
             return null;

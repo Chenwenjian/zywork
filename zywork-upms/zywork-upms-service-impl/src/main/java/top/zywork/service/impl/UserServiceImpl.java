@@ -47,7 +47,7 @@ public class UserServiceImpl extends AbstractBaseService implements UserService 
     @Override
     public void saveUserToken(UserTokenDTO userTokenDTO) {
         ValueOperations<String, UserTokenDTO> valueOperations = redisTemplate.opsForValue();
-        valueOperations.set(userTokenDTO.getUsername(), userTokenDTO);
+        valueOperations.set("user:" + userTokenDTO.getUsername(), userTokenDTO);
         redisTemplate.expire(userTokenDTO.getUsername(), 7, TimeUnit.DAYS);
     }
 
@@ -59,7 +59,7 @@ public class UserServiceImpl extends AbstractBaseService implements UserService 
 
     @Override
     public void removeUserToken(String username) {
-        redisTemplate.delete(username);
+        redisTemplate.delete("user:" + username);
     }
 
     @Autowired
