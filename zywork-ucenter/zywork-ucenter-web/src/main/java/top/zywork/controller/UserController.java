@@ -10,7 +10,7 @@ import javax.annotation.Resource;
 
 @Controller
 @RequestMapping("/user")
-public class UserController {
+public class UserController extends BaseController {
 
     private UserService userService;
 

@@ -10,5 +10,5 @@
 </div>
 <div class="modal-footer">
     <button type="button" class="btn btn-white" data-dismiss="modal">取消</button>
-    <button id="btn-save" type="button" class="btn btn-primary" onclick="saveOrEdit('add-modal', 'add-form', '{zywork.saveUrl}', 'data-list', '{zywork.tableUrl}')">确认</button>
+    <button id="btn-save" type="button" class="btn btn-primary" onclick="saveOrEdit('btn-save', 'add-modal', 'add-form', '{zywork.saveUrl}', 'data-list', '{zywork.tableUrl}')">确认</button>
 </div>
