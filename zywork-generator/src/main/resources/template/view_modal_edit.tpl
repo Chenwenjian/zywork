@@ -13,3 +13,7 @@
     <button type="button" class="btn btn-white" data-dismiss="modal">取消</button>
     <button id="btn-edit" type="button" class="btn btn-primary" onclick="saveOrEdit('btn-edit', 'edit-modal', 'edit-form', '{zywork.editUrl}', 'data-list', '{zywork.tableUrl}')">确认</button>
 </div>
+
+<script>
+    initDatetime();
+</script>

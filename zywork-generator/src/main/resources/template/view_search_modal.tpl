@@ -37,3 +37,7 @@
         </form>
     </div>
 </div>
+
+<script>
+    initDatetime();
+</script>
