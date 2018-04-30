@@ -17,7 +17,7 @@
         <module>zywork-upms-service-api</module>
         <module>zywork-upms-service-impl</module>
         <module>zywork-upms-web</module>
-        <module>zywork-upms-shiro-web</module>
+        <module>zywork-upms-shiro</module>
     </modules>
 
     <dependencyManagement>

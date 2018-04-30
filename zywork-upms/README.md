@@ -20,9 +20,9 @@ DAO模块，数据访问层，包括DAO接口和Mapper映射文件
 
 服务接口实现模块，服务接口的实现类，Dubbo服务相关的Spring配置
 
-#### zywork-upms-shiro-web
+#### zywork-upms-shiro
 
-基于Apache Shiro与Spring Session的权限认证与分布式会话模块
+基于Apache Shiro与Spring Session的权限认证与分布式会话模块，使用自定义的CustomToken
 
 #### zywork-upms-web
 
@@ -133,3 +133,6 @@ url签名算法如下：
 1. 除```sign```之外的所有请求参数全部按照字母顺序排列
 2. 除```sign```之外的所有请求参数的参数名和参数值拼接成一个字符串
 3. 对拼接成的字符串进行```MD5```加密后转成全大写字符串，生成```sign```签名值
+
+#### 其他子系统如何使用权限认证？
+其他子系统中直接引用zywork-upms-shiro模块即可，此模块会调用zywork-upms服务子系统来完成相关认证

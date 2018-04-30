@@ -24,6 +24,10 @@ DAO模块，数据访问层，包括DAO接口和Mapper映射文件
 
 Web层模块，控制器层代码和视图
 
+#### zywork-log-aspect
+
+log注解模块，提供@SysLog注解
+
 #### @SysLog注解
 
 此系统自定义了```@SysLog```注解，在```Service```或```Controller```方法前加上此注解后，系统便可记录日志到数据库中。此注解提供了一个```description```属性，用于日志简要描述，使用方法如下：
@@ -45,5 +49,5 @@ public ControllerStatusVO login(UserLoginVO userLoginVO) {
 ```
 
 #### 其他子系统如何使用@SysLog注解？
-其他模块想要使用日志服务，并不是使用```Dubbo```的分布式服务，而是直接依赖于```zywork-log-service-impl```模块便可使用```@SysLog```注解完成系统日志记录。
+其他模块想要使用日志服务，并不是使用```Dubbo```的分布式服务，而是直接依赖于```zywork-log-aspect```模块便可使用```@SysLog```注解完成系统日志记录。
 

@@ -14,11 +14,6 @@
 
     <dependencies>
         <dependency>
-            <groupId>javax</groupId>
-            <artifactId>javaee-api</artifactId>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
             <groupId>top.zywork</groupId>
             <artifactId>zywork-log-dao</artifactId>
             <version>${zywork.version}</version>

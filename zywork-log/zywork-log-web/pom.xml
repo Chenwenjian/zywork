@@ -22,7 +22,7 @@
         </dependency>
         <dependency>
             <groupId>top.zywork</groupId>
-            <artifactId>zywork-log-service-api</artifactId>
+            <artifactId>zywork-log-aspect</artifactId>
             <version>${zywork.version}</version>
         </dependency>
         <dependency>

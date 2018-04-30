@@ -74,7 +74,7 @@ public class UserController extends BaseController {
      * @return
      */
     @PostMapping("check_login")
-    public LoginStatusVO isLogin(HttpServletRequest request, String username, String userToken) {
+    public LoginStatusVO checkLogin(HttpServletRequest request, String username, String userToken) {
         LoginStatusVO statusVO = new LoginStatusVO();
         // 从redis缓存中获取UserTokenDTO
         UserTokenDTO userTokenDTO = userService.getUserToken(username);

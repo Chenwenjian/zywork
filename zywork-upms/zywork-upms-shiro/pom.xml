@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
     <packaging>jar</packaging>
 
-    <artifactId>zywork-upms-shiro-web</artifactId>
+    <artifactId>zywork-upms-shiro</artifactId>
 
     <dependencies>
         <dependency>

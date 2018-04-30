@@ -17,6 +17,7 @@
         <module>zywork-log-service-api</module>
         <module>zywork-log-service-impl</module>
         <module>zywork-log-web</module>
+        <module>zywork-log-aspect</module>
     </modules>
 
     <dependencyManagement>

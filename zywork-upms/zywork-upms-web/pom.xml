@@ -22,12 +22,7 @@
         </dependency>
         <dependency>
             <groupId>top.zywork</groupId>
-            <artifactId>zywork-upms-service-api</artifactId>
-            <version>${zywork.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>top.zywork</groupId>
-            <artifactId>zywork-upms-shiro-web</artifactId>
+            <artifactId>zywork-upms-shiro</artifactId>
             <version>${zywork.version}</version>
         </dependency>
         <dependency>
