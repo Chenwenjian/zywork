@@ -10,157 +10,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3891c4bd-30e2-4dc3-9494-cb36e46aec05" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zywork-bpms/zywork-bpms-common/src/main/java/top/zywork/query/ProcessQuery.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zywork-bpms/zywork-bpms-web/src/main/java/top/zywork/controller/ProcessController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zywork-generator/src/main/java/top/zywork/dto/UserTokenDTO.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zywork-generator/src/main/java/top/zywork/enums/UserControllerStatusEnum.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zywork-generator/src/main/java/top/zywork/generator/GeneratorRemoveApp.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zywork-generator/src/main/java/top/zywork/query/UserAccountPasswordQuery.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zywork-generator/src/main/java/top/zywork/security/shiro/AppShiroRealm.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zywork-generator/src/main/java/top/zywork/security/shiro/CustomToken.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zywork-generator/src/main/java/top/zywork/service/ActivitiService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zywork-generator/src/main/java/top/zywork/service/impl/ActivitiServiceImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zywork-generator/src/main/java/top/zywork/vo/LoginStatusVO.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zywork-generator/src/main/java/top/zywork/vo/ModuleVO.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zywork-generator/src/main/java/top/zywork/vo/PermissionVO.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zywork-generator/src/main/java/top/zywork/vo/ProcessVO.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zywork-generator/src/main/java/top/zywork/vo/RoleVO.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zywork-generator/src/main/java/top/zywork/vo/SchedulerVO.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zywork-generator/src/main/java/top/zywork/vo/SysLogVO.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zywork-generator/src/main/java/top/zywork/vo/UserLoginVO.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zywork-generator/src/main/java/top/zywork/vo/UserVO.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zywork-generator/src/main/resources/config/ehcache-shiro.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zywork-generator/src/main/resources/config/redis.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zywork-generator/src/main/resources/config/spring-activiti.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zywork-generator/src/main/resources/config/spring-redis-single.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zywork-generator/src/main/resources/config/spring-session.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zywork-generator/src/main/resources/config/spring-shiro.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zywork-generator/src/main/webapp/static/js/Module/Module.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zywork-generator/src/main/webapp/static/js/Module/ModuleSearchModal.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zywork-generator/src/main/webapp/static/js/Permission/Permission.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zywork-generator/src/main/webapp/static/js/Permission/PermissionSearchModal.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zywork-generator/src/main/webapp/static/js/Process/Process.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zywork-generator/src/main/webapp/static/js/Process/ProcessSearchModal.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zywork-generator/src/main/webapp/static/js/Role/Role.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zywork-generator/src/main/webapp/static/js/Role/RoleSearchModal.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zywork-generator/src/main/webapp/static/js/Scheduler/Scheduler.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zywork-generator/src/main/webapp/static/js/Scheduler/SchedulerSearchModal.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zywork-generator/src/main/webapp/static/js/SysLog/SysLog.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zywork-generator/src/main/webapp/static/js/SysLog/SysLogSearchModal.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zywork-generator/src/main/webapp/static/js/User/User.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zywork-generator/src/main/webapp/static/js/User/UserSearchModal.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zywork-log/zywork-log-common/src/main/java/top/zywork/query/SysLogQuery.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zywork-log/zywork-log-common/src/main/java/top/zywork/vo/SysLogVO.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zywork-log/zywork-log-web/src/main/java/top/zywork/controller/SysLogController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zywork-schedule/zywork-schedule-common/src/main/java/top/zywork/dto/SchedulerDTO.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zywork-schedule/zywork-schedule-common/src/main/java/top/zywork/query/SchedulerQuery.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zywork-schedule/zywork-schedule-common/src/main/java/top/zywork/vo/SchedulerVO.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zywork-schedule/zywork-schedule-dao/src/main/java/top/zywork/dao/SchedulerDAO.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zywork-schedule/zywork-schedule-dao/src/main/resources/mapper/SchedulerDAOMapper.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zywork-schedule/zywork-schedule-service-api/src/main/java/top/zywork/service/SchedulerService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zywork-schedule/zywork-schedule-service-impl/src/main/java/top/zywork/service/impl/SchedulerServiceImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zywork-schedule/zywork-schedule-web/src/main/java/top/zywork/controller/SchedulerController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zywork-upms/zywork-upms-common/src/main/java/top/zywork/query/ModuleQuery.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zywork-upms/zywork-upms-common/src/main/java/top/zywork/query/PermissionQuery.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zywork-upms/zywork-upms-common/src/main/java/top/zywork/query/RoleQuery.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zywork-upms/zywork-upms-common/src/main/java/top/zywork/query/UserQuery.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zywork-upms/zywork-upms-common/src/main/java/top/zywork/vo/ModuleVO.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zywork-upms/zywork-upms-common/src/main/java/top/zywork/vo/PermissionVO.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zywork-upms/zywork-upms-common/src/main/java/top/zywork/vo/RoleVO.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zywork-upms/zywork-upms-common/src/main/java/top/zywork/vo/UserVO.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/zywork-bpms/zywork-bpms-common/src/main/java/top/zywork/query/ProcessDeployQuery.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/zywork-generator/src/main/java/top/zywork/generator/GeneratorReservedApp.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/zywork-generator/src/main/java/top/zywork/generator/bean/GeneratorReserved.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/zywork-generator/src/main/resources/config/generator-reserved.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/zywork-log/zywork-log-web/src/main/webapp/index.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/zywork-schedule/zywork-schedule-web/src/main/webapp/index.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/zywork-upms/zywork-upms-service-api/src/main/java/top/zywork/service/UserRedisService.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/zywork-upms/zywork-upms-service-impl/src/main/java/top/zywork/service/impl/UserRedisServiceImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/zywork-upms/zywork-upms-web/src/main/webapp/index.jsp" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-report/zywork-report-service-impl/src/test/resources/user.xlsx" afterPath="$PROJECT_DIR$/zywork-report/zywork-report-service-impl/src/test/resources/user.xlsx" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/zywork-generator/src/main/java/top/zywork/generatedcodes/controller/UserSocialController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/zywork-generator/src/main/java/top/zywork/generatedcodes/dao/UserSocialDAO.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/zywork-generator/src/main/java/top/zywork/generatedcodes/dos/UserSocialDO.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/zywork-generator/src/main/java/top/zywork/generatedcodes/dto/UserSocialDTO.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/zywork-generator/src/main/java/top/zywork/generatedcodes/query/UserSocialQuery.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/zywork-generator/src/main/java/top/zywork/generatedcodes/service/UserSocialService.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/zywork-generator/src/main/java/top/zywork/generatedcodes/service/impl/UserSocialServiceImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/zywork-generator/src/main/java/top/zywork/generatedcodes/vo/UserSocialVO.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/zywork_bpms_web_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/zywork_bpms_web_war_exploded.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/zywork_cms_web_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/zywork_cms_web_war_exploded.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/zywork_generator_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/zywork_generator_war_exploded.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/zywork_log_web_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/zywork_log_web_war_exploded.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/zywork_message_web_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/zywork_message_web_war_exploded.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/zywork_report_web_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/zywork_report_web_war_exploded.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/zywork_schedule_web_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/zywork_schedule_web_war_exploded.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/zywork_ucenter_web_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/zywork_ucenter_web_war_exploded.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/ed44ff0d-aa75-45ec-ae6d-2917247fd17a.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/ed44ff0d-aa75-45ec-ae6d-2917247fd17a.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-bpms/zywork-bpms-common/src/main/java/top/zywork/dos/ProcessDO.java" afterPath="$PROJECT_DIR$/zywork-bpms/zywork-bpms-common/src/main/java/top/zywork/dos/ProcessDO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-bpms/zywork-bpms-common/src/main/java/top/zywork/dto/ProcessDTO.java" afterPath="$PROJECT_DIR$/zywork-bpms/zywork-bpms-common/src/main/java/top/zywork/dto/ProcessDTO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-bpms/zywork-bpms-common/src/main/java/top/zywork/vo/ProcessVO.java" afterPath="$PROJECT_DIR$/zywork-bpms/zywork-bpms-common/src/main/java/top/zywork/vo/ProcessVO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-bpms/zywork-bpms-dao/src/main/java/top/zywork/dao/ProcessDAO.java" afterPath="$PROJECT_DIR$/zywork-bpms/zywork-bpms-dao/src/main/java/top/zywork/dao/ProcessDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-bpms/zywork-bpms-dao/src/main/resources/mapper/ProcessDAOMapper.xml" afterPath="$PROJECT_DIR$/zywork-bpms/zywork-bpms-dao/src/main/resources/mapper/ProcessDAOMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-bpms/zywork-bpms-service-api/src/main/java/top/zywork/service/ProcessService.java" afterPath="$PROJECT_DIR$/zywork-bpms/zywork-bpms-service-api/src/main/java/top/zywork/service/ProcessService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-bpms/zywork-bpms-service-impl/src/main/java/com/gs/service/impl/ProcessServiceImpl.java" afterPath="$PROJECT_DIR$/zywork-bpms/zywork-bpms-service-impl/src/main/java/com/gs/service/impl/ProcessServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-bpms/zywork-bpms-web/zywork-bpms-web.iml" afterPath="$PROJECT_DIR$/zywork-bpms/zywork-bpms-web/zywork-bpms-web.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-cms/zywork-cms-web/zywork-cms-web.iml" afterPath="$PROJECT_DIR$/zywork-cms/zywork-cms-web/zywork-cms-web.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-common/src/main/java/top/zywork/service/AbstractBaseService.java" afterPath="$PROJECT_DIR$/zywork-common/src/main/java/top/zywork/service/AbstractBaseService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-config/zywork-config-web/pom.xml" afterPath="$PROJECT_DIR$/zywork-config/zywork-config-web/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-config/zywork-config-web/src/main/resources/config/springmvc.xml" afterPath="$PROJECT_DIR$/zywork-config/zywork-config-web/src/main/resources/config/springmvc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-config/zywork-config-web/zywork-config-web.iml" afterPath="$PROJECT_DIR$/zywork-config/zywork-config-web/zywork-config-web.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-generator/pom.xml" afterPath="$PROJECT_DIR$/zywork-generator/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-generator/src/main/java/top/zywork/generator/common/GeneratorUtils.java" afterPath="$PROJECT_DIR$/zywork-generator/src/main/java/top/zywork/generator/common/GeneratorUtils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-generator/src/main/java/top/zywork/generator/generator/BeanGenerator.java" afterPath="$PROJECT_DIR$/zywork-generator/src/main/java/top/zywork/generator/generator/BeanGenerator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-generator/src/main/java/top/zywork/generator/generator/ViewGenerator.java" afterPath="$PROJECT_DIR$/zywork-generator/src/main/java/top/zywork/generator/generator/ViewGenerator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-generator/src/main/resources/config/generator.json" afterPath="$PROJECT_DIR$/zywork-generator/src/main/resources/config/generator.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-generator/src/main/resources/config/springmvc.xml" afterPath="$PROJECT_DIR$/zywork-generator/src/main/resources/config/springmvc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-generator/src/main/resources/template/controller.tpl" afterPath="$PROJECT_DIR$/zywork-generator/src/main/resources/template/controller.tpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-generator/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/zywork-generator/src/main/webapp/WEB-INF/web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-generator/zywork-generator.iml" afterPath="$PROJECT_DIR$/zywork-generator/zywork-generator.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-log/zywork-log-aspect/pom.xml" afterPath="$PROJECT_DIR$/zywork-log/zywork-log-aspect/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-log/zywork-log-aspect/zywork-log-aspect.iml" afterPath="$PROJECT_DIR$/zywork-log/zywork-log-aspect/zywork-log-aspect.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-log/zywork-log-common/src/main/java/top/zywork/dos/SysLogDO.java" afterPath="$PROJECT_DIR$/zywork-log/zywork-log-common/src/main/java/top/zywork/dos/SysLogDO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-log/zywork-log-common/src/main/java/top/zywork/dto/SysLogDTO.java" afterPath="$PROJECT_DIR$/zywork-log/zywork-log-common/src/main/java/top/zywork/dto/SysLogDTO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-log/zywork-log-dao/src/main/java/top/zywork/dao/SysLogDAO.java" afterPath="$PROJECT_DIR$/zywork-log/zywork-log-dao/src/main/java/top/zywork/dao/SysLogDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-log/zywork-log-dao/src/main/resources/mapper/SysLogDAOMapper.xml" afterPath="$PROJECT_DIR$/zywork-log/zywork-log-dao/src/main/resources/mapper/SysLogDAOMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-log/zywork-log-service-api/src/main/java/top/zywork/service/SysLogService.java" afterPath="$PROJECT_DIR$/zywork-log/zywork-log-service-api/src/main/java/top/zywork/service/SysLogService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-log/zywork-log-service-impl/src/main/java/top/zywork/aspect/SysLogAspect.java" afterPath="$PROJECT_DIR$/zywork-log/zywork-log-service-impl/src/main/java/top/zywork/aspect/SysLogAspect.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-log/zywork-log-service-impl/src/main/java/top/zywork/service/impl/SysLogServiceImpl.java" afterPath="$PROJECT_DIR$/zywork-log/zywork-log-service-impl/src/main/java/top/zywork/service/impl/SysLogServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-log/zywork-log-web/zywork-log-web.iml" afterPath="$PROJECT_DIR$/zywork-log/zywork-log-web/zywork-log-web.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-message/zywork-message-web/zywork-message-web.iml" afterPath="$PROJECT_DIR$/zywork-message/zywork-message-web/zywork-message-web.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-report/zywork-report-web/zywork-report-web.iml" afterPath="$PROJECT_DIR$/zywork-report/zywork-report-web/zywork-report-web.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-schedule/zywork-schedule-common/src/main/java/top/zywork/dos/SchedulerDO.java" afterPath="$PROJECT_DIR$/zywork-schedule/zywork-schedule-common/src/main/java/top/zywork/dos/SchedulerDO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-schedule/zywork-schedule-web/zywork-schedule-web.iml" afterPath="$PROJECT_DIR$/zywork-schedule/zywork-schedule-web/zywork-schedule-web.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-common/src/main/java/top/zywork/dos/UserDO.java" afterPath="$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-common/src/main/java/top/zywork/dos/UserDO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-common/src/main/java/top/zywork/dto/UserDTO.java" afterPath="$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-common/src/main/java/top/zywork/dto/UserDTO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-common/src/main/java/top/zywork/query/UserQuery.java" afterPath="$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-common/src/main/java/top/zywork/query/UserQuery.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-common/src/main/java/top/zywork/vo/UserVO.java" afterPath="$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-common/src/main/java/top/zywork/vo/UserVO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-dao/src/main/java/top/zywork/dao/UserDAO.java" afterPath="$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-dao/src/main/java/top/zywork/dao/UserDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-dao/src/main/resources/mapper/UserDAOMapper.xml" afterPath="$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-dao/src/main/resources/mapper/UserDAOMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-service-api/src/main/java/top/zywork/service/UserService.java" afterPath="$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-service-api/src/main/java/top/zywork/service/UserService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-service-impl/src/main/java/top/zywork/service/impl/UserServiceImpl.java" afterPath="$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-service-impl/src/main/java/top/zywork/service/impl/UserServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-web/src/main/java/top/zywork/controller/UserController.java" afterPath="$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-web/src/main/java/top/zywork/controller/UserController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-web/zywork-ucenter-web.iml" afterPath="$PROJECT_DIR$/zywork-ucenter/zywork-ucenter-web/zywork-ucenter-web.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-upms/zywork-upms-common/src/main/java/top/zywork/dos/ModuleDO.java" afterPath="$PROJECT_DIR$/zywork-upms/zywork-upms-common/src/main/java/top/zywork/dos/ModuleDO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-upms/zywork-upms-common/src/main/java/top/zywork/dos/PermissionDO.java" afterPath="$PROJECT_DIR$/zywork-upms/zywork-upms-common/src/main/java/top/zywork/dos/PermissionDO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-upms/zywork-upms-common/src/main/java/top/zywork/dos/RoleDO.java" afterPath="$PROJECT_DIR$/zywork-upms/zywork-upms-common/src/main/java/top/zywork/dos/RoleDO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-upms/zywork-upms-common/src/main/java/top/zywork/dos/UserDO.java" afterPath="$PROJECT_DIR$/zywork-upms/zywork-upms-common/src/main/java/top/zywork/dos/UserDO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-upms/zywork-upms-common/src/main/java/top/zywork/dto/ModuleDTO.java" afterPath="$PROJECT_DIR$/zywork-upms/zywork-upms-common/src/main/java/top/zywork/dto/ModuleDTO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-upms/zywork-upms-common/src/main/java/top/zywork/dto/PermissionDTO.java" afterPath="$PROJECT_DIR$/zywork-upms/zywork-upms-common/src/main/java/top/zywork/dto/PermissionDTO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-upms/zywork-upms-common/src/main/java/top/zywork/dto/RoleDTO.java" afterPath="$PROJECT_DIR$/zywork-upms/zywork-upms-common/src/main/java/top/zywork/dto/RoleDTO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-upms/zywork-upms-common/src/main/java/top/zywork/dto/UserDTO.java" afterPath="$PROJECT_DIR$/zywork-upms/zywork-upms-common/src/main/java/top/zywork/dto/UserDTO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-upms/zywork-upms-dao/src/main/java/top/zywork/dao/ModuleDAO.java" afterPath="$PROJECT_DIR$/zywork-upms/zywork-upms-dao/src/main/java/top/zywork/dao/ModuleDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-upms/zywork-upms-dao/src/main/java/top/zywork/dao/PermissionDAO.java" afterPath="$PROJECT_DIR$/zywork-upms/zywork-upms-dao/src/main/java/top/zywork/dao/PermissionDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-upms/zywork-upms-dao/src/main/java/top/zywork/dao/RoleDAO.java" afterPath="$PROJECT_DIR$/zywork-upms/zywork-upms-dao/src/main/java/top/zywork/dao/RoleDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-upms/zywork-upms-dao/src/main/java/top/zywork/dao/UserDAO.java" afterPath="$PROJECT_DIR$/zywork-upms/zywork-upms-dao/src/main/java/top/zywork/dao/UserDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-upms/zywork-upms-dao/src/main/resources/mapper/ModuleDAOMapper.xml" afterPath="$PROJECT_DIR$/zywork-upms/zywork-upms-dao/src/main/resources/mapper/ModuleDAOMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-upms/zywork-upms-dao/src/main/resources/mapper/PermissionDAOMapper.xml" afterPath="$PROJECT_DIR$/zywork-upms/zywork-upms-dao/src/main/resources/mapper/PermissionDAOMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-upms/zywork-upms-dao/src/main/resources/mapper/RoleDAOMapper.xml" afterPath="$PROJECT_DIR$/zywork-upms/zywork-upms-dao/src/main/resources/mapper/RoleDAOMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-upms/zywork-upms-dao/src/main/resources/mapper/UserDAOMapper.xml" afterPath="$PROJECT_DIR$/zywork-upms/zywork-upms-dao/src/main/resources/mapper/UserDAOMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-upms/zywork-upms-service-api/src/main/java/top/zywork/service/ModuleService.java" afterPath="$PROJECT_DIR$/zywork-upms/zywork-upms-service-api/src/main/java/top/zywork/service/ModuleService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-upms/zywork-upms-service-api/src/main/java/top/zywork/service/PermissionService.java" afterPath="$PROJECT_DIR$/zywork-upms/zywork-upms-service-api/src/main/java/top/zywork/service/PermissionService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-upms/zywork-upms-service-api/src/main/java/top/zywork/service/RoleService.java" afterPath="$PROJECT_DIR$/zywork-upms/zywork-upms-service-api/src/main/java/top/zywork/service/RoleService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-upms/zywork-upms-service-api/src/main/java/top/zywork/service/UserService.java" afterPath="$PROJECT_DIR$/zywork-upms/zywork-upms-service-api/src/main/java/top/zywork/service/UserService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-upms/zywork-upms-service-impl/src/main/java/top/zywork/service/impl/ModuleServiceImpl.java" afterPath="$PROJECT_DIR$/zywork-upms/zywork-upms-service-impl/src/main/java/top/zywork/service/impl/ModuleServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-upms/zywork-upms-service-impl/src/main/java/top/zywork/service/impl/PermissionServiceImpl.java" afterPath="$PROJECT_DIR$/zywork-upms/zywork-upms-service-impl/src/main/java/top/zywork/service/impl/PermissionServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-upms/zywork-upms-service-impl/src/main/java/top/zywork/service/impl/RoleServiceImpl.java" afterPath="$PROJECT_DIR$/zywork-upms/zywork-upms-service-impl/src/main/java/top/zywork/service/impl/RoleServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-upms/zywork-upms-service-impl/src/main/java/top/zywork/service/impl/UserServiceImpl.java" afterPath="$PROJECT_DIR$/zywork-upms/zywork-upms-service-impl/src/main/java/top/zywork/service/impl/UserServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-upms/zywork-upms-shiro/src/main/java/top/zywork/security/shiro/AppShiroRealm.java" afterPath="$PROJECT_DIR$/zywork-upms/zywork-upms-shiro/src/main/java/top/zywork/security/shiro/AppShiroRealm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zywork-upms/zywork-upms-web/src/main/java/top/zywork/controller/UserController.java" afterPath="$PROJECT_DIR$/zywork-upms/zywork-upms-web/src/main/java/top/zywork/controller/UserController.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -505,23 +364,47 @@
             <path>
               <item name="zywork" type="b2602c69:ProjectViewProjectNode" />
               <item name="zywork" type="462c0819:PsiDirectoryNode" />
-              <item name="zywork-cms" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="zywork" type="b2602c69:ProjectViewProjectNode" />
-              <item name="zywork" type="462c0819:PsiDirectoryNode" />
-              <item name="zywork-cms" type="462c0819:PsiDirectoryNode" />
-              <item name="zywork-cms-web" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="zywork" type="b2602c69:ProjectViewProjectNode" />
-              <item name="zywork" type="462c0819:PsiDirectoryNode" />
-              <item name="zywork-common" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork-generator" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="zywork" type="b2602c69:ProjectViewProjectNode" />
               <item name="zywork" type="462c0819:PsiDirectoryNode" />
               <item name="zywork-generator" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="zywork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="zywork" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork-generator" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="zywork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="zywork" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork-generator" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="zywork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="zywork" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork-generator" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="zywork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="zywork" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork-generator" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="zywork" type="462c0819:PsiDirectoryNode" />
+              <item name="generator" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -835,7 +718,7 @@
       <workItem from="1523863784967" duration="78633000" />
       <workItem from="1525240648989" duration="11032000" />
       <workItem from="1525257954800" duration="911000" />
-      <workItem from="1525258909155" duration="1292000" />
+      <workItem from="1525258909155" duration="1756000" />
     </task>
     <servers />
   </component>
@@ -872,7 +755,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="873159000" />
+    <option name="totallyTimeSpent" value="873623000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -2731,14 +2614,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="549">
-          <caret line="70" column="0" lean-forward="false" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/zywork-cms/zywork-cms-web/zywork-cms-web.iml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1535">
@@ -2759,6 +2634,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="67" column="57" lean-forward="false" selection-start-line="67" selection-start-column="57" selection-end-line="67" selection-end-column="57" />
           <folding />
         </state>
       </provider>
