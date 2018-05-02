@@ -1,0 +1,261 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="top.zywork.dao.SchedulerDAO">
+
+    <insert id="save" parameterType="schedulerDO">
+        insert into t_scheduler
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="name != null">
+				name,
+			</if>
+			<if test="className != null">
+				class_name,
+			</if>
+			<if test="cronExpression != null">
+				cron_expression,
+			</if>
+			<if test="groupName != null">
+				group_name,
+			</if>
+			<if test="triggerName != null">
+				trigger_name,
+			</if>
+			<if test="triggerGroup != null">
+				trigger_group,
+			</if>
+			<if test="description != null">
+				description,
+			</if>
+			<if test="jobStatus != null">
+				job_status,
+			</if>
+			<if test="createTime != null">
+				create_time,
+			</if>
+			<if test="updateTime != null">
+				update_time,
+			</if>
+			<if test="isActive != null">
+				is_active,
+			</if>
+			
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="name != null">
+				#{name},
+			</if>
+			<if test="className != null">
+				#{className},
+			</if>
+			<if test="cronExpression != null">
+				#{cronExpression},
+			</if>
+			<if test="groupName != null">
+				#{groupName},
+			</if>
+			<if test="triggerName != null">
+				#{triggerName},
+			</if>
+			<if test="triggerGroup != null">
+				#{triggerGroup},
+			</if>
+			<if test="description != null">
+				#{description},
+			</if>
+			<if test="jobStatus != null">
+				#{jobStatus},
+			</if>
+			<if test="createTime != null">
+				#{createTime},
+			</if>
+			<if test="updateTime != null">
+				#{updateTime},
+			</if>
+			<if test="isActive != null">
+				#{isActive},
+			</if>
+			
+        </trim>
+    </insert>
+
+    <delete id="remove" parameterType="schedulerDO">
+        delete from t_scheduler where id = #{id}
+    </delete>
+
+    <delete id="removeById" parameterType="long">
+        delete from t_scheduler where id = #{id}
+    </delete>
+
+    <delete id="removeByIds">
+        delete from t_scheduler where id in
+        <foreach item="id" collection="array" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <update id="update" parameterType="schedulerDO">
+        update t_scheduler
+        <set>
+            <if test="name != null">
+				name = #{name},
+			</if>
+			<if test="className != null">
+				class_name = #{className},
+			</if>
+			<if test="cronExpression != null">
+				cron_expression = #{cronExpression},
+			</if>
+			<if test="groupName != null">
+				group_name = #{groupName},
+			</if>
+			<if test="triggerName != null">
+				trigger_name = #{triggerName},
+			</if>
+			<if test="triggerGroup != null">
+				trigger_group = #{triggerGroup},
+			</if>
+			<if test="description != null">
+				description = #{description},
+			</if>
+			<if test="jobStatus != null">
+				job_status = #{jobStatus},
+			</if>
+			<if test="createTime != null">
+				create_time = #{createTime},
+			</if>
+			<if test="updateTime != null">
+				update_time = #{updateTime},
+			</if>
+			<if test="isActive != null">
+				is_active = #{isActive},
+			</if>
+			
+        </set>
+        where id = #{id}
+    </update>
+
+    <update id="updateActiveStatus" parameterType="top.zywork.query.StatusQuery">
+        update t_scheduler set is_active = #{status} where id = #{id}
+    </update>
+
+    <update id="updateActiveStatuses" parameterType="top.zywork.query.StatusQueries">
+        update t_scheduler set is_active = #{status} where id in
+        <foreach item="id" collection="ids" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </update>
+
+    <sql id="select_columns">
+        id as id, name as name, class_name as className, cron_expression as cronExpression, group_name as groupName, trigger_name as triggerName, trigger_group as triggerGroup, description as description, job_status as jobStatus, create_time as createTime, update_time as updateTime, is_active as isActive
+    </sql>
+
+    <sql id="query_where_clause">
+        <if test="query != null and query.id != null">
+			id = #{query.id}
+		</if>
+		<if test="query != null and query.name != null and query.name != ''">
+			and name like concat('%', #{query.name}, '%')
+		</if>
+		<if test="query != null and query.className != null and query.className != ''">
+			and class_name like concat('%', #{query.className}, '%')
+		</if>
+		<if test="query != null and query.cronExpression != null and query.cronExpression != ''">
+			and cron_expression like concat('%', #{query.cronExpression}, '%')
+		</if>
+		<if test="query != null and query.groupName != null and query.groupName != ''">
+			and group_name like concat('%', #{query.groupName}, '%')
+		</if>
+		<if test="query != null and query.triggerName != null and query.triggerName != ''">
+			and trigger_name like concat('%', #{query.triggerName}, '%')
+		</if>
+		<if test="query != null and query.triggerGroup != null and query.triggerGroup != ''">
+			and trigger_group like concat('%', #{query.triggerGroup}, '%')
+		</if>
+		<if test="query != null and query.description != null and query.description != ''">
+			and description like concat('%', #{query.description}, '%')
+		</if>
+		<if test="query != null and query.jobStatus != null">
+			and job_status = #{query.jobStatus}
+		</if>
+		<if test="query != null and query.createTimeStart != null and query.createTimeEnd == null">
+			and create_time <![CDATA[ >= ]]> #{query.createTimeStart}
+		</if>
+		<if test="query != null and query.createTimeStart == null and query.createTimeEnd != null">
+			and create_time <![CDATA[ <= ]]> #{query.createTimeEnd}
+		</if>
+		<if test="query != null and query.createTimeStart != null and query.createTimeEnd != null">
+			and create_time <![CDATA[ >= ]]> #{query.createTimeStart} and create_time <![CDATA[ <= ]]> #{query.createTimeEnd}
+		</if>
+		<if test="query != null and query.updateTimeStart != null and query.updateTimeEnd == null">
+			and update_time <![CDATA[ >= ]]> #{query.updateTimeStart}
+		</if>
+		<if test="query != null and query.updateTimeStart == null and query.updateTimeEnd != null">
+			and update_time <![CDATA[ <= ]]> #{query.updateTimeEnd}
+		</if>
+		<if test="query != null and query.updateTimeStart != null and query.updateTimeEnd != null">
+			and update_time <![CDATA[ >= ]]> #{query.updateTimeStart} and update_time <![CDATA[ <= ]]> #{query.updateTimeEnd}
+		</if>
+		<if test="query != null and query.isActive != null">
+			and is_active = #{query.isActive}
+		</if>
+		
+    </sql>
+
+    <select id="getById" parameterType="long" resultType="schedulerDO">
+        select
+        <include refid="select_columns"/>
+        from t_scheduler where id = #{id}
+    </select>
+
+    <select id="listAll" resultType="schedulerDO">
+        select
+        <include refid="select_columns"/>
+        from t_scheduler
+        order by update_time desc, create_time desc
+    </select>
+
+    <select id="listPage" parameterType="top.zywork.query.PageQuery" resultType="schedulerDO">
+        select
+        <include refid="select_columns"/>
+        from t_scheduler
+        order by
+        <if test="sort != null and sort != ''">
+            ${sort} ${order}
+        </if>
+        <if test="sort == null or sort == ''">
+            update_time desc, create_time desc
+        </if>
+        limit #{beginIndex}, #{pageSize}
+    </select>
+
+    <select id="count" resultType="long">
+        select count(*) from t_scheduler
+    </select>
+
+    <select id="listPageByCondition" resultType="schedulerDO">
+        select
+        <include refid="select_columns"/>
+        from t_scheduler
+        <where>
+            <include refid="query_where_clause"/>
+        </where>
+        order by
+        <if test="pager.sort != null and pager.sort != ''">
+            ${pager.sort} ${pager.order}
+        </if>
+        <if test="pager.sort == null or pager.sort == ''">
+            update_time desc, create_time desc
+        </if>
+        limit #{pager.beginIndex}, #{pager.pageSize}
+    </select>
+
+    <select id="countByCondition" resultType="long">
+        select count(*) from t_scheduler
+        <where>
+            <include refid="query_where_clause"/>
+        </where>
+    </select>
+
+</mapper>

@@ -3,60 +3,113 @@ package top.zywork.dos;
 import java.util.Date;
 
 /**
- * 角色DO类，角色基础信息<br />
- * 创建于2017-09-11
+ * RoleDO数据对象实体类<br/>
  *
- * @author 王振宇
+ * 创建于2018-05-02<br/>
+ *
+ * @author http://zywork.top 王振宇
  * @version 1.0
  */
 public class RoleDO extends BaseDO {
 
-    private static final long serialVersionUID = -4615193831961074264L;
+    private static final long serialVersionUID = -9223372035809075541L;
 
-    private Long id;
-    private String title;
-    private String description;
-    private Date createTime;
-    private Integer isActive;
+    /**
+	 * 编号
+	 */
+	private Long id;
+	/**
+	 * 标题
+	 */
+	private String title;
+	/**
+	 * 描述
+	 */
+	private String description;
+	/**
+	 * 创建时间
+	 */
+	private Date createTime;
+	/**
+	 * 更新时间
+	 */
+	private Date updateTime;
+	/**
+	 * 是否激活
+	 */
+	private Byte isActive;
+	
+    public RoleDO () {}
+
+    public RoleDO (Long id, String title, String description, Date createTime, Date updateTime, Byte isActive) {
+        this.id = id;
+		this.title = title;
+		this.description = description;
+		this.createTime = createTime;
+		this.updateTime = updateTime;
+		this.isActive = isActive;
+		
+    }
 
     public Long getId() {
-        return id;
-    }
+		return id;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public String getTitle() {
-        return title;
-    }
+	public String getTitle() {
+		return title;
+	}
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+	public void setTitle(String title) {
+		this.title = title;
+	}
 
-    public String getDescription() {
-        return description;
-    }
+	public String getDescription() {
+		return description;
+	}
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+	public void setDescription(String description) {
+		this.description = description;
+	}
 
-    public Date getCreateTime() {
-        return createTime;
-    }
+	public Date getCreateTime() {
+		return createTime;
+	}
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
 
-    public Integer getIsActive() {
-        return isActive;
-    }
+	public Date getUpdateTime() {
+		return updateTime;
+	}
 
-    public void setIsActive(Integer isActive) {
-        this.isActive = isActive;
+	public void setUpdateTime(Date updateTime) {
+		this.updateTime = updateTime;
+	}
+
+	public Byte getIsActive() {
+		return isActive;
+	}
+
+	public void setIsActive(Byte isActive) {
+		this.isActive = isActive;
+	}
+
+	
+    @Override
+    public String toString() {
+        return "RoleDO{" +
+                "id = " + id + 
+				", title = " + title + 
+				", description = " + description + 
+				", createTime = " + createTime + 
+				", updateTime = " + updateTime + 
+				", isActive = " + isActive + 
+				"}";
     }
 
 }

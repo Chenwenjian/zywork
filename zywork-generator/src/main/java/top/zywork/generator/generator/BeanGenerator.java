@@ -356,16 +356,16 @@ public class BeanGenerator {
                 field.append("\t@NotBlank(message = \"此项是必须项\")\n");
             } else if (javaType.equals("String") && nullable == DatabaseMetaData.columnNoNulls) {
                 field.append("\t@Size(min = 1, max = ")
-                        .append(columnSize / 2)
+                        .append(columnSize)
                         .append(", message = \"必须是1-")
-                        .append(columnSize / 2)
-                        .append("个中文字符\")\n");
+                        .append(columnSize)
+                        .append("个字符\")\n");
             } else if (javaType.equals("String") && nullable == DatabaseMetaData.columnNullable) {
                 field.append("\t@Size(min = 0, max = ")
-                        .append(columnSize / 2)
+                        .append(columnSize)
                         .append(", message = \"必须小于")
-                        .append(columnSize / 2)
-                        .append("个中文字符\")\n");
+                        .append(columnSize)
+                        .append("个字符\")\n");
             } else if (nullable == DatabaseMetaData.columnNoNulls) {
                 field.append("\t@NotNull(message = \"此项是必须项\")\n");
             }

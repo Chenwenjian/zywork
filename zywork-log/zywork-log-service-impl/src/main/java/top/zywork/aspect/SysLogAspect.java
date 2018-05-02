@@ -49,7 +49,7 @@ public class SysLogAspect {
         sysLogDTO.setExecuteMethod(signature.getName());
         sysLogDTO.setExecuteCostTime(costTime);
         sysLogDTO.setExecuteTime(new Timestamp(System.currentTimeMillis()));
-        sysLogDTO.setExecuteIp(IPUtils.getIP(WebUtils.getServletRequest()));
+        sysLogDTO.setExecuteIp(/**IPUtils.getIP(WebUtils.getServletRequest())*/"");
         sysLogService.save(sysLogDTO);
     }
 

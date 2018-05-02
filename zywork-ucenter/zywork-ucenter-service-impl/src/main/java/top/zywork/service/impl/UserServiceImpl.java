@@ -10,6 +10,14 @@ import top.zywork.service.UserService;
 
 import javax.annotation.PostConstruct;
 
+/**
+ * UserServiceImpl服务接口实现类<br/>
+ *
+ * 创建于2018-05-02<br/>
+ *
+ * @author http://zywork.top 王振宇
+ * @version 1.0
+ */
 @Service(value = "userService")
 public class UserServiceImpl extends AbstractBaseService implements UserService {
 

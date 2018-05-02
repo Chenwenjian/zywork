@@ -160,19 +160,19 @@ public class {beanName}Controller extends BaseController {
     }
 
     @PostMapping("batch-active")
-        @ResponseBody
-        public ControllerStatusVO updateActiveStatuses(String ids, StatusQueries statusQueries) {
-            ControllerStatusVO statusVO = new ControllerStatusVO();
-            statusQueries.setIds(StringUtils.strToLongArray(ids, ","));
-            try {
-                {beanNameLowerCase}Service.updateActiveStatuses(statusQueries);
-                statusVO.okStatus(200, statusQueries.getStatus() == 0 ? "批量激活成功" : "批量冻结成功");
-            } catch (ServiceException e) {
-                logger.error("激活或冻结失败：{}", e.getMessage());
-                statusVO.errorStatus(500, statusQueries.getStatus() == 0 ? "批量激活失败" : "批量冻结失败");
-            }
-            return statusVO;
+    @ResponseBody
+    public ControllerStatusVO updateActiveStatuses(String ids, StatusQueries statusQueries) {
+        ControllerStatusVO statusVO = new ControllerStatusVO();
+        statusQueries.setIds(StringUtils.strToLongArray(ids, ","));
+        try {
+            {beanNameLowerCase}Service.updateActiveStatuses(statusQueries);
+            statusVO.okStatus(200, statusQueries.getStatus() == 0 ? "批量激活成功" : "批量冻结成功");
+        } catch (ServiceException e) {
+            logger.error("激活或冻结失败：{}", e.getMessage());
+            statusVO.errorStatus(500, statusQueries.getStatus() == 0 ? "批量激活失败" : "批量冻结失败");
         }
+        return statusVO;
+    }
 
     @RequestMapping("one/{id}")
     @ResponseBody

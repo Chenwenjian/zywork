@@ -355,24 +355,24 @@ public class ViewGenerator {
                 validateField.append("\n\t\tstringLength: {\n")
                         .append("\t\t\tmin: 1,\n")
                         .append("\t\t\tmax: ")
-                        .append(columnSize / 2)
+                        .append(columnSize)
                         .append(",\n")
                         .append("\t\t\tmessage: '")
                         .append("必须是1-")
-                        .append(columnSize / 2)
-                        .append("个中文字符'\n")
+                        .append(columnSize)
+                        .append("个字符'\n")
                         .append("\t\t},");
             }
             if (javaType.equals("String") && nullable == DatabaseMetaData.columnNullable) {
                 validateField.append("\n\t\tstringLength: {\n")
                         .append("\t\t\tmin: 0,\n")
                         .append("\t\t\tmax: ")
-                        .append(columnSize / 2)
+                        .append(columnSize)
                         .append(",\n")
                         .append("\t\t\tmessage: '")
                         .append("必须小于")
-                        .append(columnSize / 2)
-                        .append("个中文字符'\n")
+                        .append(columnSize)
+                        .append("个字符'\n")
                         .append("\t\t},");
             }
         }

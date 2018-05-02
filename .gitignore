@@ -48,9 +48,10 @@
 /zywork-upms/zywork-upms-service-impl/target/
 /zywork-upms/zywork-upms-service-impl/catalina.base_IS_UNDEFINED/
 /zywork-upms/zywork-upms-web/target/
-/zywork-upms/zywork-upms-shiro-web/target/
+/zywork-upms/zywork-upms-shiro/target/
 /zywork-log/target/
 /zywork-log/zywork-log-common/target/
+/zywork-log/zywork-log-aspect/target/
 /zywork-log/zywork-log-dao/target/
 /zywork-log/zywork-log-service-api/target/
 /zywork-log/zywork-log-service-impl/target/
@@ -64,4 +65,8 @@
 /zywork-schedule/zywork-schedule-service-impl/catalina.base_IS_UNDEFINED/
 /zywork-schedule/zywork-schedule-web/target/
 /zywork-generator/target/
+/zywork-generator/src/main/java/top/zywork/generator
+/zywork-generator/src/main/resources/generatedcodes
+/zywork-generator/src/main/webapp/static/generatedcodes
+/zywork-generator/src/main/webapp/WEB-INF/generatedcodes
 /catalina.base_IS_UNDEFINED/

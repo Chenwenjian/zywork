@@ -5,9 +5,221 @@
 <mapper namespace="top.zywork.dao.UserDAO">
 
     <insert id="save" parameterType="userDO">
-        <![CDATA[
-          insert into t_user(password) values(#{password})
-        ]]>
+        insert into t_user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="email != null">
+				email,
+			</if>
+			<if test="phone != null">
+				phone,
+			</if>
+			<if test="accountName != null">
+				account_name,
+			</if>
+			<if test="password != null">
+				password,
+			</if>
+			<if test="salt != null">
+				salt,
+			</if>
+			<if test="createTime != null">
+				create_time,
+			</if>
+			<if test="updateTime != null">
+				update_time,
+			</if>
+			<if test="isActive != null">
+				is_active,
+			</if>
+			
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="email != null">
+				#{email},
+			</if>
+			<if test="phone != null">
+				#{phone},
+			</if>
+			<if test="accountName != null">
+				#{accountName},
+			</if>
+			<if test="password != null">
+				#{password},
+			</if>
+			<if test="salt != null">
+				#{salt},
+			</if>
+			<if test="createTime != null">
+				#{createTime},
+			</if>
+			<if test="updateTime != null">
+				#{updateTime},
+			</if>
+			<if test="isActive != null">
+				#{isActive},
+			</if>
+			
+        </trim>
     </insert>
+
+    <delete id="remove" parameterType="userDO">
+        delete from t_user where id = #{id}
+    </delete>
+
+    <delete id="removeById" parameterType="long">
+        delete from t_user where id = #{id}
+    </delete>
+
+    <delete id="removeByIds">
+        delete from t_user where id in
+        <foreach item="id" collection="array" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <update id="update" parameterType="userDO">
+        update t_user
+        <set>
+            <if test="email != null">
+				email = #{email},
+			</if>
+			<if test="phone != null">
+				phone = #{phone},
+			</if>
+			<if test="accountName != null">
+				account_name = #{accountName},
+			</if>
+			<if test="password != null">
+				password = #{password},
+			</if>
+			<if test="salt != null">
+				salt = #{salt},
+			</if>
+			<if test="createTime != null">
+				create_time = #{createTime},
+			</if>
+			<if test="updateTime != null">
+				update_time = #{updateTime},
+			</if>
+			<if test="isActive != null">
+				is_active = #{isActive},
+			</if>
+			
+        </set>
+        where id = #{id}
+    </update>
+
+    <update id="updateActiveStatus" parameterType="top.zywork.query.StatusQuery">
+        update t_user set is_active = #{status} where id = #{id}
+    </update>
+
+    <update id="updateActiveStatuses" parameterType="top.zywork.query.StatusQueries">
+        update t_user set is_active = #{status} where id in
+        <foreach item="id" collection="ids" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </update>
+
+    <sql id="select_columns">
+        id as id, email as email, phone as phone, account_name as accountName, password as password, salt as salt, create_time as createTime, update_time as updateTime, is_active as isActive
+    </sql>
+
+    <sql id="query_where_clause">
+        <if test="query != null and query.id != null">
+			id = #{query.id}
+		</if>
+		<if test="query != null and query.email != null and query.email != ''">
+			and email like concat('%', #{query.email}, '%')
+		</if>
+		<if test="query != null and query.phone != null and query.phone != ''">
+			and phone like concat('%', #{query.phone}, '%')
+		</if>
+		<if test="query != null and query.accountName != null and query.accountName != ''">
+			and account_name like concat('%', #{query.accountName}, '%')
+		</if>
+		<if test="query != null and query.password != null and query.password != ''">
+			and password like concat('%', #{query.password}, '%')
+		</if>
+		<if test="query != null and query.salt != null and query.salt != ''">
+			and salt like concat('%', #{query.salt}, '%')
+		</if>
+		<if test="query != null and query.createTimeStart != null and query.createTimeEnd == null">
+			and create_time <![CDATA[ >= ]]> #{query.createTimeStart}
+		</if>
+		<if test="query != null and query.createTimeStart == null and query.createTimeEnd != null">
+			and create_time <![CDATA[ <= ]]> #{query.createTimeEnd}
+		</if>
+		<if test="query != null and query.createTimeStart != null and query.createTimeEnd != null">
+			and create_time <![CDATA[ >= ]]> #{query.createTimeStart} and create_time <![CDATA[ <= ]]> #{query.createTimeEnd}
+		</if>
+		<if test="query != null and query.updateTimeStart != null and query.updateTimeEnd == null">
+			and update_time <![CDATA[ >= ]]> #{query.updateTimeStart}
+		</if>
+		<if test="query != null and query.updateTimeStart == null and query.updateTimeEnd != null">
+			and update_time <![CDATA[ <= ]]> #{query.updateTimeEnd}
+		</if>
+		<if test="query != null and query.updateTimeStart != null and query.updateTimeEnd != null">
+			and update_time <![CDATA[ >= ]]> #{query.updateTimeStart} and update_time <![CDATA[ <= ]]> #{query.updateTimeEnd}
+		</if>
+		<if test="query != null and query.isActive != null">
+			and is_active = #{query.isActive}
+		</if>
+		
+    </sql>
+
+    <select id="getById" parameterType="long" resultType="userDO">
+        select
+        <include refid="select_columns"/>
+        from t_user where id = #{id}
+    </select>
+
+    <select id="listAll" resultType="userDO">
+        select
+        <include refid="select_columns"/>
+        from t_user
+        order by update_time desc, create_time desc
+    </select>
+
+    <select id="listPage" parameterType="top.zywork.query.PageQuery" resultType="userDO">
+        select
+        <include refid="select_columns"/>
+        from t_user
+        order by
+        <if test="sort != null and sort != ''">
+            ${sort} ${order}
+        </if>
+        <if test="sort == null or sort == ''">
+            update_time desc, create_time desc
+        </if>
+        limit #{beginIndex}, #{pageSize}
+    </select>
+
+    <select id="count" resultType="long">
+        select count(*) from t_user
+    </select>
+
+    <select id="listPageByCondition" resultType="userDO">
+        select
+        <include refid="select_columns"/>
+        from t_user
+        <where>
+            <include refid="query_where_clause"/>
+        </where>
+        order by
+        <if test="pager.sort != null and pager.sort != ''">
+            ${pager.sort} ${pager.order}
+        </if>
+        <if test="pager.sort == null or pager.sort == ''">
+            update_time desc, create_time desc
+        </if>
+        limit #{pager.beginIndex}, #{pager.pageSize}
+    </select>
+
+    <select id="countByCondition" resultType="long">
+        select count(*) from t_user
+        <where>
+            <include refid="query_where_clause"/>
+        </where>
+    </select>
 
 </mapper>

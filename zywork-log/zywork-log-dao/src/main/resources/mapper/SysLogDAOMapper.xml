@@ -5,10 +5,203 @@
 <mapper namespace="top.zywork.dao.SysLogDAO">
 
     <insert id="save" parameterType="sysLogDO">
-        <![CDATA[
-          insert into t_sys_log(user_id, description, execute_class, execute_method, execute_time, execute_cost_time, execute_ip)
-          values(#{userId}, #{description}, #{executeClass}, #{executeMethod}, #{executeTime}, #{executeCostTime}, #{executeIp})
-        ]]>
+        insert into t_sys_log
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userId != null">
+				user_id,
+			</if>
+			<if test="description != null">
+				description,
+			</if>
+			<if test="executeClass != null">
+				execute_class,
+			</if>
+			<if test="executeMethod != null">
+				execute_method,
+			</if>
+			<if test="executeTime != null">
+				execute_time,
+			</if>
+			<if test="executeCostTime != null">
+				execute_cost_time,
+			</if>
+			<if test="executeIp != null">
+				execute_ip,
+			</if>
+			
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="userId != null">
+				#{userId},
+			</if>
+			<if test="description != null">
+				#{description},
+			</if>
+			<if test="executeClass != null">
+				#{executeClass},
+			</if>
+			<if test="executeMethod != null">
+				#{executeMethod},
+			</if>
+			<if test="executeTime != null">
+				#{executeTime},
+			</if>
+			<if test="executeCostTime != null">
+				#{executeCostTime},
+			</if>
+			<if test="executeIp != null">
+				#{executeIp},
+			</if>
+			
+        </trim>
     </insert>
+
+    <delete id="remove" parameterType="sysLogDO">
+        delete from t_sys_log where id = #{id}
+    </delete>
+
+    <delete id="removeById" parameterType="long">
+        delete from t_sys_log where id = #{id}
+    </delete>
+
+    <delete id="removeByIds">
+        delete from t_sys_log where id in
+        <foreach item="id" collection="array" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <update id="update" parameterType="sysLogDO">
+        update t_sys_log
+        <set>
+            <if test="userId != null">
+				user_id = #{userId},
+			</if>
+			<if test="description != null">
+				description = #{description},
+			</if>
+			<if test="executeClass != null">
+				execute_class = #{executeClass},
+			</if>
+			<if test="executeMethod != null">
+				execute_method = #{executeMethod},
+			</if>
+			<if test="executeTime != null">
+				execute_time = #{executeTime},
+			</if>
+			<if test="executeCostTime != null">
+				execute_cost_time = #{executeCostTime},
+			</if>
+			<if test="executeIp != null">
+				execute_ip = #{executeIp},
+			</if>
+			
+        </set>
+        where id = #{id}
+    </update>
+
+    <update id="updateActiveStatus" parameterType="top.zywork.query.StatusQuery">
+        update t_sys_log set is_active = #{status} where id = #{id}
+    </update>
+
+    <update id="updateActiveStatuses" parameterType="top.zywork.query.StatusQueries">
+        update t_sys_log set is_active = #{status} where id in
+        <foreach item="id" collection="ids" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </update>
+
+    <sql id="select_columns">
+        id as id, user_id as userId, description as description, execute_class as executeClass, execute_method as executeMethod, execute_time as executeTime, execute_cost_time as executeCostTime, execute_ip as executeIp
+    </sql>
+
+    <sql id="query_where_clause">
+        <if test="query != null and query.id != null">
+			id = #{query.id}
+		</if>
+		<if test="query != null and query.userId != null">
+			and user_id = #{query.userId}
+		</if>
+		<if test="query != null and query.description != null and query.description != ''">
+			and description like concat('%', #{query.description}, '%')
+		</if>
+		<if test="query != null and query.executeClass != null and query.executeClass != ''">
+			and execute_class like concat('%', #{query.executeClass}, '%')
+		</if>
+		<if test="query != null and query.executeMethod != null and query.executeMethod != ''">
+			and execute_method like concat('%', #{query.executeMethod}, '%')
+		</if>
+		<if test="query != null and query.executeTimeStart != null and query.executeTimeEnd == null">
+			and execute_time <![CDATA[ >= ]]> #{query.executeTimeStart}
+		</if>
+		<if test="query != null and query.executeTimeStart == null and query.executeTimeEnd != null">
+			and execute_time <![CDATA[ <= ]]> #{query.executeTimeEnd}
+		</if>
+		<if test="query != null and query.executeTimeStart != null and query.executeTimeEnd != null">
+			and execute_time <![CDATA[ >= ]]> #{query.executeTimeStart} and execute_time <![CDATA[ <= ]]> #{query.executeTimeEnd}
+		</if>
+		<if test="query != null and query.executeCostTime != null">
+			and execute_cost_time = #{query.executeCostTime}
+		</if>
+		<if test="query != null and query.executeIp != null and query.executeIp != ''">
+			and execute_ip like concat('%', #{query.executeIp}, '%')
+		</if>
+		
+    </sql>
+
+    <select id="getById" parameterType="long" resultType="sysLogDO">
+        select
+        <include refid="select_columns"/>
+        from t_sys_log where id = #{id}
+    </select>
+
+    <select id="listAll" resultType="sysLogDO">
+        select
+        <include refid="select_columns"/>
+        from t_sys_log
+        order by update_time desc, create_time desc
+    </select>
+
+    <select id="listPage" parameterType="top.zywork.query.PageQuery" resultType="sysLogDO">
+        select
+        <include refid="select_columns"/>
+        from t_sys_log
+        order by
+        <if test="sort != null and sort != ''">
+            ${sort} ${order}
+        </if>
+        <if test="sort == null or sort == ''">
+            update_time desc, create_time desc
+        </if>
+        limit #{beginIndex}, #{pageSize}
+    </select>
+
+    <select id="count" resultType="long">
+        select count(*) from t_sys_log
+    </select>
+
+    <select id="listPageByCondition" resultType="sysLogDO">
+        select
+        <include refid="select_columns"/>
+        from t_sys_log
+        <where>
+            <include refid="query_where_clause"/>
+        </where>
+        order by
+        <if test="pager.sort != null and pager.sort != ''">
+            ${pager.sort} ${pager.order}
+        </if>
+        <if test="pager.sort == null or pager.sort == ''">
+            update_time desc, create_time desc
+        </if>
+        limit #{pager.beginIndex}, #{pager.pageSize}
+    </select>
+
+    <select id="countByCondition" resultType="long">
+        select count(*) from t_sys_log
+        <where>
+            <include refid="query_where_clause"/>
+        </where>
+    </select>
 
 </mapper>

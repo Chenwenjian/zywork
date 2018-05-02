@@ -55,12 +55,13 @@ public class GeneratorUtils {
     /**
      * 在src/main/java目录中创建Java代码的基础package
      */
-    public static void createBasePackage(Generator generator) {
-        String[] packageDirs = generator.getBasePackage().split(".");
-        File file = new File(generator.getSaveBaseDir() + generator.getJavaSrcDir() + packageDirs[0] + File.separator + packageDirs[1]);
+    public static File createBasePackage(Generator generator) {
+        String packagePath = generator.getSaveBaseDir() + generator.getJavaSrcDir() + generator.getBasePackage();
+        File file = new File(packagePath.replace(".", File.separator));
         if (!file.exists()) {
             file.mkdirs();
         }
+        return file;
     }
 
     /**
@@ -69,14 +70,9 @@ public class GeneratorUtils {
      * @return 创建好的包对应的目录的绝对路径
      */
     public static String createPackage(Generator generator, String packageName) {
-        String[] packageDirs = generator.getBasePackage().split("[.]");
-        File file = new File(generator.getSaveBaseDir() + generator.getJavaSrcDir() + packageDirs[0] + File.separator + packageDirs[1]);
-        if (!file.exists()) {
-            file.mkdirs();
-        }
         String packagePath = "";
         packagePath = packageName.replace(".", File.separator);
-        File file1 = new File(file, packagePath);
+        File file1 = new File(createBasePackage(generator), packagePath);
         if (!file1.exists()) {
             file1.mkdirs();
         }

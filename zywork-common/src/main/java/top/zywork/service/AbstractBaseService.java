@@ -167,6 +167,10 @@ public abstract class AbstractBaseService implements BaseService {
         return beanMapper;
     }
 
+    public Class<?> getDtoClass() {
+        return dtoClass;
+    }
+
     public void setBaseDAO(BaseDAO baseDAO) {
         this.baseDAO = baseDAO;
     }
