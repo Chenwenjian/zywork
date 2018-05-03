@@ -29,5 +29,10 @@
             <groupId>top.zywork</groupId>
             <artifactId>zywork-config-web</artifactId>
         </dependency>
+        <dependency>
+            <groupId>top.zywork</groupId>
+            <artifactId>zywork-upms-shiro</artifactId>
+            <version>${zywork.version}</version>
+        </dependency>
     </dependencies>
 </project>

@@ -246,6 +246,11 @@
             <!-- apache shiro -->
             <dependency>
                 <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-core</artifactId>
+                <version>${shiro.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
                 <artifactId>shiro-all</artifactId>
                 <version>${shiro.version}</version>
                 <exclusions>

@@ -136,3 +136,10 @@ url签名算法如下：
 
 #### 其他子系统如何使用权限认证？
 其他子系统中直接引用zywork-upms-shiro模块即可，此模块会调用zywork-upms服务子系统来完成相关认证
+
+zywork-upms-shiro已经实现了SpringMVC与Shiro的注解整合，在所有子系统的Controller类中，只需要在方法前使用以下注解就可以完成用户认证及权限验证，如果出现异常，会返回JSON格式数据
+```
+@RequiresRoles(value = {"super_admin"})
+
+@RequiresPermissions(value = {"system:permission:save"})
+```
