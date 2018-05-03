@@ -7,8 +7,8 @@
     <insert id="save" parameterType="sysLogDO">
         insert into t_sys_log
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="userId != null">
-				user_id,
+            <if test="userAccount != null">
+				user_account,
 			</if>
 			<if test="description != null">
 				description,
@@ -31,8 +31,8 @@
 			
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="userId != null">
-				#{userId},
+            <if test="userAccount != null">
+				#{userAccount},
 			</if>
 			<if test="description != null">
 				#{description},
@@ -74,8 +74,8 @@
     <update id="update" parameterType="sysLogDO">
         update t_sys_log
         <set>
-            <if test="userId != null">
-				user_id = #{userId},
+            <if test="userAccount != null">
+				user_account = #{userAccount},
 			</if>
 			<if test="description != null">
 				description = #{description},
@@ -112,15 +112,15 @@
     </update>
 
     <sql id="select_columns">
-        id as id, user_id as userId, description as description, execute_class as executeClass, execute_method as executeMethod, execute_time as executeTime, execute_cost_time as executeCostTime, execute_ip as executeIp
+        id as id, user_account as userAccount, description as description, execute_class as executeClass, execute_method as executeMethod, execute_time as executeTime, execute_cost_time as executeCostTime, execute_ip as executeIp
     </sql>
 
     <sql id="query_where_clause">
         <if test="query != null and query.id != null">
 			id = #{query.id}
 		</if>
-		<if test="query != null and query.userId != null">
-			and user_id = #{query.userId}
+		<if test="query != null and query.userAccount != null and query.userAccount != ''">
+			and user_account like concat('%', #{query.userAccount}, '%')
 		</if>
 		<if test="query != null and query.description != null and query.description != ''">
 			and description like concat('%', #{query.description}, '%')

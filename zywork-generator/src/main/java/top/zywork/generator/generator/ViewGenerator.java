@@ -60,6 +60,7 @@ public class ViewGenerator {
         String moduleName = GeneratorUtils.getModuleName(tableColumns.getTableName(), generator.getTablePrefix());
         String fileContent = GeneratorUtils.readTemplate(generator, TemplateConstants.VIEW_JS_MODAL_SEARCH);
         fileContent = fileContent.replace(TemplateConstants.VIEW_MODULE_NAME, moduleName)
+                .replace(TemplateConstants.BEAN_NAME_LOWER_CASE, StringUtils.uncapitalize(beanName))
                 .replace(TemplateConstants.VIEW_TABLE_FIELDS, generateTableFields(generator, tableColumns))
                 .replace(TemplateConstants.VIEW_TABLE_URL, "/" + moduleName + "/pager-cond")
                 .replace(TemplateConstants.VIEW_ID_FIELD, "id");

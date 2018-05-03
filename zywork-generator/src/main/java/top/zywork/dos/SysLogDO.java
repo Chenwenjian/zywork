@@ -1,28 +1,27 @@
 package top.zywork.dos;
 
-import java.math.BigDecimal;
 import java.util.Date;
 
 /**
  * SysLogDO数据对象实体类<br/>
  *
- * 创建于2018-05-02<br/>
+ * 创建于2018-05-03<br/>
  *
  * @author http://zywork.top 王振宇
  * @version 1.0
  */
 public class SysLogDO extends BaseDO {
 
-    private static final long serialVersionUID = -9223372036602292279L;
+    private static final long serialVersionUID = -9223372035063266004L;
 
     /**
 	 * 编号
 	 */
 	private Long id;
 	/**
-	 * 用户编号
+	 * 用户账号
 	 */
-	private Long userId;
+	private String userAccount;
 	/**
 	 * 执行说明
 	 */
@@ -48,11 +47,11 @@ public class SysLogDO extends BaseDO {
 	 */
 	private String executeIp;
 	
-    public SysLogDO () {}
+    public SysLogDO() {}
 
-    public SysLogDO (Long id, Long userId, String description, String executeClass, String executeMethod, Date executeTime, Long executeCostTime, String executeIp) {
+    public SysLogDO(Long id, String userAccount, String description, String executeClass, String executeMethod, Date executeTime, Long executeCostTime, String executeIp) {
         this.id = id;
-		this.userId = userId;
+		this.userAccount = userAccount;
 		this.description = description;
 		this.executeClass = executeClass;
 		this.executeMethod = executeMethod;
@@ -70,12 +69,12 @@ public class SysLogDO extends BaseDO {
 		this.id = id;
 	}
 
-	public Long getUserId() {
-		return userId;
+	public String getUserAccount() {
+		return userAccount;
 	}
 
-	public void setUserId(Long userId) {
-		this.userId = userId;
+	public void setUserAccount(String userAccount) {
+		this.userAccount = userAccount;
 	}
 
 	public String getDescription() {
@@ -131,7 +130,7 @@ public class SysLogDO extends BaseDO {
     public String toString() {
         return "SysLogDO{" +
                 "id = " + id + 
-				", userId = " + userId + 
+				", userAccount = " + userAccount + 
 				", description = " + description + 
 				", executeClass = " + executeClass + 
 				", executeMethod = " + executeMethod + 

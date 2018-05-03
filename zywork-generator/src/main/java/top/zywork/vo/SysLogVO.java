@@ -6,23 +6,24 @@ import java.util.Date;
 /**
  * SysLogVO值对象类<br/>
  *
- * 创建于2018-05-02<br/>
+ * 创建于2018-05-03<br/>
  *
  * @author http://zywork.top 王振宇
  * @version 1.0
  */
 public class SysLogVO extends BaseVO {
 
-    private static final long serialVersionUID = -9223372035880990940L;
+    private static final long serialVersionUID = -9223372036768413129L;
 
     /**
 	 * 编号
 	 */
 	private Long id;
 	/**
-	 * 用户编号
+	 * 用户账号
 	 */
-	private Long userId;
+	@Size(min = 0, max = 100, message = "必须小于100个字符")
+	private String userAccount;
 	/**
 	 * 执行说明
 	 */
@@ -52,11 +53,11 @@ public class SysLogVO extends BaseVO {
 	@Size(min = 0, max = 100, message = "必须小于100个字符")
 	private String executeIp;
 	
-    public SysLogVO () {}
+    public SysLogVO() {}
 
-    public SysLogVO (Long id, Long userId, String description, String executeClass, String executeMethod, Date executeTime, Long executeCostTime, String executeIp) {
+    public SysLogVO(Long id, String userAccount, String description, String executeClass, String executeMethod, Date executeTime, Long executeCostTime, String executeIp) {
         this.id = id;
-		this.userId = userId;
+		this.userAccount = userAccount;
 		this.description = description;
 		this.executeClass = executeClass;
 		this.executeMethod = executeMethod;
@@ -74,12 +75,12 @@ public class SysLogVO extends BaseVO {
 		this.id = id;
 	}
 
-	public Long getUserId() {
-		return userId;
+	public String getUserAccount() {
+		return userAccount;
 	}
 
-	public void setUserId(Long userId) {
-		this.userId = userId;
+	public void setUserAccount(String userAccount) {
+		this.userAccount = userAccount;
 	}
 
 	public String getDescription() {
@@ -135,7 +136,7 @@ public class SysLogVO extends BaseVO {
     public String toString() {
         return "SysLogDO{" +
                 "id = " + id + 
-				", userId = " + userId + 
+				", userAccount = " + userAccount + 
 				", description = " + description + 
 				", executeClass = " + executeClass + 
 				", executeMethod = " + executeMethod + 

@@ -11,8 +11,8 @@
 </div>
 
 <div class="col-sm-6 detail-content">
-    <span class="col-sm-4 row-detail-title">用户编号：</span>
-    <span class="col-sm-8" id=userIdDetail></span>
+    <span class="col-sm-4 row-detail-title">用户账号：</span>
+    <span class="col-sm-8" id=userAccountDetail></span>
 </div>
 
 <div class="col-sm-6 detail-content">

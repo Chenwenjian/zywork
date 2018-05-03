@@ -1,5 +1,6 @@
 package top.zywork.aspect;
 
+import org.apache.shiro.SecurityUtils;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -43,7 +44,7 @@ public class SysLogAspect {
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
         SysLog sysLog = signature.getMethod().getDeclaredAnnotation(SysLog.class);
         SysLogDTO sysLogDTO = new SysLogDTO();
-        sysLogDTO.setUserId(1L);
+        sysLogDTO.setUserAccount(SecurityUtils.getSubject().getPrincipal().toString());
         sysLogDTO.setDescription(sysLog.description());
         sysLogDTO.setExecuteClass(signature.getDeclaringTypeName());
         sysLogDTO.setExecuteMethod(signature.getName());

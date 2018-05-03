@@ -232,16 +232,14 @@ DROP TABLE IF EXISTS `t_sys_log`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `t_sys_log` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '编号',
-  `user_id` bigint(20) DEFAULT NULL COMMENT '用户编号',
+  `user_account` VARCHAR(100) DEFAULT NULL COMMENT '用户账号',
   `description` varchar(500) DEFAULT NULL COMMENT '执行说明',
   `execute_class` varchar(200) DEFAULT NULL COMMENT '类名称',
   `execute_method` varchar(200) DEFAULT NULL COMMENT '方法名称',
   `execute_time` datetime DEFAULT NULL COMMENT '开始执行时间',
   `execute_cost_time` bigint(20) DEFAULT NULL COMMENT '执行耗时(ms)',
   `execute_ip` varchar(100) DEFAULT NULL COMMENT 'IP地址',
-  PRIMARY KEY (`id`),
-  KEY `fk_opertion_user_id_idx` (`user_id`),
-  CONSTRAINT `fk_opertion_user_id` FOREIGN KEY (`user_id`) REFERENCES `t_user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

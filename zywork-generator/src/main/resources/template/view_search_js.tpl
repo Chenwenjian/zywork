@@ -1,4 +1,4 @@
-function {zywork.moduleName}SearchTable() {
+function {beanNameLowerCase}SearchTable() {
     destroyTable('{zywork.moduleName}-data-list');
     $('#{zywork.moduleName}-data-list').bootstrapTable({
         url: contextPath + '{zywork.tableUrl}',
@@ -44,10 +44,10 @@ function queryParams(params) {
     return query;
 }
 
-function {zywork.moduleName}SearchModal(modalId, url) {
+function {beanNameLowerCase}SearchModal(modalId, url) {
     let modal = $('#' + modalId);
     modal.on('shown.bs.modal', function (e) {
-        {zywork.moduleName}SearchTable();
+        {beanNameLowerCase}SearchTable;
         initDatetime();
     });
     modal.modal({

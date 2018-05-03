@@ -52,8 +52,8 @@ function loadTable() {
 	formatter: formatTableIndex
 },
 {
-	title: '用户编号',
-	field: 'userId',
+	title: '用户账号',
+	field: 'userAccount',
 	align: 'center',
 	sortable: true
 },
@@ -127,7 +127,7 @@ function formatOperators(value, row, index) {
     return strArray.join('');
 }
 
-let fieldTitles = {'id':'编号','userId':'用户编号','description':'执行说明','executeClass':'类名称','executeMethod':'方法名称','executeTime-date':'开始执行时间','executeCostTime':'执行耗时(ms)','executeIp':'IP地址'};
+let fieldTitles = {'id':'编号','userAccount':'用户账号','description':'执行说明','executeClass':'类名称','executeMethod':'方法名称','executeTime-date':'开始执行时间','executeCostTime':'执行耗时(ms)','executeIp':'IP地址'};
 
 window.operateEvents = {
     'click .to-detail': function (e, value, row, index) {
@@ -181,8 +181,14 @@ function queryParams(params) {
 function validateFields() {
     return {
         
-userId: {
+userAccount: {
 	validators: {
+
+		stringLength: {
+			min: 0,
+			max: 100,
+			message: '必须小于100个字符'
+		}
 	}
 },
 description: {

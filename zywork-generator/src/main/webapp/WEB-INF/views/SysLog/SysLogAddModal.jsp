@@ -6,9 +6,9 @@
 <div class="modal-body">
     <form id="add-form" class="form-horizontal row" enctype="multipart/form-data">
         <div class="form-group">
-    <label for="userId" class="col-sm-2 control-label">用户编号：</label>
+    <label for="userAccount" class="col-sm-2 control-label">用户账号：</label>
     <div class="col-sm-10">
-        <input id="userId" name="userId" class="form-control" placeholder="请输入用户编号"/>
+        <input id="userAccount" name="userAccount" class="form-control" placeholder="请输入用户账号"/>
     </div>
 </div>
 

@@ -161,13 +161,15 @@ public class FileUtils {
      */
     public static void deleteFiles(String srcDir) {
         File file = new File(srcDir);
-        File[] files = file.listFiles();
-        if (files != null && files.length > 0) {
-            for (File f : files) {
-                if (f.isDirectory()) {
-                    deleteFiles(f.getAbsolutePath());
-                } else {
-                    f.delete();
+        if (file.isDirectory()) {
+            File[] files = file.listFiles();
+            if (files != null && files.length > 0) {
+                for (File f : files) {
+                    if (f.isDirectory()) {
+                        deleteFiles(f.getAbsolutePath());
+                    } else {
+                        f.delete();
+                    }
                 }
             }
         }

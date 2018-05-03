@@ -1,4 +1,4 @@
-function sys-logSearchTable() {
+function sysLogSearchTable() {
     destroyTable('sys-log-data-list');
     $('#sys-log-data-list').bootstrapTable({
         url: contextPath + '/sys-log/pager-cond',
@@ -43,8 +43,8 @@ function sys-logSearchTable() {
 	formatter: formatTableIndex
 },
 {
-	title: '用户编号',
-	field: 'userId',
+	title: '用户账号',
+	field: 'userAccount',
 	align: 'center',
 	sortable: true
 },
@@ -101,10 +101,10 @@ function queryParams(params) {
     return query;
 }
 
-function sys-logSearchModal(modalId, url) {
+function sysLogSearchModal(modalId, url) {
     let modal = $('#' + modalId);
     modal.on('shown.bs.modal', function (e) {
-        sys-logSearchTable();
+        sysLogSearchTable();
         initDatetime();
     });
     modal.modal({

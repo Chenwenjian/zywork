@@ -19,9 +19,9 @@
 
         <form id="sys-log-search-form" class="row form-horizontal search-form" style="display: none;">
             <div class="col-sm-6 form-group">
-    <label for="userIdSearch" class="col-sm-4 control-label">用户编号：</label>
+    <label for="userAccountSearch" class="col-sm-4 control-label">用户账号：</label>
     <div class="col-sm-8">
-        <input id="userIdSearch" name="userId" class="form-control" placeholder="请输入用户编号">
+        <input id="userAccountSearch" name="userAccount" class="form-control" placeholder="请输入用户账号">
     </div>
 </div>
 

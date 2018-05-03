@@ -5,23 +5,23 @@ import java.util.Date;
 /**
  * SysLogQuery查询对象类<br/>
  *
- * 创建于2018-05-02<br/>
+ * 创建于2018-05-03<br/>
  *
  * @author http://zywork.top 王振宇
  * @version 1.0
  */
 public class SysLogQuery extends BaseQuery {
 
-    private static final long serialVersionUID = -9223372036670625824L;
+    private static final long serialVersionUID = -9223372034892310647L;
 
     /**
 	 * 编号
 	 */
 	private Long id;
 	/**
-	 * 用户编号
+	 * 用户账号
 	 */
-	private Long userId;
+	private String userAccount;
 	/**
 	 * 执行说明
 	 */
@@ -57,9 +57,9 @@ public class SysLogQuery extends BaseQuery {
 	
     public SysLogQuery() {}
 
-    public SysLogQuery(Long id, Long userId, String description, String executeClass, String executeMethod, Date executeTime, Date executeTimeStart, Date executeTimeEnd, Long executeCostTime, String executeIp) {
+    public SysLogQuery(Long id, String userAccount, String description, String executeClass, String executeMethod, Date executeTime, Date executeTimeStart, Date executeTimeEnd, Long executeCostTime, String executeIp) {
         this.id = id;
-		this.userId = userId;
+		this.userAccount = userAccount;
 		this.description = description;
 		this.executeClass = executeClass;
 		this.executeMethod = executeMethod;
@@ -79,12 +79,12 @@ public class SysLogQuery extends BaseQuery {
 		this.id = id;
 	}
 
-	public Long getUserId() {
-		return userId;
+	public String getUserAccount() {
+		return userAccount;
 	}
 
-	public void setUserId(Long userId) {
-		this.userId = userId;
+	public void setUserAccount(String userAccount) {
+		this.userAccount = userAccount;
 	}
 
 	public String getDescription() {
