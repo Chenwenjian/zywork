@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @version 1.0
  */
 @Controller
-@RequestMapping("/join-table")
+@RequestMapping("/generator/join-table")
 public class JoinTableController {
 
     @GetMapping("page")

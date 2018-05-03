@@ -287,7 +287,7 @@
 <script>
 
     function saveGenerator() {
-        $.post('<%=path%>/setting/generator',
+        $.post('<%=path%>/generator/setting/generator',
             $('#generator-form').serialize(),
             function (data) {
                 swal('提示', data.message, "success");

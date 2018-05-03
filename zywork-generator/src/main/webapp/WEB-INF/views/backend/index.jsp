@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit">
 
-    <title>zywork代码自动生成系统</title>
+    <title>MShare后台管理系统</title>
     <!--[if lt IE 9]>
     <meta http-equiv="refresh" content="0;ie.html"/>
     <![endif]-->
@@ -54,22 +54,6 @@
                         </li>
                         <li>
                             <a class="J_menuItem" href="<%=path%>/generator/setting/generator-page" data-index="0">Generator配置</a>
-                        </li>
-                    </ul>
-
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa-home"></i>
-                        <span class="nav-label">代码生成</span>
-                        <span class="fa arrow"></span>
-                    </a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a class="J_menuItem" href="<%=path%>/generator/single-table/page" data-index="0">单表代码生成</a>
-                        </li>
-                        <li>
-                            <a class="J_menuItem" href="<%=path%>/generator/join-table/page" data-index="0">关联表代码生成</a>
                         </li>
                     </ul>
 
@@ -123,7 +107,7 @@
             <a href="#" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
         </div>
         <div class="row J_mainContent" id="content-main">
-            <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="<%=path%>/home" frameborder="0"
+            <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="<%=path%>/backend/home" frameborder="0"
                     data-id="index_v1.html" seamless></iframe>
         </div>
         <div class="footer">

@@ -105,7 +105,7 @@
         if (usingSelect2) {
             $("#all-tables").select2('destroy').empty();
         }
-        $.get('<%=path%>/table/all', function (data) {
+        $.get('<%=path%>/generator/table/all', function (data) {
             $('#total-tables').text(data.length);
 
             $("#all-tables").select2({
@@ -133,7 +133,7 @@
             $('#table-columns').empty();
             let tableArray = (tables + "").split(',');
             $.each(tableArray, function (index, item) {
-                $.get('<%=path%>/table/column-details/' + item, function (data) {
+                $.get('<%=path%>/generator/table/column-details/' + item, function (data) {
                     printColumns(item, data)
                 }, 'json');
             });
@@ -179,7 +179,7 @@
         } else if ($('input[name="columns"]:checked').length <= 0) {
             swal('提示', '请选择需要查询的字段', 'warning');
         } else {
-            $.post('<%=path%>/generator/join-code',
+            $.post('<%=path%>/generator/generator/join-code',
                 $('#table-column-info').serialize(),
                 function (data) {
                     if (data.code === 200) {

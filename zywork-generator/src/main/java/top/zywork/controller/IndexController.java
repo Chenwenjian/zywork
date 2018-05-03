@@ -1,4 +1,4 @@
-package top.zywork.generator.controller;
+package top.zywork.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,14 +16,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/")
 public class IndexController {
 
-    @GetMapping("index")
+    @GetMapping("backend/index")
     public String index() {
-        return "generator/index";
+        return "backend/index";
     }
 
-    @GetMapping("home")
+    @GetMapping("backend/home")
     public String home() {
-        return "generator/home";
+        return "backend/home";
     }
 
 }

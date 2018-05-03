@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
- * 显示生成单表代码页面的控制器<br/>
+ * 显示首页和主页的控制器<br/>
  *
  * 创建于2018-03-22<br/>
  *
@@ -13,12 +13,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @version 1.0
  */
 @Controller
-@RequestMapping("/generator/single-table")
-public class SingleTableController {
+@RequestMapping("/generator")
+public class GeneratorIndexController {
 
-    @GetMapping("page")
-    public String singleTable() {
-        return "generator/single_table";
+    @GetMapping("index")
+    public String index() {
+        return "generator/index";
+    }
+
+    @GetMapping("home")
+    public String home() {
+        return "generator/home";
     }
 
 }

@@ -89,7 +89,7 @@
         if (usingSelect2) {
             $("#all-tables").select2('destroy').empty();
         }
-        $.get('<%=path%>/table/all', function (data) {
+        $.get('<%=path%>/generator/table/all', function (data) {
             $('#total-tables').text(data.length);
 
             $("#all-tables").select2({
@@ -123,20 +123,20 @@
     });
 
     function generateAllCodes() {
-        $.get('<%=path%>/generator/all-codes', function (data) {
+        $.get('<%=path%>/generator/generator/all-codes', function (data) {
             swal("提示", data.message, "success");
         }, 'json');
     }
 
     function generateCode() {
-        $.get('<%=path%>/generator/code/' + $('#all-tables').val(), function (data) {
+        $.get('<%=path%>/generator/generator/code/' + $('#all-tables').val(), function (data) {
             swal("提示", data.message, "success");
         }, 'json');
     }
 
     function generateCodes() {
         console.log($('#all-tables-multiple').val())
-        $.post('<%=path%>/generator/codes',
+        $.post('<%=path%>/generator/generator/codes',
             $('#form').serialize(),
             function (data) {
                 swal('提示', data.message, 'success');
@@ -147,7 +147,7 @@
     function loadTableData(tableName) {
         $('#table-columns').bootstrapTable('destroy');
         $('#table-columns').bootstrapTable({
-            url: '<%=path%>/table/columns/' + tableName,
+            url: '<%=path%>/generator/table/columns/' + tableName,
             dataType: 'json',
             method: 'get',
             singleSelect: true,

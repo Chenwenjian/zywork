@@ -26,7 +26,7 @@ import java.util.List;
  * @version 1.0
  */
 @Controller
-@RequestMapping("/table")
+@RequestMapping("/generator/table")
 public class TableController {
 
     @GetMapping("all")

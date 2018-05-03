@@ -69,7 +69,7 @@
 
 <script>
     function saveJdbc() {
-        $.post('<%=path%>/setting/jdbc',
+        $.post('<%=path%>/generator/setting/jdbc',
             $('#jdbc-form').serialize(),
             function (data) {
                 if (data.code === 200) {

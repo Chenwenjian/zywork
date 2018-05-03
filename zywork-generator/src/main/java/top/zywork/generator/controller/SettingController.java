@@ -23,7 +23,7 @@ import javax.servlet.http.HttpServletRequest;
  * @version 1.0
  */
 @Controller
-@RequestMapping("/setting")
+@RequestMapping("/generator/setting")
 public class SettingController {
 
     @GetMapping("jdbc-page")
