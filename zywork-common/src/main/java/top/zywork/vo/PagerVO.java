@@ -63,7 +63,7 @@ public class PagerVO extends BaseVO {
 
     public Long getTotalPage() {
         long totalPage = total % pageSize;
-        return totalPage == 0 ? totalPage / pageSize : totalPage / pageSize + 1;
+        return totalPage == 0 ? total / pageSize : total / pageSize + 1;
     }
 
     @Override
