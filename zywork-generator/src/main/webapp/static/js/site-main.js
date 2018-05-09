@@ -3,7 +3,7 @@ const contextPath = '';
 function loadTable(tableId, url, columns) {
     destroyTable(tableId);
     $('#' + tableId).bootstrapTable({
-        url: url,
+        url: contextPath + url,
         dataType: 'json',
         method: 'get',
         singleSelect: false,
@@ -67,7 +67,7 @@ function showRemoteAddModal(modalId, url, formId, validateFields) {
         resetValidateForm(formId);
     });
     modal.modal({
-        remote: url
+        remote: contextPath + url
     });
 }
 
@@ -97,7 +97,7 @@ function showRemoteDetailModal(modalId, url, row, rowDetailFieldTitles) {
         });
     });
     modal.modal({
-        remote: url
+        remote: contextPath + url
     });
 }
 
@@ -126,7 +126,7 @@ function showRemoteEditModal(modalId, url, formId, row, validateFields) {
         resetValidateForm(formId);
     });
     modal.modal({
-        remote: url
+        remote: contextPath + url
     });
 }
 
