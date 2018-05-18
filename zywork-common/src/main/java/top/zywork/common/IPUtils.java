@@ -20,25 +20,25 @@ public class IPUtils {
      */
     public static String getIP(HttpServletRequest request) {
         String ip = request.getHeader("x-forwarded-for");
-        if (!isIPOk(ip)) {
+        if (invalidIp(ip)) {
             ip = request.getHeader("Proxy-Client-IP");
         }
-        if (!isIPOk(ip)) {
+        if (invalidIp(ip)) {
             ip = request.getHeader("WL-Proxy-Client-IP");
         }
-        if (!isIPOk(ip)) {
+        if (invalidIp(ip)) {
             ip = request.getHeader("HTTP_CLIENT_IP");
         }
-        if (!isIPOk(ip)) {
+        if (invalidIp(ip)) {
             ip = request.getHeader("HTTP_X_FORWARDED_FOR");
         }
-        if (!isIPOk(ip)) {
+        if (invalidIp(ip)) {
             ip = request.getRemoteAddr();
         }
         return ip;
     }
 
-    private static boolean isIPOk(String ip) {
+    private static boolean invalidIp(String ip) {
         return StringUtils.isEmpty(ip) || "unknown".equalsIgnoreCase(ip);
     }
 }
