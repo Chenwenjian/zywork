@@ -1,5 +1,7 @@
 package top.zywork.common;
 
+import top.zywork.enums.HashEncodeEnum;
+
 import java.util.Arrays;
 import java.util.Map;
 import java.util.Set;
@@ -27,7 +29,7 @@ public class AuthUtils {
      * @return md5摘要后的用户token
      */
     public static String generateToken(String username, Long timestamp, String hashPassword) {
-        return EncryptUtils.md5(username + timestamp + hashPassword).toUpperCase();
+        return HashUtils.md5(username + timestamp + hashPassword, HashEncodeEnum.BASE64).toUpperCase();
     }
 
     /**
@@ -51,9 +53,9 @@ public class AuthUtils {
             sb.append(key).append(data.get(key).trim());
         }
         if (SIGN_TYPE_MD5.equals(signType)) {
-            return EncryptUtils.md5(sb.toString()).toUpperCase();
+            return HashUtils.md5(sb.toString(), HashEncodeEnum.BASE64).toUpperCase();
         } else if (SIGN_TYPE_SHA256.equals(signType)){
-            return EncryptUtils.sha256(sb.toString()).toUpperCase();
+            return HashUtils.sha256(sb.toString(), HashEncodeEnum.BASE64).toUpperCase();
         }
         return null;
     }

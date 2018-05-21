@@ -1,21 +1,21 @@
 package top.zywork.enums;
 
 /**
- * 编码格式枚举
- * 创建于2017-08-15
+ * 哈希算法编码方式枚举<br />
+ *
+ * 创建于2018-05-21<br/>
  *
  * @author 王振宇
  * @version 1.0
  */
-public enum CharsetEnum {
+public enum HashEncodeEnum {
 
-    UTF8("UTF-8"),
-    GBK("GBK"),
-    GB2312("GB2312");
+    HEX("HEX"),
+    BASE64("BASE64");
 
     private String value;
 
-    CharsetEnum(String value) {
+    HashEncodeEnum(String value) {
         this.value = value;
     }
 
