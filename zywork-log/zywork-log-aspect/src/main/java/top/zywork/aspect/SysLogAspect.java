@@ -1,10 +1,9 @@
 package top.zywork.aspect;
 
 import org.apache.shiro.SecurityUtils;
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.Around;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.annotation.*;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -29,19 +28,40 @@ public class SysLogAspect {
 
     private SysLogService sysLogService;
 
+    private long startTime;
+
     @Pointcut("@annotation(top.zywork.annotation.SysLog)")
     public void methodAspect() {}
 
+    @Before("methodAspect()")
+    public void before(JoinPoint joinPoint) {
+        startTime = System.currentTimeMillis();
+    }
+
     @Around("methodAspect()")
-    public Object aroundMethod(ProceedingJoinPoint joinPoint) throws Throwable {
+    public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
         long startTime = System.currentTimeMillis();
         Object result = joinPoint.proceed();
-        saveLog(joinPoint, System.currentTimeMillis() - startTime);
+        long endTime = System.currentTimeMillis();
+        MethodSignature signature = (MethodSignature) joinPoint.getSignature();
+        SysLogDTO sysLogDTO = createSysLogDTO(signature, endTime - startTime);
+        sysLogDTO.setExecuteTime(new Timestamp(endTime));
+        sysLogService.save(sysLogDTO);
         return result;
     }
 
-    private void saveLog(ProceedingJoinPoint joinPoint, long costTime) {
+    @AfterThrowing(pointcut = "methodAspect()", throwing = "e")
+    public void afterThrowing(JoinPoint joinPoint, Throwable e) {
+        long endTime = System.currentTimeMillis();
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
+        SysLogDTO sysLogDTO = createSysLogDTO(signature, endTime - startTime);
+        sysLogDTO.setExecuteTime(new Timestamp(endTime));
+//        sysLogDTO.setHasException((byte) 1);
+//        sysLogDTO.setExceptionMsg(e.getMessage());
+        sysLogService.save(sysLogDTO);
+    }
+
+    private SysLogDTO createSysLogDTO(MethodSignature signature, long costTime) {
         SysLog sysLog = signature.getMethod().getDeclaredAnnotation(SysLog.class);
         SysLogDTO sysLogDTO = new SysLogDTO();
         sysLogDTO.setUserAccount(SecurityUtils.getSubject().getPrincipal().toString());
@@ -49,9 +69,8 @@ public class SysLogAspect {
         sysLogDTO.setExecuteClass(signature.getDeclaringTypeName());
         sysLogDTO.setExecuteMethod(signature.getName());
         sysLogDTO.setExecuteCostTime(costTime);
-        sysLogDTO.setExecuteTime(new Timestamp(System.currentTimeMillis()));
         sysLogDTO.setExecuteIp(IPUtils.getIP(WebUtils.getServletRequest()));
-        sysLogService.save(sysLogDTO);
+        return sysLogDTO;
     }
 
     @Autowired
